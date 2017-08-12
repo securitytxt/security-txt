@@ -20,7 +20,7 @@ In-scope: *.example.com
 Out-of-scope: test.example.com
 ```
 
-**Out-of-scope-vuln:** State what vulnerabilities will not be accepted in reports. For instance, if you do not want reasearchers to report [Clickjacking](https://www.owasp.org/index.php/Clickjacking) vulnerabilities you can do so as follows:
+**Out-of-scope-vuln:** State what vulnerabilities will not be accepted in reports. For instance, if you do not want researchers to report [Clickjacking](https://www.owasp.org/index.php/Clickjacking) vulnerabilities you can do so as follows:
 
 ```
 Out-of-scope-vuln: Clickjacking
@@ -56,7 +56,7 @@ Reward: XSS-200
 Donate: True
 ```
 
-**Disallow:** If you do not want security researchers to test your plaform, you can do the following:
+**Disallow:** If you do not want security researchers to test your platform, you can do the following:
 
 ```
 Disallow: *
@@ -91,7 +91,7 @@ Platform: https://hackerone.com/example
 
 **What is the main purpose of `security.txt`?**
 
-The main purpose of `security.txt` is to help make things easier for companies and security researchers when trying to secure platforms. Thanks to `security.txt`, security researchers can easily can easily get in touch with companies about security issues.
+The main purpose of `security.txt` is to help make things easier for companies and security researchers when trying to secure platforms. Thanks to `security.txt`, security researchers can easily get in touch with companies about security issues.
 
 **Where should I put the `security.txt` file?**
 
