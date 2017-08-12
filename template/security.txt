@@ -1,0 +1,17 @@
+# In scope targets
+In-scope: *.example.com
+
+# Out of scope targets
+Out-of-scope: test.example.com
+
+# Out of scope vulnerabilities
+Out-of-scope-vuln: Clickjacking
+
+# Our security email address
+Contact: security@example.com
+
+# Our HackerOne program
+Platform: https://hackerone.com/example
+
+# Our Bugcrowd program
+Platform: https://bugcrowd.com/example
