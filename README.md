@@ -38,12 +38,16 @@ Rate-limit: 1000
 Contact: security@example.com
 ```
 
-**PGP:** Add your PGP key.
+**PGP:** Add your PGP key. You can directly add your PGP key or link to a page that contains your key.
 
 ```
 PGP-key: -----BEGIN PGP PUBLIC KEY BLOCK-----
 ...
 -----END PGP PUBLIC KEY BLOCK----- 
+```
+
+```
+PGP-key: http://example.com/pgp-key.txt
 ```
 
 **Security-page:** Link to your company's more detailed security page.
