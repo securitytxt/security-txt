@@ -38,10 +38,30 @@ Rate-limit: 1000
 Contact: security@example.com
 ```
 
+**PGP:** Add your PGP key.
+
+```
+PGP-key: -----BEGIN PGP PUBLIC KEY BLOCK-----
+...
+-----END PGP PUBLIC KEY BLOCK----- 
+```
+
+**Security-page:** Link to your company's more detailed security page.
+
+```
+Security-page: http://example.com/security
+```
+
 **Platform:** If your company uses a bug bounty platform (HackerOne, Bugcrowd, etc.) you can add it with this option.
 
 ```
 Platform: https://hackerone.com/example
+```
+
+**Currency:** Specify the currency for your rewards. Currency codes must be used here and not the symbol.
+
+```
+Currency: USD
 ```
 
 **Reward:** Let security researchers know how much you will reward them for a specific vulnerability type.
