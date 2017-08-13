@@ -68,6 +68,14 @@ Comments can be added using the `#` symbol:
 # This is a comment.
 ```
 
+It is important to note, that you need a separate line for everything you specify. You cannot chain everything onto a single line.
+
+```
+Out-of-scope-vuln: Clickjacking
+Out-of-scope-vuln: Self-XSS
+Out-of-scope-vuln: Open Redirect
+```
+
 # Example
 
 ```
