@@ -69,10 +69,10 @@ Platform: https://hackerone.com/example
 Currency: USD
 ```
 
-**Reward:** Let security researchers know how much you will reward them for a specific vulnerability type.
+**Reward:** Let security researchers know how much you will reward them based on the impact of the issue.
 
-```
-Reward: XSS-200
+``
+Reward: Medium-200
 ```
 
 **Donate:** Set the value to `True` if you are willing to match reward donations. This means if a researcher wants to donate their bounty, you are willing to match the donation.
