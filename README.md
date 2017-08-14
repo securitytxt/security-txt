@@ -8,10 +8,11 @@ Create a `/security.txt` file in the website's top-level directory. Security.txt
 
 Here is a list of all available options:
 
-**In-scope:** Define what targets are in scope. You can use wildcards.
+**In-scope:** Define what targets are in scope. You can use wildcards and add your desktop applications, mobile applications, and open source projects to the list.
 
 ```
 In-scope: *.example.com
+In-scope: github.com/example-project
 ```
 
 **Out-of-scope:** Define what targets are not in scope.
