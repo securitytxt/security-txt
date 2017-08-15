@@ -1,6 +1,6 @@
 # Security.txt
 
-Security.txt is a standard that allows websites to define security policies. This standard sets clear guidelines for security researchers for how to report security issues and allows bug bounty programs to define a scope. Security.txt is the equivalent of `robots.txt`, but for security issues.
+Security.txt is a standard which allows websites to define security policies. This standard sets clear guidelines for security researchers on how to report security issues, and allows bug bounty programs to define a scope. Security.txt is the equivalent of `robots.txt`, but for security issues.
 
 # How it works
 
@@ -8,20 +8,20 @@ Create a `/security.txt` file in the website's top-level directory. Security.txt
 
 Here is a list of all available options:
 
-**In-scope:** Define what targets are in scope. You can use wildcards and add your desktop applications, mobile applications, and open source projects to the list.
+**In-scope:** Define which targets are in scope. You can use wildcards and add your desktop applications, mobile applications, and open source projects to the list.
 
 ```
 In-scope: *.example.com
 In-scope: github.com/example-project
 ```
 
-**Out-of-scope:** Define what targets are not in scope.
+**Out-of-scope:** Define which targets are not in scope.
 
 ```
 Out-of-scope: test.example.com
 ```
 
-**Out-of-scope-vuln:** State what vulnerabilities will not be accepted in reports. For instance, if you do not want researchers to report [Clickjacking](https://www.owasp.org/index.php/Clickjacking) vulnerabilities you can do so as follows:
+**Out-of-scope-vuln:** State which vulnerabilities will not be accepted in reports. For example, if you do not want researchers to report [Clickjacking](https://www.owasp.org/index.php/Clickjacking) vulnerabilities, you can do as follows:
 
 ```
 Out-of-scope-vuln: Clickjacking
@@ -33,13 +33,15 @@ Out-of-scope-vuln: Clickjacking
 Rate-limit: 1000
 ```
 
-**Contact:** Add an address that researchers can use to report security issues.
+**Contact:** Add an address that researchers can use for reporting security issues.
 
 ```
 Contact: security@example.com
 ```
 
-**PGP:** Add your PGP key. You can directly add your PGP key or link to a page that contains your key.
+<!-- TODO: Add keybase. -->
+
+**PGP:** Add your PGP key. You can directly add your PGP key or link to a page which contains your key.
 
 ```
 PGP-key: -----BEGIN PGP PUBLIC KEY BLOCK-----
@@ -63,7 +65,13 @@ Security-page: http://example.com/security
 Platform: https://hackerone.com/example
 ```
 
-**Currency:** Specify the currency for your rewards. Currency codes must be used here and not the symbol.
+**Payment-method:** State payment method your company will use when rewarding a researcher.
+
+```
+Payment-method: PayPal
+```
+
+**Currency:** Specify reward currency. Currency codes must be used here and not the symbol.
 
 ```
 Currency: USD
@@ -75,10 +83,16 @@ Currency: USD
 Reward: Medium-200
 ```
 
-**Donate:** Set the value to `True` if you are willing to match reward donations. This means if a researcher wants to donate their bounty, you are willing to match the donation.
+**Donate:** Set the value to `True` if you are willing to match reward donations. This means if a researcher wants to donate their bounty, you are willing to match their donation.
 
 ```
 Donate: True
+```
+
+**Disclosure:** Specify your disclosure policy. This can be a disclosure type and/or a timeframe (in days).
+
+```
+Disclosure: Full-30
 ```
 
 **Disallow:** If you do not want security researchers to test your platform, you can do the following:
@@ -93,7 +107,7 @@ Comments can be added using the `#` symbol:
 # This is a comment.
 ```
 
-It is important to note, that you need a separate line for everything you specify. You cannot chain everything onto a single line.
+It is important to note that you need a separate line for everything you specify. You cannot chain everything onto a single line.
 
 ```
 Out-of-scope-vuln: Clickjacking
@@ -127,7 +141,7 @@ Platform: https://hackerone.com/example
 The main purpose of `security.txt` is to help make things easier for companies and security researchers when trying to secure platforms. Thanks to `security.txt`, security researchers can easily get in touch with companies about security issues.
 
 **Where should I put the `security.txt` file?**
-
+<!-- TODO: /well-known/ -->
 In the top-level directory of your web server (http://example.com/security.txt)
 
 **Is `security.txt` supposed to replace bug bounty platforms?**
