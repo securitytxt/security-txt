@@ -71,7 +71,7 @@ Currency: USD
 
 **Reward:** Let security researchers know how much you will reward them based on the impact of the issue.
 
-``
+```
 Reward: Medium-200
 ```
 
