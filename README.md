@@ -1,10 +1,12 @@
 # Security.txt
 
-Security.txt is a standard which allows websites to define security policies. This standard sets clear guidelines for security researchers on how to report security issues, and allows bug bounty programs to define a scope. Security.txt is the equivalent of `robots.txt`, but for security issues.
+Security.txt is a "standard" which allows websites to define security policies. This "standard" sets clear guidelines for security researchers on how to report security issues, and allows bug bounty programs to define a scope. Security.txt is the equivalent of `robots.txt`, but for security issues.
+
+*Note:* I (@EdOverflow) am currently working on the RFC for this idea.
 
 # How it works
 
-Create a `/security.txt` file in the website's top-level directory. Security.txt uses a similar syntax to `robots.txt`.
+The `/security.txt` file should be located under `/.well-known/` (`/.well-known/security.txt`) [[RFC5785](https://tools.ietf.org/html/rfc5785)]. Security.txt uses a similar syntax to `robots.txt`.
 
 Here is a list of all available options:
 
@@ -141,8 +143,10 @@ Platform: https://hackerone.com/example
 The main purpose of `security.txt` is to help make things easier for companies and security researchers when trying to secure platforms. Thanks to `security.txt`, security researchers can easily get in touch with companies about security issues.
 
 **Where should I put the `security.txt` file?**
-<!-- TODO: /well-known/ -->
-In the top-level directory of your web server (http://example.com/security.txt)
+
+The `/security.txt` file should be located under `/.well-known/` (`/.well-known/security.txt`) [[RFC5785](https://tools.ietf.org/html/rfc5785)].
+
+http://example.com/.well-known/security.txt
 
 **Is `security.txt` supposed to replace bug bounty platforms?**
 
