@@ -2,7 +2,7 @@
 
 Security.txt is a "standard" which allows websites to define security policies. This "standard" sets clear guidelines for security researchers on how to report security issues, and allows bug bounty programs to define a scope. Security.txt is the equivalent of `robots.txt`, but for security issues.
 
-*Note:* I (@EdOverflow) am currently working on the RFC for this idea.
+**Note:** I (@EdOverflow) am currently working on the RFC for this idea.
 
 # How it works
 
