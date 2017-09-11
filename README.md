@@ -6,6 +6,14 @@ Security.txt is a "standard" which allows websites to define security policies. 
 
 :warning: **Update:** Several options have been renamed or removed in the RFC. This file is simply here to demonstrate the idea that I originally had in mind.
 
+---
+
+# Internet draft
+
+The Internet draft for security.txt can be found here: https://www.ietf.org/id/draft-foudil-securitytxt-00.txt. Everything listed below will remain here in order to keep the discussion active and to keep track of the project's progress.
+
+---
+
 # How it works
 
 The `/security.txt` file should be located under `/.well-known/` (`/.well-known/security.txt`) [[RFC5785](https://tools.ietf.org/html/rfc5785)]. Security.txt uses a similar syntax to `robots.txt`.
