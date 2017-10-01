@@ -18,7 +18,7 @@ The main purpose of `security.txt` is to help make things easier for companies a
 
 **Is `security.txt` supposed to replace bug bounty platforms?**
 
-No. Security.txt is supposed to accompany them. You can use the `Platform:` option to link to your bug bounty program.
+No. Security.txt is supposed to accompany them.
 
 # Contributing
 
