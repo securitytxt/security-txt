@@ -4,6 +4,14 @@ Security.txt is a "standard" which allows websites to define security policies. 
 
 ---
 
+# Website
+
+https://securitytxt.org/ (https://github.com/securitytxt/securitytxt.org)
+
+# Security.txt GitHub Organization
+
+https://github.com/securitytxt/
+
 # Internet draft
 
 The Internet draft for security.txt can be found here: https://www.ietf.org/id/draft-foudil-securitytxt-00.txt.
