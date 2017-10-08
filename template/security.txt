@@ -2,4 +2,3 @@
 
 Contact: security@example.com
 Encryption: https://example.com/pgp-key.txt
-Disclosure: Full
