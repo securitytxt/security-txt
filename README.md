@@ -1,5 +1,3 @@
-![securitytxt](https://user-images.githubusercontent.com/18099289/29998262-ed9c2812-9026-11e7-9402-798f9cdbeab7.png)
-
 Security.txt is a "standard" which allows websites to define security policies. This "standard" sets clear guidelines for security researchers on how to report security issues, and allows bug bounty programs to define a scope. Security.txt is the equivalent of `robots.txt`, but for security issues.
 
 ---
