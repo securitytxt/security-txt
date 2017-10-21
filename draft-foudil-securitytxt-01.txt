@@ -81,7 +81,7 @@ Internet-Draft               INTERNET-DRAFT                  August 2017
 
 2.  The Specification
 
-   security.txt is a text file located should be located under the 
+   security.txt is a text file that should be located under the 
    /.well-known/ path ("/.well-known/security.txt") [RFC5785]
    This text file contains 4 directives with different values.
    The "directive" is the first part of a field all the way up
