@@ -165,7 +165,7 @@ Internet-Draft               INTERNET-DRAFT                  August 2017
    Contact: security@example.com
 
    # Our PGP key
-   Encryption: https://example.com/pgp-key.txtt
+   Encryption: https://example.com/pgp-key.txt
    <CODE ENDS>
 
 Foudil                  Expires February 20, 2018               [Page 3]
