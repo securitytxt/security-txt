@@ -9,14 +9,14 @@ Expires: February 20, 2018
 
 
                    A Method for Web Security Policies
-                      draft-foudil-securitytxt-00
+                      draft-foudil-securitytxt-01
 
 Abstract
 
    When security risks in web services are discovered by independent
    security researchers who understand the severity of the risk, they
    often lack the channels to properly disclose them.  As a result,
-   security issues may be left unreported.  Security.txt defines a
+   security issues may be left unreported.  security.txt defines a
    standard to help organizations define the process for security
    researchers to securely disclose security vulnerabilities.
 
@@ -68,7 +68,7 @@ Internet-Draft               INTERNET-DRAFT                  August 2017
 
    Many security researchers encounter situations where they are unable
    to responsibly disclose security issues to companies because there is
-   no course of action laid out.  Security.txt is designed to help 
+   no course of action laid out.  security.txt is designed to help 
    assist in this process by making it easier for companies to designate
    the preferred steps for researchers to take when trying to reach out.
 
@@ -81,16 +81,17 @@ Internet-Draft               INTERNET-DRAFT                  August 2017
 
 2.  The Specification
 
-   Security.txt is a text file located in the website's top-level
-   directory.  This text file contains 4 directives with different
-   values.  The "directive" is the first part of a field all the way up
-   to the colon ("In-scope:").  Directives are case-insensitive.  The
-   "value" comes after the directive ("example.com").  A "field" always
-   consists of a directive and a value ("In-scope: example.com").  A
-   security.txt file can have an unlimited number of fields.  It is
-   important to note that you need a separate line for every field.  One
-   MUST NOT chain multiple values for a single directive.  Everything
-   MUST be in a separate field.
+   security.txt is a text file that should be located under the 
+   /.well-known/ path ("/.well-known/security.txt") [RFC5785]
+   This text file contains 4 directives with different values.
+   The "directive" is the first part of a field all the way up
+   to the colon ("Contact:").  Directives are case-insensitive.  The
+   "value" comes after the directive ("https://example.com/security").
+   A "field" always consists of a directive and a value 
+   ("Contact: https://example.com/security").  A security.txt file 
+   can have an unlimited number of fields.  It is important to note that 
+   you need a separate line for every field.  One MUST NOT chain multiple 
+   values for a single directive.  Everything MUST be in a separate field.
 
    A security.txt file only applies to the application it is located in.
 
@@ -123,7 +124,13 @@ Internet-Draft               INTERNET-DRAFT                  August 2017
    Add an address that researchers MAY use for reporting security
    issues.  The value can be an email address, a phone number and/or a
    security page with more information.  The "Contact:" directive MUST
-   always be present in a security.txt file.
+   always be present in a security.txt file.  URIs SHOULD be loaded over
+   HTTPS.  Security email addresses SHOULD use the conventions defined 
+   in [RFC2142].  
+   
+   The precedence is in listed order.  The first field is the preferred
+   method of contact.  In the example below, the e-mail address is
+   the preferred method of contact.
 
    <CODE BEGINS>
    Contact: security@example.com
@@ -134,7 +141,7 @@ Internet-Draft               INTERNET-DRAFT                  August 2017
 2.4.  Encryption:
 
    This directive allows you to add your key for encrypted
-   communication.  You MUST NOT directly add your PGP key.  The value
+   communication.  You MUST NOT directly add your key.  The value
    MUST be a link to a page which contains your key.  Keys SHOULD be
    loaded over HTTPS.
 
@@ -142,34 +149,23 @@ Internet-Draft               INTERNET-DRAFT                  August 2017
    Encryption: https://example.com/pgp-key.txt
    <CODE ENDS>
 
-2.5.  Disclosure:
-
-   Specify your disclosure policy.  This directive MUST be a disclosure
-   type.  The "Full" value stands for full disclosure, "Partial" for
-   partial disclosure and "None" means you do not want to disclose
-   reports after the issue has been resolved.  The presence of a
-   disclosure field is NOT permission to disclose vulnerabilities and
-   explicit permission MUST be saught where possible.
-
-   <CODE BEGINS>
-   Disclosure: Full
-   <CODE ENDS>
-
-2.6.  Acknowledgement:
+2.5.  Acknowledgement:
 
    This directive allows you to link to a page where security
    researchers are recognized for their reports.
 
+   <CODE BEGINS>
    Acknowledgement: https://example.com/hall-of-fame.html
+   <CODE ENDS>
 
-2.7.  Example
+2.6.  Example
 
    <CODE BEGINS>
-   # Our security address 
-
+   # Our security address
    Contact: security@example.com
+
+   # Our PGP key
    Encryption: https://example.com/pgp-key.txt
-   Disclosure: Full
    <CODE ENDS>
 
 Foudil                  Expires February 20, 2018               [Page 3]
@@ -191,7 +187,6 @@ Internet-Draft               INTERNET-DRAFT                  August 2017
    
    field                  = contact-field /
                             encryption-field /
-                            disclosure-field /
                             acknowledgement-field
    
    fs                     = ":"
@@ -204,9 +199,6 @@ Internet-Draft               INTERNET-DRAFT                  August 2017
    uri                    = <URI as per RFC 3986>
    
    encryption-field       = "Encryption" fs SP uri 
-   
-   disclosure-field       = "Disclosure" fs SP disclosure
-   disclosure             = "Full" / "Partial" / "None"
    
    acknowledgement-field  = "Acknowledgement" fs SP uri
 
@@ -278,6 +270,15 @@ Internet-Draft               INTERNET-DRAFT                  August 2017
    [RFC2606]  Eastlake 3rd, D. and A. Panitz, "Reserved Top Level DNS
               Names", BCP 32, RFC 2606, DOI 10.17487/RFC2606, June 1999,
               <https://www.rfc-editor.org/info/rfc2606>.
+
+   [RFC5785]  Nottingham, M. and E. Hammer-Lahav, "Defining Well-Known
+              Uniform Resource Identifiers (URIs)", RFC 5785, DOI
+              10.17487/RFC5785, April 2010, <https://www.rfc-
+              editor.org/info/rfc5785>.
+
+   [RFC2142]  Crocker, D., "Mailbox Names for Common Services, Roles and
+              Functions", RFC 2142, DOI 10.17487/RFC2142, May 1997,
+              <https://www.rfc-editor.org/info/rfc2142>.
 
 Author's Address
 
