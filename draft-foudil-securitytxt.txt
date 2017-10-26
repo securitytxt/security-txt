@@ -3,9 +3,9 @@
 
 
 Network Working Group                                          E. Foudil
-Internet-Draft
-Intended status: Informational                        September 10, 2017
-Expires: February 20, 2018
+Internet-Draft                                          October 25, 2017
+Intended status: Informational
+Expires: April 28, 2018
 
 
                    A Method for Web Security Policies
@@ -16,7 +16,7 @@ Abstract
    When security risks in web services are discovered by independent
    security researchers who understand the severity of the risk, they
    often lack the channels to properly disclose them.  As a result,
-   security issues may be left unreported.  security.txt defines a
+   security issues may be left unreported. security.txt defines a
    standard to help organizations define the process for security
    researchers to securely disclose security vulnerabilities.
 
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on February 20, 2018.
+   This Internet-Draft will expire on April 28, 2018.
 
 Copyright Notice
 
@@ -53,14 +53,32 @@ Copyright Notice
 
 
 
-
-Foudil                  Expires February 20, 2018               [Page 1]
+Foudil                   Expires April 28, 2018                 [Page 1]
 
-Internet-Draft               INTERNET-DRAFT                  August 2017
+Internet-Draft     A Method for Web Security Policies       October 2017
 
 
    the Trust Legal Provisions and are provided without warranty as
    described in the Simplified BSD License.
+
+Table of Contents
+
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
+     1.1.  Motivation  . . . . . . . . . . . . . . . . . . . . . . .   2
+     1.2.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   2
+   2.  The Specification . . . . . . . . . . . . . . . . . . . . . .   2
+     2.1.  Comments  . . . . . . . . . . . . . . . . . . . . . . . .   3
+     2.2.  Separate Fields . . . . . . . . . . . . . . . . . . . . .   3
+     2.3.  Contact:  . . . . . . . . . . . . . . . . . . . . . . . .   3
+     2.4.  Encryption: . . . . . . . . . . . . . . . . . . . . . . .   3
+     2.5.  Acknowledgement:  . . . . . . . . . . . . . . . . . . . .   4
+     2.6.  Example . . . . . . . . . . . . . . . . . . . . . . . . .   4
+   3.  File Format Description . . . . . . . . . . . . . . . . . . .   4
+   4.  Security considerations . . . . . . . . . . . . . . . . . . .   5
+   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   5
+   6.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .   5
+   7.  Normative References  . . . . . . . . . . . . . . . . . . . .   6
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   6
 
 1.  Introduction
 
@@ -68,30 +86,37 @@ Internet-Draft               INTERNET-DRAFT                  August 2017
 
    Many security researchers encounter situations where they are unable
    to responsibly disclose security issues to companies because there is
-   no course of action laid out.  security.txt is designed to help 
-   assist in this process by making it easier for companies to designate
-   the preferred steps for researchers to take when trying to reach out.
+   no course of action laid out. security.txt is designed to help assist
+   in this process by making it easier for companies to designate the
+   preferred steps for researchers to take when trying to reach out.
 
 1.2.  Terminology
 
    In this document, the key words "MUST", "MUST NOT", "REQUIRED",
    "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY",
-   and "OPTIONAL" are to be interpreted as described in BCP 14, RFC 2119
-   [RFC2119].
+   and "OPTIONAL" are to be interpreted as described in [RFC2119].
 
 2.  The Specification
 
-   security.txt is a text file that should be located under the 
-   /.well-known/ path ("/.well-known/security.txt") [RFC5785]
-   This text file contains 4 directives with different values.
-   The "directive" is the first part of a field all the way up
-   to the colon ("Contact:").  Directives are case-insensitive.  The
-   "value" comes after the directive ("https://example.com/security").
-   A "field" always consists of a directive and a value 
-   ("Contact: https://example.com/security").  A security.txt file 
-   can have an unlimited number of fields.  It is important to note that 
-   you need a separate line for every field.  One MUST NOT chain multiple 
-   values for a single directive.  Everything MUST be in a separate field.
+   security.txt is a text file that should be located under the /.well-
+   known/ path ("/.well-known/security.txt") [RFC5785] This text file
+   contains 4 directives with different values.  The "directive" is the
+   first part of a field all the way up to the colon ("Contact:").
+   Directives are case-insensitive.  The "value" comes after the
+   directive ("https://example.com/security").  A "field" always
+   consists of a directive and a value ("Contact: https://example.com/
+   security").  A security.txt file can have an unlimited number of
+
+
+
+Foudil                   Expires April 28, 2018                 [Page 2]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
+
+   fields.  It is important to note that you need a separate line for
+   every field.  One MUST NOT chain multiple values for a single
+   directive.  Everything MUST be in a separate field.
 
    A security.txt file only applies to the application it is located in.
 
@@ -113,24 +138,18 @@ Internet-Draft               INTERNET-DRAFT                  August 2017
    NOT chain everything in to a single field.  Every line must end with
    a line feed character (%x0A).
 
-
-Foudil                  Expires February 20, 2018               [Page 2]
-
-Internet-Draft               INTERNET-DRAFT                  August 2017
-
-
 2.3.  Contact:
 
    Add an address that researchers MAY use for reporting security
    issues.  The value can be an email address, a phone number and/or a
    security page with more information.  The "Contact:" directive MUST
    always be present in a security.txt file.  URIs SHOULD be loaded over
-   HTTPS.  Security email addresses SHOULD use the conventions defined 
-   in [RFC2142].  
-   
+   HTTPS.  Security email addresses SHOULD use the conventions defined
+   in [RFC2142].
+
    The precedence is in listed order.  The first field is the preferred
-   method of contact.  In the example below, the e-mail address is
-   the preferred method of contact.
+   method of contact.  In the example below, the e-mail address is the
+   preferred method of contact.
 
    <CODE BEGINS>
    Contact: security@example.com
@@ -141,9 +160,18 @@ Internet-Draft               INTERNET-DRAFT                  August 2017
 2.4.  Encryption:
 
    This directive allows you to add your key for encrypted
-   communication.  You MUST NOT directly add your key.  The value
-   MUST be a link to a page which contains your key.  Keys SHOULD be
-   loaded over HTTPS.
+   communication.  You MUST NOT directly add your key.  The value MUST
+
+
+
+
+Foudil                   Expires April 28, 2018                 [Page 3]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
+
+   be a link to a page which contains your key.  Keys SHOULD be loaded
+   over HTTPS.
 
    <CODE BEGINS>
    Encryption: https://example.com/pgp-key.txt
@@ -168,41 +196,47 @@ Internet-Draft               INTERNET-DRAFT                  August 2017
    Encryption: https://example.com/pgp-key.txt
    <CODE ENDS>
 
-Foudil                  Expires February 20, 2018               [Page 3]
-
-Internet-Draft               INTERNET-DRAFT                  August 2017
-
-
 3.  File Format Description
 
-   The expected file format of the security.txt file is plain text 
-   encoded in UTF-8.
+   The expected file format of the security.txt file is plain text as
+   defined in section 4.1.3 of [RFC2046] and encoded in UTF-8.
 
    The following is an ABNF definition of the security.txt format, using
    the conventions defined in [RFC5234].
 
-   body                   = *line (contact-field eol) *line
-   line                   = *1(field / comment) eol
-   eol                    = *WSP [CR] LF
-   
-   field                  = contact-field /
-                            encryption-field /
-                            acknowledgement-field
-   
-   fs                     = ":"
-   
-   comment                = "#" *(WSP / VCHAR / %xA0-E007F)
-   
-   contact-field          = "Contact" fs SP (email / uri / phone)
-   email                  = <Email address as per RFC 5322>
-   phone                  = "+" *1(DIGIT / "-" / "(" / ")" / SP)
-   uri                    = <URI as per RFC 3986>
-   
-   encryption-field       = "Encryption" fs SP uri 
-   
-   acknowledgement-field  = "Acknowledgement" fs SP uri
+   body = *line (contact-field eol) *line
 
-4.  Security Considerations
+   line = *1(field / comment) eol
+
+   eol = *WSP [CR] LF
+
+   field = contact-field / encryption-field / acknowledgement-field
+
+   fs = ":"
+
+   comment = "#" *(WSP / VCHAR / %xA0-E007F)
+
+   contact-field = "Contact" fs SP (email / uri / phone)
+
+
+
+
+Foudil                   Expires April 28, 2018                 [Page 4]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
+
+   email = <Email address as per [RFC5322]>
+
+   phone = "+" *1(DIGIT / "-" / "(" / ")" / SP)
+
+   uri = <URI as per [RFC3986]>
+
+   encryption-field = "Encryption" fs SP uri
+
+   acknowledgement-field = "Acknowledgement" fs SP uri
+
+4.  Security considerations
 
    Companies creating security.txt files will need to take several
    security-related issues into consideration.  These include exposure
@@ -213,76 +247,84 @@ Internet-Draft               INTERNET-DRAFT                  August 2017
    As stated in Section 2.4, keys specified using the "Encryption:"
    directive SHOULD be loaded over HTTPS.
 
-
-
-
-
-
-
-
-
-
-
-Foudil                  Expires February 20, 2018               [Page 4]
-
-Internet-Draft               INTERNET-DRAFT                  August 2017
-
 5.  IANA Considerations
 
    example.com is used in this document following the uses indicated in
-   [RFC2606]
+   [RFC2606].
 
 6.  Contributors
 
-   The editor would like to acknowledge the help provided during the 
+   The editor would like to acknowledge the help provided during the
    development of this document by the following individuals:
 
-   Tom Hudson helped writing the "File Format Description" and wrote
-   several security.txt parsers.
+   o  Tom Hudson helped writing the "File Format Description" and wrote
+      several security.txt parsers.
 
-   Joel Margolis was a big help when it came to wording this document
-   appropriately.
+   o  Joel Margolis was a big help when it came to wording this document
+      appropriately.
 
-   Jobert Abma for raising issues and concerns that might arise when
-   using certain directives. 
+   o  Jobert Abma for raising issues and concerns that might arise when
+      using certain directives.
 
-   Gerben Janssen van Doorn for reviewing this document multiple times.
+   o  Gerben Janssen van Doorn for reviewing this document multiple
+      times.
 
-   Justin Calmus was always there to answer questions related to writing
-   this document.
+   o  Justin Calmus was always there to answer questions related to
+      writing this document.
 
-   Casey Ellis had several ideas related to security.txt that helped
-   shape security.txt itself.
+   o  Casey Ellis had several ideas related to security.txt that helped
+      shape security.txt itself.
+
+
+
+Foudil                   Expires April 28, 2018                 [Page 5]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
 
 7.  Normative References
 
+   [RFC2046]  Freed, N. and N. Borenstein, "Multipurpose Internet Mail
+              Extensions (MIME) Part Two: Media Types", RFC 2046,
+              DOI 10.17487/RFC2046, November 1996, <https://www.rfc-
+              editor.org/info/rfc2046>.
+
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", BCP 14, RFC 2119, March 1997.
-
-   [RFC5234]  Crocker, D. and P. Overell, "Augmented BNF for Syntax
-              Specifications: ABNF", STD 68, RFC 5234, January 2008.
-
-   [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
-              Resource Identifier (URI): Generic Syntax", STD 66, RFC
-              3986, DOI 10.17487/RFC3986, January 2005,
-              <https://www.rfc-editor.org/info/rfc3986>.
-
-   [RFC2606]  Eastlake 3rd, D. and A. Panitz, "Reserved Top Level DNS
-              Names", BCP 32, RFC 2606, DOI 10.17487/RFC2606, June 1999,
-              <https://www.rfc-editor.org/info/rfc2606>.
-
-   [RFC5785]  Nottingham, M. and E. Hammer-Lahav, "Defining Well-Known
-              Uniform Resource Identifiers (URIs)", RFC 5785, DOI
-              10.17487/RFC5785, April 2010, <https://www.rfc-
-              editor.org/info/rfc5785>.
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997, <https://www.rfc-
+              editor.org/info/rfc2119>.
 
    [RFC2142]  Crocker, D., "Mailbox Names for Common Services, Roles and
               Functions", RFC 2142, DOI 10.17487/RFC2142, May 1997,
               <https://www.rfc-editor.org/info/rfc2142>.
 
+   [RFC2606]  Eastlake 3rd, D. and A. Panitz, "Reserved Top Level DNS
+              Names", BCP 32, RFC 2606, DOI 10.17487/RFC2606, June 1999,
+              <https://www.rfc-editor.org/info/rfc2606>.
+
+   [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
+              Resource Identifier (URI): Generic Syntax", STD 66,
+              RFC 3986, DOI 10.17487/RFC3986, January 2005,
+              <https://www.rfc-editor.org/info/rfc3986>.
+
+   [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
+              Specifications: ABNF", STD 68, RFC 5234,
+              DOI 10.17487/RFC5234, January 2008, <https://www.rfc-
+              editor.org/info/rfc5234>.
+
+   [RFC5322]  Resnick, P., Ed., "Internet Message Format", RFC 5322,
+              DOI 10.17487/RFC5322, October 2008, <https://www.rfc-
+              editor.org/info/rfc5322>.
+
+   [RFC5785]  Nottingham, M. and E. Hammer-Lahav, "Defining Well-Known
+              Uniform Resource Identifiers (URIs)", RFC 5785,
+              DOI 10.17487/RFC5785, April 2010, <https://www.rfc-
+              editor.org/info/rfc5785>.
+
 Author's Address
 
    Edwin Foudil
+
    Email: contact@edoverflow.com
 
 
@@ -291,4 +333,4 @@ Author's Address
 
 
 
-Foudil                  Expires February 20, 2018               [Page 5]
+Foudil                   Expires April 28, 2018                 [Page 6]
