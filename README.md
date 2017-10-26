@@ -16,10 +16,10 @@ The Internet draft for security.txt can be found here: https://www.ietf.org/id/d
 
 ## Building the Draft
 
-Formatted text and HTML versions of the draft can be built using `make`.
+To build the text draft, use the following make command.
 
 ```sh
-$ make
+$ make clean txt
 ```
 
 This requires that you have the necessary software installed.  See [the
