@@ -1,0 +1,5 @@
+lib/
+.refcache/
+.targets.mk
+draft-*.txt
+draft-*.html
