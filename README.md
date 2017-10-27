@@ -14,6 +14,18 @@ https://github.com/securitytxt/
 
 The Internet draft for security.txt can be found here: https://www.ietf.org/id/draft-foudil-securitytxt-00.txt.
 
+## Building the Draft
+
+To build the text draft, use the following make command.
+
+```sh
+$ make clean txt
+```
+
+This requires that you have the necessary software installed.  See [the
+instructions](https://github.com/martinthomson/i-d-template/blob/master/doc/SETUP.md).
+
+
 ---
 
 # FAQ
