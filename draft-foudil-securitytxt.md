@@ -3,7 +3,6 @@ title: A Method for Web Security Policies
 docname: draft-foudil-securitytxt-01
 ipr: trust200902
 cat: info
-date: 2017-10-25
 pi:
   sortrefs: 'yes'
   strict: 'yes'

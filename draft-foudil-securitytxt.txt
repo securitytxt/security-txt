@@ -3,9 +3,9 @@
 
 
 Network Working Group                                          E. Foudil
-Internet-Draft                                          October 25, 2017
+Internet-Draft                                          October 29, 2017
 Intended status: Informational
-Expires: April 28, 2018
+Expires: May 2, 2018
 
 
                    A Method for Web Security Policies
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on April 28, 2018.
+   This Internet-Draft will expire on May 2, 2018.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Foudil                   Expires April 28, 2018                 [Page 1]
+Foudil                     Expires May 2, 2018                  [Page 1]
 
 Internet-Draft     A Method for Web Security Policies       October 2017
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Foudil                   Expires April 28, 2018                 [Page 2]
+Foudil                     Expires May 2, 2018                  [Page 2]
 
 Internet-Draft     A Method for Web Security Policies       October 2017
 
@@ -165,7 +165,7 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
 
 
-Foudil                   Expires April 28, 2018                 [Page 3]
+Foudil                     Expires May 2, 2018                  [Page 3]
 
 Internet-Draft     A Method for Web Security Policies       October 2017
 
@@ -221,7 +221,7 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
 
 
-Foudil                   Expires April 28, 2018                 [Page 4]
+Foudil                     Expires May 2, 2018                  [Page 4]
 
 Internet-Draft     A Method for Web Security Policies       October 2017
 
@@ -265,7 +265,7 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
    Change controller: IETF
 
-   Specification document(s): This document, Section Section 2
+   Specification document(s): this document
 
 6.  Contributors
 
@@ -277,7 +277,7 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
 
 
-Foudil                   Expires April 28, 2018                 [Page 5]
+Foudil                     Expires May 2, 2018                  [Page 5]
 
 Internet-Draft     A Method for Web Security Policies       October 2017
 
@@ -333,7 +333,7 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
 
 
-Foudil                   Expires April 28, 2018                 [Page 6]
+Foudil                     Expires May 2, 2018                  [Page 6]
 
 Internet-Draft     A Method for Web Security Policies       October 2017
 
@@ -389,4 +389,4 @@ Author's Address
 
 
 
-Foudil                   Expires April 28, 2018                 [Page 7]
+Foudil                     Expires May 2, 2018                  [Page 7]
