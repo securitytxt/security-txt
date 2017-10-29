@@ -39,7 +39,7 @@ In this document, the key words "MUST", "MUST NOT", "REQUIRED",
 "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY",
 and "OPTIONAL" are to be interpreted as described in {{!RFC2119}}.
 
-# The Specification {#specification}
+# The Specification
 
 security.txt is a text file that should be located under the
 /.well-known/ path ("/.well-known/security.txt") {{!RFC5785}}
@@ -132,6 +132,15 @@ Encryption: https://example.com/pgp-key.txt
 <CODE ENDS>
 ~~~~~~~~~~
 
+## Extensibility
+
+Like many other formats and protocols, this format may need to be extended
+over time to fit the ever-changing landscape of the Internet. Therefore,
+extensibility is provided via an IANA registry for headers fields as defined
+in {{registry}}. Any fields registered via that process MUST be
+considered optional. In order to encourage extensibility and interoperability,
+implementors MUST ignore any fields they do not explicitly support.
+
 # File Format Description
 
 The expected file format of the security.txt file is plain text as defined
@@ -193,7 +202,7 @@ Change controller: IETF
 
 Specification document(s): this document
 
-## Registry for security.txt Header Fields
+## Registry for security.txt Header Fields {#registry}
 
 IANA is requested to create the "security.txt Header Fields" registry in
 accordance with {{?RFC8126}}. This registry will contain header fields for
