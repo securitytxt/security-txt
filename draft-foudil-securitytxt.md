@@ -193,6 +193,51 @@ Change controller: IETF
 
 Specification document(s): this document
 
+## Registry for security.txt Header Fields
+
+IANA is requested to create the "security.txt Header Fields" registry in
+accordance with {{?RFC8126}}. This registry will contain header fields for
+use in security.txt files, defined by this specification.
+
+New registrations or updates MUST be published in accordance with the
+"Specification Required" guidelines as described in section 4.6 of
+{{?RFC8126}}. Any new field thus registered is considered optional
+by this specification unless a new version of this specification is published.
+
+New registrations and updates MUST contain the following information:
+
+   1.  Name of the field being registered or updated
+   2.  Short description of the field
+   3.  Whether the field can appear more than once
+   4.  The document in which the specification of the field is published
+   5.  New or updated status, which MUST be one of:
+       current:  The field is in current use
+       deprecated:  The field is in current use but its use is discouraged
+       historic:  The field is no longer in current use
+
+An update may make a notation on an existing registration indicating
+that a registered field is historic or deprecated if appropriate.
+
+The initial registry contains these values:
+
+       Field Name: Acknowledgment
+       Description: link to page where security researchers are recognized
+       Multiple Appearances: Yes
+       Published in: this document
+       Status: current
+
+       Field Name: Contact
+       Description: contact information to use for reporting security issues
+       Multiple Appearances: Yes
+       Published in: this document
+       Status: current
+
+       Field Name: Encryption
+       Description: link to a key to be used for encrypted communication
+       Multiple Appearances: Yes
+       Published in: this document
+       Status: current
+
 # Contributors
 
 The editor would like to acknowledge the help provided during the
