@@ -70,15 +70,16 @@ Table of Contents
      2.1.  Comments  . . . . . . . . . . . . . . . . . . . . . . . .   3
      2.2.  Separate Fields . . . . . . . . . . . . . . . . . . . . .   3
      2.3.  Contact:  . . . . . . . . . . . . . . . . . . . . . . . .   3
-     2.4.  Encryption: . . . . . . . . . . . . . . . . . . . . . . .   3
+     2.4.  Encryption: . . . . . . . . . . . . . . . . . . . . . . .   4
      2.5.  Acknowledgement:  . . . . . . . . . . . . . . . . . . . .   4
      2.6.  Example . . . . . . . . . . . . . . . . . . . . . . . . .   4
    3.  File Format Description . . . . . . . . . . . . . . . . . . .   4
    4.  Security considerations . . . . . . . . . . . . . . . . . . .   5
    5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   5
+     5.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .   5
    6.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .   5
    7.  Normative References  . . . . . . . . . . . . . . . . . . . .   6
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   6
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   7
 
 1.  Introduction
 
@@ -105,7 +106,6 @@ Table of Contents
    Directives are case-insensitive.  The "value" comes after the
    directive ("https://example.com/security").  A "field" always
    consists of a directive and a value ("Contact: https://example.com/
-   security").  A security.txt file can have an unlimited number of
 
 
 
@@ -114,6 +114,7 @@ Foudil                   Expires April 28, 2018                 [Page 2]
 Internet-Draft     A Method for Web Security Policies       October 2017
 
 
+   security").  A security.txt file can have an unlimited number of
    fields.  It is important to note that you need a separate line for
    every field.  One MUST NOT chain multiple values for a single
    directive.  Everything MUST be in a separate field.
@@ -157,10 +158,9 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    Contact: https://example.com/security
    <CODE ENDS>
 
-2.4.  Encryption:
 
-   This directive allows you to add your key for encrypted
-   communication.  You MUST NOT directly add your key.  The value MUST
+
+
 
 
 
@@ -170,6 +170,10 @@ Foudil                   Expires April 28, 2018                 [Page 3]
 Internet-Draft     A Method for Web Security Policies       October 2017
 
 
+2.4.  Encryption:
+
+   This directive allows you to add your key for encrypted
+   communication.  You MUST NOT directly add your key.  The value MUST
    be a link to a page which contains your key.  Keys SHOULD be loaded
    over HTTPS.
 
@@ -214,10 +218,6 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
    fs = ":"
 
-   comment = "#" *(WSP / VCHAR / %xA0-E007F)
-
-   contact-field = "Contact" fs SP (email / uri / phone)
-
 
 
 
@@ -225,6 +225,10 @@ Foudil                   Expires April 28, 2018                 [Page 4]
 
 Internet-Draft     A Method for Web Security Policies       October 2017
 
+
+   comment = "#" *(WSP / VCHAR / %xA0-E007F)
+
+   contact-field = "Contact" fs SP (email / uri / phone)
 
    email = <Email address as per [RFC5322]>
 
@@ -252,6 +256,17 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    example.com is used in this document following the uses indicated in
    [RFC2606].
 
+5.1.  Well-Known URIs registry
+
+   The "Well-Known URIs" registry should be updated with the following
+   additional value (using the template from [RFC5785]):
+
+   URI suffix: security.txt
+
+   Change controller: IETF
+
+   Specification document(s): This document, Section Section 2
+
 6.  Contributors
 
    The editor would like to acknowledge the help provided during the
@@ -259,6 +274,13 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
    o  Tom Hudson helped writing the "File Format Description" and wrote
       several security.txt parsers.
+
+
+
+Foudil                   Expires April 28, 2018                 [Page 5]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
 
    o  Joel Margolis was a big help when it came to wording this document
       appropriately.
@@ -274,13 +296,6 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
    o  Casey Ellis had several ideas related to security.txt that helped
       shape security.txt itself.
-
-
-
-Foudil                   Expires April 28, 2018                 [Page 5]
-
-Internet-Draft     A Method for Web Security Policies       October 2017
-
 
 7.  Normative References
 
@@ -316,6 +331,13 @@ Internet-Draft     A Method for Web Security Policies       October 2017
               DOI 10.17487/RFC5322, October 2008, <https://www.rfc-
               editor.org/info/rfc5322>.
 
+
+
+Foudil                   Expires April 28, 2018                 [Page 6]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
+
    [RFC5785]  Nottingham, M. and E. Hammer-Lahav, "Defining Well-Known
               Uniform Resource Identifiers (URIs)", RFC 5785,
               DOI 10.17487/RFC5785, April 2010, <https://www.rfc-
@@ -333,4 +355,38 @@ Author's Address
 
 
 
-Foudil                   Expires April 28, 2018                 [Page 6]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Foudil                   Expires April 28, 2018                 [Page 7]
