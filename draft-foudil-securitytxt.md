@@ -3,7 +3,6 @@ title: A Method for Web Security Policies
 docname: draft-foudil-securitytxt-01
 ipr: trust200902
 cat: info
-date: 2017-10-25
 pi:
   sortrefs: 'yes'
   strict: 'yes'
@@ -40,7 +39,7 @@ In this document, the key words "MUST", "MUST NOT", "REQUIRED",
 "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY",
 and "OPTIONAL" are to be interpreted as described in {{!RFC2119}}.
 
-# The Specification
+# The Specification {#specification}
 
 security.txt is a text file that should be located under the
 /.well-known/ path ("/.well-known/security.txt") {{!RFC5785}}
@@ -182,6 +181,17 @@ directive SHOULD be loaded over HTTPS.
 
 example.com is used in this document following the uses indicated in
 {{!RFC2606}}.
+
+## Well-Known URIs registry
+
+The "Well-Known URIs" registry should be updated with the following additional
+value (using the template from {{?RFC5785}}):
+
+URI suffix: security.txt
+
+Change controller: IETF
+
+Specification document(s): this document
 
 # Contributors
 
