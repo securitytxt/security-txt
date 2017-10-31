@@ -3,9 +3,9 @@
 
 
 Network Working Group                                          E. Foudil
-Internet-Draft                                          October 25, 2017
+Internet-Draft                                          October 31, 2017
 Intended status: Informational
-Expires: April 28, 2018
+Expires: May 4, 2018
 
 
                    A Method for Web Security Policies
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on April 28, 2018.
+   This Internet-Draft will expire on May 4, 2018.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Foudil                   Expires April 28, 2018                 [Page 1]
+Foudil                     Expires May 4, 2018                  [Page 1]
 
 Internet-Draft     A Method for Web Security Policies       October 2017
 
@@ -66,20 +66,25 @@ Table of Contents
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
      1.1.  Motivation  . . . . . . . . . . . . . . . . . . . . . . .   2
      1.2.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   2
-   2.  The Specification . . . . . . . . . . . . . . . . . . . . . .   2
+   2.  The Specification . . . . . . . . . . . . . . . . . . . . . .   3
      2.1.  Comments  . . . . . . . . . . . . . . . . . . . . . . . .   3
      2.2.  Separate Fields . . . . . . . . . . . . . . . . . . . . .   3
-     2.3.  Contact:  . . . . . . . . . . . . . . . . . . . . . . . .   3
+     2.3.  Contact:  . . . . . . . . . . . . . . . . . . . . . . . .   4
      2.4.  Encryption: . . . . . . . . . . . . . . . . . . . . . . .   4
      2.5.  Signature:  . . . . . . . . . . . . . . . . . . . . . . .   4
      2.6.  Acknowledgement:  . . . . . . . . . . . . . . . . . . . .   5
      2.7.  Example . . . . . . . . . . . . . . . . . . . . . . . . .   5
-   3.  File Format Description . . . . . . . . . . . . . . . . . . .   5
-   4.  Security considerations . . . . . . . . . . . . . . . . . . .   6
-   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   6
-   6.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .   6
-   7.  Normative References  . . . . . . . . . . . . . . . . . . . .   7
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   8
+     2.8.  Extensibility . . . . . . . . . . . . . . . . . . . . . .   6
+   3.  File Format Description . . . . . . . . . . . . . . . . . . .   6
+   4.  Security considerations . . . . . . . . . . . . . . . . . . .   7
+   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   7
+     5.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .   7
+     5.2.  Registry for security.txt Header Fields . . . . . . . . .   7
+   6.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .   8
+   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   9
+     7.1.  Normative References  . . . . . . . . . . . . . . . . . .   9
+     7.2.  Informative References  . . . . . . . . . . . . . . . . .  10
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  10
 
 1.  Introduction
 
@@ -97,6 +102,18 @@ Table of Contents
    "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY",
    and "OPTIONAL" are to be interpreted as described in [RFC2119].
 
+
+
+
+
+
+
+
+Foudil                     Expires May 4, 2018                  [Page 2]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
+
 2.  The Specification
 
    security.txt is a text file that should be located under the /.well-
@@ -106,14 +123,6 @@ Table of Contents
    file contains 5 directives with different values.  The "directive" is
    the first part of a field all the way up to the colon ("Contact:").
    Directives are case-insensitive.  The "value" comes after the
-
-
-
-Foudil                   Expires April 28, 2018                 [Page 2]
-
-Internet-Draft     A Method for Web Security Policies       October 2017
-
-
    directive ("https://example.com/security").  A "field" always
    consists of a directive and a value ("Contact: https://example.com/
    security").  A security.txt file can have an unlimited number of
@@ -151,6 +160,16 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    NOT chain everything in to a single field.  Every line must end with
    a line feed character (%x0A).
 
+
+
+
+
+
+Foudil                     Expires May 4, 2018                  [Page 3]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
+
 2.3.  Contact:
 
    Add an address that researchers MAY use for reporting security
@@ -159,16 +178,6 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    always be present in a security.txt file.  URIs SHOULD be loaded over
    HTTPS.  Security email addresses SHOULD use the conventions defined
    in [RFC2142].
-
-
-
-
-
-
-Foudil                   Expires April 28, 2018                 [Page 3]
-
-Internet-Draft     A Method for Web Security Policies       October 2017
-
 
    The precedence is in listed order.  The first field is the preferred
    method of contact.  In the example below, the e-mail address is the
@@ -207,6 +216,16 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
    Here is an example inline signature.
 
+
+
+
+
+
+Foudil                     Expires May 4, 2018                  [Page 4]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
+
    <CODE BEGINS>
    Signature:
    -----BEGIN PGP SIGNATURE-----
@@ -214,17 +233,6 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    ...
    -----END PGP SIGNATURE-----
    <CODE ENDS>
-
-
-
-
-
-
-
-Foudil                   Expires April 28, 2018                 [Page 4]
-
-Internet-Draft     A Method for Web Security Policies       October 2017
-
 
 2.6.  Acknowledgement:
 
@@ -262,6 +270,28 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    Signature: https://example.com/.well-known/security.txt.sig
    <CODE ENDS>
 
+
+
+
+
+
+
+
+Foudil                     Expires May 4, 2018                  [Page 5]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
+
+2.8.  Extensibility
+
+   Like many other formats and protocols, this format may need to be
+   extended over time to fit the ever-changing landscape of the
+   Internet.  Therefore, extensibility is provided via an IANA registry
+   for headers fields as defined in Section 5.2.  Any fields registered
+   via that process MUST be considered optional.  In order to encourage
+   extensibility and interoperability, implementors MUST ignore any
+   fields they do not explicitly support.
+
 3.  File Format Description
 
    The expected file format of the security.txt file is plain text as
@@ -274,17 +304,10 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
    line = *1(field / comment) eol
 
-
-
-
-Foudil                   Expires April 28, 2018                 [Page 5]
-
-Internet-Draft     A Method for Web Security Policies       October 2017
-
-
    eol = *WSP [CR] LF
 
-   field = contact-field / encryption-field / acknowledgement-field
+   field = contact-field / encryption-field / acknowledgement-field /
+   ext-field
 
    fs = ":"
 
@@ -301,6 +324,22 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    encryption-field = "Encryption" fs SP uri
 
    acknowledgement-field = "Acknowledgement" fs SP uri
+
+   ext-field = field-name ":" unstructured
+
+   field-name = <as per section 3.6.8 of [RFC5322]>
+
+   unstructured = <as per section 3.2.5 of [RFC5322]>
+
+
+
+Foudil                     Expires May 4, 2018                  [Page 6]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
+
+   "ext-field" refers to extension fields, which are discussed in
+   Section 2.8
 
 4.  Security considerations
 
@@ -324,25 +363,92 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    192.0.2.0 is used in this document following the uses indicated in
    [RFC5735].
 
+5.1.  Well-Known URIs registry
+
+   The "Well-Known URIs" registry should be updated with the following
+   additional value (using the template from [RFC5785]):
+
+   URI suffix: security.txt
+
+   Change controller: IETF
+
+   Specification document(s): this document
+
+5.2.  Registry for security.txt Header Fields
+
+   IANA is requested to create the "security.txt Header Fields" registry
+   in accordance with [RFC8126].  This registry will contain header
+   fields for use in security.txt files, defined by this specification.
+
+   New registrations or updates MUST be published in accordance with the
+   "Specification Required" guidelines as described in section 4.6 of
+   [RFC8126].  Any new field thus registered is considered optional by
+   this specification unless a new version of this specification is
+   published.
+
+
+
+
+Foudil                     Expires May 4, 2018                  [Page 7]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
+
+   New registrations and updates MUST contain the following information:
+
+   1.  Name of the field being registered or updated
+
+   2.  Short description of the field
+
+   3.  Whether the field can appear more than once
+
+   4.  The document in which the specification of the field is published
+
+   5.  New or updated status, which MUST be one of: current: The field
+       is in current use deprecated: The field is in current use but its
+       use is discouraged historic: The field is no longer in current
+       use
+
+   An update may make a notation on an existing registration indicating
+   that a registered field is historic or deprecated if appropriate.
+
+   The initial registry contains these values:
+
+   Field Name: Acknowledgment
+   Description: link to page where security researchers are recognized
+   Multiple Appearances: Yes
+   Published in: this document
+   Status: current
+
+   Field Name: Contact
+   Description: contact information to use for reporting security issues
+   Multiple Appearances: Yes
+   Published in: this document
+   Status: current
+
+   Field Name: Encryption
+   Description: link to a key to be used for encrypted communication
+   Multiple Appearances: Yes
+   Published in: this document
+   Status: current
+
 6.  Contributors
 
    The editor would like to acknowledge the help provided during the
    development of this document by the following individuals:
-
-
-
-
-
-Foudil                   Expires April 28, 2018                 [Page 6]
-
-Internet-Draft     A Method for Web Security Policies       October 2017
-
 
    o  Tom Hudson helped writing the "File Format Description" and wrote
       several security.txt parsers.
 
    o  Joel Margolis was a big help when it came to wording this document
       appropriately.
+
+
+
+Foudil                     Expires May 4, 2018                  [Page 8]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
 
    o  Jobert Abma for raising issues and concerns that might arise when
       using certain directives.
@@ -356,7 +462,9 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    o  Casey Ellis had several ideas related to security.txt that helped
       shape security.txt itself.
 
-7.  Normative References
+7.  References
+
+7.1.  Normative References
 
    [RFC2046]  Freed, N. and N. Borenstein, "Multipurpose Internet Mail
               Extensions (MIME) Part Two: Media Types", RFC 2046,
@@ -386,17 +494,17 @@ Internet-Draft     A Method for Web Security Policies       October 2017
               DOI 10.17487/RFC5234, January 2008, <https://www.rfc-
               editor.org/info/rfc5234>.
 
-
-
-
-Foudil                   Expires April 28, 2018                 [Page 7]
-
-Internet-Draft     A Method for Web Security Policies       October 2017
-
-
    [RFC5322]  Resnick, P., Ed., "Internet Message Format", RFC 5322,
               DOI 10.17487/RFC5322, October 2008, <https://www.rfc-
               editor.org/info/rfc5322>.
+
+
+
+
+Foudil                     Expires May 4, 2018                  [Page 9]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
 
    [RFC5735]  Cotton, M. and L. Vegoda, "Special Use IPv4 Addresses",
               RFC 5735, DOI 10.17487/RFC5735, January 2010,
@@ -406,6 +514,13 @@ Internet-Draft     A Method for Web Security Policies       October 2017
               Uniform Resource Identifiers (URIs)", RFC 5785,
               DOI 10.17487/RFC5785, April 2010, <https://www.rfc-
               editor.org/info/rfc5785>.
+
+7.2.  Informative References
+
+   [RFC8126]  Cotton, M., Leiba, B., and T. Narten, "Guidelines for
+              Writing an IANA Considerations Section in RFCs", BCP 26,
+              RFC 8126, DOI 10.17487/RFC8126, June 2017,
+              <https://www.rfc-editor.org/info/rfc8126>.
 
 Author's Address
 
@@ -442,7 +557,4 @@ Author's Address
 
 
 
-
-
-
-Foudil                   Expires April 28, 2018                 [Page 8]
+Foudil                     Expires May 4, 2018                 [Page 10]
