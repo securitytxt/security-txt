@@ -132,7 +132,7 @@ Encryption: https://example.com/pgp-key.txt
 <CODE ENDS>
 ~~~~~~~~~~
 
-## Extensibility
+## Extensibility {#extensibility}
 
 Like many other formats and protocols, this format may need to be extended
 over time to fit the ever-changing landscape of the Internet. Therefore,
@@ -157,7 +157,8 @@ eol                    = *WSP \[CR\] LF
 
 field                  = contact-field /
                          encryption-field /
-                         acknowledgement-field
+                         acknowledgement-field /
+                         ext-field
 
 fs                     = ":"
 
@@ -174,6 +175,14 @@ uri                    = <URI as per {{!RFC3986}}>
 encryption-field       = "Encryption" fs SP uri
 
 acknowledgement-field  = "Acknowledgement" fs SP uri
+
+ext-field              = field-name ":" unstructured
+
+field-name             = <as per section 3.6.8 of {{!RFC5322}}>
+
+unstructured           = <as per section 3.2.5 of {{!RFC5322}}>
+
+"ext-field" refers to extension fields, which are discussed in {{extensibility}}
 
 # Security considerations
 
