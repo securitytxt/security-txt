@@ -190,6 +190,31 @@ Signature: https://example.com/.well-known/security.txt.sig
 <CODE ENDS>
 ~~~~~~~~~~
 
+# Location of the security.txt file
+
+## Web-based services
+
+Web-based services SHOULD place the security.txt file under the /.well-known/ path; e.g. https://example.com/.well-known/security.txt.
+
+## File systems
+
+Filesystems SHOULD place the security.txt file under the root directory; e.g. /.security.txt, C:\.security.txt.
+
+~~~~~~~~~~
+<CODE BEGINS>
+.
+├── .security.txt
+├── example-directory-1
+├── example-directory-2
+├── example-directory-3
+└── example-file
+<CODE ENDS>
+~~~~~~~~~~
+
+## Internal hosts
+
+A .security.txt file SHOULD be placed in the root directory of an internal host to trigger incident response.
+
 ## Extensibility {#extensibility}
 
 Like many other formats and protocols, this format may need to be extended
@@ -339,6 +364,7 @@ appropriately.
 * Jobert Abma for raising issues and concerns that might arise when
 using certain directives.
 * Gerben Janssen van Doorn for reviewing this document multiple times.
+* Austin Heap for helping improve the Internet drafts.
 * Justin Calmus was always there to answer questions related to writing
 this document.
 * Casey Ellis had several ideas related to security.txt that helped
