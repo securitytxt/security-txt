@@ -44,7 +44,7 @@ and "OPTIONAL" are to be interpreted as described in {{!RFC2119}}.
 security.txt is a text file that should be located under the
 /.well-known/ path ("/.well-known/security.txt") {{!RFC5785}} for web
 properties. For file systems and version control repositories a .security.txt 
-file should be placed in the root directory. This text file contains 5 directives 
+file should be placed in the root directory. This text file contains 4 directives 
 with different values. The "directive" is the first part of a field all the way up
 to the colon ("Contact:"). Directives are case-insensitive. The
 "value" comes after the directive ("https://example.com/security").
@@ -318,6 +318,12 @@ The initial registry contains these values:
        Field Name: Encryption
        Description: link to a key to be used for encrypted communication
        Multiple Appearances: Yes
+       Published in: this document
+       Status: current
+
+       Field Name: Signature
+       Description: signature used to verify the authenticity of the file
+       Multiple Appearances: No
        Published in: this document
        Status: current
 

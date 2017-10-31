@@ -80,7 +80,7 @@ Table of Contents
    5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   7
      5.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .   7
      5.2.  Registry for security.txt Header Fields . . . . . . . . .   7
-   6.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .   8
+   6.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .   9
    7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   9
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .   9
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  10
@@ -120,7 +120,7 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    known/ path ("/.well-known/security.txt") [RFC5785] for web
    properties.  For file systems and version control repositories a
    .security.txt file should be placed in the root directory.  This text
-   file contains 5 directives with different values.  The "directive" is
+   file contains 4 directives with different values.  The "directive" is
    the first part of a field all the way up to the colon ("Contact:").
    Directives are case-insensitive.  The "value" comes after the
    directive ("https://example.com/security").  A "field" always
@@ -432,6 +432,24 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    Published in: this document
    Status: current
 
+   Field Name: Signature
+   Description: signature used to verify the authenticity of the file
+   Multiple Appearances: No
+   Published in: this document
+   Status: current
+
+
+
+
+
+
+
+
+Foudil                     Expires May 4, 2018                  [Page 8]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
+
 6.  Contributors
 
    The editor would like to acknowledge the help provided during the
@@ -442,13 +460,6 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
    o  Joel Margolis was a big help when it came to wording this document
       appropriately.
-
-
-
-Foudil                     Expires May 4, 2018                  [Page 8]
-
-Internet-Draft     A Method for Web Security Policies       October 2017
-
 
    o  Jobert Abma for raising issues and concerns that might arise when
       using certain directives.
@@ -484,6 +495,17 @@ Internet-Draft     A Method for Web Security Policies       October 2017
               Names", BCP 32, RFC 2606, DOI 10.17487/RFC2606, June 1999,
               <https://www.rfc-editor.org/info/rfc2606>.
 
+
+
+
+
+
+
+Foudil                     Expires May 4, 2018                  [Page 9]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
+
    [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
               Resource Identifier (URI): Generic Syntax", STD 66,
               RFC 3986, DOI 10.17487/RFC3986, January 2005,
@@ -497,14 +519,6 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    [RFC5322]  Resnick, P., Ed., "Internet Message Format", RFC 5322,
               DOI 10.17487/RFC5322, October 2008, <https://www.rfc-
               editor.org/info/rfc5322>.
-
-
-
-
-Foudil                     Expires May 4, 2018                  [Page 9]
-
-Internet-Draft     A Method for Web Security Policies       October 2017
-
 
    [RFC5735]  Cotton, M. and L. Vegoda, "Special Use IPv4 Addresses",
               RFC 5735, DOI 10.17487/RFC5735, January 2010,
@@ -527,20 +541,6 @@ Author's Address
    Edwin Foudil
 
    Email: contact@edoverflow.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
