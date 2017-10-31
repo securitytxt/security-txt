@@ -43,9 +43,10 @@ and "OPTIONAL" are to be interpreted as described in {{!RFC2119}}.
 # The Specification
 
 security.txt is a text file that should be located under the
-/.well-known/ path ("/.well-known/security.txt") {{!RFC5785}}
-This text file contains 4 directives with different values.
-The "directive" is the first part of a field all the way up
+/.well-known/ path ("/.well-known/security.txt") {{!RFC5785}} for web
+properties. For file systems and version control repositories a .security.txt 
+file should be placed in the root directory. This text file contains 5 directives 
+with different values. The "directive" is the first part of a field all the way up
 to the colon ("Contact:"). Directives are case-insensitive. The
 "value" comes after the directive ("https://example.com/security").
 A "field" always consists of a directive and a value
@@ -54,7 +55,19 @@ can have an unlimited number of fields. It is important to note that
 you need a separate line for every field. One MUST NOT chain multiple
 values for a single directive. Everything MUST be in a separate field.
 
-A security.txt file only applies to the application it is located in.
+A security.txt file only applies to the domain, subdomain, IPv4 or IPv6 address 
+it is located in.
+
+~~~~~~~~~~
+# The following only applies to example.com.
+https://example.com/.well-known/security.txt
+
+# This only applies to subdomain.example.com.
+https://subdomain.example.com/.well-known/security.txt
+
+# This security.txt file applies to 192.0.2.0.
+http://192.0.2.0/.well-known/security.txt
+~~~~~~~~~~
 
 ## Comments
 
@@ -110,16 +123,55 @@ Encryption: https://example.com/pgp-key.txt
 <CODE ENDS>
 ~~~~~~~~~~
 
+## Signature:
+
+In order to ensure the authenticty of the security.txt file one SHOULD use the
+"Signature:" directive, which allows you to link to an external signature or
+to directly include the signature in the file. External signature files should be
+named "security.txt.sig" and also be placed under the /.well-known/ path.
+
+Here is an example of an external signature file.
+
+~~~~~~~~~~
+<CODE BEGINS>
+Signature: https://example.com/.well-known/security.txt.sig
+<CODE ENDS>
+~~~~~~~~~~
+
+Here is an example inline signature.
+
+~~~~~~~~~~
+<CODE BEGINS>
+Signature: 
+-----BEGIN PGP SIGNATURE-----
+
+...
+-----END PGP SIGNATURE-----
+<CODE ENDS>
+~~~~~~~~~~
+
 ## Acknowledgement:
 
 This directive allows you to link to a page where security
-researchers are recognized for their reports.
+researchers are recognized for their reports. The page should list individuals or companies 
+that disclosed security vulnerabilities and worked with you to remediate the issue.
 
 ~~~~~~~~~~
 <CODE BEGINS>
 Acknowledgement: https://example.com/hall-of-fame.html
 <CODE ENDS>
 ~~~~~~~~~~
+
+Example security acknowledgements page:
+
+~~~~~~~~~~
+We would like to thank the following researchers:
+
+(2017-04-15) Frank Denis - Reflected cross-site scripting
+(2017-01-02) Alice Quinn  - SQL injection
+(2016-12-24) John Buchner - Stored cross-site scripting
+(2016-06-10) Anna Richmond - A server configuration issue
+~~~~~~~~~~ 
 
 ## Example
 
@@ -130,6 +182,12 @@ Contact: security@example.com
 
 # Our PGP key
 Encryption: https://example.com/pgp-key.txt
+
+# Our security acknowledgements page
+Acknowledgement: https://example.com/hall-of-fame.html
+
+# Verify this security.txt file
+Signature: https://example.com/.well-known/security.txt.sig
 <CODE ENDS>
 ~~~~~~~~~~
 
@@ -178,10 +236,17 @@ file or affect how it is served.
 As stated in {{encryption}}, keys specified using the "Encryption:"
 directive SHOULD be loaded over HTTPS.
 
+To ensure the authenticity of the security.txt file one should
+sign the file and include the signature using the "Signature:"
+directive.
+
 # IANA Considerations
 
 example.com is used in this document following the uses indicated in
 {{!RFC2606}}.
+
+192.0.2.0 is used in this document following the uses indicated in
+{{!RFC5735}}.
 
 # Contributors
 
