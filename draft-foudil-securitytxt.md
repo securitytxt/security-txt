@@ -36,14 +36,14 @@ the preferred steps for researchers to take when trying to reach out.
 As per section 4 of {{!RFC2142}}, there is an existing convention
 of using the <SECURITY@domain> email address for communications regarding
 security issues. That convention provides only a single, email-based
-channel of communication for security issues per domain.
-In this document, we propose a richer and more extensible way for companies
-and security researchers to communicate, which is not limited to email
-and also allows for additional features like encryption.
+channel of communication for security issues per domain, and does not provide
+a way for domain owners to publish information about their security disclosure
+policies.
 
-In addition, "security.txt" is also parsable by software programs,
-which allows for scanning and analysis of security policies
-across multiple domains.
+In this document, we propose a richer, machine-parsable and more extensible way
+for companies to communicate information about their security disclosure
+policies, which is not limited to email and also allows for additional features
+such as encryption.
 
 ## Terminology
 
