@@ -33,6 +33,18 @@ no course of action laid out. security.txt is designed to help
 assist in this process by making it easier for companies to designate
 the preferred steps for researchers to take when trying to reach out.
 
+As per section 4 of {{!RFC2142}}, there is an existing convention
+of using the <SECURITY@domain> email address for communications regarding
+security issues. That convention provides only a single, email-based
+channel of communication for security issues per domain.
+In this document, we propose a richer and more extensible way for companies
+and security researchers to communicate, which is not limited to email
+and also allows for additional features like encryption.
+
+In addition, "security.txt" is also parsable by software programs,
+which allows for scanning and analysis of security policies
+across multiple domains.
+
 ## Terminology
 
 In this document, the key words "MUST", "MUST NOT", "REQUIRED",
@@ -43,8 +55,8 @@ and "OPTIONAL" are to be interpreted as described in {{!RFC2119}}.
 
 security.txt is a text file that should be located under the
 /.well-known/ path ("/.well-known/security.txt") {{!RFC5785}} for web
-properties. For file systems and version control repositories a .security.txt 
-file should be placed in the root directory. This text file contains 4 directives 
+properties. For file systems and version control repositories a .security.txt
+file should be placed in the root directory. This text file contains 4 directives
 with different values. The "directive" is the first part of a field all the way up
 to the colon ("Contact:"). Directives are case-insensitive. The
 "value" comes after the directive ("https://example.com/security").
@@ -54,7 +66,7 @@ can have an unlimited number of fields. It is important to note that
 you need a separate line for every field. One MUST NOT chain multiple
 values for a single directive. Everything MUST be in a separate field.
 
-A security.txt file only applies to the domain, subdomain, IPv4 or IPv6 address 
+A security.txt file only applies to the domain, subdomain, IPv4 or IPv6 address
 it is located in.
 
 ~~~~~~~~~~
@@ -95,7 +107,8 @@ issues. The value can be an email address, a phone number and/or a
 security page with more information. The "Contact:" directive MUST
 always be present in a security.txt file. URIs SHOULD be loaded over
 HTTPS. Security email addresses SHOULD use the conventions defined
-in {{!RFC2142}}.
+in section 4 of {{!RFC2142}}, but there is no requirement for this directive
+to be an email address.
 
 The precedence is in listed order. The first field is the preferred
 method of contact. In the example below, the e-mail address is
@@ -141,7 +154,7 @@ Here is an example inline signature.
 
 ~~~~~~~~~~
 <CODE BEGINS>
-Signature: 
+Signature:
 -----BEGIN PGP SIGNATURE-----
 
 ...
@@ -152,7 +165,7 @@ Signature:
 ## Acknowledgement:
 
 This directive allows you to link to a page where security
-researchers are recognized for their reports. The page should list individuals or companies 
+researchers are recognized for their reports. The page should list individuals or companies
 that disclosed security vulnerabilities and worked with you to remediate the issue.
 
 ~~~~~~~~~~
@@ -170,7 +183,7 @@ We would like to thank the following researchers:
 (2017-01-02) Alice Quinn  - SQL injection
 (2016-12-24) John Buchner - Stored cross-site scripting
 (2016-06-10) Anna Richmond - A server configuration issue
-~~~~~~~~~~ 
+~~~~~~~~~~
 
 ## Example
 
@@ -259,7 +272,7 @@ encryption-field       = "Encryption" fs SP uri
 
 acknowledgement-field  = "Acknowledgement" fs SP uri
 
-ext-field              = field-name ":" unstructured
+ext-field              = field-name fs SP unstructured
 
 field-name             = <as per section 3.6.8 of {{!RFC5322}}>
 

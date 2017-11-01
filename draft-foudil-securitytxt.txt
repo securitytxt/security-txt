@@ -65,22 +65,22 @@ Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
      1.1.  Motivation  . . . . . . . . . . . . . . . . . . . . . . .   2
-     1.2.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   2
+     1.2.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   3
    2.  The Specification . . . . . . . . . . . . . . . . . . . . . .   3
      2.1.  Comments  . . . . . . . . . . . . . . . . . . . . . . . .   3
-     2.2.  Separate Fields . . . . . . . . . . . . . . . . . . . . .   3
+     2.2.  Separate Fields . . . . . . . . . . . . . . . . . . . . .   4
      2.3.  Contact:  . . . . . . . . . . . . . . . . . . . . . . . .   4
      2.4.  Encryption: . . . . . . . . . . . . . . . . . . . . . . .   4
-     2.5.  Signature:  . . . . . . . . . . . . . . . . . . . . . . .   4
+     2.5.  Signature:  . . . . . . . . . . . . . . . . . . . . . . .   5
      2.6.  Acknowledgement:  . . . . . . . . . . . . . . . . . . . .   5
-     2.7.  Example . . . . . . . . . . . . . . . . . . . . . . . . .   5
+     2.7.  Example . . . . . . . . . . . . . . . . . . . . . . . . .   6
    3.  Location of the security.txt file . . . . . . . . . . . . . .   6
      3.1.  Web-based services  . . . . . . . . . . . . . . . . . . .   6
      3.2.  File systems  . . . . . . . . . . . . . . . . . . . . . .   6
      3.3.  Internal hosts  . . . . . . . . . . . . . . . . . . . . .   6
      3.4.  Extensibility . . . . . . . . . . . . . . . . . . . . . .   6
-   4.  File Format Description . . . . . . . . . . . . . . . . . . .   6
-   5.  Security considerations . . . . . . . . . . . . . . . . . . .   7
+   4.  File Format Description . . . . . . . . . . . . . . . . . . .   7
+   5.  Security considerations . . . . . . . . . . . . . . . . . . .   8
    6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   8
      6.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .   8
      6.2.  Registry for security.txt Header Fields . . . . . . . . .   8
@@ -88,6 +88,7 @@ Table of Contents
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  10
      8.1.  Normative References  . . . . . . . . . . . . . . . . . .  10
      8.2.  Informative References  . . . . . . . . . . . . . . . . .  11
+     8.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  11
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  11
 
 1.  Introduction
@@ -100,12 +101,11 @@ Table of Contents
    in this process by making it easier for companies to designate the
    preferred steps for researchers to take when trying to reach out.
 
-1.2.  Terminology
-
-   In this document, the key words "MUST", "MUST NOT", "REQUIRED",
-   "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY",
-   and "OPTIONAL" are to be interpreted as described in [RFC2119].
-
+   As per section 4 of [RFC2142], there is an existing convention of
+   using the SECURITY@domain [1] email address for communications
+   regarding security issues.  That convention provides only a single,
+   email-based channel of communication for security issues per domain.
+   In this document, we propose a richer and more extensible way for
 
 
 
@@ -113,6 +113,20 @@ Foudil                     Expires May 4, 2018                  [Page 2]
 
 Internet-Draft     A Method for Web Security Policies       October 2017
 
+
+   companies and security researchers to communicate, which is not
+   limited to email and also allows for additional features like
+   encryption.
+
+   In addition, "security.txt" is also parsable by software programs,
+   which allows for scanning and analysis of security policies across
+   multiple domains.
+
+1.2.  Terminology
+
+   In this document, the key words "MUST", "MUST NOT", "REQUIRED",
+   "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY",
+   and "OPTIONAL" are to be interpreted as described in [RFC2119].
 
 2.  The Specification
 
@@ -146,6 +160,16 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
    Comments can be added using the # symbol:
 
+
+
+
+
+
+Foudil                     Expires May 4, 2018                  [Page 3]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
+
    <CODE BEGINS>
    # This is a comment.
    <CODE ENDS>
@@ -160,16 +184,6 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    NOT chain everything in to a single field.  Every line must end with
    a line feed character (%x0A).
 
-
-
-
-
-
-Foudil                     Expires May 4, 2018                  [Page 3]
-
-Internet-Draft     A Method for Web Security Policies       October 2017
-
-
 2.3.  Contact:
 
    Add an address that researchers MAY use for reporting security
@@ -177,7 +191,8 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    security page with more information.  The "Contact:" directive MUST
    always be present in a security.txt file.  URIs SHOULD be loaded over
    HTTPS.  Security email addresses SHOULD use the conventions defined
-   in [RFC2142].
+   in section 4 of [RFC2142], but there is no requirement for this
+   directive to be an email address.
 
    The precedence is in listed order.  The first field is the preferred
    method of contact.  In the example below, the e-mail address is the
@@ -200,6 +215,17 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    Encryption: https://example.com/pgp-key.txt
    <CODE ENDS>
 
+
+
+
+
+
+
+Foudil                     Expires May 4, 2018                  [Page 4]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
+
 2.5.  Signature:
 
    In order to ensure the authenticty of the security.txt file one
@@ -215,16 +241,6 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    <CODE ENDS>
 
    Here is an example inline signature.
-
-
-
-
-
-
-Foudil                     Expires May 4, 2018                  [Page 4]
-
-Internet-Draft     A Method for Web Security Policies       October 2017
-
 
    <CODE BEGINS>
    Signature:
@@ -254,6 +270,18 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    (2016-12-24) John Buchner - Stored cross-site scripting
    (2016-06-10) Anna Richmond - A server configuration issue
 
+
+
+
+
+
+
+
+Foudil                     Expires May 4, 2018                  [Page 5]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
+
 2.7.  Example
 
    <CODE BEGINS>
@@ -269,18 +297,6 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    # Verify this security.txt file
    Signature: https://example.com/.well-known/security.txt.sig
    <CODE ENDS>
-
-
-
-
-
-
-
-
-Foudil                     Expires May 4, 2018                  [Page 5]
-
-Internet-Draft     A Method for Web Security Policies       October 2017
-
 
 3.  Location of the security.txt file
 
@@ -314,6 +330,14 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    Like many other formats and protocols, this format may need to be
    extended over time to fit the ever-changing landscape of the
    Internet.  Therefore, extensibility is provided via an IANA registry
+
+
+
+Foudil                     Expires May 4, 2018                  [Page 6]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
+
    for headers fields as defined in Section 6.2.  Any fields registered
    via that process MUST be considered optional.  In order to encourage
    extensibility and interoperability, implementors MUST ignore any
@@ -330,13 +354,6 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    body = *line (contact-field eol) *line
 
    line = *1(field / comment) eol
-
-
-
-Foudil                     Expires May 4, 2018                  [Page 6]
-
-Internet-Draft     A Method for Web Security Policies       October 2017
-
 
    eol = *WSP [CR] LF
 
@@ -359,7 +376,7 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
    acknowledgement-field = "Acknowledgement" fs SP uri
 
-   ext-field = field-name ":" unstructured
+   ext-field = field-name fs SP unstructured
 
    field-name = <as per section 3.6.8 of [RFC5322]>
 
@@ -367,6 +384,15 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
    "ext-field" refers to extension fields, which are discussed in
    Section 3.4
+
+
+
+
+
+Foudil                     Expires May 4, 2018                  [Page 7]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
 
 5.  Security considerations
 
@@ -381,18 +407,6 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
    To ensure the authenticity of the security.txt file one should sign
    the file and include the signature using the "Signature:" directive.
-
-
-
-
-
-
-
-
-Foudil                     Expires May 4, 2018                  [Page 7]
-
-Internet-Draft     A Method for Web Security Policies       October 2017
-
 
 6.  IANA Considerations
 
@@ -429,6 +443,13 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
    1.  Name of the field being registered or updated
 
+
+
+Foudil                     Expires May 4, 2018                  [Page 8]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
+
    2.  Short description of the field
 
    3.  Whether the field can appear more than once
@@ -442,13 +463,6 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
    An update may make a notation on an existing registration indicating
    that a registered field is historic or deprecated if appropriate.
-
-
-
-Foudil                     Expires May 4, 2018                  [Page 8]
-
-Internet-Draft     A Method for Web Security Policies       October 2017
-
 
    The initial registry contains these values:
 
@@ -484,6 +498,14 @@ Internet-Draft     A Method for Web Security Policies       October 2017
    o  Tom Hudson helped writing the "File Format Description" and wrote
       several security.txt parsers.
 
+
+
+
+Foudil                     Expires May 4, 2018                  [Page 9]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
+
    o  Joel Margolis was a big help when it came to wording this document
       appropriately.
 
@@ -497,14 +519,6 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
    o  Justin Calmus was always there to answer questions related to
       writing this document.
-
-
-
-
-Foudil                     Expires May 4, 2018                  [Page 9]
-
-Internet-Draft     A Method for Web Security Policies       October 2017
-
 
    o  Casey Ellis had several ideas related to security.txt that helped
       shape security.txt itself.
@@ -541,6 +555,13 @@ Internet-Draft     A Method for Web Security Policies       October 2017
               DOI 10.17487/RFC5234, January 2008, <https://www.rfc-
               editor.org/info/rfc5234>.
 
+
+
+Foudil                     Expires May 4, 2018                 [Page 10]
+
+Internet-Draft     A Method for Web Security Policies       October 2017
+
+
    [RFC5322]  Resnick, P., Ed., "Internet Message Format", RFC 5322,
               DOI 10.17487/RFC5322, October 2008, <https://www.rfc-
               editor.org/info/rfc5322>.
@@ -554,14 +575,6 @@ Internet-Draft     A Method for Web Security Policies       October 2017
               DOI 10.17487/RFC5785, April 2010, <https://www.rfc-
               editor.org/info/rfc5785>.
 
-
-
-
-Foudil                     Expires May 4, 2018                 [Page 10]
-
-Internet-Draft     A Method for Web Security Policies       October 2017
-
-
 8.2.  Informative References
 
    [RFC8126]  Cotton, M., Leiba, B., and T. Narten, "Guidelines for
@@ -569,28 +582,15 @@ Internet-Draft     A Method for Web Security Policies       October 2017
               RFC 8126, DOI 10.17487/RFC8126, June 2017,
               <https://www.rfc-editor.org/info/rfc8126>.
 
+8.3.  URIs
+
+   [1] mailto:SECURITY@domain
+
 Author's Address
 
    Edwin Foudil
 
    Email: contact@edoverflow.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
