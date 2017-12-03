@@ -3,9 +3,10 @@
 
 
 Network Working Group                                          E. Foudil
-Internet-Draft                                         December 03, 2017
-Intended status: Informational
-Expires: June 6, 2018
+Internet-Draft
+Intended status: Informational                           Y. Shafranovich
+Expires: June 6, 2018                           Nightwatch Cybersecurity
+                                                       December 03, 2017
 
 
                    A Method for Web Security Policies
@@ -52,8 +53,7 @@ Copyright Notice
 
 
 
-
-Foudil                    Expires June 6, 2018                  [Page 1]
+Foudil & Shafranovich     Expires June 6, 2018                  [Page 1]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -89,7 +89,7 @@ Table of Contents
      8.1.  Normative References  . . . . . . . . . . . . . . . . . .  10
      8.2.  Informative References  . . . . . . . . . . . . . . . . .  11
      8.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  11
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  11
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  11
 
 1.  Introduction
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Foudil                    Expires June 6, 2018                  [Page 2]
+Foudil & Shafranovich     Expires June 6, 2018                  [Page 2]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -165,7 +165,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-Foudil                    Expires June 6, 2018                  [Page 3]
+Foudil & Shafranovich     Expires June 6, 2018                  [Page 3]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -221,7 +221,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-Foudil                    Expires June 6, 2018                  [Page 4]
+Foudil & Shafranovich     Expires June 6, 2018                  [Page 4]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -277,7 +277,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-Foudil                    Expires June 6, 2018                  [Page 5]
+Foudil & Shafranovich     Expires June 6, 2018                  [Page 5]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -333,7 +333,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-Foudil                    Expires June 6, 2018                  [Page 6]
+Foudil & Shafranovich     Expires June 6, 2018                  [Page 6]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -389,7 +389,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-Foudil                    Expires June 6, 2018                  [Page 7]
+Foudil & Shafranovich     Expires June 6, 2018                  [Page 7]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -445,7 +445,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-Foudil                    Expires June 6, 2018                  [Page 8]
+Foudil & Shafranovich     Expires June 6, 2018                  [Page 8]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -501,7 +501,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-Foudil                    Expires June 6, 2018                  [Page 9]
+Foudil & Shafranovich     Expires June 6, 2018                  [Page 9]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -557,7 +557,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-Foudil                    Expires June 6, 2018                 [Page 10]
+Foudil & Shafranovich     Expires June 6, 2018                 [Page 10]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -586,13 +586,17 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
    [1] mailto:SECURITY@domain
 
-Author's Address
+Authors' Addresses
 
    Edwin Foudil
 
    Email: contact@edoverflow.com
 
 
+   Yakov Shafranovich
+   Nightwatch Cybersecurity
+
+   Email: yakov+ietf@nightwatchcybersecurity.com
 
 
 
@@ -609,8 +613,4 @@ Author's Address
 
 
 
-
-
-
-
-Foudil                    Expires June 6, 2018                 [Page 11]
+Foudil & Shafranovich     Expires June 6, 2018                 [Page 11]
