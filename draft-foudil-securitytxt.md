@@ -12,6 +12,10 @@ author:
 - ins: E. Foudil
   name: Edwin Foudil
   email: contact@edoverflow.com
+- ins: Y. Shafranovich
+  name: Yakov Shafranovich
+  organization: Nightwatch Cybersecurity
+  email: yakov+ietf@nightwatchcybersecurity.com
 
 --- abstract
 When security risks in web services are discovered by independent
