@@ -211,7 +211,7 @@ Web-based services SHOULD place the security.txt file under the /.well-known/ pa
 
 ## File systems
 
-Filesystems SHOULD place the security.txt file under the root directory; e.g. /.security.txt, C:\.security.txt.
+File systems SHOULD place the security.txt file under the root directory; e.g. /.security.txt, C:\.security.txt.
 
 ~~~~~~~~~~
 <CODE BEGINS>

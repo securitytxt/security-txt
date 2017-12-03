@@ -3,9 +3,9 @@
 
 
 Network Working Group                                          E. Foudil
-Internet-Draft                                          October 31, 2017
+Internet-Draft                                         December 03, 2017
 Intended status: Informational
-Expires: May 4, 2018
+Expires: June 6, 2018
 
 
                    A Method for Web Security Policies
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on May 4, 2018.
+   This Internet-Draft will expire on June 6, 2018.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Foudil                     Expires May 4, 2018                  [Page 1]
+Foudil                    Expires June 6, 2018                  [Page 1]
 
-Internet-Draft     A Method for Web Security Policies       October 2017
+Internet-Draft     A Method for Web Security Policies      December 2017
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Foudil                     Expires May 4, 2018                  [Page 2]
+Foudil                    Expires June 6, 2018                  [Page 2]
 
-Internet-Draft     A Method for Web Security Policies       October 2017
+Internet-Draft     A Method for Web Security Policies      December 2017
 
 
    and does not provide a way for domain owners to publish information
@@ -165,9 +165,9 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
 
 
-Foudil                     Expires May 4, 2018                  [Page 3]
+Foudil                    Expires June 6, 2018                  [Page 3]
 
-Internet-Draft     A Method for Web Security Policies       October 2017
+Internet-Draft     A Method for Web Security Policies      December 2017
 
 
    <CODE BEGINS>
@@ -221,9 +221,9 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
 
 
-Foudil                     Expires May 4, 2018                  [Page 4]
+Foudil                    Expires June 6, 2018                  [Page 4]
 
-Internet-Draft     A Method for Web Security Policies       October 2017
+Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 2.5.  Signature:
@@ -277,9 +277,9 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
 
 
-Foudil                     Expires May 4, 2018                  [Page 5]
+Foudil                    Expires June 6, 2018                  [Page 5]
 
-Internet-Draft     A Method for Web Security Policies       October 2017
+Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 2.7.  Example
@@ -308,7 +308,7 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
 3.2.  File systems
 
-   Filesystems SHOULD place the security.txt file under the root
+   File systems SHOULD place the security.txt file under the root
    directory; e.g. /.security.txt, C:.security.txt.
 
    <CODE BEGINS>
@@ -333,9 +333,9 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
 
 
-Foudil                     Expires May 4, 2018                  [Page 6]
+Foudil                    Expires June 6, 2018                  [Page 6]
 
-Internet-Draft     A Method for Web Security Policies       October 2017
+Internet-Draft     A Method for Web Security Policies      December 2017
 
 
    for headers fields as defined in Section 6.2.  Any fields registered
@@ -389,9 +389,9 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
 
 
-Foudil                     Expires May 4, 2018                  [Page 7]
+Foudil                    Expires June 6, 2018                  [Page 7]
 
-Internet-Draft     A Method for Web Security Policies       October 2017
+Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 5.  Security considerations
@@ -445,9 +445,9 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
 
 
-Foudil                     Expires May 4, 2018                  [Page 8]
+Foudil                    Expires June 6, 2018                  [Page 8]
 
-Internet-Draft     A Method for Web Security Policies       October 2017
+Internet-Draft     A Method for Web Security Policies      December 2017
 
 
    2.  Short description of the field
@@ -501,9 +501,9 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
 
 
-Foudil                     Expires May 4, 2018                  [Page 9]
+Foudil                    Expires June 6, 2018                  [Page 9]
 
-Internet-Draft     A Method for Web Security Policies       October 2017
+Internet-Draft     A Method for Web Security Policies      December 2017
 
 
    o  Joel Margolis was a big help when it came to wording this document
@@ -557,9 +557,9 @@ Internet-Draft     A Method for Web Security Policies       October 2017
 
 
 
-Foudil                     Expires May 4, 2018                 [Page 10]
+Foudil                    Expires June 6, 2018                 [Page 10]
 
-Internet-Draft     A Method for Web Security Policies       October 2017
+Internet-Draft     A Method for Web Security Policies      December 2017
 
 
    [RFC5322]  Resnick, P., Ed., "Internet Message Format", RFC 5322,
@@ -613,4 +613,4 @@ Author's Address
 
 
 
-Foudil                     Expires May 4, 2018                 [Page 11]
+Foudil                    Expires June 6, 2018                 [Page 11]
