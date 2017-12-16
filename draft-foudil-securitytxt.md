@@ -310,9 +310,10 @@ example.com is used in this document following the uses indicated in
 ## Well-Known URIs registry
 
 The "Well-Known URIs" registry should be updated with the following additional
-value (using the template from {{?RFC5785}}):
+values (using the template from {{?RFC5785}}):
 
 URI suffix: security.txt
+URI suffix: security.txt.sig
 
 Change controller: IETF
 
