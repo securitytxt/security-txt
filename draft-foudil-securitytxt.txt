@@ -71,25 +71,26 @@ Table of Contents
      2.2.  Separate Fields . . . . . . . . . . . . . . . . . . . . .   4
      2.3.  Contact:  . . . . . . . . . . . . . . . . . . . . . . . .   4
      2.4.  Encryption: . . . . . . . . . . . . . . . . . . . . . . .   4
-     2.5.  Signature:  . . . . . . . . . . . . . . . . . . . . . . .   5
-     2.6.  Acknowledgement:  . . . . . . . . . . . . . . . . . . . .   5
-     2.7.  Example . . . . . . . . . . . . . . . . . . . . . . . . .   6
+     2.5.  Signature:  . . . . . . . . . . . . . . . . . . . . . . .   4
+     2.6.  Policy: . . . . . . . . . . . . . . . . . . . . . . . . .   5
+     2.7.  Acknowledgement:  . . . . . . . . . . . . . . . . . . . .   5
+     2.8.  Example . . . . . . . . . . . . . . . . . . . . . . . . .   5
    3.  Location of the security.txt file . . . . . . . . . . . . . .   6
      3.1.  Web-based services  . . . . . . . . . . . . . . . . . . .   6
      3.2.  File systems  . . . . . . . . . . . . . . . . . . . . . .   6
      3.3.  Internal hosts  . . . . . . . . . . . . . . . . . . . . .   6
-     3.4.  Extensibility . . . . . . . . . . . . . . . . . . . . . .   6
+     3.4.  Extensibility . . . . . . . . . . . . . . . . . . . . . .   7
    4.  File Format Description . . . . . . . . . . . . . . . . . . .   7
    5.  Security considerations . . . . . . . . . . . . . . . . . . .   8
    6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   8
      6.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .   8
      6.2.  Registry for security.txt Header Fields . . . . . . . . .   8
-   7.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .   9
-   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  10
-     8.1.  Normative References  . . . . . . . . . . . . . . . . . .  10
-     8.2.  Informative References  . . . . . . . . . . . . . . . . .  11
-     8.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  11
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  11
+   7.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  10
+   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  11
+     8.1.  Normative References  . . . . . . . . . . . . . . . . . .  11
+     8.2.  Informative References  . . . . . . . . . . . . . . . . .  12
+     8.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  12
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  12
 
 1.  Introduction
 
@@ -105,7 +106,6 @@ Table of Contents
    using the SECURITY@domain [1] email address for communications
    regarding security issues.  That convention provides only a single,
    email-based channel of communication for security issues per domain,
-
 
 
 
@@ -160,7 +160,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
    Comments can be added using the # symbol:
 
-
+   # This is a comment.
 
 
 
@@ -169,10 +169,6 @@ Foudil & Shafranovich     Expires June 27, 2018                 [Page 3]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
-
-   <CODE BEGINS>
-   # This is a comment.
-   <CODE ENDS>
 
    You MAY use one or more comments as descriptive text immediately
    before the field.  Parsers can then associate the comments with the
@@ -188,7 +184,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
    Add an address that researchers MAY use for reporting security
    issues.  The value can be an email address, a phone number and/or a
-   security page with more information.  The "Contact:" directive MUST
+   contact page with more information.  The "Contact:" directive MUST
    always be present in a security.txt file.  URIs SHOULD be loaded over
    HTTPS.  Security email addresses SHOULD use the conventions defined
    in section 4 of [RFC2142], but there is no requirement for this
@@ -198,11 +194,9 @@ Internet-Draft     A Method for Web Security Policies      December 2017
    method of contact.  In the example below, the e-mail address is the
    preferred method of contact.
 
-   <CODE BEGINS>
    Contact: security@example.com
    Contact: +1-201-555-0123
-   Contact: https://example.com/security
-   <CODE ENDS>
+   Contact: https://example.com/security-contact.html
 
 2.4.  Encryption:
 
@@ -211,12 +205,18 @@ Internet-Draft     A Method for Web Security Policies      December 2017
    be a link to a page which contains your key.  Keys SHOULD be loaded
    over HTTPS.
 
-   <CODE BEGINS>
    Encryption: https://example.com/pgp-key.txt
-   <CODE ENDS>
 
+2.5.  Signature:
 
+   In order to ensure the authenticty of the security.txt file one
+   SHOULD use the "Signature:" directive, which allows you to link to an
+   external signature.  External signature files should be named
+   "security.txt.sig" and also be placed under the /.well-known/ path.
 
+   Here is an example of an external signature file.
+
+   Signature: https://example.com/.well-known/security.txt.sig
 
 
 
@@ -226,40 +226,23 @@ Foudil & Shafranovich     Expires June 27, 2018                 [Page 4]
 Internet-Draft     A Method for Web Security Policies      December 2017
 
 
-2.5.  Signature:
+2.6.  Policy:
 
-   In order to ensure the authenticty of the security.txt file one
-   SHOULD use the "Signature:" directive, which allows you to link to an
-   external signature or to directly include the signature in the file.
-   External signature files should be named "security.txt.sig" and also
-   be placed under the /.well-known/ path.
+   With the Policy directive you can link to where your security policy
+   and/or disclosure policy is located.  This can help security
+   researchers understand what you are looking for and how to report
+   security vulnerabilities.
 
-   Here is an example of an external signature file.
+   Policy: https://example.com/security-policy.html
 
-   <CODE BEGINS>
-   Signature: https://example.com/.well-known/security.txt.sig
-   <CODE ENDS>
-
-   Here is an example inline signature.
-
-   <CODE BEGINS>
-   Signature:
-   -----BEGIN PGP SIGNATURE-----
-
-   ...
-   -----END PGP SIGNATURE-----
-   <CODE ENDS>
-
-2.6.  Acknowledgement:
+2.7.  Acknowledgement:
 
    This directive allows you to link to a page where security
    researchers are recognized for their reports.  The page should list
    individuals or companies that disclosed security vulnerabilities and
    worked with you to remediate the issue.
 
-   <CODE BEGINS>
    Acknowledgement: https://example.com/hall-of-fame.html
-   <CODE ENDS>
 
    Example security acknowledgements page:
 
@@ -269,6 +252,23 @@ Internet-Draft     A Method for Web Security Policies      December 2017
    (2017-01-02) Alice Quinn  - SQL injection
    (2016-12-24) John Buchner - Stored cross-site scripting
    (2016-06-10) Anna Richmond - A server configuration issue
+
+2.8.  Example
+
+   # Our security address
+   Contact: security@example.com
+
+   # Our PGP key
+   Encryption: https://example.com/pgp-key.txt
+
+   # Our security policy
+   Encryption: https://example.com/security-policy.html
+
+   # Our security acknowledgements page
+   Acknowledgement: https://example.com/hall-of-fame.html
+
+   # Verify this security.txt file
+   Signature: https://example.com/.well-known/security.txt.sig
 
 
 
@@ -282,23 +282,29 @@ Foudil & Shafranovich     Expires June 27, 2018                 [Page 5]
 Internet-Draft     A Method for Web Security Policies      December 2017
 
 
-2.7.  Example
-
-   <CODE BEGINS>
-   # Our security address
-   Contact: security@example.com
-
-   # Our PGP key
-   Encryption: https://example.com/pgp-key.txt
-
-   # Our security acknowledgements page
-   Acknowledgement: https://example.com/hall-of-fame.html
-
-   # Verify this security.txt file
-   Signature: https://example.com/.well-known/security.txt.sig
-   <CODE ENDS>
-
 3.  Location of the security.txt file
+
+                             External
+   +---------------------------------------------------------------+
+   |              Default                                          |
+   |  +-----------------------------+          +----------------+  |
+   |  |                             | Redirect |                |  |
+   |  |  /.well-known/security.txt  <----------+  security.txt  |  |
+   |  |                             |          |                |  |
+   |  +-----------------------------+          +----------------+  |
+   |                                                               |
+   +---------------------------------------------------------------+
+
+           Internal
+   +------------------------+
+   |                        |
+   |  +------------------+  |
+   |  |                  |  |
+   |  |  /.security.txt  |  |
+   |  |                  |  |
+   |  +------------------+  |
+   |                        |
+   +------------------------+
 
 3.1.  Web-based services
 
@@ -311,25 +317,19 @@ Internet-Draft     A Method for Web Security Policies      December 2017
    File systems SHOULD place the security.txt file under the root
    directory; e.g. /.security.txt, C:.security.txt.
 
-   <CODE BEGINS>
-   .
-   &#9500;&#9472;&#9472; .security.txt
-   &#9500;&#9472;&#9472; example-directory-1
-   &#9500;&#9472;&#9472; example-directory-2
-   &#9500;&#9472;&#9472; example-directory-3
-   &#9492;&#9472;&#9472; example-file
-   <CODE ENDS>
+   user:/$ l
+   .security.txt
+   example-directory-1/
+   example-directory-2/
+   example-directory-3/
+   example-file
 
 3.3.  Internal hosts
 
    A .security.txt file SHOULD be placed in the root directory of an
    internal host to trigger incident response.
 
-3.4.  Extensibility
 
-   Like many other formats and protocols, this format may need to be
-   extended over time to fit the ever-changing landscape of the
-   Internet.  Therefore, extensibility is provided via an IANA registry
 
 
 
@@ -338,6 +338,11 @@ Foudil & Shafranovich     Expires June 27, 2018                 [Page 6]
 Internet-Draft     A Method for Web Security Policies      December 2017
 
 
+3.4.  Extensibility
+
+   Like many other formats and protocols, this format may need to be
+   extended over time to fit the ever-changing landscape of the
+   Internet.  Therefore, extensibility is provided via an IANA registry
    for headers fields as defined in Section 6.2.  Any fields registered
    via that process MUST be considered optional.  In order to encourage
    extensibility and interoperability, implementors MUST ignore any
@@ -374,18 +379,13 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
    encryption-field = "Encryption" fs SP uri
 
+   signature-field = "Signature" fs SP uri
+
+   policy-field = "Policy" fs SP uri
+
    acknowledgement-field = "Acknowledgement" fs SP uri
 
    ext-field = field-name fs SP unstructured
-
-   field-name = <as per section 3.6.8 of [RFC5322]>
-
-   unstructured = <as per section 3.2.5 of [RFC5322]>
-
-   "ext-field" refers to extension fields, which are discussed in
-   Section 3.4
-
-
 
 
 
@@ -393,6 +393,13 @@ Foudil & Shafranovich     Expires June 27, 2018                 [Page 7]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
+
+   field-name = <as per section 3.6.8 of [RFC5322]>
+
+   unstructured = <as per section 3.2.5 of [RFC5322]>
+
+   "ext-field" refers to extension fields, which are discussed in
+   Section 3.4
 
 5.  Security considerations
 
@@ -435,13 +442,6 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
    New registrations or updates MUST be published in accordance with the
    "Specification Required" guidelines as described in section 4.6 of
-   [RFC8126].  Any new field thus registered is considered optional by
-   this specification unless a new version of this specification is
-   published.
-
-   New registrations and updates MUST contain the following information:
-
-   1.  Name of the field being registered or updated
 
 
 
@@ -449,6 +449,14 @@ Foudil & Shafranovich     Expires June 27, 2018                 [Page 8]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
+
+   [RFC8126].  Any new field thus registered is considered optional by
+   this specification unless a new version of this specification is
+   published.
+
+   New registrations and updates MUST contain the following information:
+
+   1.  Name of the field being registered or updated
 
    2.  Short description of the field
 
@@ -465,6 +473,38 @@ Internet-Draft     A Method for Web Security Policies      December 2017
    that a registered field is historic or deprecated if appropriate.
 
    The initial registry contains these values:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Foudil & Shafranovich     Expires June 27, 2018                 [Page 9]
+
+Internet-Draft     A Method for Web Security Policies      December 2017
+
 
    Field Name: Acknowledgment
    Description: link to page where security researchers are recognized
@@ -490,6 +530,12 @@ Internet-Draft     A Method for Web Security Policies      December 2017
    Published in: this document
    Status: current
 
+   Field Name: Policy
+   Description: link to security policy page
+   Multiple Appearances: No
+   Published in: this document
+   Status: current
+
 7.  Contributors
 
    The editor would like to acknowledge the help provided during the
@@ -497,14 +543,6 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
    o  Tom Hudson helped writing the "File Format Description" and wrote
       several security.txt parsers.
-
-
-
-
-Foudil & Shafranovich     Expires June 27, 2018                 [Page 9]
-
-Internet-Draft     A Method for Web Security Policies      December 2017
-
 
    o  Joel Margolis was a big help when it came to wording this document
       appropriately.
@@ -516,6 +554,13 @@ Internet-Draft     A Method for Web Security Policies      December 2017
       times.
 
    o  Austin Heap for helping improve the Internet drafts.
+
+
+
+Foudil & Shafranovich     Expires June 27, 2018                [Page 10]
+
+Internet-Draft     A Method for Web Security Policies      December 2017
+
 
    o  Justin Calmus was always there to answer questions related to
       writing this document.
@@ -555,13 +600,6 @@ Internet-Draft     A Method for Web Security Policies      December 2017
               DOI 10.17487/RFC5234, January 2008, <https://www.rfc-
               editor.org/info/rfc5234>.
 
-
-
-Foudil & Shafranovich     Expires June 27, 2018                [Page 10]
-
-Internet-Draft     A Method for Web Security Policies      December 2017
-
-
    [RFC5322]  Resnick, P., Ed., "Internet Message Format", RFC 5322,
               DOI 10.17487/RFC5322, October 2008, <https://www.rfc-
               editor.org/info/rfc5322>.
@@ -569,6 +607,16 @@ Internet-Draft     A Method for Web Security Policies      December 2017
    [RFC5735]  Cotton, M. and L. Vegoda, "Special Use IPv4 Addresses",
               RFC 5735, DOI 10.17487/RFC5735, January 2010,
               <https://www.rfc-editor.org/info/rfc5735>.
+
+
+
+
+
+
+Foudil & Shafranovich     Expires June 27, 2018                [Page 11]
+
+Internet-Draft     A Method for Web Security Policies      December 2017
+
 
    [RFC5785]  Nottingham, M. and E. Hammer-Lahav, "Defining Well-Known
               Uniform Resource Identifiers (URIs)", RFC 5785,
@@ -613,4 +661,12 @@ Authors' Addresses
 
 
 
-Foudil & Shafranovich     Expires June 27, 2018                [Page 11]
+
+
+
+
+
+
+
+
+Foudil & Shafranovich     Expires June 27, 2018                [Page 12]

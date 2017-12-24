@@ -89,9 +89,7 @@ http://192.0.2.0/.well-known/security.txt
 Comments can be added using the # symbol:
 
 ~~~~~~~~~~
-<CODE BEGINS>
 # This is a comment.
-<CODE ENDS>
 ~~~~~~~~~~
 
 You MAY use one or more comments as descriptive text immediately
@@ -104,11 +102,11 @@ A separate line is required for every new value and field. You MUST
 NOT chain everything in to a single field. Every line must end with
 a line feed character (%x0A).
 
-## Contact:
+## Contact: {#contact}
 
 Add an address that researchers MAY use for reporting security
 issues. The value can be an email address, a phone number and/or a
-security page with more information. The "Contact:" directive MUST
+contact page with more information. The "Contact:" directive MUST
 always be present in a security.txt file. URIs SHOULD be loaded over
 HTTPS. Security email addresses SHOULD use the conventions defined
 in section 4 of {{!RFC2142}}, but there is no requirement for this directive
@@ -119,11 +117,9 @@ method of contact. In the example below, the e-mail address is
 the preferred method of contact.
 
 ~~~~~~~~~~
-<CODE BEGINS>
 Contact: security@example.com
 Contact: +1-201-555-0123
-Contact: https://example.com/security
-<CODE ENDS>
+Contact: https://example.com/security-contact.html
 ~~~~~~~~~~
 
 ## Encryption: {#encryption}
@@ -134,48 +130,37 @@ MUST be a link to a page which contains your key. Keys SHOULD be
 loaded over HTTPS.
 
 ~~~~~~~~~~
-<CODE BEGINS>
 Encryption: https://example.com/pgp-key.txt
-<CODE ENDS>
 ~~~~~~~~~~
 
-## Signature:
+## Signature: {#signature}
 
 In order to ensure the authenticty of the security.txt file one SHOULD use the
-"Signature:" directive, which allows you to link to an external signature or
-to directly include the signature in the file. External signature files should be
+"Signature:" directive, which allows you to link to an external signature. External signature files should be
 named "security.txt.sig" and also be placed under the /.well-known/ path.
 
 Here is an example of an external signature file.
 
 ~~~~~~~~~~
-<CODE BEGINS>
 Signature: https://example.com/.well-known/security.txt.sig
-<CODE ENDS>
 ~~~~~~~~~~
 
-Here is an example inline signature.
+## Policy: {#policy}
+
+With the Policy directive you can link to where your security policy and/or disclosure policy is located. This can help security researchers understand what you are looking for and how to report security vulnerabilities.
 
 ~~~~~~~~~~
-<CODE BEGINS>
-Signature:
------BEGIN PGP SIGNATURE-----
-
-...
------END PGP SIGNATURE-----
-<CODE ENDS>
+Policy: https://example.com/security-policy.html
 ~~~~~~~~~~
 
-## Acknowledgement:
+## Acknowledgement: {#acknowledgement}
 
 This directive allows you to link to a page where security
 researchers are recognized for their reports. The page should list individuals or companies
 that disclosed security vulnerabilities and worked with you to remediate the issue.
 
 ~~~~~~~~~~
-<CODE BEGINS>
 Acknowledgement: https://example.com/hall-of-fame.html
-<CODE ENDS>
 ~~~~~~~~~~
 
 Example security acknowledgements page:
@@ -192,22 +177,47 @@ We would like to thank the following researchers:
 ## Example
 
 ~~~~~~~~~~
-<CODE BEGINS>
 # Our security address
 Contact: security@example.com
 
 # Our PGP key
 Encryption: https://example.com/pgp-key.txt
 
+# Our security policy
+Encryption: https://example.com/security-policy.html
+
 # Our security acknowledgements page
 Acknowledgement: https://example.com/hall-of-fame.html
 
 # Verify this security.txt file
 Signature: https://example.com/.well-known/security.txt.sig
-<CODE ENDS>
 ~~~~~~~~~~
 
 # Location of the security.txt file
+
+~~~~~~~~~~
+                          External
++---------------------------------------------------------------+
+|              Default                                          |
+|  +-----------------------------+          +----------------+  |
+|  |                             | Redirect |                |  |
+|  |  /.well-known/security.txt  <----------+  security.txt  |  |
+|  |                             |          |                |  |
+|  +-----------------------------+          +----------------+  |
+|                                                               |
++---------------------------------------------------------------+
+
+        Internal
++------------------------+
+|                        |
+|  +------------------+  |
+|  |                  |  |
+|  |  /.security.txt  |  |
+|  |                  |  |
+|  +------------------+  |
+|                        |
++------------------------+
+~~~~~~~~~~
 
 ## Web-based services
 
@@ -218,14 +228,12 @@ Web-based services SHOULD place the security.txt file under the /.well-known/ pa
 File systems SHOULD place the security.txt file under the root directory; e.g. /.security.txt, C:\.security.txt.
 
 ~~~~~~~~~~
-<CODE BEGINS>
-.
-├── .security.txt
-├── example-directory-1
-├── example-directory-2
-├── example-directory-3
-└── example-file
-<CODE ENDS>
+user:/$ l
+.security.txt
+example-directory-1/
+example-directory-2/
+example-directory-3/
+example-file
 ~~~~~~~~~~
 
 ## Internal hosts
@@ -273,6 +281,10 @@ phone                  = "+" *1(DIGIT / "-" / "(" / ")" / SP)
 uri                    = <URI as per {{!RFC3986}}>
 
 encryption-field       = "Encryption" fs SP uri
+
+signature-field        = "Signature" fs SP uri
+
+policy-field           = "Policy" fs SP uri
 
 acknowledgement-field  = "Acknowledgement" fs SP uri
 
@@ -366,6 +378,12 @@ The initial registry contains these values:
 
        Field Name: Signature
        Description: signature used to verify the authenticity of the file
+       Multiple Appearances: No
+       Published in: this document
+       Status: current
+
+       Field Name: Policy
+       Description: link to security policy page
        Multiple Appearances: No
        Published in: this document
        Status: current

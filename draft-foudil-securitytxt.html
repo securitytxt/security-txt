@@ -284,8 +284,9 @@ address {
 <link href="#rfc.section.2.3" rel="Chapter" title="2.3 Contact:"/>
 <link href="#rfc.section.2.4" rel="Chapter" title="2.4 Encryption:"/>
 <link href="#rfc.section.2.5" rel="Chapter" title="2.5 Signature:"/>
-<link href="#rfc.section.2.6" rel="Chapter" title="2.6 Acknowledgement:"/>
-<link href="#rfc.section.2.7" rel="Chapter" title="2.7 Example"/>
+<link href="#rfc.section.2.6" rel="Chapter" title="2.6 Policy:"/>
+<link href="#rfc.section.2.7" rel="Chapter" title="2.7 Acknowledgement:"/>
+<link href="#rfc.section.2.8" rel="Chapter" title="2.8 Example"/>
 <link href="#rfc.section.3" rel="Chapter" title="3 Location of the security.txt file"/>
 <link href="#rfc.section.3.1" rel="Chapter" title="3.1 Web-based services"/>
 <link href="#rfc.section.3.2" rel="Chapter" title="3.2 File systems"/>
@@ -378,8 +379,9 @@ address {
 <li>2.3.   <a href="#rfc.section.2.3">Contact:</a></li>
 <li>2.4.   <a href="#rfc.section.2.4">Encryption:</a></li>
 <li>2.5.   <a href="#rfc.section.2.5">Signature:</a></li>
-<li>2.6.   <a href="#rfc.section.2.6">Acknowledgement:</a></li>
-<li>2.7.   <a href="#rfc.section.2.7">Example</a></li>
+<li>2.6.   <a href="#rfc.section.2.6">Policy:</a></li>
+<li>2.7.   <a href="#rfc.section.2.7">Acknowledgement:</a></li>
+<li>2.8.   <a href="#rfc.section.2.8">Example</a></li>
 </ul><li>3.   <a href="#rfc.section.3">Location of the security.txt file</a></li>
 <ul><li>3.1.   <a href="#rfc.section.3.1">Web-based services</a></li>
 <li>3.2.   <a href="#rfc.section.3.2">File systems</a></li>
@@ -422,56 +424,41 @@ http://192.0.2.0/.well-known/security.txt
 <h1 id="rfc.section.2.1"><a href="#rfc.section.2.1">2.1.</a> <a href="#comments" id="comments">Comments</a></h1>
 <p id="rfc.section.2.1.p.1">Comments can be added using the # symbol:</p>
 <pre>
-&lt;CODE BEGINS&gt;
 # This is a comment.
-&lt;CODE ENDS&gt;
 </pre>
 <p id="rfc.section.2.1.p.2">You MAY use one or more comments as descriptive text immediately before the field. Parsers can then associate the comments with the respective field.</p>
 <h1 id="rfc.section.2.2"><a href="#rfc.section.2.2">2.2.</a> <a href="#separate-fields" id="separate-fields">Separate Fields</a></h1>
 <p id="rfc.section.2.2.p.1">A separate line is required for every new value and field. You MUST NOT chain everything in to a single field. Every line must end with a line feed character (%x0A).</p>
 <h1 id="rfc.section.2.3"><a href="#rfc.section.2.3">2.3.</a> <a href="#contact" id="contact">Contact:</a></h1>
-<p id="rfc.section.2.3.p.1">Add an address that researchers MAY use for reporting security issues. The value can be an email address, a phone number and/or a security page with more information. The &#8220;Contact:&#8221; directive MUST always be present in a security.txt file. URIs SHOULD be loaded over HTTPS. Security email addresses SHOULD use the conventions defined in section 4 of <a href="#RFC2142">[RFC2142]</a>, but there is no requirement for this directive to be an email address.</p>
+<p id="rfc.section.2.3.p.1">Add an address that researchers MAY use for reporting security issues. The value can be an email address, a phone number and/or a contact page with more information. The &#8220;Contact:&#8221; directive MUST always be present in a security.txt file. URIs SHOULD be loaded over HTTPS. Security email addresses SHOULD use the conventions defined in section 4 of <a href="#RFC2142">[RFC2142]</a>, but there is no requirement for this directive to be an email address.</p>
 <p id="rfc.section.2.3.p.2">The precedence is in listed order. The first field is the preferred method of contact. In the example below, the e-mail address is the preferred method of contact.</p>
 <pre>
-&lt;CODE BEGINS&gt;
 Contact: security@example.com
 Contact: +1-201-555-0123
-Contact: https://example.com/security
-&lt;CODE ENDS&gt;
+Contact: https://example.com/security-contact.html
 </pre>
 <h1 id="rfc.section.2.4"><a href="#rfc.section.2.4">2.4.</a> <a href="#encryption" id="encryption">Encryption:</a></h1>
 <p id="rfc.section.2.4.p.1">This directive allows you to add your key for encrypted communication. You MUST NOT directly add your key. The value MUST be a link to a page which contains your key. Keys SHOULD be loaded over HTTPS.</p>
 <pre>
-&lt;CODE BEGINS&gt;
 Encryption: https://example.com/pgp-key.txt
-&lt;CODE ENDS&gt;
 </pre>
 <h1 id="rfc.section.2.5"><a href="#rfc.section.2.5">2.5.</a> <a href="#signature" id="signature">Signature:</a></h1>
-<p id="rfc.section.2.5.p.1">In order to ensure the authenticty of the security.txt file one SHOULD use the &#8220;Signature:&#8221; directive, which allows you to link to an external signature or to directly include the signature in the file. External signature files should be named &#8220;security.txt.sig&#8221; and also be placed under the /.well-known/ path.</p>
+<p id="rfc.section.2.5.p.1">In order to ensure the authenticty of the security.txt file one SHOULD use the &#8220;Signature:&#8221; directive, which allows you to link to an external signature. External signature files should be named &#8220;security.txt.sig&#8221; and also be placed under the /.well-known/ path.</p>
 <p id="rfc.section.2.5.p.2">Here is an example of an external signature file.</p>
 <pre>
-&lt;CODE BEGINS&gt;
 Signature: https://example.com/.well-known/security.txt.sig
-&lt;CODE ENDS&gt;
 </pre>
-<p id="rfc.section.2.5.p.3">Here is an example inline signature.</p>
+<h1 id="rfc.section.2.6"><a href="#rfc.section.2.6">2.6.</a> <a href="#policy" id="policy">Policy:</a></h1>
+<p id="rfc.section.2.6.p.1">With the Policy directive you can link to where your security policy and/or disclosure policy is located. This can help security researchers understand what you are looking for and how to report security vulnerabilities.</p>
 <pre>
-&lt;CODE BEGINS&gt;
-Signature:
------BEGIN PGP SIGNATURE-----
-
-...
------END PGP SIGNATURE-----
-&lt;CODE ENDS&gt;
+Policy: https://example.com/security-policy.html
 </pre>
-<h1 id="rfc.section.2.6"><a href="#rfc.section.2.6">2.6.</a> <a href="#acknowledgement" id="acknowledgement">Acknowledgement:</a></h1>
-<p id="rfc.section.2.6.p.1">This directive allows you to link to a page where security researchers are recognized for their reports. The page should list individuals or companies that disclosed security vulnerabilities and worked with you to remediate the issue.</p>
+<h1 id="rfc.section.2.7"><a href="#rfc.section.2.7">2.7.</a> <a href="#acknowledgement" id="acknowledgement">Acknowledgement:</a></h1>
+<p id="rfc.section.2.7.p.1">This directive allows you to link to a page where security researchers are recognized for their reports. The page should list individuals or companies that disclosed security vulnerabilities and worked with you to remediate the issue.</p>
 <pre>
-&lt;CODE BEGINS&gt;
 Acknowledgement: https://example.com/hall-of-fame.html
-&lt;CODE ENDS&gt;
 </pre>
-<p id="rfc.section.2.6.p.2">Example security acknowledgements page:</p>
+<p id="rfc.section.2.7.p.2">Example security acknowledgements page:</p>
 <pre>
 We would like to thank the following researchers:
 
@@ -480,36 +467,58 @@ We would like to thank the following researchers:
 (2016-12-24) John Buchner - Stored cross-site scripting
 (2016-06-10) Anna Richmond - A server configuration issue
 </pre>
-<h1 id="rfc.section.2.7"><a href="#rfc.section.2.7">2.7.</a> <a href="#example" id="example">Example</a></h1>
+<h1 id="rfc.section.2.8"><a href="#rfc.section.2.8">2.8.</a> <a href="#example" id="example">Example</a></h1>
 <pre>
-&lt;CODE BEGINS&gt;
 # Our security address
 Contact: security@example.com
 
 # Our PGP key
 Encryption: https://example.com/pgp-key.txt
 
+# Our security policy
+Encryption: https://example.com/security-policy.html
+
 # Our security acknowledgements page
 Acknowledgement: https://example.com/hall-of-fame.html
 
 # Verify this security.txt file
 Signature: https://example.com/.well-known/security.txt.sig
-&lt;CODE ENDS&gt;
 </pre>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#location-of-the-securitytxt-file" id="location-of-the-securitytxt-file">Location of the security.txt file</a></h1>
+<pre>
+                          External
++---------------------------------------------------------------+
+|              Default                                          |
+|  +-----------------------------+          +----------------+  |
+|  |                             | Redirect |                |  |
+|  |  /.well-known/security.txt  &lt;----------+  security.txt  |  |
+|  |                             |          |                |  |
+|  +-----------------------------+          +----------------+  |
+|                                                               |
++---------------------------------------------------------------+
+
+        Internal
++------------------------+
+|                        |
+|  +------------------+  |
+|  |                  |  |
+|  |  /.security.txt  |  |
+|  |                  |  |
+|  +------------------+  |
+|                        |
++------------------------+
+</pre>
 <h1 id="rfc.section.3.1"><a href="#rfc.section.3.1">3.1.</a> <a href="#web-based-services" id="web-based-services">Web-based services</a></h1>
 <p id="rfc.section.3.1.p.1">Web-based services SHOULD place the security.txt file under the /.well-known/ path; e.g. https://example.com/.well-known/security.txt.</p>
 <h1 id="rfc.section.3.2"><a href="#rfc.section.3.2">3.2.</a> <a href="#file-systems" id="file-systems">File systems</a></h1>
 <p id="rfc.section.3.2.p.1">File systems SHOULD place the security.txt file under the root directory; e.g. /.security.txt, C:.security.txt.</p>
 <pre>
-&lt;CODE BEGINS&gt;
-.
-&#9500;&#9472;&#9472; .security.txt
-&#9500;&#9472;&#9472; example-directory-1
-&#9500;&#9472;&#9472; example-directory-2
-&#9500;&#9472;&#9472; example-directory-3
-&#9492;&#9472;&#9472; example-file
-&lt;CODE ENDS&gt;
+user:/$ l
+.security.txt
+example-directory-1/
+example-directory-2/
+example-directory-3/
+example-file
 </pre>
 <h1 id="rfc.section.3.3"><a href="#rfc.section.3.3">3.3.</a> <a href="#internal-hosts" id="internal-hosts">Internal hosts</a></h1>
 <p id="rfc.section.3.3.p.1">A .security.txt file SHOULD be placed in the root directory of an internal host to trigger incident response.</p>
@@ -529,11 +538,13 @@ Signature: https://example.com/.well-known/security.txt.sig
 <p id="rfc.section.4.p.11">phone                  = &#8220;+&#8221; *1(DIGIT / &#8220;-&#8220; / &#8220;(&#8220; / &#8220;)&#8221; / SP)</p>
 <p id="rfc.section.4.p.12">uri                    = &lt;URI as per <a href="#RFC3986">[RFC3986]</a>&gt;</p>
 <p id="rfc.section.4.p.13">encryption-field       = &#8220;Encryption&#8221; fs SP uri</p>
-<p id="rfc.section.4.p.14">acknowledgement-field  = &#8220;Acknowledgement&#8221; fs SP uri</p>
-<p id="rfc.section.4.p.15">ext-field              = field-name fs SP unstructured</p>
-<p id="rfc.section.4.p.16">field-name             = &lt;as per section 3.6.8 of <a href="#RFC5322">[RFC5322]</a>&gt;</p>
-<p id="rfc.section.4.p.17">unstructured           = &lt;as per section 3.2.5 of <a href="#RFC5322">[RFC5322]</a>&gt;</p>
-<p id="rfc.section.4.p.18">&#8220;ext-field&#8221; refers to extension fields, which are discussed in <a href="#extensibility">Section 3.4</a></p>
+<p id="rfc.section.4.p.14">signature-field        = &#8220;Signature&#8221; fs SP uri</p>
+<p id="rfc.section.4.p.15">policy-field           = &#8220;Policy&#8221; fs SP uri</p>
+<p id="rfc.section.4.p.16">acknowledgement-field  = &#8220;Acknowledgement&#8221; fs SP uri</p>
+<p id="rfc.section.4.p.17">ext-field              = field-name fs SP unstructured</p>
+<p id="rfc.section.4.p.18">field-name             = &lt;as per section 3.6.8 of <a href="#RFC5322">[RFC5322]</a>&gt;</p>
+<p id="rfc.section.4.p.19">unstructured           = &lt;as per section 3.2.5 of <a href="#RFC5322">[RFC5322]</a>&gt;</p>
+<p id="rfc.section.4.p.20">&#8220;ext-field&#8221; refers to extension fields, which are discussed in <a href="#extensibility">Section 3.4</a></p>
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#security-considerations" id="security-considerations">Security considerations</a></h1>
 <p id="rfc.section.5.p.1">Companies creating security.txt files will need to take several security-related issues into consideration. These include exposure of sensitive information and attacks where limited access to a server could grant the ability to modify the contents of the security.txt file or affect how it is served.</p>
 <p id="rfc.section.5.p.2">As stated in <a href="#encryption">Section 2.4</a>, keys specified using the &#8220;Encryption:&#8221; directive SHOULD be loaded over HTTPS.</p>
@@ -582,6 +593,12 @@ Signature: https://example.com/.well-known/security.txt.sig
 
    Field Name: Signature
    Description: signature used to verify the authenticity of the file
+   Multiple Appearances: No
+   Published in: this document
+   Status: current
+
+   Field Name: Policy
+   Description: link to security policy page
    Multiple Appearances: No
    Published in: this document
    Status: current
