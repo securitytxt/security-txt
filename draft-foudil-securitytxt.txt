@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: June 27, 2018                          Nightwatch Cybersecurity
-                                                       December 24, 2017
+Expires: June 28, 2018                          Nightwatch Cybersecurity
+                                                       December 25, 2017
 
 
                    A Method for Web Security Policies
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on June 27, 2018.
+   This Internet-Draft will expire on June 28, 2018.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich     Expires June 27, 2018                 [Page 1]
+Foudil & Shafranovich     Expires June 28, 2018                 [Page 1]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -67,7 +67,7 @@ Table of Contents
      1.1.  Motivation  . . . . . . . . . . . . . . . . . . . . . . .   2
      1.2.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   3
    2.  The Specification . . . . . . . . . . . . . . . . . . . . . .   3
-     2.1.  Comments  . . . . . . . . . . . . . . . . . . . . . . . .   3
+     2.1.  Comments  . . . . . . . . . . . . . . . . . . . . . . . .   4
      2.2.  Separate Fields . . . . . . . . . . . . . . . . . . . . .   4
      2.3.  Contact:  . . . . . . . . . . . . . . . . . . . . . . . .   4
      2.4.  Encryption: . . . . . . . . . . . . . . . . . . . . . . .   4
@@ -77,20 +77,24 @@ Table of Contents
      2.8.  Example . . . . . . . . . . . . . . . . . . . . . . . . .   5
    3.  Location of the security.txt file . . . . . . . . . . . . . .   6
      3.1.  Web-based services  . . . . . . . . . . . . . . . . . . .   6
-     3.2.  File systems  . . . . . . . . . . . . . . . . . . . . . .   6
-     3.3.  Internal hosts  . . . . . . . . . . . . . . . . . . . . .   6
+     3.2.  File systems  . . . . . . . . . . . . . . . . . . . . . .   7
+     3.3.  Internal hosts  . . . . . . . . . . . . . . . . . . . . .   7
      3.4.  Extensibility . . . . . . . . . . . . . . . . . . . . . .   7
    4.  File Format Description . . . . . . . . . . . . . . . . . . .   7
    5.  Security considerations . . . . . . . . . . . . . . . . . . .   8
    6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   8
-     6.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .   8
-     6.2.  Registry for security.txt Header Fields . . . . . . . . .   8
+     6.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .   9
+     6.2.  Registry for security.txt Header Fields . . . . . . . . .   9
    7.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  10
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  11
      8.1.  Normative References  . . . . . . . . . . . . . . . . . .  11
      8.2.  Informative References  . . . . . . . . . . . . . . . . .  12
      8.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  12
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  12
+   Appendix A.  Note to Readers  . . . . . . . . . . . . . . . . . .  12
+   Appendix B.  Document History . . . . . . . . . . . . . . . . . .  12
+     B.1.  Since draft-foudil-securitytxt-00 . . . . . . . . . . . .  12
+     B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  13
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  13
 
 1.  Introduction
 
@@ -102,18 +106,18 @@ Table of Contents
    in this process by making it easier for companies to designate the
    preferred steps for researchers to take when trying to reach out.
 
-   As per section 4 of [RFC2142], there is an existing convention of
-   using the SECURITY@domain [1] email address for communications
-   regarding security issues.  That convention provides only a single,
-   email-based channel of communication for security issues per domain,
 
 
 
-Foudil & Shafranovich     Expires June 27, 2018                 [Page 2]
+Foudil & Shafranovich     Expires June 28, 2018                 [Page 2]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
 
+   As per section 4 of [RFC2142], there is an existing convention of
+   using the SECURITY@domain [1] email address for communications
+   regarding security issues.  That convention provides only a single,
+   email-based channel of communication for security issues per domain,
    and does not provide a way for domain owners to publish information
    about their security disclosure policies.
 
@@ -156,19 +160,21 @@ Internet-Draft     A Method for Web Security Policies      December 2017
    # This security.txt file applies to 192.0.2.0.
    http://192.0.2.0/.well-known/security.txt
 
+
+
+
+
+
+Foudil & Shafranovich     Expires June 28, 2018                 [Page 3]
+
+Internet-Draft     A Method for Web Security Policies      December 2017
+
+
 2.1.  Comments
 
    Comments can be added using the # symbol:
 
    # This is a comment.
-
-
-
-
-Foudil & Shafranovich     Expires June 27, 2018                 [Page 3]
-
-Internet-Draft     A Method for Web Security Policies      December 2017
-
 
    You MAY use one or more comments as descriptive text immediately
    before the field.  Parsers can then associate the comments with the
@@ -212,19 +218,20 @@ Internet-Draft     A Method for Web Security Policies      December 2017
    In order to ensure the authenticty of the security.txt file one
    SHOULD use the "Signature:" directive, which allows you to link to an
    external signature.  External signature files should be named
+
+
+
+Foudil & Shafranovich     Expires June 28, 2018                 [Page 4]
+
+Internet-Draft     A Method for Web Security Policies      December 2017
+
+
    "security.txt.sig" and also be placed under the /.well-known/ path.
+   External signature files SHOULD be loaded over HTTPS.
 
    Here is an example of an external signature file.
 
    Signature: https://example.com/.well-known/security.txt.sig
-
-
-
-
-Foudil & Shafranovich     Expires June 27, 2018                 [Page 4]
-
-Internet-Draft     A Method for Web Security Policies      December 2017
-
 
 2.6.  Policy:
 
@@ -255,6 +262,26 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 2.8.  Example
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Foudil & Shafranovich     Expires June 28, 2018                 [Page 5]
+
+Internet-Draft     A Method for Web Security Policies      December 2017
+
+
    # Our security address
    Contact: security@example.com
 
@@ -269,18 +296,6 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
    # Verify this security.txt file
    Signature: https://example.com/.well-known/security.txt.sig
-
-
-
-
-
-
-
-
-Foudil & Shafranovich     Expires June 27, 2018                 [Page 5]
-
-Internet-Draft     A Method for Web Security Policies      December 2017
-
 
 3.  Location of the security.txt file
 
@@ -312,6 +327,17 @@ Internet-Draft     A Method for Web Security Policies      December 2017
    /.well-known/ path; e.g. https://example.com/.well-known/
    security.txt.
 
+
+
+
+
+
+
+Foudil & Shafranovich     Expires June 28, 2018                 [Page 6]
+
+Internet-Draft     A Method for Web Security Policies      December 2017
+
+
 3.2.  File systems
 
    File systems SHOULD place the security.txt file under the root
@@ -328,15 +354,6 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
    A .security.txt file SHOULD be placed in the root directory of an
    internal host to trigger incident response.
-
-
-
-
-
-Foudil & Shafranovich     Expires June 27, 2018                 [Page 6]
-
-Internet-Draft     A Method for Web Security Policies      December 2017
-
 
 3.4.  Extensibility
 
@@ -369,6 +386,14 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
    comment = "#" *(WSP / VCHAR / %xA0-E007F)
 
+
+
+
+Foudil & Shafranovich     Expires June 28, 2018                 [Page 7]
+
+Internet-Draft     A Method for Web Security Policies      December 2017
+
+
    contact-field = "Contact" fs SP (email / uri / phone)
 
    email = <Email address as per [RFC5322]>
@@ -387,13 +412,6 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
    ext-field = field-name fs SP unstructured
 
-
-
-Foudil & Shafranovich     Expires June 27, 2018                 [Page 7]
-
-Internet-Draft     A Method for Web Security Policies      December 2017
-
-
    field-name = <as per section 3.6.8 of [RFC5322]>
 
    unstructured = <as per section 3.2.5 of [RFC5322]>
@@ -403,17 +421,19 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 5.  Security considerations
 
-   Companies creating security.txt files will need to take several
+   Organizations creating security.txt files will need to take several
    security-related issues into consideration.  These include exposure
    of sensitive information and attacks where limited access to a server
    could grant the ability to modify the contents of the security.txt
-   file or affect how it is served.
+   file or affect how it is served.  Organizations SHOULD also monitor
+   their security.txt files regularly to detect tampering.
 
-   As stated in Section 2.4, keys specified using the "Encryption:"
-   directive SHOULD be loaded over HTTPS.
+   To ensure the authenticity of the security.txt file, organizations
+   SHOULD sign the file and include the signature using the "Signature:"
+   directive.
 
-   To ensure the authenticity of the security.txt file one should sign
-   the file and include the signature using the "Signature:" directive.
+   As stated in Section 2.4 and Section 2.5, both encryption keys and
+   external signature files SHOULD be loaded over HTTPS.
 
 6.  IANA Considerations
 
@@ -422,6 +442,13 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
    192.0.2.0 is used in this document following the uses indicated in
    [RFC5735].
+
+
+
+Foudil & Shafranovich     Expires June 28, 2018                 [Page 8]
+
+Internet-Draft     A Method for Web Security Policies      December 2017
+
 
 6.1.  Well-Known URIs registry
 
@@ -442,14 +469,6 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
    New registrations or updates MUST be published in accordance with the
    "Specification Required" guidelines as described in section 4.6 of
-
-
-
-Foudil & Shafranovich     Expires June 27, 2018                 [Page 8]
-
-Internet-Draft     A Method for Web Security Policies      December 2017
-
-
    [RFC8126].  Any new field thus registered is considered optional by
    this specification unless a new version of this specification is
    published.
@@ -482,26 +501,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Foudil & Shafranovich     Expires June 27, 2018                 [Page 9]
+Foudil & Shafranovich     Expires June 28, 2018                 [Page 9]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -557,7 +557,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-Foudil & Shafranovich     Expires June 27, 2018                [Page 10]
+Foudil & Shafranovich     Expires June 28, 2018                [Page 10]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -613,7 +613,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-Foudil & Shafranovich     Expires June 27, 2018                [Page 11]
+Foudil & Shafranovich     Expires June 28, 2018                [Page 11]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -633,6 +633,69 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 8.3.  URIs
 
    [1] mailto:SECURITY@domain
+
+Appendix A.  Note to Readers
+
+      *Note to the RFC Editor:* Please remove this section prior to
+      publication.
+
+   Development of this draft takes place on Github at:
+   https://github.com/securitytxt/security-txt
+
+Appendix B.  Document History
+
+      *Note to the RFC Editor:* Please remove this section prior to
+      publication.
+
+B.1.  Since draft-foudil-securitytxt-00
+
+   o  Moved to use IETF's markdown tools for draft updates
+
+   o  Added table of contents and a fuller list of references
+
+   o  Moved file to .well-known URI and added IANA registration (#3)
+
+   o  Added extensibility with an IANA registry for fields (#34)
+
+   o  Added text explaining relationship to RFC 2142 / security@ email
+      address (#25)
+
+   o  Scope expanded to include internal hosts, domains, IP addresses
+      and file systems
+
+   o  Support for digital signatures added (#19)
+
+
+
+
+
+Foudil & Shafranovich     Expires June 28, 2018                [Page 12]
+
+Internet-Draft     A Method for Web Security Policies      December 2017
+
+
+   Full list of changes can be viewed via the IETF document tracker:
+   https://tools.ietf.org/html/draft-foudil-securitytxt-01
+
+B.2.  Since draft-foudil-securitytxt-01
+
+   o  Added appendix with pointer to Github and document history
+
+   o  Added external signature file to the well known URI registry (#59)
+
+   o  Added policy field (#53)
+
+   o  Added diagram explaining the location of the file on public vs.
+      internal systems
+
+   o  Added recommendation that external signature files should use
+      HTTPS (#55)
+
+   o  Added recommendation that organizations should monitor their
+      security.txt files (#14)
+
+   Full list of changes can be viewed via the IETF document tracker:
+   https://tools.ietf.org/html/draft-foudil-securitytxt-02
 
 Authors' Addresses
 
@@ -662,11 +725,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-Foudil & Shafranovich     Expires June 27, 2018                [Page 12]
+Foudil & Shafranovich     Expires June 28, 2018                [Page 13]
