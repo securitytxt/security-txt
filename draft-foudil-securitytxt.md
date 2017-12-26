@@ -138,6 +138,7 @@ Encryption: https://example.com/pgp-key.txt
 In order to ensure the authenticty of the security.txt file one SHOULD use the
 "Signature:" directive, which allows you to link to an external signature. External signature files should be
 named "security.txt.sig" and also be placed under the /.well-known/ path.
+External signature files SHOULD be loaded over HTTPS.
 
 Here is an example of an external signature file.
 
@@ -298,18 +299,19 @@ unstructured           = <as per section 3.2.5 of {{!RFC5322}}>
 
 # Security considerations
 
-Companies creating security.txt files will need to take several
+Organizations creating security.txt files will need to take several
 security-related issues into consideration. These include exposure
 of sensitive information and attacks where limited access to a server
 could grant the ability to modify the contents of the security.txt
-file or affect how it is served.
+file or affect how it is served. Organizations SHOULD also monitor
+their security.txt files regularly to detect tampering.
 
-As stated in {{encryption}}, keys specified using the "Encryption:"
-directive SHOULD be loaded over HTTPS.
-
-To ensure the authenticity of the security.txt file one should
+To ensure the authenticity of the security.txt file, organizations SHOULD
 sign the file and include the signature using the "Signature:"
 directive.
+
+As stated in {{encryption}} and {{signature}}, both encryption keys
+and external signature files SHOULD be loaded over HTTPS.
 
 # IANA Considerations
 
@@ -405,3 +407,39 @@ using certain directives.
 this document.
 * Casey Ellis had several ideas related to security.txt that helped
 shape security.txt itself.
+
+--- back
+# Note to Readers
+
+> **Note to the RFC Editor:**  Please remove this section prior
+> to publication.
+
+Development of this draft takes place on Github at: https://github.com/securitytxt/security-txt
+
+# Document History
+
+> **Note to the RFC Editor:**  Please remove this section prior
+> to publication.
+
+## Since draft-foudil-securitytxt-00
+- Moved to use IETF's markdown tools for draft updates
+- Added table of contents and a fuller list of references
+- Moved file to .well-known URI and added IANA registration (#3)
+- Added extensibility with an IANA registry for fields (#34)
+- Added text explaining relationship to RFC 2142 / security@ email address (#25)
+- Scope expanded to include internal hosts, domains, IP addresses and file systems
+- Support for digital signatures added (#19)
+
+Full list of changes can be viewed via the IETF document tracker:
+https://tools.ietf.org/html/draft-foudil-securitytxt-01
+
+## Since draft-foudil-securitytxt-01
+- Added appendix with pointer to Github and document history
+- Added external signature file to the well known URI registry (#59)
+- Added policy field (#53)
+- Added diagram explaining the location of the file on public vs. internal systems
+- Added recommendation that external signature files should use HTTPS (#55)
+- Added recommendation that organizations should monitor their security.txt files (#14)
+
+Full list of changes can be viewed via the IETF document tracker:
+https://tools.ietf.org/html/draft-foudil-securitytxt-02
