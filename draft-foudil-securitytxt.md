@@ -112,6 +112,10 @@ HTTPS. Security email addresses SHOULD use the conventions defined
 in section 4 of {{!RFC2142}}, but there is no requirement for this directive
 to be an email address.
 
+While URIs already include ability to have both email address and phone
+numbers via "mailto" and "tel" prefixes, allowing this information to be listed
+without a prefix is intended for ease of use and readability.
+
 The precedence is in listed order. The first field is the preferred
 method of contact. In the example below, the e-mail address is
 the preferred method of contact.
