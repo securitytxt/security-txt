@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: June 29, 2018                          Nightwatch Cybersecurity
-                                                       December 26, 2017
+Expires: June 30, 2018                          Nightwatch Cybersecurity
+                                                       December 27, 2017
 
 
                    A Method for Web Security Policies
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on June 29, 2018.
+   This Internet-Draft will expire on June 30, 2018.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich     Expires June 29, 2018                 [Page 1]
+Foudil & Shafranovich     Expires June 30, 2018                 [Page 1]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Foudil & Shafranovich     Expires June 29, 2018                 [Page 2]
+Foudil & Shafranovich     Expires June 30, 2018                 [Page 2]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -165,7 +165,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-Foudil & Shafranovich     Expires June 29, 2018                 [Page 3]
+Foudil & Shafranovich     Expires June 30, 2018                 [Page 3]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -196,7 +196,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
    in section 4 of [RFC2142], but there is no requirement for this
    directive to be an email address.
 
-   While URIs already include ability to have both email address and
+   While URIs already include the ability to have both email address and
    phone numbers via "mailto" and "tel" prefixes, allowing this
    information to be listed without a prefix is intended for ease of use
    and readability.
@@ -221,7 +221,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-Foudil & Shafranovich     Expires June 29, 2018                 [Page 4]
+Foudil & Shafranovich     Expires June 30, 2018                 [Page 4]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -277,7 +277,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-Foudil & Shafranovich     Expires June 29, 2018                 [Page 5]
+Foudil & Shafranovich     Expires June 30, 2018                 [Page 5]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -333,7 +333,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-Foudil & Shafranovich     Expires June 29, 2018                 [Page 6]
+Foudil & Shafranovich     Expires June 30, 2018                 [Page 6]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -389,7 +389,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-Foudil & Shafranovich     Expires June 29, 2018                 [Page 7]
+Foudil & Shafranovich     Expires June 30, 2018                 [Page 7]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -445,7 +445,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-Foudil & Shafranovich     Expires June 29, 2018                 [Page 8]
+Foudil & Shafranovich     Expires June 30, 2018                 [Page 8]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -501,7 +501,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-Foudil & Shafranovich     Expires June 29, 2018                 [Page 9]
+Foudil & Shafranovich     Expires June 30, 2018                 [Page 9]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -557,7 +557,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-Foudil & Shafranovich     Expires June 29, 2018                [Page 10]
+Foudil & Shafranovich     Expires June 30, 2018                [Page 10]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -613,7 +613,7 @@ Internet-Draft     A Method for Web Security Policies      December 2017
 
 
 
-Foudil & Shafranovich     Expires June 29, 2018                [Page 11]
+Foudil & Shafranovich     Expires June 30, 2018                [Page 11]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -669,7 +669,7 @@ B.1.  Since draft-foudil-securitytxt-00
 
 
 
-Foudil & Shafranovich     Expires June 29, 2018                [Page 12]
+Foudil & Shafranovich     Expires June 30, 2018                [Page 12]
 
 Internet-Draft     A Method for Web Security Policies      December 2017
 
@@ -725,4 +725,4 @@ Authors' Addresses
 
 
 
-Foudil & Shafranovich     Expires June 29, 2018                [Page 13]
+Foudil & Shafranovich     Expires June 30, 2018                [Page 13]

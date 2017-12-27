@@ -112,7 +112,7 @@ HTTPS. Security email addresses SHOULD use the conventions defined
 in section 4 of {{!RFC2142}}, but there is no requirement for this directive
 to be an email address.
 
-While URIs already include ability to have both email address and phone
+While URIs already include the ability to have both email address and phone
 numbers via "mailto" and "tel" prefixes, allowing this information to be listed
 without a prefix is intended for ease of use and readability.
 
