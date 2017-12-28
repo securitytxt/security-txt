@@ -455,7 +455,9 @@ Internet-Draft     A Method for Web Security Policies      December 2017
    The "Well-Known URIs" registry should be updated with the following
    additional values (using the template from [RFC5785]):
 
-   URI suffix: security.txt URI suffix: security.txt.sig
+   URI suffix: security.txt
+
+   URI suffix: security.txt.sig
 
    Change controller: IETF
 
@@ -492,8 +494,6 @@ Internet-Draft     A Method for Web Security Policies      December 2017
    that a registered field is historic or deprecated if appropriate.
 
    The initial registry contains these values:
-
-
 
 
 

@@ -331,6 +331,7 @@ The "Well-Known URIs" registry should be updated with the following additional
 values (using the template from {{?RFC5785}}):
 
 URI suffix: security.txt
+
 URI suffix: security.txt.sig
 
 Change controller: IETF
