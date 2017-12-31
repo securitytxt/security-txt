@@ -40,7 +40,7 @@ the preferred steps for researchers to take when trying to reach out.
 As per section 4 of {{!RFC2142}}, there is an existing convention
 of using the <SECURITY@domain> email address for communications regarding
 security issues. That convention provides only a single, email-based
-a channel of communication for security issues per domain, and does not provide
+channel of communication for security issues per domain, and does not provide
 a way for domain owners to publish information about their security disclosure
 policies.
 
