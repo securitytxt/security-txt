@@ -52,3 +52,9 @@ Use the GitHub issue search — check if the issue has already been reported.
 The security.txt project accepts donations via [Liberapay](https://liberapay.com/). The money is used to pay bounties to individuals who report valid security vulnerabilities in the security.txt project.
 
 <a href="https://liberapay.com/security.txt/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
+
+We also accept Bitcoin and Ethereum donations:
+
+**BTC:** `1E2fZRNrrkCKPnWpKZAsJzByBoyoBURADN`
+
+**ETH:** `0xe98FC23fB4A8762d700c0354979dA5Db6c29Acc3`
