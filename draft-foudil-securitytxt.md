@@ -55,12 +55,18 @@ In this document, the key words "MUST", "MUST NOT", "REQUIRED",
 "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY",
 and "OPTIONAL" are to be interpreted as described in {{!RFC2119}}.
 
+# Note to Readers
+
+> **Note to the RFC Editor:**  Please remove this section prior
+> to publication.
+
+Development of this draft takes place on Github at: https://github.com/securitytxt/security-txt
+
 # The Specification
 
-security.txt is a text file that should be located under the
+security.txt is a text file that SHOULD be located under the
 /.well-known/ path ("/.well-known/security.txt") {{!RFC5785}} for web
-properties. For file systems and version control repositories a .security.txt
-file should be placed in the root directory. This text file contains 4 directives
+properties. A security.txt file located under the website's top-level directory can either redirect to the security.txt file located under the /.well-known/ path or be used as a fall back. For web-based services, the instructions must be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain;charset=utf8" {{!RFC1590}}. For file systems and version control repositories a .security.txt file SHOULD be placed in the root directory. This text file contains 4 directives
 with different values. The "directive" is the first part of a field all the way up
 to the colon ("Contact:"). Directives are case-insensitive. The
 "value" comes after the directive ("https://example.com/security").
@@ -70,8 +76,7 @@ can have an unlimited number of fields. It is important to note that
 you need a separate line for every field. One MUST NOT chain multiple
 values for a single directive. Everything MUST be in a separate field.
 
-A security.txt file only applies to the domain, subdomain, IPv4 or IPv6 address
-it is located in.
+A security.txt file only applies to the domain in the URI used to retrieve it, not to any of its subdomains or parent domains.
 
 ~~~~~~~~~~
 # The following only applies to example.com.
@@ -112,17 +117,15 @@ HTTPS. Security email addresses SHOULD use the conventions defined
 in section 4 of {{!RFC2142}}, but there is no requirement for this directive
 to be an email address.
 
-While URIs already include the ability to have both email address and phone
-numbers via "mailto" and "tel" prefixes, allowing this information to be listed
-without a prefix is intended for ease of use and readability.
+The value MUST follow the general syntax described in {{!RFC3986}}. This means that "mailto" and "tel" URI schemes are required.
 
 The precedence is in listed order. The first field is the preferred
 method of contact. In the example below, the e-mail address is
 the preferred method of contact.
 
 ~~~~~~~~~~
-Contact: security@example.com
-Contact: +1-201-555-0123
+Contact: mailto:security@example.com
+Contact: tel:+1-201-555-0123
 Contact: https://example.com/security-contact.html
 ~~~~~~~~~~
 
@@ -140,7 +143,7 @@ Encryption: https://example.com/pgp-key.txt
 ## Signature: {#signature}
 
 In order to ensure the authenticty of the security.txt file one SHOULD use the
-"Signature:" directive, which allows you to link to an external signature. External signature files should be
+"Signature:" directive, which allows you to link to an external signature. External signature files SHOULD be
 named "security.txt.sig" and also be placed under the /.well-known/ path.
 External signature files SHOULD be loaded over HTTPS.
 
@@ -183,13 +186,13 @@ We would like to thank the following researchers:
 
 ~~~~~~~~~~
 # Our security address
-Contact: security@example.com
+Contact: mailto:security@example.com
 
 # Our PGP key
 Encryption: https://example.com/pgp-key.txt
 
 # Our security policy
-Encryption: https://example.com/security-policy.html
+Policy: https://example.com/security-policy.html
 
 # Our security acknowledgements page
 Acknowledgement: https://example.com/hall-of-fame.html
@@ -202,15 +205,15 @@ Signature: https://example.com/.well-known/security.txt.sig
 
 ~~~~~~~~~~
                           External
-+---------------------------------------------------------------+
-|              Default                                          |
-|  +-----------------------------+          +----------------+  |
-|  |                             | Redirect |                |  |
-|  |  /.well-known/security.txt  <----------+  security.txt  |  |
-|  |                             |          |                |  |
-|  +-----------------------------+          +----------------+  |
-|                                                               |
-+---------------------------------------------------------------+
++----------------------------------------------------------------+
+|              Default                                           |
+|  +-----------------------------+          +-----------------+  |
+|  |                             | Redirect |                 |  |
+|  |  /.well-known/security.txt  <----------+  /security.txt  |  |
+|  |                             |          |                 |  |
+|  +-----------------------------+          +-----------------+  |
+|                                                                |
++----------------------------------------------------------------+
 
         Internal
 +------------------------+
@@ -226,7 +229,7 @@ Signature: https://example.com/.well-known/security.txt.sig
 
 ## Web-based services
 
-Web-based services SHOULD place the security.txt file under the /.well-known/ path; e.g. https://example.com/.well-known/security.txt.
+Web-based services SHOULD place the security.txt file under the /.well-known/ path; e.g. https://example.com/.well-known/security.txt. A security.txt file located under the top-level path SHOULD either redirect to the security.txt file under the /.well-known/ path or be used as a fall back.
 
 ## File systems
 
@@ -257,11 +260,12 @@ implementors MUST ignore any fields they do not explicitly support.
 # File Format Description
 
 The expected file format of the security.txt file is plain text as defined
-in section 4.1.3 of {{!RFC2046}} and encoded in UTF-8.
+in section 4.1.3 of {{!RFC2046}} and follow {{!RFC5198}}.
 
 The following is an ABNF definition of the security.txt format, using
 the conventions defined in {{!RFC5234}}.
 
+~~~~~~~~~~
 body                   = *line (contact-field eol) *line
 
 line                   = *1(field / comment) eol
@@ -300,6 +304,7 @@ field-name             = <as per section 3.6.8 of {{!RFC5322}}>
 unstructured           = <as per section 3.2.5 of {{!RFC5322}}>
 
 "ext-field" refers to extension fields, which are discussed in {{extensibility}}
+~~~~~~~~~~
 
 # Security considerations
 
@@ -316,6 +321,8 @@ directive.
 
 As stated in {{encryption}} and {{signature}}, both encryption keys
 and external signature files SHOULD be loaded over HTTPS.
+
+Web services MUST reserve the security.txt namespace to ensure no third-party can create a page with the "security.txt" name.
 
 # IANA Considerations
 
@@ -413,12 +420,6 @@ this document.
 shape security.txt itself.
 
 --- back
-# Note to Readers
-
-> **Note to the RFC Editor:**  Please remove this section prior
-> to publication.
-
-Development of this draft takes place on Github at: https://github.com/securitytxt/security-txt
 
 # Document History
 
@@ -444,6 +445,16 @@ https://tools.ietf.org/html/draft-foudil-securitytxt-01
 - Added diagram explaining the location of the file on public vs. internal systems
 - Added recommendation that external signature files should use HTTPS (#55)
 - Added recommendation that organizations should monitor their security.txt files (#14)
+
+Full list of changes can be viewed via the IETF document tracker:
+https://tools.ietf.org/html/draft-foudil-securitytxt-02
+
+## Since draft-foudil-securitytxt-01
+- Use "mailto" and "tel" (#62)
+- Fix typo in the "Example" section (#64)
+- Clarified that the root directory is a fall back option (#72)
+- Defined content-type for the response (#68)
+- Clarify the scope of the security.txt file (#69)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt-02
