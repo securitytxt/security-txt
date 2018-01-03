@@ -94,7 +94,7 @@ Table of Contents
    Appendix A.  Document History . . . . . . . . . . . . . . . . . .  12
      A.1.  Since draft-foudil-securitytxt-00 . . . . . . . . . . . .  13
      A.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  13
-     A.3.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  13
+     A.3.  Since draft-foudil-securitytxt-02 . . . . . . . . . . . .  13
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  14
 
 1.  Introduction
@@ -715,7 +715,7 @@ A.2.  Since draft-foudil-securitytxt-01
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt-02
 
-A.3.  Since draft-foudil-securitytxt-01
+A.3.  Since draft-foudil-securitytxt-02
 
    o  Use "mailto" and "tel" (#62)
 
@@ -735,7 +735,7 @@ Internet-Draft     A Method for Web Security Policies       January 2018
    o  Clarify the scope of the security.txt file (#69)
 
    Full list of changes can be viewed via the IETF document tracker:
-   https://tools.ietf.org/html/draft-foudil-securitytxt-02
+   https://tools.ietf.org/html/draft-foudil-securitytxt-03
 
 Authors' Addresses
 

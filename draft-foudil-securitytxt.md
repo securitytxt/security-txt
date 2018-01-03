@@ -449,7 +449,7 @@ https://tools.ietf.org/html/draft-foudil-securitytxt-01
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt-02
 
-## Since draft-foudil-securitytxt-01
+## Since draft-foudil-securitytxt-02
 - Use "mailto" and "tel" (#62)
 - Fix typo in the "Example" section (#64)
 - Clarified that the root directory is a fall back option (#72)
@@ -457,4 +457,4 @@ https://tools.ietf.org/html/draft-foudil-securitytxt-02
 - Clarify the scope of the security.txt file (#69)
 
 Full list of changes can be viewed via the IETF document tracker:
-https://tools.ietf.org/html/draft-foudil-securitytxt-02
+https://tools.ietf.org/html/draft-foudil-securitytxt-03
