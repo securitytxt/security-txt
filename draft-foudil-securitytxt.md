@@ -1,6 +1,6 @@
 ---
 title: A Method for Web Security Policies
-docname: draft-foudil-securitytxt-02
+docname: draft-foudil-securitytxt-03
 ipr: trust200902
 cat: info
 pi:

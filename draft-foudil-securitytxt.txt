@@ -10,7 +10,7 @@ Expires: July 7, 2018                           Nightwatch Cybersecurity
 
 
                    A Method for Web Security Policies
-                      draft-foudil-securitytxt-02
+                      draft-foudil-securitytxt-03
 
 Abstract
 
