@@ -41,7 +41,7 @@ To maintain an orderly, productive, and fun environment, the _security.txt_ proj
 - Be respectful.
 - Be cautious with how you word things. Our goal is to remain professional.
 - When we disagree, try to understand why.
-- Direct contributions will only be accepted from indiviuls <sup>[[1]](https://en.oxforddictionaries.com/definition/individual)</sup>. The _security.txt_ project will not accept contributions in the name of an organisation. This is to ensure that the specifications and tools remain as neutral as possible.
+- Direct contributions to the specification will only be accepted from indiviuls <sup>[[1]](https://en.oxforddictionaries.com/definition/individual)</sup>. The _security.txt_ project will not accept contributions to the specification in the name of an organisation. This is to ensure that the specifications and tools remain as neutral as possible.
 - Registering an account on any service in the name of the _security.txt_ project must be clearly communicated via the team first. Only verified accounts on the _security.txt_ project's [Keybase account](https://keybase.io/securitytxtkey) are affiliated with the project.
 
 # Contributing
