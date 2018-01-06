@@ -18,7 +18,7 @@ The Internet draft for security.txt can be found here: https://tools.ietf.org/ht
 
 ---
 
-# Team
+# Contributors
 
 | [<img src="https://avatars3.githubusercontent.com/u/18099289?s=460&v=4" width="110px;"/><br /><sub>EdOverflow</sub>](https://github.com/orgs/securitytxt/people/edoverflow)<br />[💻](# "Dev") [🚇](# "Infrastructure") [📖](# "Documentation") [🔒](# "Security") [🐛](# "Bug reports") [🎨](# "Design") [👀](# "Reviewer") [✉️](# "Contact") [🕷](# "Crawler") |  [<img src="https://avatars0.githubusercontent.com/u/58276?s=460&v=4" width="110px;"/><br /><sub>TomNomNom</sub>](https://github.com/tomnomnom)<br />[💻](# "Dev") [🚇](# "Infrastructure") [📖](# "Documentation") [👀](# "Reviewer") | [<img src="https://avatars0.githubusercontent.com/u/2267004?s=460&v=4" width="110px;"/><br /><sub>Joel Margolis</sub>](https://github.com/teknogeek)<br />[📖](# "Documentation") [👀](# "Reviewer") | [<img src="https://avatars0.githubusercontent.com/u/156693?s=460&v=4" width="110px;"/><br /><sub>Jobert Abma</sub>](https://github.com/orgs/securitytxt/people/jobertabma)<br />[📖](# "Documentation") [🐛](# "Bug reports") [👀](# "Reviewer") [✉️](# "Contact") | [<img src="https://avatars2.githubusercontent.com/u/29304477?s=460&v=4" width="110px;"/><br /><sub>GerbenJavado</sub>](https://github.com/gerbenjavado)<br />[📖](# "Documentation") | [<img src="https://avatars1.githubusercontent.com/u/1505646?s=460&v=4" width="110px;"/><br /><sub>Justin Calmus</sub>](https://github.com/sumlac)<br />[📖](# "Documentation") [✉️](# "Contact") | [<img src="https://avatars3.githubusercontent.com/u/1253956?s=460&v=4" width="110px;"/><br /><sub>Casey Ellis</sub>](https://github.com/caseyjohnellis)<br />[📖](# "Documentation") |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -32,6 +32,17 @@ The main purpose of `security.txt` is to help make things easier for companies a
 **Is `security.txt` supposed to replace bug bounty platforms?**
 
 No. Security.txt is supposed to accompany them.
+
+# Code of conduct
+
+To maintain an orderly, productive, and fun environment, the _security.txt_ project have a few guidelines that we ask people to adhere to when they are participating in contributing to the project. These guidelines apply equally to everyone within the _security.txt_ project. Likewise, they apply to all spaces managed by the _security.txt_ project, both online and offline. This includes GitHub repositories, chat rooms, in-person events, and any other communication channels.
+
+- Be welcoming, friendly, patient, and kind.
+- Be respectful.
+- Be cautious with how you word things. Our goal is to remain professional.
+- When we disagree, try to understand why.
+- Direct contributions will only be accepted from indiviuls <sup>[[1]](https://en.oxforddictionaries.com/definition/individual)</sup>. The _security.txt_ project will not accept contributions in the name of an organisation. This is to ensure that the specifications and tools remain as neutral as possible.
+- Registering an account on any service in the name of the _security.txt_ project must be clearly communicated via the team first. Only verified accounts on the _security.txt_ project's [Keybase account](https://keybase.io/securitytxtkey) are affiliated with the project.
 
 # Contributing
 
