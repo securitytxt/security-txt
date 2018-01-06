@@ -158,14 +158,14 @@ With the Policy directive, you can link to where your security policy and/or dis
 Policy: https://example.com/security-policy.html
 ~~~~~~~~~~
 
-## Acknowledgement: {#acknowledgement}
+## Acknowledgments: {#Acknowledgments}
 
 This directive allows you to link to a page where security
 researchers are recognized for their reports. The page should list individuals or companies
 that disclosed security vulnerabilities and worked with you to remediate the issue.
 
 ~~~~~~~~~~
-Acknowledgement: https://example.com/hall-of-fame.html
+Acknowledgments: https://example.com/hall-of-fame.html
 ~~~~~~~~~~
 
 Example security acknowledgments page:
@@ -192,7 +192,7 @@ Encryption: https://example.com/pgp-key.txt
 Encryption: https://example.com/security-policy.html
 
 # Our security acknowledgments page
-Acknowledgement: https://example.com/hall-of-fame.html
+Acknowledgments: https://example.com/hall-of-fame.html
 
 # Verify this security.txt file
 Signature: https://example.com/.well-known/security.txt.sig
@@ -270,7 +270,7 @@ eol                    = *WSP \[CR\] LF
 
 field                  = contact-field /
                          encryption-field /
-                         acknowledgement-field /
+                         Acknowledgments-field /
                          ext-field
 
 fs                     = ":"
@@ -291,7 +291,7 @@ signature-field        = "Signature" fs SP uri
 
 policy-field           = "Policy" fs SP uri
 
-acknowledgement-field  = "Acknowledgement" fs SP uri
+Acknowledgments-field  = "Acknowledgments" fs SP uri
 
 ext-field              = field-name fs SP unstructured
 
