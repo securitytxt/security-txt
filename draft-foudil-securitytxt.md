@@ -20,10 +20,10 @@ author:
 --- abstract
 When security risks in web services are discovered by independent
 security researchers who understand the severity of the risk, they
-often lack the channels to properly disclose them. As a result,
+often lack the channels to disclose them properly. As a result,
 security issues may be left unreported. security.txt defines a
-standard to help organizations define the process for security
-researchers to securely disclose security vulnerabilities.
+standard to help organizations describe the process for security
+researchers to disclose security vulnerabilities securely.
 
 --- middle
 
@@ -104,7 +104,7 @@ respective field.
 ## Separate Fields
 
 A separate line is required for every new value and field. You MUST
-NOT chain everything in to a single field. Every line must end with
+NOT chain everything into a single field. Every line must end with
 a line feed character (%x0A).
 
 ## Contact: {#contact}
@@ -155,23 +155,23 @@ Signature: https://example.com/.well-known/security.txt.sig
 
 ## Policy: {#policy}
 
-With the Policy directive you can link to where your security policy and/or disclosure policy is located. This can help security researchers understand what you are looking for and how to report security vulnerabilities.
+With the Policy directive, you can link to where your security policy and/or disclosure policy is located. This can help security researchers understand what you are looking for and how to report security vulnerabilities.
 
 ~~~~~~~~~~
 Policy: https://example.com/security-policy.html
 ~~~~~~~~~~
 
-## Acknowledgement: {#acknowledgement}
+## Acknowledgments: {#Acknowledgments}
 
 This directive allows you to link to a page where security
 researchers are recognized for their reports. The page should list individuals or companies
 that disclosed security vulnerabilities and worked with you to remediate the issue.
 
 ~~~~~~~~~~
-Acknowledgement: https://example.com/hall-of-fame.html
+Acknowledgments: https://example.com/hall-of-fame.html
 ~~~~~~~~~~
 
-Example security acknowledgements page:
+Example security acknowledgments page:
 
 ~~~~~~~~~~
 We would like to thank the following researchers:
@@ -194,8 +194,8 @@ Encryption: https://example.com/pgp-key.txt
 # Our security policy
 Policy: https://example.com/security-policy.html
 
-# Our security acknowledgements page
-Acknowledgement: https://example.com/hall-of-fame.html
+# Our security acknowledgments page
+Acknowledgments: https://example.com/hall-of-fame.html
 
 # Verify this security.txt file
 Signature: https://example.com/.well-known/security.txt.sig
@@ -231,9 +231,9 @@ Signature: https://example.com/.well-known/security.txt.sig
 
 Web-based services SHOULD place the security.txt file under the /.well-known/ path; e.g. https://example.com/.well-known/security.txt. A security.txt file located under the top-level path SHOULD either redirect to the security.txt file under the /.well-known/ path or be used as a fall back.
 
-## File systems
+## Filesystems
 
-File systems SHOULD place the security.txt file under the root directory; e.g. /.security.txt, C:\.security.txt.
+File systems SHOULD place the security.txt file under the root directory; e.g., /.security.txt, C:\.security.txt.
 
 ~~~~~~~~~~
 user:/$ l
@@ -254,7 +254,7 @@ Like many other formats and protocols, this format may need to be extended
 over time to fit the ever-changing landscape of the Internet. Therefore,
 extensibility is provided via an IANA registry for headers fields as defined
 in {{registry}}. Any fields registered via that process MUST be
-considered optional. In order to encourage extensibility and interoperability,
+considered optional. To encourage extensibility and interoperability,
 implementors MUST ignore any fields they do not explicitly support.
 
 # File Format Description
@@ -274,7 +274,7 @@ eol                    = *WSP \[CR\] LF
 
 field                  = contact-field /
                          encryption-field /
-                         acknowledgement-field /
+                         acknowledgments-field /
                          ext-field
 
 fs                     = ":"
@@ -295,7 +295,7 @@ signature-field        = "Signature" fs SP uri
 
 policy-field           = "Policy" fs SP uri
 
-acknowledgement-field  = "Acknowledgement" fs SP uri
+Acknowledgments-field  = "Acknowledgments" fs SP uri
 
 ext-field              = field-name fs SP unstructured
 
@@ -308,9 +308,9 @@ unstructured           = <as per section 3.2.5 of {{!RFC5322}}>
 
 # Security considerations
 
-Organizations creating security.txt files will need to take several
-security-related issues into consideration. These include exposure
-of sensitive information and attacks where limited access to a server
+Organizations creating security.txt files will need to consider several
+security-related issues. These include exposure
+to sensitive information and attacks where limited access to a server
 could grant the ability to modify the contents of the security.txt
 file or affect how it is served. Organizations SHOULD also monitor
 their security.txt files regularly to detect tampering.
@@ -363,11 +363,11 @@ New registrations and updates MUST contain the following information:
    4.  The document in which the specification of the field is published
    5.  New or updated status, which MUST be one of:
        current:  The field is in current use
-       deprecated:  The field is in current use but its use is discouraged
+       deprecated:  The field is in current use, but its use is discouraged
        historic:  The field is no longer in current use
 
 An update may make a notation on an existing registration indicating
-that a registered field is historic or deprecated if appropriate.
+that a registered field is historical or deprecated if appropriate.
 
 The initial registry contains these values:
 
@@ -420,6 +420,12 @@ this document.
 shape security.txt itself.
 
 --- back
+# Note to Readers
+
+> **Note to the RFC Editor:**  Please remove this section prior
+> to publication.
+
+Development of this draft takes place on Github at https://github.com/securitytxt/security-txt
 
 # Document History
 
@@ -435,7 +441,7 @@ shape security.txt itself.
 - Scope expanded to include internal hosts, domains, IP addresses and file systems
 - Support for digital signatures added (#19)
 
-Full list of changes can be viewed via the IETF document tracker:
+The full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt-01
 
 ## Since draft-foudil-securitytxt-01
@@ -446,7 +452,7 @@ https://tools.ietf.org/html/draft-foudil-securitytxt-01
 - Added recommendation that external signature files should use HTTPS (#55)
 - Added recommendation that organizations should monitor their security.txt files (#14)
 
-Full list of changes can be viewed via the IETF document tracker:
+The full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt-02
 
 ## Since draft-foudil-securitytxt-02
