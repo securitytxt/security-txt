@@ -270,7 +270,7 @@ eol                    = *WSP \[CR\] LF
 
 field                  = contact-field /
                          encryption-field /
-                         Acknowledgments-field /
+                         acknowledgments-field /
                          ext-field
 
 fs                     = ":"
