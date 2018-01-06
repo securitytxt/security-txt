@@ -66,7 +66,9 @@ Development of this draft takes place on Github at: https://github.com/securityt
 
 security.txt is a text file that SHOULD be located under the
 /.well-known/ path ("/.well-known/security.txt") {{!RFC5785}} for web
-properties. A security.txt file located under the website's top-level directory can either redirect to the security.txt file located under the /.well-known/ path or be used as a fall back. For web-based services, the instructions must be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain;charset=utf8" {{!RFC1590}}. For file systems and version control repositories a .security.txt file SHOULD be placed in the root directory. This text file contains 4 directives
+properties. If it is not possible to place the security.txt file in the /.well-known/ path or setup a redirect, web-based services MAY place the file in the top-level path as a fall back option. For web-based services, the instructions must be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}. For file systems and version control repositories a .security.txt file SHOULD be placed in the root directory. 
+
+This text file contains multiple directives
 with different values. The "directive" is the first part of a field all the way up
 to the colon ("Contact:"). Directives are case-insensitive. The
 "value" comes after the directive ("https://example.com/security").
@@ -76,7 +78,7 @@ can have an unlimited number of fields. It is important to note that
 you need a separate line for every field. One MUST NOT chain multiple
 values for a single directive. Everything MUST be in a separate field.
 
-A security.txt file only applies to the domain in the URI used to retrieve it, not to any of its subdomains or parent domains.
+A security.txt file MUST only apply to the domain in the URI used to retrieve it, not to any of its subdomains or parent domains.
 
 ~~~~~~~~~~
 # The following only applies to example.com.
@@ -117,7 +119,7 @@ HTTPS. Security email addresses SHOULD use the conventions defined
 in section 4 of {{!RFC2142}}, but there is no requirement for this directive
 to be an email address.
 
-The value MUST follow the general syntax described in {{!RFC3986}}. This means that "mailto" and "tel" URI schemes are required.
+The value MUST follow the general syntax described in {{!RFC3986}}. This means that "mailto" and "tel" URI schemes MUST be used when specifying email addresses and telephone numbers.
 
 The precedence is in listed order. The first field is the preferred
 method of contact. In the example below, the e-mail address is
@@ -259,8 +261,8 @@ implementors MUST ignore any fields they do not explicitly support.
 
 # File Format Description
 
-The expected file format of the security.txt file is plain text as defined
-in section 4.1.3 of {{!RFC2046}} and follow {{!RFC5198}}.
+The expected file format of the security.txt file is plain text (MIME type "text/plain") as defined
+in section 4.1.3 of {{!RFC2046}} and is encoded using UTF-8 {{!RFC3629}} in Net-Unicode form {{!RFC5198}}.
 
 The following is an ABNF definition of the security.txt format, using
 the conventions defined in {{!RFC5234}}.

@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: July 7, 2018                           Nightwatch Cybersecurity
-                                                        January 03, 2018
+Expires: July 10, 2018                          Nightwatch Cybersecurity
+                                                        January 06, 2018
 
 
                    A Method for Web Security Policies
@@ -16,10 +16,10 @@ Abstract
 
    When security risks in web services are discovered by independent
    security researchers who understand the severity of the risk, they
-   often lack the channels to properly disclose them.  As a result,
+   often lack the channels to disclose them properly.  As a result,
    security issues may be left unreported. security.txt defines a
-   standard to help organizations define the process for security
-   researchers to securely disclose security vulnerabilities.
+   standard to help organizations describe the process for security
+   researchers to disclose security vulnerabilities securely.
 
 Status of This Memo
 
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 7, 2018.
+   This Internet-Draft will expire on July 10, 2018.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich     Expires July 7, 2018                  [Page 1]
+Foudil & Shafranovich     Expires July 10, 2018                 [Page 1]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -74,11 +74,11 @@ Table of Contents
      3.4.  Encryption: . . . . . . . . . . . . . . . . . . . . . . .   5
      3.5.  Signature:  . . . . . . . . . . . . . . . . . . . . . . .   5
      3.6.  Policy: . . . . . . . . . . . . . . . . . . . . . . . . .   5
-     3.7.  Acknowledgement:  . . . . . . . . . . . . . . . . . . . .   5
+     3.7.  Acknowledgments:  . . . . . . . . . . . . . . . . . . . .   5
      3.8.  Example . . . . . . . . . . . . . . . . . . . . . . . . .   6
    4.  Location of the security.txt file . . . . . . . . . . . . . .   6
-     4.1.  Web-based services  . . . . . . . . . . . . . . . . . . .   6
-     4.2.  File systems  . . . . . . . . . . . . . . . . . . . . . .   7
+     4.1.  Web-based services  . . . . . . . . . . . . . . . . . . .   7
+     4.2.  Filesystems . . . . . . . . . . . . . . . . . . . . . . .   7
      4.3.  Internal hosts  . . . . . . . . . . . . . . . . . . . . .   7
      4.4.  Extensibility . . . . . . . . . . . . . . . . . . . . . .   7
    5.  File Format Description . . . . . . . . . . . . . . . . . . .   7
@@ -91,10 +91,11 @@ Table of Contents
      9.1.  Normative References  . . . . . . . . . . . . . . . . . .  11
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  12
      9.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  12
-   Appendix A.  Document History . . . . . . . . . . . . . . . . . .  12
-     A.1.  Since draft-foudil-securitytxt-00 . . . . . . . . . . . .  13
-     A.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  13
-     A.3.  Since draft-foudil-securitytxt-02 . . . . . . . . . . . .  13
+   Appendix A.  Note to Readers  . . . . . . . . . . . . . . . . . .  12
+   Appendix B.  Document History . . . . . . . . . . . . . . . . . .  13
+     B.1.  Since draft-foudil-securitytxt-00 . . . . . . . . . . . .  13
+     B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  13
+     B.3.  Since draft-foudil-securitytxt-02 . . . . . . . . . . . .  14
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  14
 
 1.  Introduction
@@ -104,15 +105,17 @@ Table of Contents
    Many security researchers encounter situations where they are unable
    to responsibly disclose security issues to companies because there is
    no course of action laid out. security.txt is designed to help assist
-   in this process by making it easier for companies to designate the
-   preferred steps for researchers to take when trying to reach out.
 
 
 
-Foudil & Shafranovich     Expires July 7, 2018                  [Page 2]
+
+Foudil & Shafranovich     Expires July 10, 2018                 [Page 2]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
+
+   in this process by making it easier for companies to designate the
+   preferred steps for researchers to take when trying to reach out.
 
    As per section 4 of [RFC2142], there is an existing convention of
    using the SECURITY@domain [1] email address for communications
@@ -144,33 +147,35 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
    security.txt is a text file that SHOULD be located under the /.well-
    known/ path ("/.well-known/security.txt") [RFC5785] for web
-   properties.  A security.txt file located under the website's top-
-   level directory can either redirect to the security.txt file located
-   under the /.well-known/ path or be used as a fall back.  For web-
+   properties.  If it is not possible to place the security.txt file in
+   the /.well-known/ path or setup a redirect, web-based services MAY
+   place the file in the top-level path as a fall back option.  For web-
    based services, the instructions must be accessible via the Hypertext
    Transfer Protocol [RFC1945] as a resource of Internet Media Type
-   "text/plain;charset=utf8" [RFC1590].  For file systems and version
-   control repositories a .security.txt file SHOULD be placed in the
-   root directory.  This text file contains 4 directives with different
-   values.  The "directive" is the first part of a field all the way up
-   to the colon ("Contact:").  Directives are case-insensitive.  The
-   "value" comes after the directive ("https://example.com/security").
-   A "field" always consists of a directive and a value ("Contact:
+   "text/plain" with the default charset parameter set to "utf-8" per
+   section 4.1.3 of [RFC2046].  For file systems and version control
+   repositories a .security.txt file SHOULD be placed in the root
+   directory.
+
+   This text file contains multiple directives with different values.
+   The "directive" is the first part of a field all the way up to the
+   colon ("Contact:").  Directives are case-insensitive.  The "value"
+   comes after the directive ("https://example.com/security").  A
+   "field" always consists of a directive and a value ("Contact:
+
+
+
+Foudil & Shafranovich     Expires July 10, 2018                 [Page 3]
+
+Internet-Draft     A Method for Web Security Policies       January 2018
+
+
    https://example.com/security").  A security.txt file can have an
    unlimited number of fields.  It is important to note that you need a
    separate line for every field.  One MUST NOT chain multiple values
    for a single directive.  Everything MUST be in a separate field.
 
-
-
-
-
-Foudil & Shafranovich     Expires July 7, 2018                  [Page 3]
-
-Internet-Draft     A Method for Web Security Policies       January 2018
-
-
-   A security.txt file only applies to the domain in the URI used to
+   A security.txt file MUST only apply to the domain in the URI used to
    retrieve it, not to any of its subdomains or parent domains.
 
    # The following only applies to example.com.
@@ -195,8 +200,8 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 3.2.  Separate Fields
 
    A separate line is required for every new value and field.  You MUST
-   NOT chain everything in to a single field.  Every line must end with
-   a line feed character (%x0A).
+   NOT chain everything into a single field.  Every line must end with a
+   line feed character (%x0A).
 
 3.3.  Contact:
 
@@ -209,7 +214,17 @@ Internet-Draft     A Method for Web Security Policies       January 2018
    directive to be an email address.
 
    The value MUST follow the general syntax described in [RFC3986].
-   This means that "mailto" and "tel" URI schemes are required.
+   This means that "mailto" and "tel" URI schemes MUST be used when
+   specifying email addresses and telephone numbers.
+
+
+
+
+
+Foudil & Shafranovich     Expires July 10, 2018                 [Page 4]
+
+Internet-Draft     A Method for Web Security Policies       January 2018
+
 
    The precedence is in listed order.  The first field is the preferred
    method of contact.  In the example below, the e-mail address is the
@@ -218,13 +233,6 @@ Internet-Draft     A Method for Web Security Policies       January 2018
    Contact: mailto:security@example.com
    Contact: tel:+1-201-555-0123
    Contact: https://example.com/security-contact.html
-
-
-
-Foudil & Shafranovich     Expires July 7, 2018                  [Page 4]
-
-Internet-Draft     A Method for Web Security Policies       January 2018
-
 
 3.4.  Encryption:
 
@@ -249,23 +257,30 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
 3.6.  Policy:
 
-   With the Policy directive you can link to where your security policy
+   With the Policy directive, you can link to where your security policy
    and/or disclosure policy is located.  This can help security
    researchers understand what you are looking for and how to report
    security vulnerabilities.
 
    Policy: https://example.com/security-policy.html
 
-3.7.  Acknowledgement:
+3.7.  Acknowledgments:
 
    This directive allows you to link to a page where security
    researchers are recognized for their reports.  The page should list
    individuals or companies that disclosed security vulnerabilities and
    worked with you to remediate the issue.
 
-   Acknowledgement: https://example.com/hall-of-fame.html
+   Acknowledgments: https://example.com/hall-of-fame.html
 
-   Example security acknowledgements page:
+   Example security acknowledgments page:
+
+
+
+Foudil & Shafranovich     Expires July 10, 2018                 [Page 5]
+
+Internet-Draft     A Method for Web Security Policies       January 2018
+
 
    We would like to thank the following researchers:
 
@@ -273,14 +288,6 @@ Internet-Draft     A Method for Web Security Policies       January 2018
    (2017-01-02) Alice Quinn  - SQL injection
    (2016-12-24) John Buchner - Stored cross-site scripting
    (2016-06-10) Anna Richmond - A server configuration issue
-
-
-
-
-Foudil & Shafranovich     Expires July 7, 2018                  [Page 5]
-
-Internet-Draft     A Method for Web Security Policies       January 2018
-
 
 3.8.  Example
 
@@ -293,8 +300,8 @@ Internet-Draft     A Method for Web Security Policies       January 2018
    # Our security policy
    Policy: https://example.com/security-policy.html
 
-   # Our security acknowledgements page
-   Acknowledgement: https://example.com/hall-of-fame.html
+   # Our security acknowledgments page
+   Acknowledgments: https://example.com/hall-of-fame.html
 
    # Verify this security.txt file
    Signature: https://example.com/.well-known/security.txt.sig
@@ -323,6 +330,14 @@ Internet-Draft     A Method for Web Security Policies       January 2018
    |                        |
    +------------------------+
 
+
+
+
+Foudil & Shafranovich     Expires July 10, 2018                 [Page 6]
+
+Internet-Draft     A Method for Web Security Policies       January 2018
+
+
 4.1.  Web-based services
 
    Web-based services SHOULD place the security.txt file under the
@@ -331,17 +346,10 @@ Internet-Draft     A Method for Web Security Policies       January 2018
    SHOULD either redirect to the security.txt file under the /.well-
    known/ path or be used as a fall back.
 
-
-
-Foudil & Shafranovich     Expires July 7, 2018                  [Page 6]
-
-Internet-Draft     A Method for Web Security Policies       January 2018
-
-
-4.2.  File systems
+4.2.  Filesystems
 
    File systems SHOULD place the security.txt file under the root
-   directory; e.g. /.security.txt, C:.security.txt.
+   directory; e.g., /.security.txt, C:.security.txt.
 
    user:/$ l
    .security.txt
@@ -361,14 +369,15 @@ Internet-Draft     A Method for Web Security Policies       January 2018
    extended over time to fit the ever-changing landscape of the
    Internet.  Therefore, extensibility is provided via an IANA registry
    for headers fields as defined in Section 7.2.  Any fields registered
-   via that process MUST be considered optional.  In order to encourage
+   via that process MUST be considered optional.  To encourage
    extensibility and interoperability, implementors MUST ignore any
    fields they do not explicitly support.
 
 5.  File Format Description
 
-   The expected file format of the security.txt file is plain text as
-   defined in section 4.1.3 of [RFC2046] and follow [RFC5198].
+   The expected file format of the security.txt file is plain text (MIME
+   type "text/plain") as defined in section 4.1.3 of [RFC2046] and is
+   encoded using UTF-8 [RFC3629] in Net-Unicode form [RFC5198].
 
    The following is an ABNF definition of the security.txt format, using
    the conventions defined in [RFC5234].
@@ -380,16 +389,7 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
 
 
-
-
-
-
-
-
-
-
-
-Foudil & Shafranovich     Expires July 7, 2018                  [Page 7]
+Foudil & Shafranovich     Expires July 10, 2018                 [Page 7]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -402,7 +402,7 @@ eol                    = *WSP \[CR\] LF
 
 field                  = contact-field /
                          encryption-field /
-                         acknowledgement-field /
+                         acknowledgments-field /
                          ext-field
 
 fs                     = ":"
@@ -423,7 +423,7 @@ signature-field        = "Signature" fs SP uri
 
 policy-field           = "Policy" fs SP uri
 
-acknowledgement-field  = "Acknowledgement" fs SP uri
+Acknowledgments-field  = "Acknowledgments" fs SP uri
 
 ext-field              = field-name fs SP unstructured
 
@@ -435,17 +435,17 @@ unstructured           = <as per section 3.2.5 of {{RFC5322}}>
 
 6.  Security considerations
 
-   Organizations creating security.txt files will need to take several
-   security-related issues into consideration.  These include exposure
-   of sensitive information and attacks where limited access to a server
-   could grant the ability to modify the contents of the security.txt
-   file or affect how it is served.  Organizations SHOULD also monitor
-   their security.txt files regularly to detect tampering.
+   Organizations creating security.txt files will need to consider
+   several security-related issues.  These include exposure to sensitive
+   information and attacks where limited access to a server could grant
+   the ability to modify the contents of the security.txt file or affect
+   how it is served.  Organizations SHOULD also monitor their
+   security.txt files regularly to detect tampering.
 
 
 
 
-Foudil & Shafranovich     Expires July 7, 2018                  [Page 8]
+Foudil & Shafranovich     Expires July 10, 2018                 [Page 8]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -501,7 +501,7 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
 
 
-Foudil & Shafranovich     Expires July 7, 2018                  [Page 9]
+Foudil & Shafranovich     Expires July 10, 2018                 [Page 9]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -509,12 +509,12 @@ Internet-Draft     A Method for Web Security Policies       January 2018
    4.  The document in which the specification of the field is published
 
    5.  New or updated status, which MUST be one of: current: The field
-       is in current use deprecated: The field is in current use but its
-       use is discouraged historic: The field is no longer in current
-       use
+       is in current use deprecated: The field is in current use, but
+       its use is discouraged historic: The field is no longer in
+       current use
 
    An update may make a notation on an existing registration indicating
-   that a registered field is historic or deprecated if appropriate.
+   that a registered field is historical or deprecated if appropriate.
 
    The initial registry contains these values:
 
@@ -557,7 +557,7 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
 
 
-Foudil & Shafranovich     Expires July 7, 2018                 [Page 10]
+Foudil & Shafranovich     Expires July 10, 2018                [Page 10]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -586,10 +586,6 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
 9.1.  Normative References
 
-   [RFC1590]  Postel, J., "Media Type Registration Procedure", RFC 1590,
-              DOI 10.17487/RFC1590, March 1994, <https://www.rfc-
-              editor.org/info/rfc1590>.
-
    [RFC1945]  Berners-Lee, T., Fielding, R., and H. Frystyk, "Hypertext
               Transfer Protocol -- HTTP/1.0", RFC 1945,
               DOI 10.17487/RFC1945, May 1996, <https://www.rfc-
@@ -609,18 +605,22 @@ Internet-Draft     A Method for Web Security Policies       January 2018
               Functions", RFC 2142, DOI 10.17487/RFC2142, May 1997,
               <https://www.rfc-editor.org/info/rfc2142>.
 
+   [RFC2606]  Eastlake 3rd, D. and A. Panitz, "Reserved Top Level DNS
+              Names", BCP 32, RFC 2606, DOI 10.17487/RFC2606, June 1999,
+              <https://www.rfc-editor.org/info/rfc2606>.
 
 
 
 
-Foudil & Shafranovich     Expires July 7, 2018                 [Page 11]
+
+Foudil & Shafranovich     Expires July 10, 2018                [Page 11]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
 
-   [RFC2606]  Eastlake 3rd, D. and A. Panitz, "Reserved Top Level DNS
-              Names", BCP 32, RFC 2606, DOI 10.17487/RFC2606, June 1999,
-              <https://www.rfc-editor.org/info/rfc2606>.
+   [RFC3629]  Yergeau, F., "UTF-8, a transformation format of ISO
+              10646", STD 63, RFC 3629, DOI 10.17487/RFC3629, November
+              2003, <https://www.rfc-editor.org/info/rfc3629>.
 
    [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
               Resource Identifier (URI): Generic Syntax", STD 66,
@@ -660,7 +660,7 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
    [1] mailto:SECURITY@domain
 
-Appendix A.  Document History
+Appendix A.  Note to Readers
 
       *Note to the RFC Editor:* Please remove this section prior to
       publication.
@@ -669,12 +669,20 @@ Appendix A.  Document History
 
 
 
-Foudil & Shafranovich     Expires July 7, 2018                 [Page 12]
+Foudil & Shafranovich     Expires July 10, 2018                [Page 12]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
 
-A.1.  Since draft-foudil-securitytxt-00
+   Development of this draft takes place on Github at
+   https://github.com/securitytxt/security-txt
+
+Appendix B.  Document History
+
+      *Note to the RFC Editor:* Please remove this section prior to
+      publication.
+
+B.1.  Since draft-foudil-securitytxt-00
 
    o  Moved to use IETF's markdown tools for draft updates
 
@@ -692,10 +700,10 @@ A.1.  Since draft-foudil-securitytxt-00
 
    o  Support for digital signatures added (#19)
 
-   Full list of changes can be viewed via the IETF document tracker:
+   The full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt-01
 
-A.2.  Since draft-foudil-securitytxt-01
+B.2.  Since draft-foudil-securitytxt-01
 
    o  Added appendix with pointer to Github and document history
 
@@ -712,23 +720,23 @@ A.2.  Since draft-foudil-securitytxt-01
    o  Added recommendation that organizations should monitor their
       security.txt files (#14)
 
-   Full list of changes can be viewed via the IETF document tracker:
+   The full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt-02
 
-A.3.  Since draft-foudil-securitytxt-02
+
+
+Foudil & Shafranovich     Expires July 10, 2018                [Page 13]
+
+Internet-Draft     A Method for Web Security Policies       January 2018
+
+
+B.3.  Since draft-foudil-securitytxt-02
 
    o  Use "mailto" and "tel" (#62)
 
    o  Fix typo in the "Example" section (#64)
 
    o  Clarified that the root directory is a fall back option (#72)
-
-
-
-Foudil & Shafranovich     Expires July 7, 2018                 [Page 13]
-
-Internet-Draft     A Method for Web Security Policies       January 2018
-
 
    o  Defined content-type for the response (#68)
 
@@ -773,12 +781,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-
-Foudil & Shafranovich     Expires July 7, 2018                 [Page 14]
+Foudil & Shafranovich     Expires July 10, 2018                [Page 14]
