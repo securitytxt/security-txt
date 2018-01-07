@@ -1,0 +1,5 @@
+install:
+  - pip install --user xml2rfc
+  - gem install kramdown-rfc2629
+  
+script: make
