@@ -6,7 +6,9 @@ Security.txt is a proposed standard which allows websites to define security pol
 
 # Website
 
-https://securitytxt.org/ (https://github.com/securitytxt/securitytxt.org)
+Project website: https://securitytxt.org/ (https://github.com/securitytxt/securitytxt.org)
+
+Internet draft website: https://securitytxt.io/ (https://github.com/securitytxt/security-txt/tree/master/docs)
 
 # Security.txt GitHub Organization
 
