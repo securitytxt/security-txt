@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: July 10, 2018                          Nightwatch Cybersecurity
-                                                        January 06, 2018
+Expires: July 19, 2018                          Nightwatch Cybersecurity
+                                                        January 15, 2018
 
 
                    A Method for Web Security Policies
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 10, 2018.
+   This Internet-Draft will expire on July 19, 2018.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich     Expires July 10, 2018                 [Page 1]
+Foudil & Shafranovich     Expires July 19, 2018                 [Page 1]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Foudil & Shafranovich     Expires July 10, 2018                 [Page 2]
+Foudil & Shafranovich     Expires July 19, 2018                 [Page 2]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -165,7 +165,7 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
 
 
-Foudil & Shafranovich     Expires July 10, 2018                 [Page 3]
+Foudil & Shafranovich     Expires July 19, 2018                 [Page 3]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -188,6 +188,7 @@ Internet-Draft     A Method for Web Security Policies       January 2018
    http://192.0.2.0/.well-known/security.txt
 
 3.1.  Comments
+
    Comments can be added using the # symbol:
 
    # This is a comment.
@@ -220,9 +221,10 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
 
 
-Foudil & Shafranovich     Expires July 10, 2018                 [Page 4]
+Foudil & Shafranovich     Expires July 19, 2018                 [Page 4]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
+
 
    The precedence is in listed order.  The first field is the preferred
    method of contact.  In the example below, the e-mail address is the
@@ -245,7 +247,7 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
    In order to ensure the authenticty of the security.txt file one
    SHOULD use the "Signature:" directive, which allows you to link to an
-   external signature.  External signature files SHOULD be named   
+   external signature.  External signature files SHOULD be named
    "security.txt.sig" and also be placed under the /.well-known/ path.
    External signature files SHOULD be loaded over HTTPS.
 
@@ -275,9 +277,10 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
 
 
-Foudil & Shafranovich     Expires July 10, 2018                 [Page 5]
+Foudil & Shafranovich     Expires July 19, 2018                 [Page 5]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
+
 
    We would like to thank the following researchers:
 
@@ -299,7 +302,7 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
    # Our security acknowledgments page
    Acknowledgments: https://example.com/hall-of-fame.html
-   
+
    # Verify this security.txt file
    Signature: https://example.com/.well-known/security.txt.sig
 
@@ -330,7 +333,7 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
 
 
-Foudil & Shafranovich     Expires July 10, 2018                 [Page 6]
+Foudil & Shafranovich     Expires July 19, 2018                 [Page 6]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -385,7 +388,8 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
 
 
-Foudil & Shafranovich     Expires July 10, 2018                 [Page 7]
+
+Foudil & Shafranovich     Expires July 19, 2018                 [Page 7]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -441,7 +445,7 @@ unstructured           = <as per section 3.2.5 of {{RFC5322}}>
 
 
 
-Foudil & Shafranovich     Expires July 10, 2018                 [Page 8]
+Foudil & Shafranovich     Expires July 19, 2018                 [Page 8]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -453,8 +457,8 @@ Internet-Draft     A Method for Web Security Policies       January 2018
    As stated in Section 3.4 and Section 3.5, both encryption keys and
    external signature files SHOULD be loaded over HTTPS.
 
-   Web services MUST reserve the security.txt namespace to ensure no
-   third-party can create a page with the "security.txt" name.
+   Websites MUST reserve the security.txt namespace to ensure no third-
+   party can create a page with the "security.txt" name.
 
 7.  IANA Considerations
 
@@ -497,7 +501,7 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
 
 
-Foudil & Shafranovich     Expires July 10, 2018                 [Page 9]
+Foudil & Shafranovich     Expires July 19, 2018                 [Page 9]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -553,7 +557,7 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
 
 
-Foudil & Shafranovich     Expires July 10, 2018                [Page 10]
+Foudil & Shafranovich     Expires July 19, 2018                [Page 10]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -609,7 +613,7 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
 
 
-Foudil & Shafranovich     Expires July 10, 2018                [Page 11]
+Foudil & Shafranovich     Expires July 19, 2018                [Page 11]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -665,7 +669,7 @@ Appendix A.  Note to Readers
 
 
 
-Foudil & Shafranovich     Expires July 10, 2018                [Page 12]
+Foudil & Shafranovich     Expires July 19, 2018                [Page 12]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -721,7 +725,7 @@ B.2.  Since draft-foudil-securitytxt-01
 
 
 
-Foudil & Shafranovich     Expires July 10, 2018                [Page 13]
+Foudil & Shafranovich     Expires July 19, 2018                [Page 13]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -777,4 +781,4 @@ Authors' Addresses
 
 
 
-Foudil & Shafranovich     Expires July 10, 2018                [Page 14]
+Foudil & Shafranovich     Expires July 19, 2018                [Page 14]

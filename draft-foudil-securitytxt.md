@@ -324,7 +324,7 @@ directive.
 As stated in {{encryption}} and {{signature}}, both encryption keys
 and external signature files SHOULD be loaded over HTTPS.
 
-Web services MUST reserve the security.txt namespace to ensure no third-party can create a page with the "security.txt" name.
+Websites MUST reserve the security.txt namespace to ensure no third-party can create a page with the "security.txt" name.
 
 # IANA Considerations
 
