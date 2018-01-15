@@ -80,23 +80,23 @@ Table of Contents
      4.1.  Web-based services  . . . . . . . . . . . . . . . . . . .   7
      4.2.  Filesystems . . . . . . . . . . . . . . . . . . . . . . .   7
      4.3.  Internal hosts  . . . . . . . . . . . . . . . . . . . . .   7
-     4.4.  Extensibility . . . . . . . . . . . . . . . . . . . . . .   7
-   5.  File Format Description . . . . . . . . . . . . . . . . . . .   7
-   6.  Security considerations . . . . . . . . . . . . . . . . . . .   8
-   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   9
-     7.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .   9
-     7.2.  Registry for security.txt Header Fields . . . . . . . . .   9
-   8.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  10
-   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  11
-     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  11
-     9.2.  Informative References  . . . . . . . . . . . . . . . . .  12
-     9.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  12
-   Appendix A.  Note to Readers  . . . . . . . . . . . . . . . . . .  12
-   Appendix B.  Document History . . . . . . . . . . . . . . . . . .  13
-     B.1.  Since draft-foudil-securitytxt-00 . . . . . . . . . . . .  13
-     B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  13
-     B.3.  Since draft-foudil-securitytxt-02 . . . . . . . . . . . .  14
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  14
+     4.4.  Extensibility . . . . . . . . . . . . . . . . . . . . . .   8
+   5.  File Format Description . . . . . . . . . . . . . . . . . . .   8
+   6.  Security considerations . . . . . . . . . . . . . . . . . . .   9
+   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  10
+     7.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .  10
+     7.2.  Registry for security.txt Header Fields . . . . . . . . .  10
+   8.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  11
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  12
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  12
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .  13
+     9.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  13
+   Appendix A.  Note to Readers  . . . . . . . . . . . . . . . . . .  13
+   Appendix B.  Document History . . . . . . . . . . . . . . . . . .  14
+     B.1.  Since draft-foudil-securitytxt-00 . . . . . . . . . . . .  14
+     B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  14
+     B.3.  Since draft-foudil-securitytxt-02 . . . . . . . . . . . .  15
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  15
 
 1.  Introduction
 
@@ -245,11 +245,15 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
 3.5.  Signature:
 
-   In order to ensure the authenticty of the security.txt file one
+   In order to ensure the authenticity of the security.txt file one
    SHOULD use the "Signature:" directive, which allows you to link to an
    external signature.  External signature files SHOULD be named
    "security.txt.sig" and also be placed under the /.well-known/ path.
    External signature files SHOULD be loaded over HTTPS.
+
+   When it comes to verifying the authenticity of the file, it is always
+   the security researcher's responsibility to make sure the key being
+   specified is indeed one they trust.
 
    Here is an example of an external signature file.
 
@@ -271,16 +275,16 @@ Internet-Draft     A Method for Web Security Policies       January 2018
    individuals or companies that disclosed security vulnerabilities and
    worked with you to remediate the issue.
 
-   Acknowledgments: https://example.com/hall-of-fame.html
-
-   Example security acknowledgments page:
-
 
 
 Foudil & Shafranovich     Expires July 19, 2018                 [Page 5]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
+
+   Acknowledgments: https://example.com/hall-of-fame.html
+
+   Example security acknowledgments page:
 
    We would like to thank the following researchers:
 
@@ -308,6 +312,32 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
 4.  Location of the security.txt file
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Foudil & Shafranovich     Expires July 19, 2018                 [Page 6]
+
+Internet-Draft     A Method for Web Security Policies       January 2018
+
+
                              External
    +----------------------------------------------------------------+
    |              Default                                           |
@@ -329,14 +359,6 @@ Internet-Draft     A Method for Web Security Policies       January 2018
    |  +------------------+  |
    |                        |
    +------------------------+
-
-
-
-
-Foudil & Shafranovich     Expires July 19, 2018                 [Page 6]
-
-Internet-Draft     A Method for Web Security Policies       January 2018
-
 
 4.1.  Web-based services
 
@@ -362,6 +384,15 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
    A .security.txt file SHOULD be placed in the root directory of an
    internal host to trigger incident response.
+
+
+
+
+
+Foudil & Shafranovich     Expires July 19, 2018                 [Page 7]
+
+Internet-Draft     A Method for Web Security Policies       January 2018
+
 
 4.4.  Extensibility
 
@@ -389,7 +420,32 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
 
 
-Foudil & Shafranovich     Expires July 19, 2018                 [Page 7]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Foudil & Shafranovich     Expires July 19, 2018                 [Page 8]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -445,7 +501,7 @@ unstructured           = <as per section 3.2.5 of {{RFC5322}}>
 
 
 
-Foudil & Shafranovich     Expires July 19, 2018                 [Page 8]
+Foudil & Shafranovich     Expires July 19, 2018                 [Page 9]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -501,7 +557,7 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
 
 
-Foudil & Shafranovich     Expires July 19, 2018                 [Page 9]
+Foudil & Shafranovich     Expires July 19, 2018                [Page 10]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -557,7 +613,7 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
 
 
-Foudil & Shafranovich     Expires July 19, 2018                [Page 10]
+Foudil & Shafranovich     Expires July 19, 2018                [Page 11]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -613,7 +669,7 @@ Internet-Draft     A Method for Web Security Policies       January 2018
 
 
 
-Foudil & Shafranovich     Expires July 19, 2018                [Page 11]
+Foudil & Shafranovich     Expires July 19, 2018                [Page 12]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -669,7 +725,7 @@ Appendix A.  Note to Readers
 
 
 
-Foudil & Shafranovich     Expires July 19, 2018                [Page 12]
+Foudil & Shafranovich     Expires July 19, 2018                [Page 13]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -725,7 +781,7 @@ B.2.  Since draft-foudil-securitytxt-01
 
 
 
-Foudil & Shafranovich     Expires July 19, 2018                [Page 13]
+Foudil & Shafranovich     Expires July 19, 2018                [Page 14]
 
 Internet-Draft     A Method for Web Security Policies       January 2018
 
@@ -781,4 +837,4 @@ Authors' Addresses
 
 
 
-Foudil & Shafranovich     Expires July 19, 2018                [Page 14]
+Foudil & Shafranovich     Expires July 19, 2018                [Page 15]

@@ -144,10 +144,12 @@ Encryption: https://example.com/pgp-key.txt
 
 ## Signature: {#signature}
 
-In order to ensure the authenticty of the security.txt file one SHOULD use the
+In order to ensure the authenticity of the security.txt file one SHOULD use the
 "Signature:" directive, which allows you to link to an external signature. External signature files SHOULD be
 named "security.txt.sig" and also be placed under the /.well-known/ path.
-External signature files SHOULD be loaded over HTTPS.
+External signature files SHOULD be loaded over HTTPS. 
+
+When it comes to verifying the authenticity of the file, it is always the security researcher's responsibility to make sure the key being specified is indeed one they trust.
 
 Here is an example of an external signature file.
 

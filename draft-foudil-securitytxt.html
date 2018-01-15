@@ -464,8 +464,9 @@ Contact: https://example.com/security-contact.html
 Encryption: https://example.com/pgp-key.txt
 </pre>
 <h1 id="rfc.section.3.5"><a href="#rfc.section.3.5">3.5.</a> <a href="#signature" id="signature">Signature:</a></h1>
-<p id="rfc.section.3.5.p.1">In order to ensure the authenticty of the security.txt file one SHOULD use the &#8220;Signature:&#8221; directive, which allows you to link to an external signature. External signature files SHOULD be named &#8220;security.txt.sig&#8221; and also be placed under the /.well-known/ path.  External signature files SHOULD be loaded over HTTPS.</p>
-<p id="rfc.section.3.5.p.2">Here is an example of an external signature file.</p>
+<p id="rfc.section.3.5.p.1">In order to ensure the authenticity of the security.txt file one SHOULD use the &#8220;Signature:&#8221; directive, which allows you to link to an external signature. External signature files SHOULD be named &#8220;security.txt.sig&#8221; and also be placed under the /.well-known/ path.  External signature files SHOULD be loaded over HTTPS.</p>
+<p id="rfc.section.3.5.p.2">When it comes to verifying the authenticity of the file, it is always the security researcher&#8217;s responsibility to make sure the key being specified is indeed one they trust.</p>
+<p id="rfc.section.3.5.p.3">Here is an example of an external signature file.</p>
 <pre>
 Signature: https://example.com/.well-known/security.txt.sig
 </pre>
