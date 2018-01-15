@@ -306,9 +306,9 @@ ext-field              = field-name fs SP unstructured
 field-name             = <as per section 3.6.8 of {{!RFC5322}}>
 
 unstructured           = <as per section 3.2.5 of {{!RFC5322}}>
+~~~~~~~~~~
 
 "ext-field" refers to extension fields, which are discussed in {{extensibility}}
-~~~~~~~~~~
 
 # Security considerations
 

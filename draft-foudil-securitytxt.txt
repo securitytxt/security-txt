@@ -450,44 +450,45 @@ Foudil & Shafranovich     Expires July 19, 2018                 [Page 8]
 Internet-Draft     A Method for Web Security Policies       January 2018
 
 
-body                   = *line (contact-field eol) *line
+   body                   = *line (contact-field eol) *line
 
-line                   = *1(field / comment) eol
+   line                   = *1(field / comment) eol
 
-eol                    = *WSP \[CR\] LF
+   eol                    = *WSP \[CR\] LF
 
-field                  = contact-field /
-                         encryption-field /
-                         acknowledgments-field /
-                         ext-field
+   field                  = contact-field /
+                            encryption-field /
+                            acknowledgments-field /
+                            ext-field
 
-fs                     = ":"
+   fs                     = ":"
 
-comment                = "#" *(WSP / VCHAR / %xA0-E007F)
+   comment                = "#" *(WSP / VCHAR / %xA0-E007F)
 
-contact-field          = "Contact" fs SP (email / uri / phone)
+   contact-field          = "Contact" fs SP (email / uri / phone)
 
-email                  = <Email address as per {{RFC5322}}>
+   email                  = <Email address as per {{RFC5322}}>
 
-phone                  = "+" *1(DIGIT / "-" / "(" / ")" / SP)
+   phone                  = "+" *1(DIGIT / "-" / "(" / ")" / SP)
 
-uri                    = <URI as per {{RFC3986}}>
+   uri                    = <URI as per {{RFC3986}}>
 
-encryption-field       = "Encryption" fs SP uri
+   encryption-field       = "Encryption" fs SP uri
 
-signature-field        = "Signature" fs SP uri
+   signature-field        = "Signature" fs SP uri
 
-policy-field           = "Policy" fs SP uri
+   policy-field           = "Policy" fs SP uri
 
-Acknowledgments-field  = "Acknowledgments" fs SP uri
+   Acknowledgments-field  = "Acknowledgments" fs SP uri
 
-ext-field              = field-name fs SP unstructured
+   ext-field              = field-name fs SP unstructured
 
-field-name             = <as per section 3.6.8 of {{RFC5322}}>
+   field-name             = <as per section 3.6.8 of {{RFC5322}}>
 
-unstructured           = <as per section 3.2.5 of {{RFC5322}}>
+   unstructured           = <as per section 3.2.5 of {{RFC5322}}>
 
-"ext-field" refers to extension fields, which are discussed in {{extensibility}}
+   "ext-field" refers to extension fields, which are discussed in
+   Section 4.4
 
 6.  Security considerations
 
@@ -497,7 +498,6 @@ unstructured           = <as per section 3.2.5 of {{RFC5322}}>
    the ability to modify the contents of the security.txt file or affect
    how it is served.  Organizations SHOULD also monitor their
    security.txt files regularly to detect tampering.
-
 
 
 
