@@ -1,0 +1,81 @@
+==================================================================
+https://keybase.io/securitytxtkey
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://securitytxt.io
+  * I am securitytxtkey (https://keybase.io/securitytxtkey) on keybase.
+  * I have a public key with fingerprint 11A4 FFA8 678F 020E 8411  4345 AF1B A24A 9E98 F1CC
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "010163e99308dd3098c5a6997a3c4b32d1144bb50496062db33fcfe7ec825c0601e00a",
+      "fingerprint": "11a4ffa8678f020e84114345af1ba24a9e98f1cc",
+      "host": "keybase.io",
+      "key_id": "af1ba24a9e98f1cc",
+      "kid": "010163e99308dd3098c5a6997a3c4b32d1144bb50496062db33fcfe7ec825c0601e00a",
+      "uid": "8fdff119ce87e7e7fe7a8cf58af56f19",
+      "username": "securitytxtkey"
+    },
+    "merkle_root": {
+      "ctime": 1516101806,
+      "hash_meta": "a8fcd812f0591653de60fc5f6afe371566c23d66bf32d633039f48e5b6b63e74",
+      "seqno": 1932025
+    },
+    "revoke": {
+      "sig_ids": [
+        "f5f49b58e33ecf7668694310df4f709b2adbc2113cfdd0a21e7904c72a497a8d0f"
+      ]
+    },
+    "service": {
+      "hostname": "securitytxt.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1516101838,
+  "expire_in": 157680000,
+  "prev": "19615a1425dc30f1d5c55f620d69e83e90dba47ce92469142d6bb2b5002f8a1d",
+  "seqno": 9,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.76
+Comment: https://keybase.io/crypto
+
+yMKyAnicrVNdaB1FGL1p7E8isSokaCkFV6hGr+n878wFFaWah0pVLESattvZ+blZ
+knv3urs3JpRrFZJKBaWUiqIV2pJSbVGoEKtQ8BpCNQb6KNi+VEGtlpZgo2IribNR
+EdRH52WZ2fOd75wz30x3tBbaW7o7W8/c9fKKAy2zU416Yev2C2d3eWGsR73SLm/Q
+LH3MkDZpFgxG2it5AALIsBECA641BoIrKpkQvsSKhBhpCAkJQwqIYIAhHWJslTW+
+URxRBRiABgDpFT0bVcsmqSVRNXO0EEpireTM5xYgYDhxPJhQaWEoEZHCCG6hUq5w
+IE7zCiculKnpiWJ35jbBkrz/wP/PuutLdNxqayEUynDfgXyHlFxZyqWlzEKRA1OT
+VGXFOHRqVD2JstFsJMszbRS9ikkGh0yQxHGWR6yyKAdCCpnTyQFzNmU6EFRMJnNX
+3CrNIbKACsgo1oYBq6hl0hrsQ8qYQlgzFlpnhGEMsLCEGxqy0Hn2iVOTmmeqsesg
+MAKIOgWJGY4HTd48jcouvNQr9XuWWiJCyg3GRlmfMc4EwRBoS6wPRIikDhWCECur
+NZAIGl8AonwkiUuSa2C97Y28WTIcqSXy/Lb+ncIft1ZL4ixW8ZD7N5BltbSUJ5ON
+1nLwsyYM/qQJwqiq3bS4imGTpFFcdT4c8h+hYV70zEgtSkwQ5QjqMw7cyvuY4XzG
+BINUQoKoVhhYqKmiLkMENBOGu9kAOpTEV0YgwoTDaRaGyI0EQJZLqP9OUTiZspxb
+ispVmdUT4zWmmttuKLS0F1YsX5a/okJ7281/vS3Qt3Kx98tv39/c8wbn3VuL91dm
+6ZbpjuDINNkwc3J8pmthZM8j7asbi3Pqpst3k8Mbr5rffnyx0Vv7RB3bfef6az+t
+uvie6nht7byY7Lva/P6LT29NL0x0+Zc2bHqws7pDXHngq4P8FGqeXFb64PlX9vW0
+XB7Zf8uNtcPN16/vnlnZFo/dvum+/jv2p5//vHCx0Xnm1NNfH3342qWN4PxbT4DS
+kTcPTN2299zaE2Hzm2Mfry73HZr6aNX6V3vnJg491F0dx6eTK63Fg+PH9y6uu/eF
+zWtOtz2WpMsj891L57fV+5/sOjv51Oyet39Y2HfPzuvrgvlKbWa+a6x47tEd7zw+
+N5ZNbPnl188+XPPcuzsnfwdIrYNB
+=Y9Cw
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/securitytxtkey
+
+==================================================================
