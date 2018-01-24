@@ -38,7 +38,7 @@ assist in this process by making it easier for companies to designate
 the preferred steps for researchers to take when trying to reach out.
 
 As per section 4 of {{!RFC2142}}, there is an existing convention
-of using the <SECURITY@domain> email address for communications regarding
+of using the \<SECURITY@domain\> email address for communications regarding
 security issues. That convention provides only a single, email-based
 channel of communication for security issues per domain, and does not provide
 a way for domain owners to publish information about their security disclosure
@@ -80,8 +80,11 @@ https://example.com/.well-known/security.txt
 # This only applies to subdomain.example.com.
 https://subdomain.example.com/.well-known/security.txt
 
-# This security.txt file applies to 192.0.2.0.
+# This security.txt file applies to IPv4 address of 192.0.2.0.
 http://192.0.2.0/.well-known/security.txt
+
+# This security.txt file applies to IPv6 address of 2001:db8:8:4::2.
+http://[2001:db8:8:4::2]/.well-known/security.txt
 ~~~~~~~~~~
 
 ## Comments
@@ -322,8 +325,9 @@ and external signature files SHOULD be loaded over HTTPS.
 example.com is used in this document following the uses indicated in
 {{!RFC2606}}.
 
-192.0.2.0 is used in this document following the uses indicated in
-{{!RFC5735}}.
+192.0.2.0 and 2001:db8:8:4::2 are used in this document following
+the uses indicated in {{!RFC6890}}.
+
 
 ## Well-Known URIs registry
 
@@ -445,6 +449,10 @@ https://tools.ietf.org/html/draft-foudil-securitytxt-01
 - Added diagram explaining the location of the file on public vs. internal systems
 - Added recommendation that external signature files should use HTTPS (#55)
 - Added recommendation that organizations should monitor their security.txt files (#14)
+
+## Since draft-foudil-securitytxt-02
+- Cleaning up text based on the NITS tools suggestions (#82)
+
 
 The full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt-02
