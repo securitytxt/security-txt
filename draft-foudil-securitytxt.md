@@ -38,7 +38,7 @@ assist in this process by making it easier for companies to designate
 the preferred steps for researchers to take when trying to reach out.
 
 As per section 4 of {{!RFC2142}}, there is an existing convention
-of using the <SECURITY@domain> email address for communications regarding
+of using the \<SECURITY@domain\> email address for communications regarding
 security issues. That convention provides only a single, email-based
 channel of communication for security issues per domain, and does not provide
 a way for domain owners to publish information about their security disclosure
@@ -66,7 +66,7 @@ Development of this draft takes place on Github at: https://github.com/securityt
 
 security.txt is a text file that SHOULD be located under the
 /.well-known/ path ("/.well-known/security.txt") {{!RFC5785}} for web
-properties. If it is not possible to place the security.txt file in the /.well-known/ path or setup a redirect, web-based services MAY place the file in the top-level path as a fall back option. For web-based services, the instructions must be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}. For file systems and version control repositories a .security.txt file SHOULD be placed in the root directory. 
+properties. If it is not possible to place the security.txt file in the /.well-known/ path or setup a redirect, web-based services MAY place the file in the top-level path as a fall back option. For web-based services, the instructions MUST be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}. For file systems and version control repositories a .security.txt file SHOULD be placed in the root directory. 
 
 This text file contains multiple directives
 with different values. The "directive" is the first part of a field all the way up
@@ -87,8 +87,11 @@ https://example.com/.well-known/security.txt
 # This only applies to subdomain.example.com.
 https://subdomain.example.com/.well-known/security.txt
 
-# This security.txt file applies to 192.0.2.0.
+# This security.txt file applies to IPv4 address of 192.0.2.0.
 http://192.0.2.0/.well-known/security.txt
+
+# This security.txt file applies to IPv6 address of 2001:db8:8:4::2.
+http://[2001:db8:8:4::2]/.well-known/security.txt
 ~~~~~~~~~~
 
 ## Comments
@@ -106,8 +109,9 @@ respective field.
 ## Separate Fields
 
 A separate line is required for every new value and field. You MUST
-NOT chain everything into a single field. Every line must end with
-a line feed character (%x0A).
+NOT chain everything into a single field. Every line MUST end either
+with a carriage return and line feed characters (CRLF / %x0D %x0A) or just
+a line feed character (LF / %x0A).
 
 ## Contact: {#contact}
 
@@ -168,7 +172,7 @@ Policy: https://example.com/security-policy.html
 ## Acknowledgments: {#Acknowledgments}
 
 This directive allows you to link to a page where security
-researchers are recognized for their reports. The page should list individuals or companies
+researchers are recognized for their reports. The page SHOULD list individuals or companies
 that disclosed security vulnerabilities and worked with you to remediate the issue.
 
 ~~~~~~~~~~
@@ -333,8 +337,8 @@ Websites MUST reserve the security.txt namespace to ensure no third-party can cr
 example.com is used in this document following the uses indicated in
 {{!RFC2606}}.
 
-192.0.2.0 is used in this document following the uses indicated in
-{{!RFC5735}}.
+192.0.2.0 and 2001:db8:8:4::2 are used in this document following
+the uses indicated in {{!RFC6890}}.
 
 ## Well-Known URIs registry
 
@@ -342,6 +346,7 @@ The "Well-Known URIs" registry should be updated with the following additional
 values (using the template from {{?RFC5785}}):
 
 URI suffix: security.txt
+
 URI suffix: security.txt.sig
 
 Change controller: IETF
@@ -465,6 +470,8 @@ https://tools.ietf.org/html/draft-foudil-securitytxt-02
 - Clarified that the root directory is a fall back option (#72)
 - Defined content-type for the response (#68)
 - Clarify the scope of the security.txt file (#69)
+- Cleaning up text based on the NITS tools suggestions (#82)
+- Added clarification for newline values
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt-03
