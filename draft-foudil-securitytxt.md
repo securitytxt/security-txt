@@ -66,7 +66,7 @@ Development of this draft takes place on Github at: https://github.com/securityt
 
 security.txt is a text file that SHOULD be located under the
 /.well-known/ path ("/.well-known/security.txt") {{!RFC5785}} for web
-properties. If it is not possible to place the security.txt file in the /.well-known/ path or setup a redirect, web-based services MAY place the file in the top-level path as a fall back option. For web-based services, the instructions MUST be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}. For file systems and version control repositories a .security.txt file SHOULD be placed in the root directory. 
+properties. If it is not possible to place the security.txt file in the /.well-known/ path or setup a redirect, web-based services MAY place the file in the top-level path as a fall back option. For web-based services, the instructions MUST be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}. For file systems and version control repositories a .security.txt file SHOULD be placed in the root directory.
 
 This text file contains multiple directives
 with different values. The "directive" is the first part of a field all the way up
@@ -137,13 +137,27 @@ Contact: https://example.com/security-contact.html
 
 ## Encryption: {#encryption}
 
-This directive allows you to add your key for encrypted
-communication. You MUST NOT directly add your key. The value
-MUST be a link to a page which contains your key. Keys SHOULD be
+This directive allows you to point to an encryption key that you want
+security researchers to use for encrypted communication. You MUST NOT
+directly add your key to the field, instead the value of this field
+MUST be a URI pointing to a location where the key can be retrieved from.
+If the key is being retrieved from a website, then the key MUST be
 loaded over HTTPS.
+
+When it comes to verifying the authenticity of the key, it is always the security researcher's responsibility to make sure the key being specified is indeed one they trust. Researchers MUST NOT assume that this key is used to generate the signature file
+referenced in {{!signature}}.
+
+Example of a PGP key available from a web server:
 
 ~~~~~~~~~~
 Encryption: https://example.com/pgp-key.txt
+~~~~~~~~~~
+
+Example of a PGP key available from an OPENPGPKEY DNS record under
+"security@example.com" (as per {{!RFC7553}} and {{!RFC7929}}):
+
+~~~~~~~~~~
+Encryption: dns:5d2d3ceb7abe552344276d47d36._openpgpkey.example.com?type=OPENPGPKEY
 ~~~~~~~~~~
 
 ## Signature: {#signature}
@@ -151,7 +165,7 @@ Encryption: https://example.com/pgp-key.txt
 In order to ensure the authenticity of the security.txt file one SHOULD use the
 "Signature:" directive, which allows you to link to an external signature by specifying the full URI where the signature is located as per {{!RFC3986}}. External signature files SHOULD be
 named "security.txt.sig" and also be placed under the /.well-known/ path.
-External signature files SHOULD be loaded over HTTPS. 
+External signature files SHOULD be loaded over HTTPS.
 
 When it comes to verifying the authenticity of the file, it is always the security researcher's responsibility to make sure the key being specified is indeed one they trust.
 
@@ -472,6 +486,8 @@ https://tools.ietf.org/html/draft-foudil-securitytxt-02
 - Clarify the scope of the security.txt file (#69)
 - Cleaning up text based on the NITS tools suggestions (#82)
 - Added clarification for newline values
+- Clarified the encryption field language, added examples
+of DNS-stored encryption keys (#28 and #94)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt-03

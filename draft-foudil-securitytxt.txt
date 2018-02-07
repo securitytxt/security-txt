@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: August 6, 2018                         Nightwatch Cybersecurity
-                                                       February 02, 2018
+Expires: August 11, 2018                        Nightwatch Cybersecurity
+                                                       February 07, 2018
 
 
                    A Method for Web Security Policies
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on August 6, 2018.
+   This Internet-Draft will expire on August 11, 2018.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich    Expires August 6, 2018                 [Page 1]
+Foudil & Shafranovich    Expires August 11, 2018                [Page 1]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
@@ -73,13 +73,13 @@ Table of Contents
      3.3.  Contact:  . . . . . . . . . . . . . . . . . . . . . . . .   4
      3.4.  Encryption: . . . . . . . . . . . . . . . . . . . . . . .   5
      3.5.  Signature:  . . . . . . . . . . . . . . . . . . . . . . .   5
-     3.6.  Policy: . . . . . . . . . . . . . . . . . . . . . . . . .   5
-     3.7.  Acknowledgments:  . . . . . . . . . . . . . . . . . . . .   5
+     3.6.  Policy: . . . . . . . . . . . . . . . . . . . . . . . . .   6
+     3.7.  Acknowledgments:  . . . . . . . . . . . . . . . . . . . .   6
      3.8.  Example . . . . . . . . . . . . . . . . . . . . . . . . .   6
-   4.  Location of the security.txt file . . . . . . . . . . . . . .   6
+   4.  Location of the security.txt file . . . . . . . . . . . . . .   7
      4.1.  Web-based services  . . . . . . . . . . . . . . . . . . .   7
      4.2.  Filesystems . . . . . . . . . . . . . . . . . . . . . . .   7
-     4.3.  Internal hosts  . . . . . . . . . . . . . . . . . . . . .   7
+     4.3.  Internal hosts  . . . . . . . . . . . . . . . . . . . . .   8
      4.4.  Extensibility . . . . . . . . . . . . . . . . . . . . . .   8
    5.  File Format Description . . . . . . . . . . . . . . . . . . .   8
    6.  Security considerations . . . . . . . . . . . . . . . . . . .   9
@@ -89,8 +89,8 @@ Table of Contents
    8.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  12
    9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  12
      9.1.  Normative References  . . . . . . . . . . . . . . . . . .  12
-     9.2.  Informative References  . . . . . . . . . . . . . . . . .  13
-   Appendix A.  Note to Readers  . . . . . . . . . . . . . . . . . .  13
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .  14
+   Appendix A.  Note to Readers  . . . . . . . . . . . . . . . . . .  14
    Appendix B.  Document History . . . . . . . . . . . . . . . . . .  14
      B.1.  Since draft-foudil-securitytxt-00 . . . . . . . . . . . .  14
      B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  14
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Foudil & Shafranovich    Expires August 6, 2018                 [Page 2]
+Foudil & Shafranovich    Expires August 11, 2018                [Page 2]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
@@ -165,7 +165,7 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 
 
 
-Foudil & Shafranovich    Expires August 6, 2018                 [Page 3]
+Foudil & Shafranovich    Expires August 11, 2018                [Page 3]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
@@ -221,7 +221,7 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 
 
 
-Foudil & Shafranovich    Expires August 6, 2018                 [Page 4]
+Foudil & Shafranovich    Expires August 11, 2018                [Page 4]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
@@ -236,12 +236,27 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 
 3.4.  Encryption:
 
-   This directive allows you to add your key for encrypted
-   communication.  You MUST NOT directly add your key.  The value MUST
-   be a link to a page which contains your key.  Keys SHOULD be loaded
-   over HTTPS.
+   This directive allows you to point to an encryption key that you want
+   security researchers to use for encrypted communication.  You MUST
+   NOT directly add your key to the field, instead the value of this
+   field MUST be a URI pointing to a location where the key can be
+   retrieved from.  If the key is being retrieved from a website, then
+   the key MUST be loaded over HTTPS.
+
+   When it comes to verifying the authenticity of the key, it is always
+   the security researcher's responsibility to make sure the key being
+   specified is indeed one they trust.  Researchers MUST NOT assume that
+   this key is used to generate the signature file referenced in
+   Section 3.5.
+
+   Example of a PGP key available from a web server:
 
    Encryption: https://example.com/pgp-key.txt
+
+   Example of a PGP key available from an OPENPGPKEY DNS record under
+   "security@example.com" (as per [RFC7553] and [RFC7929]):
+
+Encryption: dns:5d2d3ceb7abe552344276d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
 3.5.  Signature:
 
@@ -260,6 +275,13 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 
    Signature: https://example.com/.well-known/security.txt.sig
 
+
+
+Foudil & Shafranovich    Expires August 11, 2018                [Page 5]
+
+Internet-Draft     A Method for Web Security Policies      February 2018
+
+
 3.6.  Policy:
 
    With the Policy directive, you can link to where your security policy
@@ -273,15 +295,6 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 
    This directive allows you to link to a page where security
    researchers are recognized for their reports.  The page SHOULD list
-
-
-
-
-Foudil & Shafranovich    Expires August 6, 2018                 [Page 5]
-
-Internet-Draft     A Method for Web Security Policies      February 2018
-
-
    individuals or companies that disclosed security vulnerabilities and
    worked with you to remediate the issue.
 
@@ -313,7 +326,6 @@ Internet-Draft     A Method for Web Security Policies      February 2018
    # Verify this security.txt file
    Signature: https://example.com/.well-known/security.txt.sig
 
-4.  Location of the security.txt file
 
 
 
@@ -321,22 +333,12 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-Foudil & Shafranovich    Expires August 6, 2018                 [Page 6]
+Foudil & Shafranovich    Expires August 11, 2018                [Page 6]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
+
+4.  Location of the security.txt file
 
                              External
    +----------------------------------------------------------------+
@@ -380,19 +382,22 @@ Internet-Draft     A Method for Web Security Policies      February 2018
    example-directory-3/
    example-file
 
+
+
+
+
+
+
+
+Foudil & Shafranovich    Expires August 11, 2018                [Page 7]
+
+Internet-Draft     A Method for Web Security Policies      February 2018
+
+
 4.3.  Internal hosts
 
    A .security.txt file SHOULD be placed in the root directory of an
    internal host to trigger incident response.
-
-
-
-
-
-Foudil & Shafranovich    Expires August 6, 2018                 [Page 7]
-
-Internet-Draft     A Method for Web Security Policies      February 2018
-
 
 4.4.  Extensibility
 
@@ -440,12 +445,7 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 
 
 
-
-
-
-
-
-Foudil & Shafranovich    Expires August 6, 2018                 [Page 8]
+Foudil & Shafranovich    Expires August 11, 2018                [Page 8]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
@@ -501,7 +501,7 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 
 
 
-Foudil & Shafranovich    Expires August 6, 2018                 [Page 9]
+Foudil & Shafranovich    Expires August 11, 2018                [Page 9]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
@@ -557,7 +557,7 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 
 
 
-Foudil & Shafranovich    Expires August 6, 2018                [Page 10]
+Foudil & Shafranovich    Expires August 11, 2018               [Page 10]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
@@ -613,7 +613,7 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 
 
 
-Foudil & Shafranovich    Expires August 6, 2018                [Page 11]
+Foudil & Shafranovich    Expires August 11, 2018               [Page 11]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
@@ -669,7 +669,7 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 
 
 
-Foudil & Shafranovich    Expires August 6, 2018                [Page 12]
+Foudil & Shafranovich    Expires August 11, 2018               [Page 12]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
@@ -710,6 +710,26 @@ Internet-Draft     A Method for Web Security Policies      February 2018
               RFC 6890, DOI 10.17487/RFC6890, April 2013,
               <https://www.rfc-editor.org/info/rfc6890>.
 
+   [RFC7553]  Faltstrom, P. and O. Kolkman, "The Uniform Resource
+              Identifier (URI) DNS Resource Record", RFC 7553,
+              DOI 10.17487/RFC7553, June 2015, <https://www.rfc-
+              editor.org/info/rfc7553>.
+
+   [RFC7929]  Wouters, P., "DNS-Based Authentication of Named Entities
+              (DANE) Bindings for OpenPGP", RFC 7929,
+              DOI 10.17487/RFC7929, August 2016, <https://www.rfc-
+              editor.org/info/rfc7929>.
+
+
+
+
+
+
+Foudil & Shafranovich    Expires August 11, 2018               [Page 13]
+
+Internet-Draft     A Method for Web Security Policies      February 2018
+
+
 9.2.  Informative References
 
    [RFC8126]  Cotton, M., Leiba, B., and T. Narten, "Guidelines for
@@ -721,14 +741,6 @@ Appendix A.  Note to Readers
 
       *Note to the RFC Editor:* Please remove this section prior to
       publication.
-
-
-
-
-Foudil & Shafranovich    Expires August 6, 2018                [Page 13]
-
-Internet-Draft     A Method for Web Security Policies      February 2018
-
 
    Development of this draft takes place on Github at
    https://github.com/securitytxt/security-txt
@@ -767,6 +779,13 @@ B.2.  Since draft-foudil-securitytxt-01
 
    o  Added policy field (#53)
 
+
+
+Foudil & Shafranovich    Expires August 11, 2018               [Page 14]
+
+Internet-Draft     A Method for Web Security Policies      February 2018
+
+
    o  Added diagram explaining the location of the file on public vs.
       internal systems
 
@@ -778,13 +797,6 @@ B.2.  Since draft-foudil-securitytxt-01
 
    The full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt-02
-
-
-
-Foudil & Shafranovich    Expires August 6, 2018                [Page 14]
-
-Internet-Draft     A Method for Web Security Policies      February 2018
-
 
 B.3.  Since draft-foudil-securitytxt-02
 
@@ -801,6 +813,9 @@ B.3.  Since draft-foudil-securitytxt-02
    o  Cleaning up text based on the NITS tools suggestions (#82)
 
    o  Added clarification for newline values
+
+   o  Clarified the encryption field language, added examples of DNS-
+      stored encryption keys (#28 and #94)
 
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt-03
@@ -822,19 +837,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Foudil & Shafranovich    Expires August 6, 2018                [Page 15]
+Foudil & Shafranovich    Expires August 11, 2018               [Page 15]
