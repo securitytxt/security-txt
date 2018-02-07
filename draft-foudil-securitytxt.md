@@ -141,7 +141,7 @@ This directive allows you to point to an encryption key that you want
 security researchers to use for encrypted communication. You MUST NOT
 directly add your key to the field, instead the value of this field
 MUST be a URI pointing to a location where the key can be retrieved from.
-If the key is being retrieved from a website, then the key MUST BE
+If the key is being retrieved from a website, then the key MUST be
 loaded over HTTPS.
 
 When it comes to verifying the authenticity of the key, it is always the security researcher's responsibility to make sure the key being specified is indeed one they trust. Researchers MUST NOT assume that this key is used to generate the signature file
