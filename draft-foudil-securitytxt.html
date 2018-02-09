@@ -19,25 +19,20 @@
 }
 
 @media screen and (min-width: 1024px) {
-  body>ul.toc, body>#rfc\.toc {
+  ul.toc, #rfc\.toc {
     position: fixed;
     bottom: 0;
     right: 0;
-    right: calc(50vw - 550px);
+    right: calc(50vw - 525px);
     width: 300px;
     z-index: 1;
   }
   #rfc\.toc {
-    top: 55px;
-    overflow: auto;
-    overscroll-behavior: contain;
+    top: 15px;
   }
-  ul.toc, #rfc\.toc {
+  ul.toc {
+    top: 80px;
     overflow: auto;
-    overscroll-behavior: contain;
-  }
-  body>ul.toc {
-    top: 140px;
   }
 
   body {
@@ -46,11 +41,11 @@
 }
 
 body {
-  font: 16px "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font: 15px "Helvetica Neue",Helvetica,Arial,sans-serif;
   color: #333;
   font-size-adjust: 0.5;
-  line-height: 24px;
-  margin: 75px auto;
+  line-height: 130%;
+  margin: 25px auto;
   max-width: 724px;
 }
 
@@ -63,7 +58,7 @@ body {
   margin: 0.8em 0 0.3em;
 }
 .title { font-size: 36px; }
-h1 { font-size: 36px; }
+h1 { font-size: 30px; }
 h2 { font-size: 24px; }
 h3, h4 { font-size: 18px; }
 h1 a[href], h2 a[href], h3 a[href], h4 a[href] {
@@ -126,9 +121,10 @@ table.header td {
   height: auto;
   line-height: 100%;
 }
-#rfc\.abstract+p, #rfc\.abstract p {
-  font-size: 18px;
-  line-height: 27px%;
+#rfc\.abstract+p {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 130%;
 }
 
 samp, tt, code, pre {
@@ -196,9 +192,6 @@ ul.empty li {
 hr {
   border: 0;
   border-top: 1px solid #eee;
-}
-hr.noprint {
-  display: none;
 }
 
 a {
@@ -294,7 +287,8 @@ address {
 <link href="#rfc.section.3.5" rel="Chapter" title="3.5 Signature:"/>
 <link href="#rfc.section.3.6" rel="Chapter" title="3.6 Policy:"/>
 <link href="#rfc.section.3.7" rel="Chapter" title="3.7 Acknowledgments:"/>
-<link href="#rfc.section.3.8" rel="Chapter" title="3.8 Example"/>
+<link href="#rfc.section.3.8" rel="Chapter" title="3.8 Hiring:"/>
+<link href="#rfc.section.3.9" rel="Chapter" title="3.9 Example"/>
 <link href="#rfc.section.4" rel="Chapter" title="4 Location of the security.txt file"/>
 <link href="#rfc.section.4.1" rel="Chapter" title="4.1 Web-based services"/>
 <link href="#rfc.section.4.2" rel="Chapter" title="4.2 Filesystems"/>
@@ -322,7 +316,7 @@ address {
 
   <meta name="dct.creator" content="Foudil, E. and Y. Shafranovich" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-foudil-securitytxt-03" />
-  <meta name="dct.issued" scheme="ISO8601" content="2018-2-07" />
+  <meta name="dct.issued" scheme="ISO8601" content="2018-2-09" />
   <meta name="dct.abstract" content="When security risks in web services are discovered by independent security researchers who understand the severity of the risk, they often lack the channels to disclose them properly. As a result, security issues may be left unreported. security.txt defines a standard to help organizations describe the process for security researchers to disclose security vulnerabilities securely." />
   <meta name="description" content="When security risks in web services are discovered by independent security researchers who understand the severity of the risk, they often lack the channels to disclose them properly. As a result, security issues may be left unreported. security.txt defines a standard to help organizations describe the process for security researchers to disclose security vulnerabilities securely." />
 
@@ -346,12 +340,12 @@ address {
   <td class="right">Y. Shafranovich</td>
 </tr>
 <tr>
-  <td class="left">Expires: August 11, 2018</td>
+  <td class="left">Expires: August 13, 2018</td>
   <td class="right">Nightwatch Cybersecurity</td>
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">February 07, 2018</td>
+  <td class="right">February 09, 2018</td>
 </tr>
 
     	
@@ -371,7 +365,7 @@ address {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on August 11, 2018.</p>
+<p>This Internet-Draft will expire on August 13, 2018.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -395,7 +389,8 @@ address {
 <li>3.5.   <a href="#rfc.section.3.5">Signature:</a></li>
 <li>3.6.   <a href="#rfc.section.3.6">Policy:</a></li>
 <li>3.7.   <a href="#rfc.section.3.7">Acknowledgments:</a></li>
-<li>3.8.   <a href="#rfc.section.3.8">Example</a></li>
+<li>3.8.   <a href="#rfc.section.3.8">Hiring:</a></li>
+<li>3.9.   <a href="#rfc.section.3.9">Example</a></li>
 </ul><li>4.   <a href="#rfc.section.4">Location of the security.txt file</a></li>
 <ul><li>4.1.   <a href="#rfc.section.4.1">Web-based services</a></li>
 <li>4.2.   <a href="#rfc.section.4.2">Filesystems</a></li>
@@ -491,7 +486,7 @@ Signature: https://example.com/.well-known/security.txt.sig
 <pre>
 Policy: https://example.com/security-policy.html
 </pre>
-<h1 id="rfc.section.3.7"><a href="#rfc.section.3.7">3.7.</a> <a href="#Acknowledgments" id="Acknowledgments">Acknowledgments:</a></h1>
+<h1 id="rfc.section.3.7"><a href="#rfc.section.3.7">3.7.</a> <a href="#acknowledgments" id="acknowledgments">Acknowledgments:</a></h1>
 <p id="rfc.section.3.7.p.1">This directive allows you to link to a page where security researchers are recognized for their reports. The page SHOULD list individuals or companies that disclosed security vulnerabilities and worked with you to remediate the issue.</p>
 <pre>
 Acknowledgments: https://example.com/hall-of-fame.html
@@ -505,7 +500,12 @@ We would like to thank the following researchers:
 (2016-12-24) John Buchner - Stored cross-site scripting
 (2016-06-10) Anna Richmond - A server configuration issue
 </pre>
-<h1 id="rfc.section.3.8"><a href="#rfc.section.3.8">3.8.</a> <a href="#example" id="example">Example</a></h1>
+<h1 id="rfc.section.3.8"><a href="#rfc.section.3.8">3.8.</a> <a href="#hiring" id="hiring">Hiring:</a></h1>
+<p id="rfc.section.3.8.p.1">The &#8220;Hiring&#8221; directive is for linking to the vendor&#8217;s security-related job positions.</p>
+<pre>
+Hiring: https://example.com/jobs.html
+</pre>
+<h1 id="rfc.section.3.9"><a href="#rfc.section.3.9">3.9.</a> <a href="#example" id="example">Example</a></h1>
 <pre>
 # Our security address
 Contact: mailto:security@example.com
@@ -595,7 +595,9 @@ signature-field        = "Signature" fs SP uri
 
 policy-field           = "Policy" fs SP uri
 
-Acknowledgments-field  = "Acknowledgments" fs SP uri
+acknowledgments-field  = "Acknowledgments" fs SP uri
+
+hiring-field           = "Hiring" fs SP uri
 
 ext-field              = field-name fs SP unstructured
 
@@ -665,18 +667,7 @@ unstructured           = &lt;as per section 3.2.5 of {{RFC5322}}&gt;
    Status: current
 </pre>
 <h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#contributors" id="contributors">Contributors</a></h1>
-<p id="rfc.section.8.p.1">The editor would like to acknowledge the help provided during the development of this document by the following individuals:</p>
-<p/>
-
-<ul>
-  <li>Tom Hudson helped writing the &#8220;File Format Description&#8221; and wrote several security.txt parsers.</li>
-  <li>Joel Margolis was a big help when it came to wording this document appropriately.</li>
-  <li>Jobert Abma for raising issues and concerns that might arise when using certain directives.</li>
-  <li>Gerben Janssen van Doorn for reviewing this document multiple times.</li>
-  <li>Austin Heap for helping improve the Internet drafts.</li>
-  <li>Justin Calmus was always there to answer questions related to writing this document.</li>
-  <li>Casey Ellis had several ideas related to security.txt that helped shape security.txt itself.</li>
-</ul>
+<p id="rfc.section.8.p.1">The editors would like to acknowledge the help provided during the development of this document by Tom Hudson, Joel Margolis, Jobert Abma, Gerben Janssen van Doorn, Austin Heap, Justin Calmus, and Casey Ellis.</p>
 <h1 id="rfc.references"><a href="#rfc.references">9.</a> References</h1>
 <h1 id="rfc.references.1"><a href="#rfc.references.1">9.1.</a> Normative References</h1>
 <table>

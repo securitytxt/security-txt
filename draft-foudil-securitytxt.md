@@ -183,7 +183,7 @@ With the Policy directive, you can link to where your security policy and/or dis
 Policy: https://example.com/security-policy.html
 ~~~~~~~~~~
 
-## Acknowledgments: {#Acknowledgments}
+## Acknowledgments: {#acknowledgments}
 
 This directive allows you to link to a page where security
 researchers are recognized for their reports. The page SHOULD list individuals or companies
@@ -202,6 +202,14 @@ We would like to thank the following researchers:
 (2017-01-02) Alice Quinn  - SQL injection
 (2016-12-24) John Buchner - Stored cross-site scripting
 (2016-06-10) Anna Richmond - A server configuration issue
+~~~~~~~~~~
+
+## Hiring: {#hiring}
+
+The "Hiring" directive is for linking to the vendor's security-related job positions.
+
+~~~~~~~~~~
+Hiring: https://example.com/jobs.html
 ~~~~~~~~~~
 
 ## Example
@@ -317,7 +325,9 @@ signature-field        = "Signature" fs SP uri
 
 policy-field           = "Policy" fs SP uri
 
-Acknowledgments-field  = "Acknowledgments" fs SP uri
+acknowledgments-field  = "Acknowledgments" fs SP uri
+
+hiring-field           = "Hiring" fs SP uri
 
 ext-field              = field-name fs SP unstructured
 
@@ -426,21 +436,8 @@ The initial registry contains these values:
 
 # Contributors
 
-The editor would like to acknowledge the help provided during the
-development of this document by the following individuals:
-
-* Tom Hudson helped writing the "File Format Description" and wrote
-several security.txt parsers.
-* Joel Margolis was a big help when it came to wording this document
-appropriately.
-* Jobert Abma for raising issues and concerns that might arise when
-using certain directives.
-* Gerben Janssen van Doorn for reviewing this document multiple times.
-* Austin Heap for helping improve the Internet drafts.
-* Justin Calmus was always there to answer questions related to writing
-this document.
-* Casey Ellis had several ideas related to security.txt that helped
-shape security.txt itself.
+The editors would like to acknowledge the help provided during the
+development of this document by Tom Hudson, Joel Margolis, Jobert Abma, Gerben Janssen van Doorn, Austin Heap, Justin Calmus, and Casey Ellis.
 
 --- back
 # Note to Readers
