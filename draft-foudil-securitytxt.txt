@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: August 13, 2018                        Nightwatch Cybersecurity
-                                                       February 09, 2018
+Expires: August 14, 2018                        Nightwatch Cybersecurity
+                                                       February 10, 2018
 
 
                    A Method for Web Security Policies
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on August 13, 2018.
+   This Internet-Draft will expire on August 14, 2018.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich    Expires August 13, 2018                [Page 1]
+Foudil & Shafranovich    Expires August 14, 2018                [Page 1]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
@@ -89,14 +89,15 @@ Table of Contents
      7.2.  Registry for security.txt Header Fields . . . . . . . . .  10
    8.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  12
    9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  12
-     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  12
-     9.2.  Informative References  . . . . . . . . . . . . . . . . .  13
-   Appendix A.  Note to Readers  . . . . . . . . . . . . . . . . . .  13
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  13
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .  14
+   Appendix A.  Note to Readers  . . . . . . . . . . . . . . . . . .  14
    Appendix B.  Document History . . . . . . . . . . . . . . . . . .  14
      B.1.  Since draft-foudil-securitytxt-00 . . . . . . . . . . . .  14
-     B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  14
+     B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  15
      B.3.  Since draft-foudil-securitytxt-02 . . . . . . . . . . . .  15
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  15
+     B.4.  Since draft-foudil-securitytxt-03 . . . . . . . . . . . .  16
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  16
 
 1.  Introduction
 
@@ -108,8 +109,7 @@ Table of Contents
 
 
 
-
-Foudil & Shafranovich    Expires August 13, 2018                [Page 2]
+Foudil & Shafranovich    Expires August 14, 2018                [Page 2]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
@@ -165,7 +165,7 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 
 
 
-Foudil & Shafranovich    Expires August 13, 2018                [Page 3]
+Foudil & Shafranovich    Expires August 14, 2018                [Page 3]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
@@ -221,7 +221,7 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 
 
 
-Foudil & Shafranovich    Expires August 13, 2018                [Page 4]
+Foudil & Shafranovich    Expires August 14, 2018                [Page 4]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
@@ -277,7 +277,7 @@ Encryption: dns:5d2d3ceb7abe552344276d47d36._openpgpkey.example.com?type=OPENPGP
 
 
 
-Foudil & Shafranovich    Expires August 13, 2018                [Page 5]
+Foudil & Shafranovich    Expires August 14, 2018                [Page 5]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
@@ -316,7 +316,8 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 3.8.  Hiring:
 
    The "Hiring" directive is for linking to the vendor's security-
-   related job positions.
+   related job positions.  If this field is a web link, then HTTPS
+   SHOULD be used.
 
    Hiring: https://example.com/jobs.html
 
@@ -332,8 +333,7 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 
 
 
-
-Foudil & Shafranovich    Expires August 13, 2018                [Page 6]
+Foudil & Shafranovich    Expires August 14, 2018                [Page 6]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
@@ -389,7 +389,7 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 
 
 
-Foudil & Shafranovich    Expires August 13, 2018                [Page 7]
+Foudil & Shafranovich    Expires August 14, 2018                [Page 7]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
@@ -445,7 +445,7 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 
 
 
-Foudil & Shafranovich    Expires August 13, 2018                [Page 8]
+Foudil & Shafranovich    Expires August 14, 2018                [Page 8]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
@@ -501,7 +501,7 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 
 
 
-Foudil & Shafranovich    Expires August 13, 2018                [Page 9]
+Foudil & Shafranovich    Expires August 14, 2018                [Page 9]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
@@ -557,7 +557,7 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 
 
 
-Foudil & Shafranovich    Expires August 13, 2018               [Page 10]
+Foudil & Shafranovich    Expires August 14, 2018               [Page 10]
 
 Internet-Draft     A Method for Web Security Policies      February 2018
 
@@ -580,6 +580,44 @@ Internet-Draft     A Method for Web Security Policies      February 2018
 
    The initial registry contains these values:
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Foudil & Shafranovich    Expires August 14, 2018               [Page 11]
+
+Internet-Draft     A Method for Web Security Policies      February 2018
+
+
    Field Name: Acknowledgment
    Description: link to page where security researchers are recognized
    Multiple Appearances: Yes
@@ -598,6 +636,12 @@ Internet-Draft     A Method for Web Security Policies      February 2018
    Published in: this document
    Status: current
 
+   Field Name: Hiring
+   Description: link to the vendor's security-related job positions
+   Multiple Appearances: Yes
+   Published in: this document
+   Status: current
+
    Field Name: Signature
    Description: signature used to verify the authenticity of the file
    Multiple Appearances: No
@@ -610,14 +654,6 @@ Internet-Draft     A Method for Web Security Policies      February 2018
    Published in: this document
    Status: current
 
-
-
-
-Foudil & Shafranovich    Expires August 13, 2018               [Page 11]
-
-Internet-Draft     A Method for Web Security Policies      February 2018
-
-
 8.  Contributors
 
    The editors would like to acknowledge the help provided during the
@@ -626,6 +662,17 @@ Internet-Draft     A Method for Web Security Policies      February 2018
    Ellis.
 
 9.  References
+
+
+
+
+
+
+
+Foudil & Shafranovich    Expires August 14, 2018               [Page 12]
+
+Internet-Draft     A Method for Web Security Policies      February 2018
+
 
 9.1.  Normative References
 
@@ -665,15 +712,6 @@ Internet-Draft     A Method for Web Security Policies      February 2018
               Interchange", RFC 5198, DOI 10.17487/RFC5198, March 2008,
               <https://www.rfc-editor.org/info/rfc5198>.
 
-
-
-
-
-Foudil & Shafranovich    Expires August 13, 2018               [Page 12]
-
-Internet-Draft     A Method for Web Security Policies      February 2018
-
-
    [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
               Specifications: ABNF", STD 68, RFC 5234,
               DOI 10.17487/RFC5234, January 2008, <https://www.rfc-
@@ -682,6 +720,15 @@ Internet-Draft     A Method for Web Security Policies      February 2018
    [RFC5322]  Resnick, P., Ed., "Internet Message Format", RFC 5322,
               DOI 10.17487/RFC5322, October 2008, <https://www.rfc-
               editor.org/info/rfc5322>.
+
+
+
+
+
+Foudil & Shafranovich    Expires August 14, 2018               [Page 13]
+
+Internet-Draft     A Method for Web Security Policies      February 2018
+
 
    [RFC5785]  Nottingham, M. and E. Hammer-Lahav, "Defining Well-Known
               Uniform Resource Identifiers (URIs)", RFC 5785,
@@ -718,18 +765,6 @@ Appendix A.  Note to Readers
    Development of this draft takes place on Github at
    https://github.com/securitytxt/security-txt
 
-
-
-
-
-
-
-
-Foudil & Shafranovich    Expires August 13, 2018               [Page 13]
-
-Internet-Draft     A Method for Web Security Policies      February 2018
-
-
 Appendix B.  Document History
 
       *Note to the RFC Editor:* Please remove this section prior to
@@ -742,6 +777,14 @@ B.1.  Since draft-foudil-securitytxt-00
    o  Added table of contents and a fuller list of references
 
    o  Moved file to .well-known URI and added IANA registration (#3)
+
+
+
+
+Foudil & Shafranovich    Expires August 14, 2018               [Page 14]
+
+Internet-Draft     A Method for Web Security Policies      February 2018
+
 
    o  Added extensibility with an IANA registry for fields (#34)
 
@@ -776,16 +819,6 @@ B.2.  Since draft-foudil-securitytxt-01
    The full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt-02
 
-
-
-
-
-
-Foudil & Shafranovich    Expires August 13, 2018               [Page 14]
-
-Internet-Draft     A Method for Web Security Policies      February 2018
-
-
 B.3.  Since draft-foudil-securitytxt-02
 
    o  Use "mailto" and "tel" (#62)
@@ -802,8 +835,21 @@ B.3.  Since draft-foudil-securitytxt-02
 
    o  Added clarification for newline values
 
+
+
+Foudil & Shafranovich    Expires August 14, 2018               [Page 15]
+
+Internet-Draft     A Method for Web Security Policies      February 2018
+
+
    o  Clarified the encryption field language, added examples of DNS-
       stored encryption keys (#28 and #94)
+
+   o  Added "Hiring" field
+
+B.4.  Since draft-foudil-securitytxt-03
+
+   o  Added "Hiring" field to the registry section
 
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt-03
@@ -837,4 +883,14 @@ Authors' Addresses
 
 
 
-Foudil & Shafranovich    Expires August 13, 2018               [Page 15]
+
+
+
+
+
+
+
+
+
+
+Foudil & Shafranovich    Expires August 14, 2018               [Page 16]

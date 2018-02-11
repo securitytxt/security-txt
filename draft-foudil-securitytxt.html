@@ -19,20 +19,25 @@
 }
 
 @media screen and (min-width: 1024px) {
-  ul.toc, #rfc\.toc {
+  body>ul.toc, body>#rfc\.toc {
     position: fixed;
     bottom: 0;
     right: 0;
-    right: calc(50vw - 525px);
+    right: calc(50vw - 550px);
     width: 300px;
     z-index: 1;
   }
   #rfc\.toc {
-    top: 15px;
-  }
-  ul.toc {
-    top: 80px;
+    top: 55px;
     overflow: auto;
+    overscroll-behavior: contain;
+  }
+  ul.toc, #rfc\.toc {
+    overflow: auto;
+    overscroll-behavior: contain;
+  }
+  body>ul.toc {
+    top: 140px;
   }
 
   body {
@@ -41,11 +46,11 @@
 }
 
 body {
-  font: 15px "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font: 16px "Helvetica Neue",Helvetica,Arial,sans-serif;
   color: #333;
   font-size-adjust: 0.5;
-  line-height: 130%;
-  margin: 25px auto;
+  line-height: 24px;
+  margin: 75px auto;
   max-width: 724px;
 }
 
@@ -58,7 +63,7 @@ body {
   margin: 0.8em 0 0.3em;
 }
 .title { font-size: 36px; }
-h1 { font-size: 30px; }
+h1 { font-size: 36px; }
 h2 { font-size: 24px; }
 h3, h4 { font-size: 18px; }
 h1 a[href], h2 a[href], h3 a[href], h4 a[href] {
@@ -121,10 +126,9 @@ table.header td {
   height: auto;
   line-height: 100%;
 }
-#rfc\.abstract+p {
-  font-size: 20px;
-  font-weight: 300;
-  line-height: 130%;
+#rfc\.abstract+p, #rfc\.abstract p {
+  font-size: 18px;
+  line-height: 27px%;
 }
 
 samp, tt, code, pre {
@@ -192,6 +196,9 @@ ul.empty li {
 hr {
   border: 0;
   border-top: 1px solid #eee;
+}
+hr.noprint {
+  display: none;
 }
 
 a {
@@ -308,6 +315,7 @@ address {
 <link href="#rfc.appendix.B.1" rel="Chapter" title="B.1 Since draft-foudil-securitytxt-00"/>
 <link href="#rfc.appendix.B.2" rel="Chapter" title="B.2 Since draft-foudil-securitytxt-01"/>
 <link href="#rfc.appendix.B.3" rel="Chapter" title="B.3 Since draft-foudil-securitytxt-02"/>
+<link href="#rfc.appendix.B.4" rel="Chapter" title="B.4 Since draft-foudil-securitytxt-03"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
@@ -316,7 +324,7 @@ address {
 
   <meta name="dct.creator" content="Foudil, E. and Y. Shafranovich" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-foudil-securitytxt-03" />
-  <meta name="dct.issued" scheme="ISO8601" content="2018-2-09" />
+  <meta name="dct.issued" scheme="ISO8601" content="2018-2-10" />
   <meta name="dct.abstract" content="When security risks in web services are discovered by independent security researchers who understand the severity of the risk, they often lack the channels to disclose them properly. As a result, security issues may be left unreported. security.txt defines a standard to help organizations describe the process for security researchers to disclose security vulnerabilities securely." />
   <meta name="description" content="When security risks in web services are discovered by independent security researchers who understand the severity of the risk, they often lack the channels to disclose them properly. As a result, security issues may be left unreported. security.txt defines a standard to help organizations describe the process for security researchers to disclose security vulnerabilities securely." />
 
@@ -340,12 +348,12 @@ address {
   <td class="right">Y. Shafranovich</td>
 </tr>
 <tr>
-  <td class="left">Expires: August 13, 2018</td>
+  <td class="left">Expires: August 14, 2018</td>
   <td class="right">Nightwatch Cybersecurity</td>
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">February 09, 2018</td>
+  <td class="right">February 10, 2018</td>
 </tr>
 
     	
@@ -365,7 +373,7 @@ address {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on August 13, 2018.</p>
+<p>This Internet-Draft will expire on August 14, 2018.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -410,6 +418,7 @@ address {
 <ul><li>B.1.   <a href="#rfc.appendix.B.1">Since draft-foudil-securitytxt-00</a></li>
 <li>B.2.   <a href="#rfc.appendix.B.2">Since draft-foudil-securitytxt-01</a></li>
 <li>B.3.   <a href="#rfc.appendix.B.3">Since draft-foudil-securitytxt-02</a></li>
+<li>B.4.   <a href="#rfc.appendix.B.4">Since draft-foudil-securitytxt-03</a></li>
 </ul><li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
@@ -501,7 +510,7 @@ We would like to thank the following researchers:
 (2016-06-10) Anna Richmond - A server configuration issue
 </pre>
 <h1 id="rfc.section.3.8"><a href="#rfc.section.3.8">3.8.</a> <a href="#hiring" id="hiring">Hiring:</a></h1>
-<p id="rfc.section.3.8.p.1">The &#8220;Hiring&#8221; directive is for linking to the vendor&#8217;s security-related job positions.</p>
+<p id="rfc.section.3.8.p.1">The &#8220;Hiring&#8221; directive is for linking to the vendor&#8217;s security-related job positions.  If this field is a web link, then HTTPS SHOULD be used.</p>
 <pre>
 Hiring: https://example.com/jobs.html
 </pre>
@@ -650,6 +659,12 @@ unstructured           = &lt;as per section 3.2.5 of {{RFC5322}}&gt;
 
    Field Name: Encryption
    Description: link to a key to be used for encrypted communication
+   Multiple Appearances: Yes
+   Published in: this document
+   Status: current
+
+   Field Name: Hiring
+   Description: link to the vendor's security-related job positions
    Multiple Appearances: Yes
    Published in: this document
    Status: current
@@ -819,8 +834,15 @@ unstructured           = &lt;as per section 3.2.5 of {{RFC5322}}&gt;
   <li>Cleaning up text based on the NITS tools suggestions (#82)</li>
   <li>Added clarification for newline values</li>
   <li>Clarified the encryption field language, added examples of DNS-stored encryption keys (#28 and #94)</li>
+  <li>Added &#8220;Hiring&#8221; field</li>
 </ul>
-<p id="rfc.section.B.3.p.2">Full list of changes can be viewed via the IETF document tracker: https://tools.ietf.org/html/draft-foudil-securitytxt-03</p>
+<h1 id="rfc.appendix.B.4"><a href="#rfc.appendix.B.4">B.4.</a> <a href="#since-draft-foudil-securitytxt-03" id="since-draft-foudil-securitytxt-03">Since draft-foudil-securitytxt-03</a></h1>
+<p/>
+
+<ul>
+  <li>Added &#8220;Hiring&#8221; field to the registry section</li>
+</ul>
+<p id="rfc.section.B.4.p.2">Full list of changes can be viewed via the IETF document tracker: https://tools.ietf.org/html/draft-foudil-securitytxt-03</p>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>
 </h1>
