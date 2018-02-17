@@ -207,6 +207,7 @@ We would like to thank the following researchers:
 ## Hiring: {#hiring}
 
 The "Hiring" directive is for linking to the vendor's security-related job positions.
+If this field is a web link, then HTTPS SHOULD be used.
 
 ~~~~~~~~~~
 Hiring: https://example.com/jobs.html
@@ -422,6 +423,12 @@ The initial registry contains these values:
        Published in: this document
        Status: current
 
+       Field Name: Hiring
+       Description: link to the vendor's security-related job positions
+       Multiple Appearances: Yes
+       Published in: this document
+       Status: current
+
        Field Name: Signature
        Description: signature used to verify the authenticity of the file
        Multiple Appearances: No
@@ -485,6 +492,10 @@ https://tools.ietf.org/html/draft-foudil-securitytxt-02
 - Added clarification for newline values
 - Clarified the encryption field language, added examples
 of DNS-stored encryption keys (#28 and #94)
+- Added "Hiring" field
+
+## Since draft-foudil-securitytxt-03
+- Added "Hiring" field to the registry section
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt-03
