@@ -160,6 +160,12 @@ Example of a PGP key available from an OPENPGPKEY DNS record under
 Encryption: dns:5d2d3ceb7abe552344276d47d36._openpgpkey.example.com?type=OPENPGPKEY
 ~~~~~~~~~~
 
+Example of a PGP key being referenced by its fingerprint:
+
+~~~~~~~~~~
+Encryption: openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f
+~~~~~~~~~~
+
 ## Signature: {#signature}
 
 In order to ensure the authenticity of the security.txt file one SHOULD use the
@@ -496,6 +502,7 @@ of DNS-stored encryption keys (#28 and #94)
 
 ## Since draft-foudil-securitytxt-03
 - Added "Hiring" field to the registry section
+- Added an encryption example using a PGP fingerprint (#107)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt-03
