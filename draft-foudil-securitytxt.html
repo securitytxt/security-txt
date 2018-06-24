@@ -19,25 +19,20 @@
 }
 
 @media screen and (min-width: 1024px) {
-  body>ul.toc, body>#rfc\.toc {
+  ul.toc, #rfc\.toc {
     position: fixed;
     bottom: 0;
     right: 0;
-    right: calc(50vw - 550px);
+    right: calc(50vw - 525px);
     width: 300px;
     z-index: 1;
   }
   #rfc\.toc {
-    top: 55px;
-    overflow: auto;
-    overscroll-behavior: contain;
+    top: 15px;
   }
-  ul.toc, #rfc\.toc {
+  ul.toc {
+    top: 80px;
     overflow: auto;
-    overscroll-behavior: contain;
-  }
-  body>ul.toc {
-    top: 140px;
   }
 
   body {
@@ -46,11 +41,11 @@
 }
 
 body {
-  font: 16px "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font: 15px "Helvetica Neue",Helvetica,Arial,sans-serif;
   color: #333;
   font-size-adjust: 0.5;
-  line-height: 24px;
-  margin: 75px auto;
+  line-height: 130%;
+  margin: 25px auto;
   max-width: 724px;
 }
 
@@ -63,7 +58,7 @@ body {
   margin: 0.8em 0 0.3em;
 }
 .title { font-size: 36px; }
-h1 { font-size: 36px; }
+h1 { font-size: 30px; }
 h2 { font-size: 24px; }
 h3, h4 { font-size: 18px; }
 h1 a[href], h2 a[href], h3 a[href], h4 a[href] {
@@ -126,9 +121,10 @@ table.header td {
   height: auto;
   line-height: 100%;
 }
-#rfc\.abstract+p, #rfc\.abstract p {
-  font-size: 18px;
-  line-height: 27px%;
+#rfc\.abstract+p {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 130%;
 }
 
 samp, tt, code, pre {
@@ -196,9 +192,6 @@ ul.empty li {
 hr {
   border: 0;
   border-top: 1px solid #eee;
-}
-hr.noprint {
-  display: none;
 }
 
 a {
@@ -324,7 +317,7 @@ address {
 
   <meta name="dct.creator" content="Foudil, E. and Y. Shafranovich" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-foudil-securitytxt-03" />
-  <meta name="dct.issued" scheme="ISO8601" content="2018-05-31" />
+  <meta name="dct.issued" scheme="ISO8601" content="2018-06-24" />
   <meta name="dct.abstract" content="When security risks in web services are discovered by independent security researchers who understand the severity of the risk, they often lack the channels to disclose them properly. As a result, security issues may be left unreported. security.txt defines a standard to help organizations describe the process for security researchers to disclose security vulnerabilities securely." />
   <meta name="description" content="When security risks in web services are discovered by independent security researchers who understand the severity of the risk, they often lack the channels to disclose them properly. As a result, security issues may be left unreported. security.txt defines a standard to help organizations describe the process for security researchers to disclose security vulnerabilities securely." />
 
@@ -348,12 +341,12 @@ address {
 <td class="right">Y. Shafranovich</td>
 </tr>
 <tr>
-<td class="left">Expires: December 2, 2018</td>
+<td class="left">Expires: December 26, 2018</td>
 <td class="right">Nightwatch Cybersecurity</td>
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">May 31, 2018</td>
+<td class="right">June 24, 2018</td>
 </tr>
 
     	
@@ -369,7 +362,7 @@ address {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on December 2, 2018.</p>
+<p>This Internet-Draft will expire on December 26, 2018.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2018 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -508,7 +501,7 @@ http://[2001:db8:8:4::2]/.well-known/security.txt
 <h1 id="rfc.section.3.3">
 <a href="#rfc.section.3.3">3.3.</a> <a href="#contact" id="contact">Contact:</a>
 </h1>
-<p id="rfc.section.3.3.p.1">Add an address that researchers MAY use for reporting security issues. The value can be an email address, a phone number and/or a contact page with more information. The &#8220;Contact:&#8221; directive MUST always be present in a security.txt file. URIs SHOULD be loaded over HTTPS. Security email addresses SHOULD use the conventions defined in section 4 of <a href="#RFC2142" class="xref">[RFC2142]</a>, but there is no requirement for this directive to be an email address.</p>
+<p id="rfc.section.3.3.p.1">Add an address that researchers MAY use for reporting security issues. The value can be an email address, a phone number and/or a contact page with more information. The &#8220;Contact:&#8221; directive MUST always be present in a security.txt file. URIs MUST be loaded over HTTPS. Security email addresses SHOULD use the conventions defined in section 4 of <a href="#RFC2142" class="xref">[RFC2142]</a>, but there is no requirement for this directive to be an email address.</p>
 <p id="rfc.section.3.3.p.2">The value MUST follow the general syntax described in <a href="#RFC3986" class="xref">[RFC3986]</a>. This means that &#8220;mailto&#8221; and &#8220;tel&#8221; URI schemes MUST be used when specifying email addresses and telephone numbers.</p>
 <p id="rfc.section.3.3.p.3">The precedence is in listed order. The first field is the preferred method of contact. In the example below, the e-mail address is the preferred method of contact.</p>
 <pre>
@@ -536,7 +529,7 @@ Encryption: openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f
 <h1 id="rfc.section.3.5">
 <a href="#rfc.section.3.5">3.5.</a> <a href="#signature" id="signature">Signature:</a>
 </h1>
-<p id="rfc.section.3.5.p.1">In order to ensure the authenticity of the security.txt file one SHOULD use the &#8220;Signature:&#8221; directive, which allows you to link to an external signature by specifying the full URI where the signature is located as per <a href="#RFC3986" class="xref">[RFC3986]</a>. External signature files SHOULD be named &#8220;security.txt.sig&#8221; and also be placed under the /.well-known/ path.  External signature files SHOULD be loaded over HTTPS.</p>
+<p id="rfc.section.3.5.p.1">In order to ensure the authenticity of the security.txt file one SHOULD use the &#8220;Signature:&#8221; directive, which allows you to link to an external signature by specifying the full URI where the signature is located as per <a href="#RFC3986" class="xref">[RFC3986]</a>. External signature files SHOULD be named &#8220;security.txt.sig&#8221; and also be placed under the /.well-known/ path.  External signature files MUST be loaded over HTTPS.</p>
 <p id="rfc.section.3.5.p.2">When it comes to verifying the authenticity of the file, it is always the security researcher&#8217;s responsibility to make sure the key being specified is indeed one they trust.</p>
 <p id="rfc.section.3.5.p.3">Here is an example of an external signature file.</p>
 <pre>
@@ -692,7 +685,7 @@ unstructured           = &lt;as per section 3.2.5 of {{RFC5322}}&gt;
 </h1>
 <p id="rfc.section.6.p.1">Organizations creating security.txt files will need to consider several security-related issues. These include exposure to sensitive information and attacks where limited access to a server could grant the ability to modify the contents of the security.txt file or affect how it is served. Organizations SHOULD also monitor their security.txt files regularly to detect tampering.</p>
 <p id="rfc.section.6.p.2">To ensure the authenticity of the security.txt file, organizations SHOULD sign the file and include the signature using the &#8220;Signature:&#8221; directive.</p>
-<p id="rfc.section.6.p.3">As stated in <a href="#encryption" class="xref">Section 3.4</a> and <a href="#signature" class="xref">Section 3.5</a>, both encryption keys and external signature files SHOULD be loaded over HTTPS.</p>
+<p id="rfc.section.6.p.3">As stated in <a href="#encryption" class="xref">Section 3.4</a> and <a href="#signature" class="xref">Section 3.5</a>, both encryption keys and external signature files MUST be loaded over HTTPS.</p>
 <p id="rfc.section.6.p.4">Websites MUST reserve the security.txt namespace to ensure no third-party can create a page with the &#8220;security.txt&#8221; name.</p>
 <h1 id="rfc.section.7">
 <a href="#rfc.section.7">7.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a>

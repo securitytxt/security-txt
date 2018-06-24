@@ -118,7 +118,7 @@ a line feed character (LF / %x0A).
 Add an address that researchers MAY use for reporting security
 issues. The value can be an email address, a phone number and/or a
 contact page with more information. The "Contact:" directive MUST
-always be present in a security.txt file. URIs SHOULD be loaded over
+always be present in a security.txt file. URIs MUST be loaded over
 HTTPS. Security email addresses SHOULD use the conventions defined
 in section 4 of {{!RFC2142}}, but there is no requirement for this directive
 to be an email address.
@@ -171,7 +171,7 @@ Encryption: openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f
 In order to ensure the authenticity of the security.txt file one SHOULD use the
 "Signature:" directive, which allows you to link to an external signature by specifying the full URI where the signature is located as per {{!RFC3986}}. External signature files SHOULD be
 named "security.txt.sig" and also be placed under the /.well-known/ path.
-External signature files SHOULD be loaded over HTTPS.
+External signature files MUST be loaded over HTTPS.
 
 When it comes to verifying the authenticity of the file, it is always the security researcher's responsibility to make sure the key being specified is indeed one they trust.
 
@@ -359,7 +359,7 @@ sign the file and include the signature using the "Signature:"
 directive.
 
 As stated in {{encryption}} and {{signature}}, both encryption keys
-and external signature files SHOULD be loaded over HTTPS.
+and external signature files MUST be loaded over HTTPS.
 
 Websites MUST reserve the security.txt namespace to ensure no third-party can create a page with the "security.txt" name.
 
