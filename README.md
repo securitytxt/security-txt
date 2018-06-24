@@ -18,6 +18,10 @@ https://github.com/securitytxt/
 
 The Internet draft for security.txt can be found here: https://tools.ietf.org/html/draft-foudil-securitytxt-03.
 
+# Mailing list
+
+There is a mailing list for the security.txt project: https://www.freelists.org/list/securitytxt.
+
 # Building the Draft
 
 To build the text and HTML drafts, use the following make command.
