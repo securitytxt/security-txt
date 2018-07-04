@@ -37,12 +37,22 @@ no course of action laid out. security.txt is designed to help
 assist in this process by making it easier for companies to designate
 the preferred steps for researchers to take when trying to reach out.
 
-As per section 4 of {{!RFC2142}}, there is an existing convention
+As per section 4 of {{?RFC2142}}, there is an existing convention
 of using the \<SECURITY@domain\> email address for communications regarding
 security issues. That convention provides only a single, email-based
 channel of communication for security issues per domain, and does not provide
 a way for domain owners to publish information about their security disclosure
 policies.
+
+There are also contact conventions prescribed for Internet Service Providers (ISPs)
+in section 2 of {{?RFC3013}}, for Computer Security Incident Response Teams (CSIRTs)
+in section 3.2 of {{?RFC2350}} and for site operators in section 5.2 of
+{{?RFC2196}}. As per {{?RFC7485}}, there is also contact information provided by
+Regional Internet Registries (RIRs) and domain registries for owners of IP
+addresses, autonomous system numbers (ASNs) and domain names. However, none of
+these address the issue of how security researchers can locate disclosure
+policies and contact information for companies in order to responsibly disclose
+security issues.
 
 In this document, we propose a richer, machine-parsable and more extensible way
 for companies to communicate information about their security disclosure
@@ -51,9 +61,11 @@ such as encryption.
 
 ## Terminology
 
-In this document, the key words "MUST", "MUST NOT", "REQUIRED",
-"SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY",
-and "OPTIONAL" are to be interpreted as described in {{!RFC2119}}.
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+"SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+"OPTIONAL" in this document are to be interpreted as described in
+BCP 14 {{!RFC2119}} {{!RFC8174}} when, and only when, they appear in all
+capitals, as shown here.
 
 # Note to Readers
 
@@ -61,6 +73,8 @@ and "OPTIONAL" are to be interpreted as described in {{!RFC2119}}.
 > to publication.
 
 Development of this draft takes place on Github at: https://github.com/securitytxt/security-txt
+
+A mailing list is available for discussion at: https://www.freelists.org/list/securitytxt
 
 # The Specification
 
@@ -78,7 +92,10 @@ can have an unlimited number of fields. It is important to note that
 you need a separate line for every field. One MUST NOT chain multiple
 values for a single directive. Everything MUST be in a separate field.
 
-A security.txt file MUST only apply to the domain in the URI used to retrieve it, not to any of its subdomains or parent domains.
+A security.txt file MUST only apply to the domain in the URI used to retrieve it,
+not to any of its subdomains or parent domains.
+
+Some examples appear below:
 
 ~~~~~~~~~~
 # The following only applies to example.com.
@@ -157,7 +174,7 @@ Example of a PGP key available from an OPENPGPKEY DNS record under
 "security@example.com" (as per {{!RFC7553}} and {{!RFC7929}}):
 
 ~~~~~~~~~~
-Encryption: dns:5d2d3ceb7abe552344276d47d36._openpgpkey.example.com?type=OPENPGPKEY
+Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 ~~~~~~~~~~
 
 Example of a PGP key being referenced by its fingerprint:
@@ -300,7 +317,7 @@ The expected file format of the security.txt file is plain text (MIME type "text
 in section 4.1.3 of {{!RFC2046}} and is encoded using UTF-8 {{!RFC3629}} in Net-Unicode form {{!RFC5198}}.
 
 The following is an ABNF definition of the security.txt format, using
-the conventions defined in {{!RFC5234}}.
+the conventions defined in {{!RFC5234}} and {{!RFC5322}}.
 
 ~~~~~~~~~~
 body                   = *line (contact-field eol) *line
@@ -366,10 +383,10 @@ Websites MUST reserve the security.txt namespace to ensure no third-party can cr
 # IANA Considerations
 
 example.com is used in this document following the uses indicated in
-{{!RFC2606}}.
+{{?RFC2606}}.
 
 192.0.2.0 and 2001:db8:8:4::2 are used in this document following
-the uses indicated in {{!RFC6890}}.
+the uses indicated in {{?RFC6890}}.
 
 ## Well-Known URIs registry
 
@@ -503,6 +520,10 @@ of DNS-stored encryption keys (#28 and #94)
 ## Since draft-foudil-securitytxt-03
 - Added "Hiring" field to the registry section
 - Added an encryption example using a PGP fingerprint (#107)
+- Added reference to the mailing list (#111)
+- Added a section referencing related work (#113)
+- Fixes for idnits (#82)
+- Updating some references to informative instead of normative
 
 Full list of changes can be viewed via the IETF document tracker:
-https://tools.ietf.org/html/draft-foudil-securitytxt-03
+https://tools.ietf.org/html/draft-foudil-securitytxt
