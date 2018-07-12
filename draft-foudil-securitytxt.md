@@ -90,7 +90,8 @@ A "field" always consists of a directive and a value
 ("Contact: https://example.com/security"). A security.txt file
 can have an unlimited number of fields. It is important to note that
 you need a separate line for every field. One MUST NOT chain multiple
-values for a single directive. Everything MUST be in a separate field.
+values for a single directive. Everything MUST be in a separate field. Unless
+otherwise indicated, any directive can appear multiple times.
 
 A security.txt file MUST only apply to the domain in the URI used to retrieve it,
 not to any of its subdomains or parent domains.
@@ -130,7 +131,30 @@ NOT chain everything into a single field. Every line MUST end either
 with a carriage return and line feed characters (CRLF / %x0D %x0A) or just
 a line feed character (LF / %x0A).
 
-## Contact: {#contact}
+## Field Definitions
+
+### Acknowledgments {#acknowledgments}
+
+This directive allows you to link to a page where security
+researchers are recognized for their reports. The page SHOULD list individuals or companies
+that disclosed security vulnerabilities and worked with you to remediate the issue.
+
+~~~~~~~~~~
+Acknowledgments: https://example.com/hall-of-fame.html
+~~~~~~~~~~
+
+Example security acknowledgments page:
+
+~~~~~~~~~~
+We would like to thank the following researchers:
+
+(2017-04-15) Frank Denis - Reflected cross-site scripting
+(2017-01-02) Alice Quinn  - SQL injection
+(2016-12-24) John Buchner - Stored cross-site scripting
+(2016-06-10) Anna Richmond - A server configuration issue
+~~~~~~~~~~
+
+### Contact {#contact}
 
 Add an address that researchers MAY use for reporting security
 issues. The value can be an email address, a phone number and/or a
@@ -152,7 +176,7 @@ Contact: tel:+1-201-555-0123
 Contact: https://example.com/security-contact.html
 ~~~~~~~~~~
 
-## Encryption: {#encryption}
+### Encryption {#encryption}
 
 This directive allows you to point to an encryption key that you want
 security researchers to use for encrypted communication. You MUST NOT
@@ -183,22 +207,32 @@ Example of a PGP key being referenced by its fingerprint:
 Encryption: openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f
 ~~~~~~~~~~
 
-## Signature: {#signature}
+### Hiring {#hiring}
 
-In order to ensure the authenticity of the security.txt file one SHOULD use the
-"Signature:" directive, which allows you to link to an external signature by specifying the full URI where the signature is located as per {{!RFC3986}}. External signature files SHOULD be
-named "security.txt.sig" and also be placed under the /.well-known/ path.
-External signature files MUST be loaded over HTTPS.
-
-When it comes to verifying the authenticity of the file, it is always the security researcher's responsibility to make sure the key being specified is indeed one they trust.
-
-Here is an example of an external signature file.
+The "Hiring" directive is for linking to the vendor's security-related job positions.
+If this field is a web link, then HTTPS SHOULD be used.
 
 ~~~~~~~~~~
-Signature: https://example.com/.well-known/security.txt.sig
+Hiring: https://example.com/jobs.html
 ~~~~~~~~~~
 
-## Policy: {#policy}
+### Permission {#permission}
+
+The presence of the "Permission" directive is used to indicate to security
+researchers that they MUST NOT perform any kind of testing against
+the resource hosting the "security.txt" file. The only valid value
+for this directive is "none". This field MUST NOT appear more than once.
+
+The absence of the "Permission" directive or the use of any other value other
+than "none" for this directive MUST NOT be interpreted by researchers
+as being granted permission to test the resource. Additionally, the presence
+or absence of this directive MUST NOT be interpreted as having any legal value.
+
+~~~~~~~~~~
+Permission: none
+~~~~~~~~~~
+
+### Policy {#policy}
 
 With the Policy directive, you can link to where your security policy and/or disclosure policy is located. This can help security researchers understand what you are looking for and how to report security vulnerabilities.
 
@@ -206,34 +240,19 @@ With the Policy directive, you can link to where your security policy and/or dis
 Policy: https://example.com/security-policy.html
 ~~~~~~~~~~
 
-## Acknowledgments: {#acknowledgments}
+### Signature {#signature}
 
-This directive allows you to link to a page where security
-researchers are recognized for their reports. The page SHOULD list individuals or companies
-that disclosed security vulnerabilities and worked with you to remediate the issue.
+In order to ensure the authenticity of the security.txt file one SHOULD use the
+"Signature:" directive, which allows you to link to an external signature by specifying the full URI where the signature is located as per {{!RFC3986}}. External signature files SHOULD be
+named "security.txt.sig" and also be placed under the /.well-known/ path.
+External signature files MUST be loaded over HTTPS. This field MUST NOT appear more than once.
 
-~~~~~~~~~~
-Acknowledgments: https://example.com/hall-of-fame.html
-~~~~~~~~~~
+When it comes to verifying the authenticity of the file, it is always the security researcher's responsibility to make sure the key being specified is indeed one they trust.
 
-Example security acknowledgments page:
-
-~~~~~~~~~~
-We would like to thank the following researchers:
-
-(2017-04-15) Frank Denis - Reflected cross-site scripting
-(2017-01-02) Alice Quinn  - SQL injection
-(2016-12-24) John Buchner - Stored cross-site scripting
-(2016-06-10) Anna Richmond - A server configuration issue
-~~~~~~~~~~
-
-## Hiring: {#hiring}
-
-The "Hiring" directive is for linking to the vendor's security-related job positions.
-If this field is a web link, then HTTPS SHOULD be used.
+Here is an example of an external signature file.
 
 ~~~~~~~~~~
-Hiring: https://example.com/jobs.html
+Signature: https://example.com/.well-known/security.txt.sig
 ~~~~~~~~~~
 
 ## Example
@@ -311,7 +330,7 @@ in {{registry}}. Any fields registered via that process MUST be
 considered optional. To encourage extensibility and interoperability,
 implementors MUST ignore any fields they do not explicitly support.
 
-# File Format Description
+# File Format Description and ABNF Grammar
 
 The expected file format of the security.txt file is plain text (MIME type "text/plain") as defined
 in section 4.1.3 of {{!RFC2046}} and is encoded using UTF-8 {{!RFC3629}} in Net-Unicode form {{!RFC5198}}.
@@ -320,20 +339,24 @@ The following is an ABNF definition of the security.txt format, using
 the conventions defined in {{!RFC5234}} and {{!RFC5322}}.
 
 ~~~~~~~~~~
-body                   = *line (contact-field eol) *line
+body                   = *line (permission-field eol) (signature-field eol) *line
 
 line                   = *1(field / comment) eol
 
-eol                    = *WSP \[CR\] LF
+eol                    = *WSP [CR] LF
 
-field                  = contact-field /
-                         encryption-field /
-                         acknowledgments-field /
+field                  = acknowledgments-field /
+                         contact-field /
+                         encryption-field /                         
+                         hiring-field /
+                         policy-field /
                          ext-field
 
 fs                     = ":"
 
 comment                = "#" *(WSP / VCHAR / %xA0-E007F)
+
+acknowledgments-field  = "Acknowledgments" fs SP uri
 
 contact-field          = "Contact" fs SP (email / uri / phone)
 
@@ -345,13 +368,13 @@ uri                    = <URI as per {{!RFC3986}}>
 
 encryption-field       = "Encryption" fs SP uri
 
-signature-field        = "Signature" fs SP uri
+hiring-field           = "Hiring" fs SP uri
+
+permission-field       = "Permission" fs SP "none"
 
 policy-field           = "Policy" fs SP uri
 
-acknowledgments-field  = "Acknowledgments" fs SP uri
-
-hiring-field           = "Hiring" fs SP uri
+signature-field        = "Signature" fs SP uri
 
 ext-field              = field-name fs SP unstructured
 
@@ -428,7 +451,7 @@ that a registered field is historical or deprecated if appropriate.
 
 The initial registry contains these values:
 
-       Field Name: Acknowledgment
+       Field Name: Acknowledgments
        Description: link to page where security researchers are recognized
        Multiple Appearances: Yes
        Published in: this document
@@ -452,14 +475,20 @@ The initial registry contains these values:
        Published in: this document
        Status: current
 
-       Field Name: Signature
-       Description: signature used to verify the authenticity of the file
+       Field Name: Policy
+       Description: link to security policy page
+       Multiple Appearances: Yes
+       Published in: this document
+       Status: current
+
+       Field Name: Permission
+       Description: indicates that researchers MUST NOT do any testing
        Multiple Appearances: No
        Published in: this document
        Status: current
 
-       Field Name: Policy
-       Description: link to security policy page
+       Field Name: Signature
+       Description: signature used to verify the authenticity of the file
        Multiple Appearances: No
        Published in: this document
        Status: current
@@ -523,7 +552,9 @@ of DNS-stored encryption keys (#28 and #94)
 - Added reference to the mailing list (#111)
 - Added a section referencing related work (#113)
 - Fixes for idnits (#82)
-- Updating some references to informative instead of normative
+- Changing some references to informative instead of normative
+- Adding "Permission" field (#30)
+- Fixing remaining ABNF issues (#83)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
