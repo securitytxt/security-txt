@@ -93,7 +93,7 @@ This text file contains multiple directives
 with different values. The "directive" is the first part of a field all the way up
 to the colon ("Contact:"). Directives MUST be case-insensitive. The
 "value" comes after the directive ("https://example.com/security").
-A "field" MUST alway consist of a directive and a value
+A "field" MUST always consist of a directive and a value
 ("Contact: https://example.com/security"). A security.txt file
 can have an unlimited number of fields. It is important to note that
 you MUST have a separate line for every field. One MUST NOT chain multiple
@@ -182,7 +182,7 @@ SHOULD use for reporting security
 issues. The value MAY be an email address, a phone number and/or a
 contact page with more information. The "Contact:" directive MUST
 always be present in a security.txt file. If this directive indicates a web URL,
-then it MUST be begin with "https://". Security
+then it MUST begin with "https://". Security
 email addresses SHOULD use the conventions defined in section
 4 of {{!RFC2142}}, but there is no requirement for this directive
 to be an email address.
@@ -279,7 +279,7 @@ under the /.well-known/ path ("/.well-known/security.txt.sig").
 If this directive indicates a web URL, then it MUST be begin with "https://".
 This directive MUST NOT appear more than once.
 
-It is RECOMMENDED to implementors that this directive be always used.
+It is RECOMMENDED to implementers that this directive always be used.
 
 When it comes to verifying the authenticity of the file, it is always
 the security researcher's responsibility to make sure the key being
