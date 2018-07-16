@@ -18,24 +18,23 @@ author:
   email: yakov+ietf@nightwatchcybersecurity.com
 
 --- abstract
-When security risks in web services are discovered by independent
-security researchers who understand the severity of the risk, they
+When security risks are discovered by independent
+security researchers, they
 often lack the channels to disclose them properly. As a result,
-security issues may be left unreported. security.txt defines a
-standard to help organizations describe the process for security
-researchers to disclose security vulnerabilities securely.
+security issues may be left unreported. This document defines a standard
+("security.txt") to help organizations describe the process for security
+researchers to follow in order to disclose security vulnerabilities securely.
 
 --- middle
 
 # Introduction
 
-## Motivation
+## Motivation and Prior Work
 
 Many security researchers encounter situations where they are unable
 to responsibly disclose security issues to companies because there is
-no course of action laid out. security.txt is designed to help
-assist in this process by making it easier for companies to designate
-the preferred steps for researchers to take when trying to reach out.
+no course of action laid out or no way indicated to contact the owner of a particular
+resource.
 
 As per section 4 of {{?RFC2142}}, there is an existing convention
 of using the \<SECURITY@domain\> email address for communications regarding
@@ -54,10 +53,13 @@ these address the issue of how security researchers can locate disclosure
 policies and contact information for companies in order to responsibly disclose
 security issues.
 
-In this document, we propose a richer, machine-parsable and more extensible way
+In this document, we define a richer, machine-parsable and more extensible way
 for companies to communicate information about their security disclosure
 policies, which is not limited to email and also allows for additional features
-such as encryption.
+such as encryption. This standard is designed to help
+assist with the security disclosure process by making it easier
+for companies to designate the preferred steps for researchers to take
+when trying to reach out to them with security issues.
 
 ## Terminology
 
@@ -78,23 +80,34 @@ A mailing list is available for discussion at: https://www.freelists.org/list/se
 
 # The Specification
 
-security.txt is a text file that SHOULD be located under the
-/.well-known/ path ("/.well-known/security.txt") {{!RFC5785}} for web
-properties. If it is not possible to place the security.txt file in the /.well-known/ path or setup a redirect, web-based services MAY place the file in the top-level path as a fall back option. For web-based services, the instructions MUST be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}. For file systems and version control repositories a .security.txt file SHOULD be placed in the root directory.
+This standard defines a text file to be placed in a known location
+that provides information for security researchers to assist
+in disclosing security issues.
+
+The file is named "security.txt", and this file SHOULD be placed under the
+/.well-known/ path ("/.well-known/security.txt") {{!RFC5785}} of a domain name or IP address for web
+properties. If it is not possible to place the security.txt file in the /.well-known/ path or setup a redirect, web-based services MAY place the file in the top-level path
+of a given web domain or IP address ("/security.txt") as a fall back option. For web-based services, the instructions MUST be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}. For file systems and version control repositories a ".security.txt" file SHOULD be placed in the root directory of a particular file system or source code project.
 
 This text file contains multiple directives
 with different values. The "directive" is the first part of a field all the way up
-to the colon ("Contact:"). Directives are case-insensitive. The
+to the colon ("Contact:"). Directives MUST be case-insensitive. The
 "value" comes after the directive ("https://example.com/security").
-A "field" always consists of a directive and a value
+A "field" MUST always consist of a directive and a value
 ("Contact: https://example.com/security"). A security.txt file
 can have an unlimited number of fields. It is important to note that
-you need a separate line for every field. One MUST NOT chain multiple
-values for a single directive. Everything MUST be in a separate field. Unless
-otherwise indicated, any directive can appear multiple times.
+you MUST have a separate line for every field. One MUST NOT chain multiple
+values for a single directive and everything MUST be in a separate field. Unless
+otherwise indicated in a definition of a particular field,
+any directive MAY appear multiple times.
 
-A security.txt file MUST only apply to the domain in the URI used to retrieve it,
-not to any of its subdomains or parent domains.
+## Scope
+
+A "security.txt" file MUST only apply to the domain in the URI used to retrieve it,
+not to any of its subdomains or parent domains. A "security.txt" file that is found
+in a file system or version control repository MUST only apply to the folder
+or repository in which it is located, and not to any of its parent or sibling folders,
+or repositories.
 
 Some examples appear below:
 
@@ -110,23 +123,28 @@ http://192.0.2.0/.well-known/security.txt
 
 # This security.txt file applies to IPv6 address of 2001:db8:8:4::2.
 http://[2001:db8:8:4::2]/.well-known/security.txt
+
+# This security.txt file applies to the /example/folder1 directory.
+/example/folder1/security.txt
 ~~~~~~~~~~
 
 ## Comments
 
-Comments can be added using the # symbol:
+Any line beginning with the "#" (%x30) symbol MUST be interpreted as a comment.
+
+Example:
 
 ~~~~~~~~~~
 # This is a comment.
 ~~~~~~~~~~
 
 You MAY use one or more comments as descriptive text immediately
-before the field. Parsers can then associate the comments with the
+before the field. Parsers SHOULD associate the comments with the
 respective field.
 
 ## Separate Fields
 
-A separate line is required for every new value and field. You MUST
+A separate line is REQUIRED for every new value and field. You MUST
 NOT chain everything into a single field. Every line MUST end either
 with a carriage return and line feed characters (CRLF / %x0D %x0A) or just
 a line feed character (LF / %x0A).
@@ -136,8 +154,11 @@ a line feed character (LF / %x0A).
 ### Acknowledgments {#acknowledgments}
 
 This directive allows you to link to a page where security
-researchers are recognized for their reports. The page SHOULD list individuals or companies
-that disclosed security vulnerabilities and worked with you to remediate the issue.
+researchers are recognized for their reports. The page being linked to
+SHOULD list individuals or companies that disclosed security vulnerabilities
+and worked with you to remediate the issue.
+
+Example:
 
 ~~~~~~~~~~
 Acknowledgments: https://example.com/hall-of-fame.html
@@ -156,17 +177,20 @@ We would like to thank the following researchers:
 
 ### Contact {#contact}
 
-Add an address that researchers MAY use for reporting security
-issues. The value can be an email address, a phone number and/or a
+This directive allows you to provide an address that researchers
+SHOULD use for reporting security
+issues. The value MAY be an email address, a phone number and/or a
 contact page with more information. The "Contact:" directive MUST
-always be present in a security.txt file. URIs MUST be loaded over
-HTTPS. Security email addresses SHOULD use the conventions defined
-in section 4 of {{!RFC2142}}, but there is no requirement for this directive
+always be present in a security.txt file. If this directive indicates a web URL,
+then it MUST begin with "https://". Security
+email addresses SHOULD use the conventions defined in section
+4 of {{!RFC2142}}, but there is no requirement for this directive
 to be an email address.
 
-The value MUST follow the general syntax described in {{!RFC3986}}. This means that "mailto" and "tel" URI schemes MUST be used when specifying email addresses and telephone numbers.
+The value MUST follow the general syntax described in {{!RFC3986}}.
+This means that "mailto" and "tel" URI schemes MUST be used when specifying email addresses and telephone numbers.
 
-The precedence is in listed order. The first field is the preferred
+The precedence SHOULD be in listed order. The first field is the preferred
 method of contact. In the example below, the e-mail address is
 the preferred method of contact.
 
@@ -178,12 +202,11 @@ Contact: https://example.com/security-contact.html
 
 ### Encryption {#encryption}
 
-This directive allows you to point to an encryption key that you want
-security researchers to use for encrypted communication. You MUST NOT
+This directive allows you to point to an encryption key that
+security researchers SHOULD use for encrypted communication. You MUST NOT
 directly add your key to the field, instead the value of this field
 MUST be a URI pointing to a location where the key can be retrieved from.
-If the key is being retrieved from a website, then the key MUST be
-loaded over HTTPS.
+If this directive indicates a web URL, then it MUST be begin with "https://".
 
 When it comes to verifying the authenticity of the key, it is always the security researcher's responsibility to make sure the key being specified is indeed one they trust. Researchers MUST NOT assume that this key is used to generate the signature file
 referenced in {{!signature}}.
@@ -194,8 +217,7 @@ Example of a PGP key available from a web server:
 Encryption: https://example.com/pgp-key.txt
 ~~~~~~~~~~
 
-Example of a PGP key available from an OPENPGPKEY DNS record under
-"security@example.com" (as per {{!RFC7553}} and {{!RFC7929}}):
+Example of a PGP key available from an OPENPGPKEY DNS:
 
 ~~~~~~~~~~
 Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
@@ -209,8 +231,8 @@ Encryption: openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f
 
 ### Hiring {#hiring}
 
-The "Hiring" directive is for linking to the vendor's security-related job positions.
-If this field is a web link, then HTTPS SHOULD be used.
+The "Hiring" directive is used for linking to the vendor's security-related job positions.
+If this directive indicates a web URL, then it SHOULD be begin with "https://".
 
 ~~~~~~~~~~
 Hiring: https://example.com/jobs.html
@@ -220,13 +242,16 @@ Hiring: https://example.com/jobs.html
 
 The presence of the "Permission" directive is used to indicate to security
 researchers that they MUST NOT perform any kind of testing against
-the resource hosting the "security.txt" file. The only valid value
-for this directive is "none". This field MUST NOT appear more than once.
+the resource hosting the "security.txt" file. This field MUST have a value
+which is REQUIRED to be set to the string "none". Other values MUST NOT be used.
+This field MUST NOT appear more than once.
 
 The absence of the "Permission" directive or the use of any other value other
 than "none" for this directive MUST NOT be interpreted by researchers
 as being granted permission to test the resource. Additionally, the presence
 or absence of this directive MUST NOT be interpreted as having any legal value.
+
+Example:
 
 ~~~~~~~~~~
 Permission: none
@@ -234,7 +259,12 @@ Permission: none
 
 ### Policy {#policy}
 
-With the Policy directive, you can link to where your security policy and/or disclosure policy is located. This can help security researchers understand what you are looking for and how to report security vulnerabilities.
+This directive allows you to link to where your security policy and/or
+disclosure policy is located. This can help security researchers understand
+what you are looking for and how to report security vulnerabilities.
+If this directive indicates a web URL, then it SHOULD begin with "https://".
+
+Example:
 
 ~~~~~~~~~~
 Policy: https://example.com/security-policy.html
@@ -242,12 +272,18 @@ Policy: https://example.com/security-policy.html
 
 ### Signature {#signature}
 
-In order to ensure the authenticity of the security.txt file one SHOULD use the
-"Signature:" directive, which allows you to link to an external signature by specifying the full URI where the signature is located as per {{!RFC3986}}. External signature files SHOULD be
-named "security.txt.sig" and also be placed under the /.well-known/ path.
-External signature files MUST be loaded over HTTPS. This field MUST NOT appear more than once.
+This directive allows you to specify a full URI (as per {{!RFC3986}}) of an external signature file that can be
+used to check the authenticity of a "security.txt" file.
+External signature files SHOULD be named "security.txt.sig" and SHOULD be placed
+under the /.well-known/ path ("/.well-known/security.txt.sig").
+If this directive indicates a web URL, then it MUST be begin with "https://".
+This directive MUST NOT appear more than once.
 
-When it comes to verifying the authenticity of the file, it is always the security researcher's responsibility to make sure the key being specified is indeed one they trust.
+It is RECOMMENDED to implementers that this directive always be used.
+
+When it comes to verifying the authenticity of the file, it is always
+the security researcher's responsibility to make sure the key being
+specified is indeed one they trust.
 
 Here is an example of an external signature file.
 
@@ -255,7 +291,7 @@ Here is an example of an external signature file.
 Signature: https://example.com/.well-known/security.txt.sig
 ~~~~~~~~~~
 
-## Example
+## Example of a "security.txt" file
 
 ~~~~~~~~~~
 # Our security address
@@ -302,7 +338,10 @@ Signature: https://example.com/.well-known/security.txt.sig
 
 ## Web-based services
 
-Web-based services SHOULD place the security.txt file under the /.well-known/ path; e.g. https://example.com/.well-known/security.txt. A security.txt file located under the top-level path SHOULD either redirect to the security.txt file under the /.well-known/ path or be used as a fall back.
+Web-based services SHOULD place the security.txt file under the /.well-known/ path; e.g. https://example.com/.well-known/security.txt.
+A security.txt file located under the top-level path SHOULD either redirect (as per section 6.4 of {{!RFC7231}})
+to the security.txt file under the /.well-known/ path or be used as a fall back.
+
 
 ## Filesystems
 
@@ -319,14 +358,14 @@ example-file
 
 ## Internal hosts
 
-A .security.txt file SHOULD be placed in the root directory of an internal host to trigger incident response.
+A .security.txt file SHOULD be placed in the root directory of an internal host.
 
 ## Extensibility {#extensibility}
 
 Like many other formats and protocols, this format may need to be extended
 over time to fit the ever-changing landscape of the Internet. Therefore,
-extensibility is provided via an IANA registry for headers fields as defined
-in {{registry}}. Any fields registered via that process MUST be
+extensibility is provided via an IANA registry for directives as defined
+in {{registry}}. Any directives registered via that process MUST be
 considered optional. To encourage extensibility and interoperability,
 implementors MUST ignore any fields they do not explicitly support.
 
@@ -392,16 +431,18 @@ security-related issues. These include exposure
 to sensitive information and attacks where limited access to a server
 could grant the ability to modify the contents of the security.txt
 file or affect how it is served. Organizations SHOULD also monitor
-their security.txt files regularly to detect tampering.
+their security.txt files regularly to detect tampering. Organizations SHOULD
+also ensure that any resources such as web pages, email addresses and telephone
+numbers references by a "security.txt" file are kept current, are accessible
+and controlled by the organization, and are kept secure.
 
 To ensure the authenticity of the security.txt file, organizations SHOULD
-sign the file and include the signature using the "Signature:"
-directive.
-
-As stated in {{encryption}} and {{signature}}, both encryption keys
+sign the file and include the signature using the "Signature"
+directive ({{signature}}). As stated in {{encryption}} and {{signature}}, both encryption keys
 and external signature files MUST be loaded over HTTPS.
 
-Websites MUST reserve the security.txt namespace to ensure no third-party can create a page with the "security.txt" name.
+Websites SHOULD reserve the security.txt namespace
+to ensure no third-party can create a page with the "security.txt" name.
 
 # IANA Considerations
 
@@ -431,7 +472,7 @@ accordance with {{?RFC8126}}. This registry will contain header fields for
 use in security.txt files, defined by this specification.
 
 New registrations or updates MUST be published in accordance with the
-"Specification Required" guidelines as described in section 4.6 of
+"Expert Review" guidelines as described in section 4.5 of
 {{?RFC8126}}. Any new field thus registered is considered optional
 by this specification unless a new version of this specification is published.
 
@@ -475,15 +516,15 @@ The initial registry contains these values:
        Published in: this document
        Status: current
 
-       Field Name: Policy
-       Description: link to security policy page
-       Multiple Appearances: Yes
-       Published in: this document
-       Status: current
-
        Field Name: Permission
        Description: indicates that researchers MUST NOT do any testing
        Multiple Appearances: No
+       Published in: this document
+       Status: current
+
+       Field Name: Policy
+       Description: link to security policy page
+       Multiple Appearances: Yes
        Published in: this document
        Status: current
 
@@ -495,8 +536,10 @@ The initial registry contains these values:
 
 # Contributors
 
-The editors would like to acknowledge the help provided during the
+The authors would like to acknowledge the help provided during the
 development of this document by Tom Hudson, Joel Margolis, Jobert Abma, Gerben Janssen van Doorn, Austin Heap, Justin Calmus, and Casey Ellis.
+
+The authors would also like to acknowledge the feedback provided by multiple members of IETF's SAAG and SEC-DISPATCH lists.
 
 --- back
 # Note to Readers
@@ -555,6 +598,7 @@ of DNS-stored encryption keys (#28 and #94)
 - Changing some references to informative instead of normative
 - Adding "Permission" field (#30)
 - Fixing remaining ABNF issues (#83)
+- Additional editorial changes and edits
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt

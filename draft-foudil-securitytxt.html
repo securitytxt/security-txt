@@ -283,21 +283,22 @@ address {
 
   <link href="#rfc.toc" rel="Contents">
 <link href="#rfc.section.1" rel="Chapter" title="1 Introduction">
-<link href="#rfc.section.1.1" rel="Chapter" title="1.1 Motivation">
+<link href="#rfc.section.1.1" rel="Chapter" title="1.1 Motivation and Prior Work">
 <link href="#rfc.section.1.2" rel="Chapter" title="1.2 Terminology">
 <link href="#rfc.section.2" rel="Chapter" title="2 Note to Readers">
 <link href="#rfc.section.3" rel="Chapter" title="3 The Specification">
-<link href="#rfc.section.3.1" rel="Chapter" title="3.1 Comments">
-<link href="#rfc.section.3.2" rel="Chapter" title="3.2 Separate Fields">
-<link href="#rfc.section.3.3" rel="Chapter" title="3.3 Field Definitions">
-<link href="#rfc.section.3.3.1" rel="Chapter" title="3.3.1 Acknowledgments">
-<link href="#rfc.section.3.3.2" rel="Chapter" title="3.3.2 Contact">
-<link href="#rfc.section.3.3.3" rel="Chapter" title="3.3.3 Encryption">
-<link href="#rfc.section.3.3.4" rel="Chapter" title="3.3.4 Hiring">
-<link href="#rfc.section.3.3.5" rel="Chapter" title="3.3.5 Permission">
-<link href="#rfc.section.3.3.6" rel="Chapter" title="3.3.6 Policy">
-<link href="#rfc.section.3.3.7" rel="Chapter" title="3.3.7 Signature">
-<link href="#rfc.section.3.4" rel="Chapter" title="3.4 Example">
+<link href="#rfc.section.3.1" rel="Chapter" title="3.1 Scope">
+<link href="#rfc.section.3.2" rel="Chapter" title="3.2 Comments">
+<link href="#rfc.section.3.3" rel="Chapter" title="3.3 Separate Fields">
+<link href="#rfc.section.3.4" rel="Chapter" title="3.4 Field Definitions">
+<link href="#rfc.section.3.4.1" rel="Chapter" title="3.4.1 Acknowledgments">
+<link href="#rfc.section.3.4.2" rel="Chapter" title="3.4.2 Contact">
+<link href="#rfc.section.3.4.3" rel="Chapter" title="3.4.3 Encryption">
+<link href="#rfc.section.3.4.4" rel="Chapter" title="3.4.4 Hiring">
+<link href="#rfc.section.3.4.5" rel="Chapter" title="3.4.5 Permission">
+<link href="#rfc.section.3.4.6" rel="Chapter" title="3.4.6 Policy">
+<link href="#rfc.section.3.4.7" rel="Chapter" title="3.4.7 Signature">
+<link href="#rfc.section.3.5" rel="Chapter" title="3.5 Example of a &#8220;security.txt&#8221; file">
 <link href="#rfc.section.4" rel="Chapter" title="4 Location of the security.txt file">
 <link href="#rfc.section.4.1" rel="Chapter" title="4.1 Web-based services">
 <link href="#rfc.section.4.2" rel="Chapter" title="4.2 Filesystems">
@@ -326,9 +327,9 @@ address {
 
   <meta name="dct.creator" content="Foudil, E. and Y. Shafranovich" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-foudil-securitytxt-03" />
-  <meta name="dct.issued" scheme="ISO8601" content="2018-07-11" />
-  <meta name="dct.abstract" content="When security risks in web services are discovered by independent security researchers who understand the severity of the risk, they often lack the channels to disclose them properly. As a result, security issues may be left unreported. security.txt defines a standard to help organizations describe the process for security researchers to disclose security vulnerabilities securely." />
-  <meta name="description" content="When security risks in web services are discovered by independent security researchers who understand the severity of the risk, they often lack the channels to disclose them properly. As a result, security issues may be left unreported. security.txt defines a standard to help organizations describe the process for security researchers to disclose security vulnerabilities securely." />
+  <meta name="dct.issued" scheme="ISO8601" content="2018-07-15" />
+  <meta name="dct.abstract" content="When security risks are discovered by independent security researchers, they often lack the channels to disclose them properly. As a result, security issues may be left unreported. This document defines a standard (&#8220;security.txt&#8221;) to help organizations describe the process for security researchers to follow in order to disclose security vulnerabilities securely." />
+  <meta name="description" content="When security risks are discovered by independent security researchers, they often lack the channels to disclose them properly. As a result, security issues may be left unreported. This document defines a standard (&#8220;security.txt&#8221;) to help organizations describe the process for security researchers to follow in order to disclose security vulnerabilities securely." />
 
 </head>
 
@@ -350,12 +351,12 @@ address {
 <td class="right">Y. Shafranovich</td>
 </tr>
 <tr>
-<td class="left">Expires: January 12, 2019</td>
+<td class="left">Expires: January 16, 2019</td>
 <td class="right">Nightwatch Cybersecurity</td>
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">July 11, 2018</td>
+<td class="right">July 15, 2018</td>
 </tr>
 
     	
@@ -366,12 +367,12 @@ address {
   <span class="filename">draft-foudil-securitytxt-03</span></p>
   
   <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
-<p>When security risks in web services are discovered by independent security researchers who understand the severity of the risk, they often lack the channels to disclose them properly. As a result, security issues may be left unreported. security.txt defines a standard to help organizations describe the process for security researchers to disclose security vulnerabilities securely.</p>
+<p>When security risks are discovered by independent security researchers, they often lack the channels to disclose them properly. As a result, security issues may be left unreported. This document defines a standard (&#8220;security.txt&#8221;) to help organizations describe the process for security researchers to follow in order to disclose security vulnerabilities securely.</p>
 <h1 id="rfc.status"><a href="#rfc.status">Status of This Memo</a></h1>
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on January 12, 2019.</p>
+<p>This Internet-Draft will expire on January 16, 2019.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2018 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -383,7 +384,7 @@ address {
 
   	<li>1.   <a href="#rfc.section.1">Introduction</a>
 </li>
-<ul><li>1.1.   <a href="#rfc.section.1.1">Motivation</a>
+<ul><li>1.1.   <a href="#rfc.section.1.1">Motivation and Prior Work</a>
 </li>
 <li>1.2.   <a href="#rfc.section.1.2">Terminology</a>
 </li>
@@ -391,27 +392,29 @@ address {
 </li>
 <li>3.   <a href="#rfc.section.3">The Specification</a>
 </li>
-<ul><li>3.1.   <a href="#rfc.section.3.1">Comments</a>
+<ul><li>3.1.   <a href="#rfc.section.3.1">Scope</a>
 </li>
-<li>3.2.   <a href="#rfc.section.3.2">Separate Fields</a>
+<li>3.2.   <a href="#rfc.section.3.2">Comments</a>
 </li>
-<li>3.3.   <a href="#rfc.section.3.3">Field Definitions</a>
+<li>3.3.   <a href="#rfc.section.3.3">Separate Fields</a>
 </li>
-<ul><li>3.3.1.   <a href="#rfc.section.3.3.1">Acknowledgments</a>
+<li>3.4.   <a href="#rfc.section.3.4">Field Definitions</a>
 </li>
-<li>3.3.2.   <a href="#rfc.section.3.3.2">Contact</a>
+<ul><li>3.4.1.   <a href="#rfc.section.3.4.1">Acknowledgments</a>
 </li>
-<li>3.3.3.   <a href="#rfc.section.3.3.3">Encryption</a>
+<li>3.4.2.   <a href="#rfc.section.3.4.2">Contact</a>
 </li>
-<li>3.3.4.   <a href="#rfc.section.3.3.4">Hiring</a>
+<li>3.4.3.   <a href="#rfc.section.3.4.3">Encryption</a>
 </li>
-<li>3.3.5.   <a href="#rfc.section.3.3.5">Permission</a>
+<li>3.4.4.   <a href="#rfc.section.3.4.4">Hiring</a>
 </li>
-<li>3.3.6.   <a href="#rfc.section.3.3.6">Policy</a>
+<li>3.4.5.   <a href="#rfc.section.3.4.5">Permission</a>
 </li>
-<li>3.3.7.   <a href="#rfc.section.3.3.7">Signature</a>
+<li>3.4.6.   <a href="#rfc.section.3.4.6">Policy</a>
 </li>
-</ul><li>3.4.   <a href="#rfc.section.3.4">Example</a>
+<li>3.4.7.   <a href="#rfc.section.3.4.7">Signature</a>
+</li>
+</ul><li>3.5.   <a href="#rfc.section.3.5">Example of a &#8220;security.txt&#8221; file</a>
 </li>
 </ul><li>4.   <a href="#rfc.section.4">Location of the security.txt file</a>
 </li>
@@ -463,12 +466,12 @@ address {
 <a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a>
 </h1>
 <h1 id="rfc.section.1.1">
-<a href="#rfc.section.1.1">1.1.</a> <a href="#motivation" id="motivation">Motivation</a>
+<a href="#rfc.section.1.1">1.1.</a> <a href="#motivation-and-prior-work" id="motivation-and-prior-work">Motivation and Prior Work</a>
 </h1>
-<p id="rfc.section.1.1.p.1">Many security researchers encounter situations where they are unable to responsibly disclose security issues to companies because there is no course of action laid out. security.txt is designed to help assist in this process by making it easier for companies to designate the preferred steps for researchers to take when trying to reach out.</p>
+<p id="rfc.section.1.1.p.1">Many security researchers encounter situations where they are unable to responsibly disclose security issues to companies because there is no course of action laid out or no way indicated to contact the owner of a particular resource.</p>
 <p id="rfc.section.1.1.p.2">As per section 4 of <a href="#RFC2142" class="xref">[RFC2142]</a>, there is an existing convention of using the &lt;SECURITY@domain&gt; email address for communications regarding security issues. That convention provides only a single, email-based channel of communication for security issues per domain, and does not provide a way for domain owners to publish information about their security disclosure policies.</p>
 <p id="rfc.section.1.1.p.3">There are also contact conventions prescribed for Internet Service Providers (ISPs) in section 2 of <a href="#RFC3013" class="xref">[RFC3013]</a>, for Computer Security Incident Response Teams (CSIRTs) in section 3.2 of <a href="#RFC2350" class="xref">[RFC2350]</a> and for site operators in section 5.2 of <a href="#RFC2196" class="xref">[RFC2196]</a>. As per <a href="#RFC7485" class="xref">[RFC7485]</a>, there is also contact information provided by Regional Internet Registries (RIRs) and domain registries for owners of IP addresses, autonomous system numbers (ASNs) and domain names. However, none of these address the issue of how security researchers can locate disclosure policies and contact information for companies in order to responsibly disclose security issues.</p>
-<p id="rfc.section.1.1.p.4">In this document, we propose a richer, machine-parsable and more extensible way for companies to communicate information about their security disclosure policies, which is not limited to email and also allows for additional features such as encryption.</p>
+<p id="rfc.section.1.1.p.4">In this document, we define a richer, machine-parsable and more extensible way for companies to communicate information about their security disclosure policies, which is not limited to email and also allows for additional features such as encryption. This standard is designed to help assist with the security disclosure process by making it easier for companies to designate the preferred steps for researchers to take when trying to reach out to them with security issues.</p>
 <h1 id="rfc.section.1.2">
 <a href="#rfc.section.1.2">1.2.</a> <a href="#terminology" id="terminology">Terminology</a>
 </h1>
@@ -485,10 +488,14 @@ address {
 <h1 id="rfc.section.3">
 <a href="#rfc.section.3">3.</a> <a href="#the-specification" id="the-specification">The Specification</a>
 </h1>
-<p id="rfc.section.3.p.1">security.txt is a text file that SHOULD be located under the /.well-known/ path (&#8220;/.well-known/security.txt&#8221;) <a href="#RFC5785" class="xref">[RFC5785]</a> for web properties. If it is not possible to place the security.txt file in the /.well-known/ path or setup a redirect, web-based services MAY place the file in the top-level path as a fall back option. For web-based services, the instructions MUST be accessible via the Hypertext Transfer Protocol <a href="#RFC1945" class="xref">[RFC1945]</a> as a resource of Internet Media Type &#8220;text/plain&#8221; with the default charset parameter set to &#8220;utf-8&#8221; per section 4.1.3 of <a href="#RFC2046" class="xref">[RFC2046]</a>. For file systems and version control repositories a .security.txt file SHOULD be placed in the root directory.</p>
-<p id="rfc.section.3.p.2">This text file contains multiple directives with different values. The &#8220;directive&#8221; is the first part of a field all the way up to the colon (&#8220;Contact:&#8221;). Directives are case-insensitive. The &#8220;value&#8221; comes after the directive (&#8220;https://example.com/security&#8221;).  A &#8220;field&#8221; always consists of a directive and a value (&#8220;Contact: https://example.com/security&#8221;). A security.txt file can have an unlimited number of fields. It is important to note that you need a separate line for every field. One MUST NOT chain multiple values for a single directive. Everything MUST be in a separate field. Unless otherwise indicated, any directive can appear multiple times.</p>
-<p id="rfc.section.3.p.3">A security.txt file MUST only apply to the domain in the URI used to retrieve it, not to any of its subdomains or parent domains.</p>
-<p id="rfc.section.3.p.4">Some examples appear below:</p>
+<p id="rfc.section.3.p.1">This standard defines a text file to be placed in a known location that provides information for security researchers to assist in disclosing security issues.</p>
+<p id="rfc.section.3.p.2">The file is named &#8220;security.txt&#8221;, and this file SHOULD be placed under the /.well-known/ path (&#8220;/.well-known/security.txt&#8221;) <a href="#RFC5785" class="xref">[RFC5785]</a> of a domain name or IP address for web properties. If it is not possible to place the security.txt file in the /.well-known/ path or setup a redirect, web-based services MAY place the file in the top-level path of a given web domain or IP address (&#8220;/security.txt&#8221;) as a fall back option. For web-based services, the instructions MUST be accessible via the Hypertext Transfer Protocol <a href="#RFC1945" class="xref">[RFC1945]</a> as a resource of Internet Media Type &#8220;text/plain&#8221; with the default charset parameter set to &#8220;utf-8&#8221; per section 4.1.3 of <a href="#RFC2046" class="xref">[RFC2046]</a>. For file systems and version control repositories a &#8220;.security.txt&#8221; file SHOULD be placed in the root directory of a particular file system or source code project.</p>
+<p id="rfc.section.3.p.3">This text file contains multiple directives with different values. The &#8220;directive&#8221; is the first part of a field all the way up to the colon (&#8220;Contact:&#8221;). Directives MUST be case-insensitive. The &#8220;value&#8221; comes after the directive (&#8220;https://example.com/security&#8221;).  A &#8220;field&#8221; MUST alway consist of a directive and a value (&#8220;Contact: https://example.com/security&#8221;). A security.txt file can have an unlimited number of fields. It is important to note that you MUST have a separate line for every field. One MUST NOT chain multiple values for a single directive and everything MUST be in a separate field. Unless otherwise indicated in a definition of a particular field, any directive MAY appear multiple times.</p>
+<h1 id="rfc.section.3.1">
+<a href="#rfc.section.3.1">3.1.</a> <a href="#scope" id="scope">Scope</a>
+</h1>
+<p id="rfc.section.3.1.p.1">A &#8220;security.txt&#8221; file MUST only apply to the domain in the URI used to retrieve it, not to any of its subdomains or parent domains. A &#8220;security.txt&#8221; file that is found in a file system or version control repository MUST only apply to the folder or repository in which it is located, and not to any of its parent or sibling folders, or repositories.</p>
+<p id="rfc.section.3.1.p.2">Some examples appear below:</p>
 <pre>
 # The following only applies to example.com.
 https://example.com/.well-known/security.txt
@@ -501,30 +508,35 @@ http://192.0.2.0/.well-known/security.txt
 
 # This security.txt file applies to IPv6 address of 2001:db8:8:4::2.
 http://[2001:db8:8:4::2]/.well-known/security.txt
+
+# This security.txt file applies to the /example/folder1 directory.
+/example/folder1/security.txt
 </pre>
-<h1 id="rfc.section.3.1">
-<a href="#rfc.section.3.1">3.1.</a> <a href="#comments" id="comments">Comments</a>
+<h1 id="rfc.section.3.2">
+<a href="#rfc.section.3.2">3.2.</a> <a href="#comments" id="comments">Comments</a>
 </h1>
-<p id="rfc.section.3.1.p.1">Comments can be added using the # symbol:</p>
+<p id="rfc.section.3.2.p.1">Any line beginning with the &#8220;#&#8221; (%x30) symbol MUST be interpreted as a comment.</p>
+<p id="rfc.section.3.2.p.2">Example:</p>
 <pre>
 # This is a comment.
 </pre>
-<p id="rfc.section.3.1.p.2">You MAY use one or more comments as descriptive text immediately before the field. Parsers can then associate the comments with the respective field.</p>
-<h1 id="rfc.section.3.2">
-<a href="#rfc.section.3.2">3.2.</a> <a href="#separate-fields" id="separate-fields">Separate Fields</a>
-</h1>
-<p id="rfc.section.3.2.p.1">A separate line is required for every new value and field. You MUST NOT chain everything into a single field. Every line MUST end either with a carriage return and line feed characters (CRLF / %x0D %x0A) or just a line feed character (LF / %x0A).</p>
+<p id="rfc.section.3.2.p.3">You MAY use one or more comments as descriptive text immediately before the field. Parsers SHOULD associate the comments with the respective field.</p>
 <h1 id="rfc.section.3.3">
-<a href="#rfc.section.3.3">3.3.</a> <a href="#field-definitions" id="field-definitions">Field Definitions</a>
+<a href="#rfc.section.3.3">3.3.</a> <a href="#separate-fields" id="separate-fields">Separate Fields</a>
 </h1>
-<h1 id="rfc.section.3.3.1">
-<a href="#rfc.section.3.3.1">3.3.1.</a> <a href="#acknowledgments" id="acknowledgments">Acknowledgments</a>
+<p id="rfc.section.3.3.p.1">A separate line is REQUIRED for every new value and field. You MUST NOT chain everything into a single field. Every line MUST end either with a carriage return and line feed characters (CRLF / %x0D %x0A) or just a line feed character (LF / %x0A).</p>
+<h1 id="rfc.section.3.4">
+<a href="#rfc.section.3.4">3.4.</a> <a href="#field-definitions" id="field-definitions">Field Definitions</a>
 </h1>
-<p id="rfc.section.3.3.1.p.1">This directive allows you to link to a page where security researchers are recognized for their reports. The page SHOULD list individuals or companies that disclosed security vulnerabilities and worked with you to remediate the issue.</p>
+<h1 id="rfc.section.3.4.1">
+<a href="#rfc.section.3.4.1">3.4.1.</a> <a href="#acknowledgments" id="acknowledgments">Acknowledgments</a>
+</h1>
+<p id="rfc.section.3.4.1.p.1">This directive allows you to link to a page where security researchers are recognized for their reports. The page being linked to SHOULD list individuals or companies that disclosed security vulnerabilities and worked with you to remediate the issue.</p>
+<p id="rfc.section.3.4.1.p.2">Example:</p>
 <pre>
 Acknowledgments: https://example.com/hall-of-fame.html
 </pre>
-<p id="rfc.section.3.3.1.p.2">Example security acknowledgments page:</p>
+<p id="rfc.section.3.4.1.p.3">Example security acknowledgments page:</p>
 <pre>
 We would like to thank the following researchers:
 
@@ -533,67 +545,70 @@ We would like to thank the following researchers:
 (2016-12-24) John Buchner - Stored cross-site scripting
 (2016-06-10) Anna Richmond - A server configuration issue
 </pre>
-<h1 id="rfc.section.3.3.2">
-<a href="#rfc.section.3.3.2">3.3.2.</a> <a href="#contact" id="contact">Contact</a>
+<h1 id="rfc.section.3.4.2">
+<a href="#rfc.section.3.4.2">3.4.2.</a> <a href="#contact" id="contact">Contact</a>
 </h1>
-<p id="rfc.section.3.3.2.p.1">Add an address that researchers MAY use for reporting security issues. The value can be an email address, a phone number and/or a contact page with more information. The &#8220;Contact:&#8221; directive MUST always be present in a security.txt file. URIs MUST be loaded over HTTPS. Security email addresses SHOULD use the conventions defined in section 4 of <a href="#RFC2142" class="xref">[RFC2142]</a>, but there is no requirement for this directive to be an email address.</p>
-<p id="rfc.section.3.3.2.p.2">The value MUST follow the general syntax described in <a href="#RFC3986" class="xref">[RFC3986]</a>. This means that &#8220;mailto&#8221; and &#8220;tel&#8221; URI schemes MUST be used when specifying email addresses and telephone numbers.</p>
-<p id="rfc.section.3.3.2.p.3">The precedence is in listed order. The first field is the preferred method of contact. In the example below, the e-mail address is the preferred method of contact.</p>
+<p id="rfc.section.3.4.2.p.1">This directive allows you to provide an address that researchers SHOULD use for reporting security issues. The value MAY be an email address, a phone number and/or a contact page with more information. The &#8220;Contact:&#8221; directive MUST always be present in a security.txt file. If this directive indicates a web URL, then it MUST be begin with &#8220;https://&#8221;. Security email addresses SHOULD use the conventions defined in section 4 of <a href="#RFC2142" class="xref">[RFC2142]</a>, but there is no requirement for this directive to be an email address.</p>
+<p id="rfc.section.3.4.2.p.2">The value MUST follow the general syntax described in <a href="#RFC3986" class="xref">[RFC3986]</a>.  This means that &#8220;mailto&#8221; and &#8220;tel&#8221; URI schemes MUST be used when specifying email addresses and telephone numbers.</p>
+<p id="rfc.section.3.4.2.p.3">The precedence SHOULD be in listed order. The first field is the preferred method of contact. In the example below, the e-mail address is the preferred method of contact.</p>
 <pre>
 Contact: mailto:security@example.com
 Contact: tel:+1-201-555-0123
 Contact: https://example.com/security-contact.html
 </pre>
-<h1 id="rfc.section.3.3.3">
-<a href="#rfc.section.3.3.3">3.3.3.</a> <a href="#encryption" id="encryption">Encryption</a>
+<h1 id="rfc.section.3.4.3">
+<a href="#rfc.section.3.4.3">3.4.3.</a> <a href="#encryption" id="encryption">Encryption</a>
 </h1>
-<p id="rfc.section.3.3.3.p.1">This directive allows you to point to an encryption key that you want security researchers to use for encrypted communication. You MUST NOT directly add your key to the field, instead the value of this field MUST be a URI pointing to a location where the key can be retrieved from.  If the key is being retrieved from a website, then the key MUST be loaded over HTTPS.</p>
-<p id="rfc.section.3.3.3.p.2">When it comes to verifying the authenticity of the key, it is always the security researcher&#8217;s responsibility to make sure the key being specified is indeed one they trust. Researchers MUST NOT assume that this key is used to generate the signature file referenced in <a href="#signature" class="xref">Section 3.3.7</a>.</p>
-<p id="rfc.section.3.3.3.p.3">Example of a PGP key available from a web server:</p>
+<p id="rfc.section.3.4.3.p.1">This directive allows you to point to an encryption key that security researchers SHOULD use for encrypted communication. You MUST NOT directly add your key to the field, instead the value of this field MUST be a URI pointing to a location where the key can be retrieved from.  If this directive indicates a web URL, then it MUST be begin with &#8220;https://&#8221;.</p>
+<p id="rfc.section.3.4.3.p.2">When it comes to verifying the authenticity of the key, it is always the security researcher&#8217;s responsibility to make sure the key being specified is indeed one they trust. Researchers MUST NOT assume that this key is used to generate the signature file referenced in <a href="#signature" class="xref">Section 3.4.7</a>.</p>
+<p id="rfc.section.3.4.3.p.3">Example of a PGP key available from a web server:</p>
 <pre>
 Encryption: https://example.com/pgp-key.txt
 </pre>
-<p id="rfc.section.3.3.3.p.4">Example of a PGP key available from an OPENPGPKEY DNS record under &#8220;security@example.com&#8221; (as per <a href="#RFC7553" class="xref">[RFC7553]</a> and <a href="#RFC7929" class="xref">[RFC7929]</a>):</p>
+<p id="rfc.section.3.4.3.p.4">Example of a PGP key available from an OPENPGPKEY DNS:</p>
 <pre>
 Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 </pre>
-<p id="rfc.section.3.3.3.p.5">Example of a PGP key being referenced by its fingerprint:</p>
+<p id="rfc.section.3.4.3.p.5">Example of a PGP key being referenced by its fingerprint:</p>
 <pre>
 Encryption: openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f
 </pre>
-<h1 id="rfc.section.3.3.4">
-<a href="#rfc.section.3.3.4">3.3.4.</a> <a href="#hiring" id="hiring">Hiring</a>
+<h1 id="rfc.section.3.4.4">
+<a href="#rfc.section.3.4.4">3.4.4.</a> <a href="#hiring" id="hiring">Hiring</a>
 </h1>
-<p id="rfc.section.3.3.4.p.1">The &#8220;Hiring&#8221; directive is for linking to the vendor&#8217;s security-related job positions.  If this field is a web link, then HTTPS SHOULD be used.</p>
+<p id="rfc.section.3.4.4.p.1">The &#8220;Hiring&#8221; directive is used for linking to the vendor&#8217;s security-related job positions.  If this directive indicates a web URL, then it SHOULD be begin with &#8220;https://&#8221;.</p>
 <pre>
 Hiring: https://example.com/jobs.html
 </pre>
-<h1 id="rfc.section.3.3.5">
-<a href="#rfc.section.3.3.5">3.3.5.</a> <a href="#permission" id="permission">Permission</a>
+<h1 id="rfc.section.3.4.5">
+<a href="#rfc.section.3.4.5">3.4.5.</a> <a href="#permission" id="permission">Permission</a>
 </h1>
-<p id="rfc.section.3.3.5.p.1">The presence of the &#8220;Permission&#8221; directive is used to indicate to security researchers that they MUST NOT perform any kind of testing against the resource hosting the &#8220;security.txt&#8221; file. The only valid value for this directive is &#8220;none&#8221;. This field MUST NOT appear more than once.</p>
-<p id="rfc.section.3.3.5.p.2">The absence of the &#8220;Permission&#8221; directive or the use of any other value other than &#8220;none&#8221; for this directive MUST NOT be interpreted by researchers as being granted permission to test the resource. Additionally, the presence or absence of this directive MUST NOT be interpreted as having any legal value.</p>
+<p id="rfc.section.3.4.5.p.1">The presence of the &#8220;Permission&#8221; directive is used to indicate to security researchers that they MUST NOT perform any kind of testing against the resource hosting the &#8220;security.txt&#8221; file. This field MUST have a value which is REQUIRED to be set to the string &#8220;none&#8221;. Other values MUST NOT be used.  This field MUST NOT appear more than once.</p>
+<p id="rfc.section.3.4.5.p.2">The absence of the &#8220;Permission&#8221; directive or the use of any other value other than &#8220;none&#8221; for this directive MUST NOT be interpreted by researchers as being granted permission to test the resource. Additionally, the presence or absence of this directive MUST NOT be interpreted as having any legal value.</p>
+<p id="rfc.section.3.4.5.p.3">Example:</p>
 <pre>
 Permission: none
 </pre>
-<h1 id="rfc.section.3.3.6">
-<a href="#rfc.section.3.3.6">3.3.6.</a> <a href="#policy" id="policy">Policy</a>
+<h1 id="rfc.section.3.4.6">
+<a href="#rfc.section.3.4.6">3.4.6.</a> <a href="#policy" id="policy">Policy</a>
 </h1>
-<p id="rfc.section.3.3.6.p.1">With the Policy directive, you can link to where your security policy and/or disclosure policy is located. This can help security researchers understand what you are looking for and how to report security vulnerabilities.</p>
+<p id="rfc.section.3.4.6.p.1">This directive allows you to link to where your security policy and/or disclosure policy is located. This can help security researchers understand what you are looking for and how to report security vulnerabilities.  If this directive indicates a web URL, then it SHOULD begin with &#8220;https://&#8221;.</p>
+<p id="rfc.section.3.4.6.p.2">Example:</p>
 <pre>
 Policy: https://example.com/security-policy.html
 </pre>
-<h1 id="rfc.section.3.3.7">
-<a href="#rfc.section.3.3.7">3.3.7.</a> <a href="#signature" id="signature">Signature</a>
+<h1 id="rfc.section.3.4.7">
+<a href="#rfc.section.3.4.7">3.4.7.</a> <a href="#signature" id="signature">Signature</a>
 </h1>
-<p id="rfc.section.3.3.7.p.1">In order to ensure the authenticity of the security.txt file one SHOULD use the &#8220;Signature:&#8221; directive, which allows you to link to an external signature by specifying the full URI where the signature is located as per <a href="#RFC3986" class="xref">[RFC3986]</a>. External signature files SHOULD be named &#8220;security.txt.sig&#8221; and also be placed under the /.well-known/ path.  External signature files MUST be loaded over HTTPS. This field MUST NOT appear more than once.</p>
-<p id="rfc.section.3.3.7.p.2">When it comes to verifying the authenticity of the file, it is always the security researcher&#8217;s responsibility to make sure the key being specified is indeed one they trust.</p>
-<p id="rfc.section.3.3.7.p.3">Here is an example of an external signature file.</p>
+<p id="rfc.section.3.4.7.p.1">This directive allows you to specify a full URI (as per <a href="#RFC3986" class="xref">[RFC3986]</a>) of an external signature file that can be used to check the authenticity of a &#8220;security.txt&#8221; file.  External signature files SHOULD be named &#8220;security.txt.sig&#8221; and SHOULD be placed under the /.well-known/ path (&#8220;/.well-known/security.txt.sig&#8221;).  If this directive indicates a web URL, then it MUST be begin with &#8220;https://&#8221;.  This directive MUST NOT appear more than once.</p>
+<p id="rfc.section.3.4.7.p.2">It is RECOMMENDED to implementors that this directive be always used.</p>
+<p id="rfc.section.3.4.7.p.3">When it comes to verifying the authenticity of the file, it is always the security researcher&#8217;s responsibility to make sure the key being specified is indeed one they trust.</p>
+<p id="rfc.section.3.4.7.p.4">Here is an example of an external signature file.</p>
 <pre>
 Signature: https://example.com/.well-known/security.txt.sig
 </pre>
-<h1 id="rfc.section.3.4">
-<a href="#rfc.section.3.4">3.4.</a> <a href="#example" id="example">Example</a>
+<h1 id="rfc.section.3.5">
+<a href="#rfc.section.3.5">3.5.</a> <a href="#example-of-a-securitytxt-file" id="example-of-a-securitytxt-file">Example of a &#8220;security.txt&#8221; file</a>
 </h1>
 <pre>
 # Our security address
@@ -640,7 +655,7 @@ Signature: https://example.com/.well-known/security.txt.sig
 <h1 id="rfc.section.4.1">
 <a href="#rfc.section.4.1">4.1.</a> <a href="#web-based-services" id="web-based-services">Web-based services</a>
 </h1>
-<p id="rfc.section.4.1.p.1">Web-based services SHOULD place the security.txt file under the /.well-known/ path; e.g. https://example.com/.well-known/security.txt. A security.txt file located under the top-level path SHOULD either redirect to the security.txt file under the /.well-known/ path or be used as a fall back.</p>
+<p id="rfc.section.4.1.p.1">Web-based services SHOULD place the security.txt file under the /.well-known/ path; e.g. https://example.com/.well-known/security.txt.  A security.txt file located under the top-level path SHOULD either redirect (as per section 6.4 of <a href="#RFC7231" class="xref">[RFC7231]</a>) to the security.txt file under the /.well-known/ path or be used as a fall back.</p>
 <h1 id="rfc.section.4.2">
 <a href="#rfc.section.4.2">4.2.</a> <a href="#filesystems" id="filesystems">Filesystems</a>
 </h1>
@@ -656,11 +671,11 @@ example-file
 <h1 id="rfc.section.4.3">
 <a href="#rfc.section.4.3">4.3.</a> <a href="#internal-hosts" id="internal-hosts">Internal hosts</a>
 </h1>
-<p id="rfc.section.4.3.p.1">A .security.txt file SHOULD be placed in the root directory of an internal host to trigger incident response.</p>
+<p id="rfc.section.4.3.p.1">A .security.txt file SHOULD be placed in the root directory of an internal host.</p>
 <h1 id="rfc.section.4.4">
 <a href="#rfc.section.4.4">4.4.</a> <a href="#extensibility" id="extensibility">Extensibility</a>
 </h1>
-<p id="rfc.section.4.4.p.1">Like many other formats and protocols, this format may need to be extended over time to fit the ever-changing landscape of the Internet. Therefore, extensibility is provided via an IANA registry for headers fields as defined in <a href="#registry" class="xref">Section 7.2</a>. Any fields registered via that process MUST be considered optional. To encourage extensibility and interoperability, implementors MUST ignore any fields they do not explicitly support.</p>
+<p id="rfc.section.4.4.p.1">Like many other formats and protocols, this format may need to be extended over time to fit the ever-changing landscape of the Internet. Therefore, extensibility is provided via an IANA registry for directives as defined in <a href="#registry" class="xref">Section 7.2</a>. Any directives registered via that process MUST be considered optional. To encourage extensibility and interoperability, implementors MUST ignore any fields they do not explicitly support.</p>
 <h1 id="rfc.section.5">
 <a href="#rfc.section.5">5.</a> <a href="#file-format-description-and-abnf-grammar" id="file-format-description-and-abnf-grammar">File Format Description and ABNF Grammar</a>
 </h1>
@@ -714,10 +729,9 @@ unstructured           = &lt;as per section 3.2.5 of {{RFC5322}}&gt;
 <h1 id="rfc.section.6">
 <a href="#rfc.section.6">6.</a> <a href="#security-considerations" id="security-considerations">Security considerations</a>
 </h1>
-<p id="rfc.section.6.p.1">Organizations creating security.txt files will need to consider several security-related issues. These include exposure to sensitive information and attacks where limited access to a server could grant the ability to modify the contents of the security.txt file or affect how it is served. Organizations SHOULD also monitor their security.txt files regularly to detect tampering.</p>
-<p id="rfc.section.6.p.2">To ensure the authenticity of the security.txt file, organizations SHOULD sign the file and include the signature using the &#8220;Signature:&#8221; directive.</p>
-<p id="rfc.section.6.p.3">As stated in <a href="#encryption" class="xref">Section 3.3.3</a> and <a href="#signature" class="xref">Section 3.3.7</a>, both encryption keys and external signature files MUST be loaded over HTTPS.</p>
-<p id="rfc.section.6.p.4">Websites MUST reserve the security.txt namespace to ensure no third-party can create a page with the &#8220;security.txt&#8221; name.</p>
+<p id="rfc.section.6.p.1">Organizations creating security.txt files will need to consider several security-related issues. These include exposure to sensitive information and attacks where limited access to a server could grant the ability to modify the contents of the security.txt file or affect how it is served. Organizations SHOULD also monitor their security.txt files regularly to detect tampering. Organizations SHOULD also ensure that any resources such as web pages, email addresses and telephone numbers references by a &#8220;security.txt&#8221; file are kept current, are accessible and controlled by the organization, and are kept secure.</p>
+<p id="rfc.section.6.p.2">To ensure the authenticity of the security.txt file, organizations SHOULD sign the file and include the signature using the &#8220;Signature&#8221; directive (<a href="#signature" class="xref">Section 3.4.7</a>). As stated in <a href="#encryption" class="xref">Section 3.4.3</a> and <a href="#signature" class="xref">Section 3.4.7</a>, both encryption keys and external signature files MUST be loaded over HTTPS.</p>
+<p id="rfc.section.6.p.3">Websites SHOULD reserve the security.txt namespace to ensure no third-party can create a page with the &#8220;security.txt&#8221; name.</p>
 <h1 id="rfc.section.7">
 <a href="#rfc.section.7">7.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a>
 </h1>
@@ -735,7 +749,7 @@ unstructured           = &lt;as per section 3.2.5 of {{RFC5322}}&gt;
 <a href="#rfc.section.7.2">7.2.</a> <a href="#registry" id="registry">Registry for security.txt Header Fields</a>
 </h1>
 <p id="rfc.section.7.2.p.1">IANA is requested to create the &#8220;security.txt Header Fields&#8221; registry in accordance with <a href="#RFC8126" class="xref">[RFC8126]</a>. This registry will contain header fields for use in security.txt files, defined by this specification.</p>
-<p id="rfc.section.7.2.p.2">New registrations or updates MUST be published in accordance with the &#8220;Specification Required&#8221; guidelines as described in section 4.6 of <a href="#RFC8126" class="xref">[RFC8126]</a>. Any new field thus registered is considered optional by this specification unless a new version of this specification is published.</p>
+<p id="rfc.section.7.2.p.2">New registrations or updates MUST be published in accordance with the &#8220;Expert Review&#8221; guidelines as described in section 4.5 of <a href="#RFC8126" class="xref">[RFC8126]</a>. Any new field thus registered is considered optional by this specification unless a new version of this specification is published.</p>
 <p id="rfc.section.7.2.p.3">New registrations and updates MUST contain the following information:</p>
 <p></p>
 
@@ -773,15 +787,15 @@ unstructured           = &lt;as per section 3.2.5 of {{RFC5322}}&gt;
    Published in: this document
    Status: current
 
-   Field Name: Policy
-   Description: link to security policy page
-   Multiple Appearances: Yes
-   Published in: this document
-   Status: current
-
    Field Name: Permission
    Description: indicates that researchers MUST NOT do any testing
    Multiple Appearances: No
+   Published in: this document
+   Status: current
+
+   Field Name: Policy
+   Description: link to security policy page
+   Multiple Appearances: Yes
    Published in: this document
    Status: current
 
@@ -794,7 +808,8 @@ unstructured           = &lt;as per section 3.2.5 of {{RFC5322}}&gt;
 <h1 id="rfc.section.8">
 <a href="#rfc.section.8">8.</a> <a href="#contributors" id="contributors">Contributors</a>
 </h1>
-<p id="rfc.section.8.p.1">The editors would like to acknowledge the help provided during the development of this document by Tom Hudson, Joel Margolis, Jobert Abma, Gerben Janssen van Doorn, Austin Heap, Justin Calmus, and Casey Ellis.</p>
+<p id="rfc.section.8.p.1">The authors would like to acknowledge the help provided during the development of this document by Tom Hudson, Joel Margolis, Jobert Abma, Gerben Janssen van Doorn, Austin Heap, Justin Calmus, and Casey Ellis.</p>
+<p id="rfc.section.8.p.2">The authors would also like to acknowledge the feedback provided by multiple members of IETF&#8217;s SAAG and SEC-DISPATCH lists.</p>
 <h1 id="rfc.references">
 <a href="#rfc.references">9.</a> References</h1>
 <h1 id="rfc.references.1">
@@ -851,14 +866,9 @@ unstructured           = &lt;as per section 3.2.5 of {{RFC5322}}&gt;
 <a>Nottingham, M.</a> and <a>E. Hammer-Lahav</a>, "<a href="https://tools.ietf.org/html/rfc5785">Defining Well-Known Uniform Resource Identifiers (URIs)</a>", RFC 5785, DOI 10.17487/RFC5785, April 2010.</td>
 </tr>
 <tr>
-<td class="reference"><b id="RFC7553">[RFC7553]</b></td>
+<td class="reference"><b id="RFC7231">[RFC7231]</b></td>
 <td class="top">
-<a>Faltstrom, P.</a> and <a>O. Kolkman</a>, "<a href="https://tools.ietf.org/html/rfc7553">The Uniform Resource Identifier (URI) DNS Resource Record</a>", RFC 7553, DOI 10.17487/RFC7553, June 2015.</td>
-</tr>
-<tr>
-<td class="reference"><b id="RFC7929">[RFC7929]</b></td>
-<td class="top">
-<a>Wouters, P.</a>, "<a href="https://tools.ietf.org/html/rfc7929">DNS-Based Authentication of Named Entities (DANE) Bindings for OpenPGP</a>", RFC 7929, DOI 10.17487/RFC7929, August 2016.</td>
+<a>Fielding, R.</a> and <a>J. Reschke</a>, "<a href="https://tools.ietf.org/html/rfc7231">Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</a>", RFC 7231, DOI 10.17487/RFC7231, June 2014.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RFC8174">[RFC8174]</b></td>
@@ -979,6 +989,7 @@ unstructured           = &lt;as per section 3.2.5 of {{RFC5322}}&gt;
 <li>Changing some references to informative instead of normative</li>
 <li>Adding &#8220;Permission&#8221; field (#30)</li>
 <li>Fixing remaining ABNF issues (#83)</li>
+<li>Additional editorial changes and edits</li>
 </ul>
 <p id="rfc.section.B.4.p.2">Full list of changes can be viewed via the IETF document tracker: https://tools.ietf.org/html/draft-foudil-securitytxt</p>
 <h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
