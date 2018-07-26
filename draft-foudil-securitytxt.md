@@ -21,7 +21,7 @@ author:
 When security risks are discovered by independent
 security researchers, they
 often lack the channels to disclose them properly. As a result,
-security issues may be left unreported. This document defines a standard
+security issues may be left unreported. This document defines a format
 ("security.txt") to help organizations describe the process for security
 researchers to follow in order to disclose security vulnerabilities securely.
 
@@ -56,7 +56,7 @@ security issues.
 In this document, we define a richer, machine-parsable and more extensible way
 for companies to communicate information about their security disclosure
 policies, which is not limited to email and also allows for additional features
-such as encryption. This standard is designed to help
+such as encryption. This format is designed to help
 assist with the security disclosure process by making it easier
 for companies to designate the preferred steps for researchers to take
 when trying to reach out to them with security issues.
@@ -80,14 +80,14 @@ A mailing list is available for discussion at: https://www.freelists.org/list/se
 
 # The Specification
 
-This standard defines a text file to be placed in a known location
+This document defines a text file to be placed in a known location
 that provides information for security researchers to assist
 in disclosing security issues.
 
 The file is named "security.txt", and this file SHOULD be placed under the
 /.well-known/ path ("/.well-known/security.txt") {{!RFC5785}} of a domain name or IP address for web
 properties. If it is not possible to place the security.txt file in the /.well-known/ path or setup a redirect, web-based services MAY place the file in the top-level path
-of a given web domain or IP address ("/security.txt") as a fall back option. For web-based services, the instructions MUST be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}. For file systems and version control repositories a ".security.txt" file SHOULD be placed in the root directory of a particular file system or source code project.
+of a given web domain or IP address ("/security.txt") as a fall back option. For web-based services, the file MUST be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}, and it is RECOMMENDED that this file be served with "https" (as per section 2.7.2 of {{!RFC7230}}). For file systems and version control repositories a ".security.txt" file SHOULD be placed in the root directory of a particular file system or source code project.
 
 This text file contains multiple directives
 with different values. The "directive" is the first part of a field all the way up
@@ -119,10 +119,10 @@ https://example.com/.well-known/security.txt
 https://subdomain.example.com/.well-known/security.txt
 
 # This security.txt file applies to IPv4 address of 192.0.2.0.
-http://192.0.2.0/.well-known/security.txt
+https://192.0.2.0/.well-known/security.txt
 
 # This security.txt file applies to IPv6 address of 2001:db8:8:4::2.
-http://[2001:db8:8:4::2]/.well-known/security.txt
+https://[2001:db8:8:4::2]/.well-known/security.txt
 
 # This security.txt file applies to the /example/folder1 directory.
 /example/folder1/security.txt
@@ -182,8 +182,8 @@ SHOULD use for reporting security
 issues. The value MAY be an email address, a phone number and/or a
 contact page with more information. The "Contact:" directive MUST
 always be present in a security.txt file. If this directive indicates a web URL,
-then it MUST begin with "https://". Security
-email addresses SHOULD use the conventions defined in section
+then it RECOMMENDED that it begins with "https://" (as per section 2.7.2 of {{!RFC7230}}).
+Security email addresses SHOULD use the conventions defined in section
 4 of {{!RFC2142}}, but there is no requirement for this directive
 to be an email address.
 
@@ -206,7 +206,8 @@ This directive allows you to point to an encryption key that
 security researchers SHOULD use for encrypted communication. You MUST NOT
 directly add your key to the field, instead the value of this field
 MUST be a URI pointing to a location where the key can be retrieved from.
-If this directive indicates a web URL, then it MUST be begin with "https://".
+If this directive indicates a web URL, then it is RECOMMENDED to always use "https://" URLs
+(as per section 2.7.2 of {{!RFC7230}}).
 
 When it comes to verifying the authenticity of the key, it is always the security researcher's responsibility to make sure the key being specified is indeed one they trust. Researchers MUST NOT assume that this key is used to generate the signature file
 referenced in {{!signature}}.
@@ -232,7 +233,8 @@ Encryption: openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f
 ### Hiring {#hiring}
 
 The "Hiring" directive is used for linking to the vendor's security-related job positions.
-If this directive indicates a web URL, then it SHOULD be begin with "https://".
+If this directive indicates a web URL, then it is RECOMMENDED to always use "https://" URLs
+(as per section 2.7.2 of {{!RFC7230}}).
 
 ~~~~~~~~~~
 Hiring: https://example.com/jobs.html
@@ -262,7 +264,8 @@ Permission: none
 This directive allows you to link to where your security policy and/or
 disclosure policy is located. This can help security researchers understand
 what you are looking for and how to report security vulnerabilities.
-If this directive indicates a web URL, then it SHOULD begin with "https://".
+If this directive indicates a web URL, then it is RECOMMENDED to always use "https://" URLs
+(as per section 2.7.2 of {{!RFC7230}}).
 
 Example:
 
@@ -276,7 +279,7 @@ This directive allows you to specify a full URI (as per {{!RFC3986}}) of an exte
 used to check the authenticity of a "security.txt" file.
 External signature files SHOULD be named "security.txt.sig" and SHOULD be placed
 under the /.well-known/ path ("/.well-known/security.txt.sig").
-If this directive indicates a web URL, then it MUST be begin with "https://".
+If this directive indicates a web URL, then it is RECOMMENDED to always use "https://" URLs (as per section 2.7.2 of {{!RFC7230}}).
 This directive MUST NOT appear more than once.
 
 It is RECOMMENDED to implementers that this directive always be used.
@@ -438,8 +441,8 @@ and controlled by the organization, and are kept secure.
 
 To ensure the authenticity of the security.txt file, organizations SHOULD
 sign the file and include the signature using the "Signature"
-directive ({{signature}}). As stated in {{encryption}} and {{signature}}, both encryption keys
-and external signature files MUST be loaded over HTTPS.
+directive ({{signature}}). As stated in {{encryption}} and {{signature}}, it is RECOMMENDED that both encryption keys
+and external signature files be loaded over HTTPS (as per section 2.7.2 of {{!RFC7230}}).
 
 Websites SHOULD reserve the security.txt namespace
 to ensure no third-party can create a page with the "security.txt" name.
@@ -599,6 +602,9 @@ of DNS-stored encryption keys (#28 and #94)
 - Adding "Permission" field (#30)
 - Fixing remaining ABNF issues (#83)
 - Additional editorial changes and edits
+
+## Since draft-foudil-securitytxt-04
+- Addressing IETF feedback (#118)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
