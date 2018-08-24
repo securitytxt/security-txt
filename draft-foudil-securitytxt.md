@@ -1,6 +1,6 @@
 ---
 title: A Method for Web Security Policies
-docname: draft-foudil-securitytxt-03
+docname: draft-foudil-securitytxt-05
 ipr: trust200902
 cat: info
 pi:
@@ -381,7 +381,7 @@ The following is an ABNF definition of the security.txt format, using
 the conventions defined in {{!RFC5234}} and {{!RFC5322}}.
 
 ~~~~~~~~~~
-body                   = *line (permission-field eol) (signature-field eol) *line
+body                   = *line (perm-field eol) (sign-field eol) *line
 
 line                   = *1(field / comment) eol
 
@@ -412,11 +412,11 @@ encryption-field       = "Encryption" fs SP uri
 
 hiring-field           = "Hiring" fs SP uri
 
-permission-field       = "Permission" fs SP "none"
+perm-field             = "Permission" fs SP "none"
 
 policy-field           = "Policy" fs SP uri
 
-signature-field        = "Signature" fs SP uri
+sign-field             = "Signature" fs SP uri
 
 ext-field              = field-name fs SP unstructured
 
