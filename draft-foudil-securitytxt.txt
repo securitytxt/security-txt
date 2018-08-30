@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: February 24, 2019                      Nightwatch Cybersecurity
-                                                         August 23, 2018
+Expires: March 3, 2019                          Nightwatch Cybersecurity
+                                                         August 30, 2018
 
 
                    A Method for Web Security Policies
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on February 24, 2019.
+   This Internet-Draft will expire on March 3, 2019.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich   Expires February 24, 2019               [Page 1]
+Foudil & Shafranovich     Expires March 3, 2019                 [Page 1]
 
 Internet-Draft     A Method for Web Security Policies        August 2018
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Foudil & Shafranovich   Expires February 24, 2019               [Page 2]
+Foudil & Shafranovich     Expires March 3, 2019                 [Page 2]
 
 Internet-Draft     A Method for Web Security Policies        August 2018
 
@@ -165,7 +165,7 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-Foudil & Shafranovich   Expires February 24, 2019               [Page 3]
+Foudil & Shafranovich     Expires March 3, 2019                 [Page 3]
 
 Internet-Draft     A Method for Web Security Policies        August 2018
 
@@ -204,15 +204,16 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
    This text file contains multiple directives with different values.
    The "directive" is the first part of a field all the way up to the
-   colon ("Contact:").  Directives MUST be case-insensitive.  The
-   "value" comes after the directive ("https://example.com/security").
-   A "field" MUST always consist of a directive and a value ("Contact:
-   https://example.com/security").  A security.txt file can have an
-   unlimited number of fields.  It is important to note that you MUST
-   have a separate line for every field.  One MUST NOT chain multiple
-   values for a single directive and everything MUST be in a separate
-   field.  Unless otherwise indicated in a definition of a particular
-   field, any directive MAY appear multiple times.
+   colon ("Contact:").  Directives MUST be case-insensitive (as per
+   section 2.3 of [RFC5234]).  The "value" comes after the directive
+   ("https://example.com/security").  A "field" MUST always consist of a
+   directive and a value ("Contact: https://example.com/security").  A
+   security.txt file can have an unlimited number of fields.  It is
+   important to note that you MUST have a separate line for every field.
+   One MUST NOT chain multiple values for a single directive and
+   everything MUST be in a separate field.  Unless otherwise indicated
+   in a definition of a particular field, any directive MAY appear
+   multiple times.
 
 
 
@@ -220,8 +221,7 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-
-Foudil & Shafranovich   Expires February 24, 2019               [Page 4]
+Foudil & Shafranovich     Expires March 3, 2019                 [Page 4]
 
 Internet-Draft     A Method for Web Security Policies        August 2018
 
@@ -277,7 +277,7 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-Foudil & Shafranovich   Expires February 24, 2019               [Page 5]
+Foudil & Shafranovich     Expires March 3, 2019                 [Page 5]
 
 Internet-Draft     A Method for Web Security Policies        August 2018
 
@@ -333,7 +333,7 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-Foudil & Shafranovich   Expires February 24, 2019               [Page 6]
+Foudil & Shafranovich     Expires March 3, 2019                 [Page 6]
 
 Internet-Draft     A Method for Web Security Policies        August 2018
 
@@ -379,21 +379,22 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
    The presence of the "Permission" directive is used to indicate to
    security researchers that they MUST NOT perform any kind of testing
    against the resource hosting the "security.txt" file.  This field
-   MUST have a value which is REQUIRED to be set to the string "none".
-   Other values MUST NOT be used.  This field MUST NOT appear more than
-   once.
+   MUST have a value which is REQUIRED to be set to the string "none"
+   and be interpreted as case-insensitive (as per section 2.3 of
+   [RFC5234]).  Other values MUST NOT be used.  This field MUST NOT
+   appear more than once.
 
    The absence of the "Permission" directive or the use of any other
    value other than "none" for this directive MUST NOT be interpreted by
-   researchers as being granted permission to test the resource.
 
 
 
-Foudil & Shafranovich   Expires February 24, 2019               [Page 7]
+Foudil & Shafranovich     Expires March 3, 2019                 [Page 7]
 
 Internet-Draft     A Method for Web Security Policies        August 2018
 
 
+   researchers as being granted permission to test the resource.
    Additionally, the presence or absence of this directive MUST NOT be
    interpreted as having any legal value.
 
@@ -444,8 +445,7 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-
-Foudil & Shafranovich   Expires February 24, 2019               [Page 8]
+Foudil & Shafranovich     Expires March 3, 2019                 [Page 8]
 
 Internet-Draft     A Method for Web Security Policies        August 2018
 
@@ -501,7 +501,7 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-Foudil & Shafranovich   Expires February 24, 2019               [Page 9]
+Foudil & Shafranovich     Expires March 3, 2019                 [Page 9]
 
 Internet-Draft     A Method for Web Security Policies        August 2018
 
@@ -557,7 +557,7 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-Foudil & Shafranovich   Expires February 24, 2019              [Page 10]
+Foudil & Shafranovich     Expires March 3, 2019                [Page 10]
 
 Internet-Draft     A Method for Web Security Policies        August 2018
 
@@ -613,7 +613,7 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-Foudil & Shafranovich   Expires February 24, 2019              [Page 11]
+Foudil & Shafranovich     Expires March 3, 2019                [Page 11]
 
 Internet-Draft     A Method for Web Security Policies        August 2018
 
@@ -669,7 +669,7 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-Foudil & Shafranovich   Expires February 24, 2019              [Page 12]
+Foudil & Shafranovich     Expires March 3, 2019                [Page 12]
 
 Internet-Draft     A Method for Web Security Policies        August 2018
 
@@ -725,7 +725,7 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-Foudil & Shafranovich   Expires February 24, 2019              [Page 13]
+Foudil & Shafranovich     Expires March 3, 2019                [Page 13]
 
 Internet-Draft     A Method for Web Security Policies        August 2018
 
@@ -781,7 +781,7 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-Foudil & Shafranovich   Expires February 24, 2019              [Page 14]
+Foudil & Shafranovich     Expires March 3, 2019                [Page 14]
 
 Internet-Draft     A Method for Web Security Policies        August 2018
 
@@ -837,7 +837,7 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-Foudil & Shafranovich   Expires February 24, 2019              [Page 15]
+Foudil & Shafranovich     Expires March 3, 2019                [Page 15]
 
 Internet-Draft     A Method for Web Security Policies        August 2018
 
@@ -893,7 +893,7 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-Foudil & Shafranovich   Expires February 24, 2019              [Page 16]
+Foudil & Shafranovich     Expires March 3, 2019                [Page 16]
 
 Internet-Draft     A Method for Web Security Policies        August 2018
 
@@ -949,7 +949,7 @@ B.2.  Since draft-foudil-securitytxt-01
 
 
 
-Foudil & Shafranovich   Expires February 24, 2019              [Page 17]
+Foudil & Shafranovich     Expires March 3, 2019                [Page 17]
 
 Internet-Draft     A Method for Web Security Policies        August 2018
 
@@ -1005,7 +1005,7 @@ B.4.  Since draft-foudil-securitytxt-03
 
 
 
-Foudil & Shafranovich   Expires February 24, 2019              [Page 18]
+Foudil & Shafranovich     Expires March 3, 2019                [Page 18]
 
 Internet-Draft     A Method for Web Security Policies        August 2018
 
@@ -1061,4 +1061,4 @@ Authors' Addresses
 
 
 
-Foudil & Shafranovich   Expires February 24, 2019              [Page 19]
+Foudil & Shafranovich     Expires March 3, 2019                [Page 19]

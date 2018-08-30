@@ -91,8 +91,8 @@ of a given web domain or IP address ("/security.txt") as a fall back option. For
 
 This text file contains multiple directives
 with different values. The "directive" is the first part of a field all the way up
-to the colon ("Contact:"). Directives MUST be case-insensitive. The
-"value" comes after the directive ("https://example.com/security").
+to the colon ("Contact:"). Directives MUST be case-insensitive (as per section 2.3 of {{!RFC5234}}).
+The "value" comes after the directive ("https://example.com/security").
 A "field" MUST always consist of a directive and a value
 ("Contact: https://example.com/security"). A security.txt file
 can have an unlimited number of fields. It is important to note that
@@ -245,8 +245,9 @@ Hiring: https://example.com/jobs.html
 The presence of the "Permission" directive is used to indicate to security
 researchers that they MUST NOT perform any kind of testing against
 the resource hosting the "security.txt" file. This field MUST have a value
-which is REQUIRED to be set to the string "none". Other values MUST NOT be used.
-This field MUST NOT appear more than once.
+which is REQUIRED to be set to the string "none" and be interpreted as
+case-insensitive (as per section 2.3 of {{!RFC5234}}).
+Other values MUST NOT be used. This field MUST NOT appear more than once.
 
 The absence of the "Permission" directive or the use of any other value other
 than "none" for this directive MUST NOT be interpreted by researchers
