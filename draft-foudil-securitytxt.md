@@ -210,21 +210,21 @@ If this directive indicates a web URL, then it is RECOMMENDED to always use "htt
 (as per section 2.7.2 of {{!RFC7230}}).
 
 When it comes to verifying the authenticity of the key, it is always the security researcher's responsibility to make sure the key being specified is indeed one they trust. Researchers MUST NOT assume that this key is used to generate the signature file
-referenced in {{!signature}}.
+referenced in {{signature-type}}.
 
-Example of a PGP key available from a web server:
+Example of an OpenPGP key available from a web server:
 
 ~~~~~~~~~~
 Encryption: https://example.com/pgp-key.txt
 ~~~~~~~~~~
 
-Example of a PGP key available from an OPENPGPKEY DNS:
+Example of an OpenPGP key available from an OPENPGPKEY DNS:
 
 ~~~~~~~~~~
 Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 ~~~~~~~~~~
 
-Example of a PGP key being referenced by its fingerprint:
+Example of an OpenPGP key being referenced by its fingerprint:
 
 ~~~~~~~~~~
 Encryption: openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f
@@ -274,25 +274,41 @@ Example:
 Policy: https://example.com/security-policy.html
 ~~~~~~~~~~
 
-### Signature {#signature}
+### Signature-Type {#signature-type}
 
-This directive allows you to specify a full URI (as per {{!RFC3986}}) of an external signature file that can be
-used to check the authenticity of a "security.txt" file.
-External signature files SHOULD be named "security.txt.sig" and SHOULD be placed
-under the /.well-known/ path ("/.well-known/security.txt.sig").
-If this directive indicates a web URL, then it is RECOMMENDED to always use "https://" URLs (as per section 2.7.2 of {{!RFC7230}}).
-This directive MUST NOT appear more than once.
+This directive allows you to indicate the type of digital signature to be used
+to verify the authenticity of a "security.txt" file. A digital signature can either
+appear inside the "security.txt" file itself ("inline"), or in a separate file ("detached").
+If it is detached, the digital signature MUST BE named "security.txt.sig" and
+MUST be placed in the same location as the "security.txt" file it's signing.
+This is usually under the /.well-known/ path ("/.well-known/security.txt.sig").
+It is RECOMMENDED that detached signature files be loaded over HTTPS
+(as per section 2.7.2 of {{!RFC7230}}).
 
-It is RECOMMENDED to implementers that this directive always be used.
+This directive MUST NOT appear more than once. It is RECOMMENDED to
+implementers that this directive always be used.
 
-When it comes to verifying the authenticity of the file, it is always
+The generation, formatting and parsing of digital signatures MUST follow the document
+where the specific signature type is defined. For example, for OpenPGP this would
+be defined in {{!RFC4880}}.
+
+When it comes to verifying the key used to generate the signature, it is always
 the security researcher's responsibility to make sure the key being
 specified is indeed one they trust.
 
-Here is an example of an external signature file.
-
+Here is an example of a detached signature using OpenPGP:
 ~~~~~~~~~~
-Signature: https://example.com/.well-known/security.txt.sig
+Signature-Type: openpgp-detached
+~~~~~~~~~~
+
+Here is an example of an inline signature using OpenPGP:
+~~~~~~~~~~
+-----BEGIN PGP SIGNED MESSAGE-----
+
+Signature-Type: openpgp-inline
+-----BEGIN PGP SIGNATURE-----
+signature
+ -----END PGP SIGNATURE-----
 ~~~~~~~~~~
 
 ## Example of a "security.txt" file
@@ -301,7 +317,7 @@ Signature: https://example.com/.well-known/security.txt.sig
 # Our security address
 Contact: mailto:security@example.com
 
-# Our PGP key
+# Our OpenPGP key
 Encryption: https://example.com/pgp-key.txt
 
 # Our security policy
@@ -311,7 +327,7 @@ Policy: https://example.com/security-policy.html
 Acknowledgments: https://example.com/hall-of-fame.html
 
 # Verify this security.txt file
-Signature: https://example.com/.well-known/security.txt.sig
+Signature-Type: openpgp-detached
 ~~~~~~~~~~
 
 # Location of the security.txt file
@@ -346,7 +362,6 @@ Web-based services SHOULD place the security.txt file under the /.well-known/ pa
 A security.txt file located under the top-level path SHOULD either redirect (as per section 6.4 of {{!RFC7231}})
 to the security.txt file under the /.well-known/ path or be used as a fall back.
 
-
 ## Filesystems
 
 File systems SHOULD place the security.txt file under the root directory; e.g., /.security.txt, C:\.security.txt.
@@ -369,9 +384,14 @@ A .security.txt file SHOULD be placed in the root directory of an internal host.
 Like many other formats and protocols, this format may need to be extended
 over time to fit the ever-changing landscape of the Internet. Therefore,
 extensibility is provided via an IANA registry for directives as defined
-in {{registry}}. Any directives registered via that process MUST be
+in {{fields-registry}}. Any directives registered via that process MUST be
 considered optional. To encourage extensibility and interoperability,
 implementors MUST ignore any fields they do not explicitly support.
+
+There is also a second IANA registry defined in {{signature-registry}}
+for indicating types of digital signatures used to sign
+"security.txt" files. To encourage extensibility and interoperability,
+implementors MUST ignore any signature types they do not explicitly support.
 
 # File Format Description and ABNF Grammar
 
@@ -417,7 +437,13 @@ perm-field             = "Permission" fs SP "none"
 
 policy-field           = "Policy" fs SP uri
 
-sign-field             = "Signature" fs SP uri
+sign-field             = "Signature-Type" fs SP sign-type
+
+sign-type              = "openpgp-inline" /
+                         "openpgp-detached" /
+                         ext-sign-type
+
+ext-sign-type          = unstructured
 
 ext-field              = field-name fs SP unstructured
 
@@ -441,9 +467,9 @@ numbers references by a "security.txt" file are kept current, are accessible
 and controlled by the organization, and are kept secure.
 
 To ensure the authenticity of the security.txt file, organizations SHOULD
-sign the file and include the signature using the "Signature"
-directive ({{signature}}). As stated in {{encryption}} and {{signature}}, it is RECOMMENDED that both encryption keys
-and external signature files be loaded over HTTPS (as per section 2.7.2 of {{!RFC7230}}).
+digitally sign the file and indicate the signature type using the "Signature-Type"
+directive ({{signature-type}}). As stated in {{encryption}} and {{signature-type}}, it is RECOMMENDED that both encryption keys
+and detached signature files be loaded over HTTPS (as per section 2.7.2 of {{!RFC7230}}).
 
 Websites SHOULD reserve the security.txt namespace
 to ensure no third-party can create a page with the "security.txt" name.
@@ -469,7 +495,7 @@ Change controller: IETF
 
 Specification document(s): this document
 
-## Registry for security.txt Header Fields {#registry}
+## Registry for security.txt Header Fields {#fields-registry}
 
 IANA is requested to create the "security.txt Header Fields" registry in
 accordance with {{?RFC8126}}. This registry will contain header fields for
@@ -532,10 +558,51 @@ The initial registry contains these values:
        Published in: this document
        Status: current
 
-       Field Name: Signature
-       Description: signature used to verify the authenticity of the file
+       Field Name: Signature-Type
+       Description: the type of digital signature used
        Multiple Appearances: No
        Published in: this document
+       Status: current
+
+## Registry for security.txt Signature Type {#signature-registry}
+
+IANA is requested to create the "security.txt Signature Type" registry in
+accordance with {{?RFC8126}}. This registry will contain types of digital signatures
+used to sign security.txt files, as defined by this specification. As per section 2.3 of {{!RFC5234}},
+the names of the signature types are case-insensitive.
+
+New registrations or updates MUST be published in accordance with the
+"Expert Review" guidelines as described in section 4.5 of
+{{?RFC8126}}.
+
+New registrations and updates MUST contain the following information:
+
+   1.  Name of the signature type being registered or updated
+   2.  Short description of the digital signature type
+   3.  Location of the signature as per section {{signature-type}}, which MUST be one of:
+       inline: the signature appears inside the security.txt file itself
+       detached: the signature is stored in a separate "security.txt.sig" file
+   4.  The document in which the specification and format of the digital signature is published
+   5.  New or updated status, which MUST be one of:
+       current:  This value is in current use
+       deprecated:  This value is in current use, but its use is discouraged
+       historic:  This value is no longer in current use
+
+An update may make a notation on an existing registration indicating
+that a registered value is historical or deprecated if appropriate.
+
+The initial registry contains these values:
+
+       Signature Type Name: openpgp-inline
+       Description: cleartext OpenPGP signature surrounding the content
+       Location: inline
+       Published in: section 7 of {{!RFC4880}}
+       Status: current
+
+       Field Name: openpgp-detached
+       Description: OpenPGP signature stored in a separate file
+       Location: detached
+       Published in: section 11.4 of {{!RFC4880}}
        Status: current
 
 # Contributors
@@ -606,6 +673,7 @@ of DNS-stored encryption keys (#28 and #94)
 
 ## Since draft-foudil-securitytxt-04
 - Addressing IETF feedback (#118)
+- Changing the signature field to signature type
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt

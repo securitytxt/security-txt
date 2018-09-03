@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: March 3, 2019                          Nightwatch Cybersecurity
-                                                         August 30, 2018
+Expires: March 6, 2019                          Nightwatch Cybersecurity
+                                                      September 02, 2018
 
 
                    A Method for Web Security Policies
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on March 3, 2019.
+   This Internet-Draft will expire on March 6, 2019.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich     Expires March 3, 2019                 [Page 1]
+Foudil & Shafranovich     Expires March 6, 2019                 [Page 1]
 
-Internet-Draft     A Method for Web Security Policies        August 2018
+Internet-Draft     A Method for Web Security Policies     September 2018
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -78,40 +78,40 @@ Table of Contents
        3.4.4.  Hiring  . . . . . . . . . . . . . . . . . . . . . . .   7
        3.4.5.  Permission  . . . . . . . . . . . . . . . . . . . . .   7
        3.4.6.  Policy  . . . . . . . . . . . . . . . . . . . . . . .   8
-       3.4.7.  Signature . . . . . . . . . . . . . . . . . . . . . .   8
-     3.5.  Example of a "security.txt" file  . . . . . . . . . . . .   8
+       3.4.7.  Signature-Type  . . . . . . . . . . . . . . . . . . .   8
+     3.5.  Example of a "security.txt" file  . . . . . . . . . . . .   9
    4.  Location of the security.txt file . . . . . . . . . . . . . .   9
-     4.1.  Web-based services  . . . . . . . . . . . . . . . . . . .   9
+     4.1.  Web-based services  . . . . . . . . . . . . . . . . . . .  10
      4.2.  Filesystems . . . . . . . . . . . . . . . . . . . . . . .  10
      4.3.  Internal hosts  . . . . . . . . . . . . . . . . . . . . .  10
      4.4.  Extensibility . . . . . . . . . . . . . . . . . . . . . .  10
    5.  File Format Description and ABNF Grammar  . . . . . . . . . .  10
-   6.  Security considerations . . . . . . . . . . . . . . . . . . .  12
-   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  12
-     7.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .  12
-     7.2.  Registry for security.txt Header Fields . . . . . . . . .  13
-   8.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  14
-   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  15
-     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  15
-     9.2.  Informative References  . . . . . . . . . . . . . . . . .  16
-   Appendix A.  Note to Readers  . . . . . . . . . . . . . . . . . .  17
-   Appendix B.  Document History . . . . . . . . . . . . . . . . . .  17
-     B.1.  Since draft-foudil-securitytxt-00 . . . . . . . . . . . .  17
-     B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  17
-     B.3.  Since draft-foudil-securitytxt-02 . . . . . . . . . . . .  18
-     B.4.  Since draft-foudil-securitytxt-03 . . . . . . . . . . . .  18
-     B.5.  Since draft-foudil-securitytxt-04 . . . . . . . . . . . .  19
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  19
+   6.  Security considerations . . . . . . . . . . . . . . . . . . .  13
+   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  13
+     7.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .  13
+     7.2.  Registry for security.txt Header Fields . . . . . . . . .  14
+     7.3.  Registry for security.txt Signature Type  . . . . . . . .  15
+   8.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  16
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  17
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  17
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .  18
+   Appendix A.  Note to Readers  . . . . . . . . . . . . . . . . . .  19
+   Appendix B.  Document History . . . . . . . . . . . . . . . . . .  19
+     B.1.  Since draft-foudil-securitytxt-00 . . . . . . . . . . . .  19
+     B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  20
+     B.3.  Since draft-foudil-securitytxt-02 . . . . . . . . . . . .  20
+     B.4.  Since draft-foudil-securitytxt-03 . . . . . . . . . . . .  20
+     B.5.  Since draft-foudil-securitytxt-04 . . . . . . . . . . . .  21
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  21
 
 
 
 
 
 
-
-Foudil & Shafranovich     Expires March 3, 2019                 [Page 2]
+Foudil & Shafranovich     Expires March 6, 2019                 [Page 2]
 
-Internet-Draft     A Method for Web Security Policies        August 2018
+Internet-Draft     A Method for Web Security Policies     September 2018
 
 
 1.  Introduction
@@ -165,9 +165,9 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-Foudil & Shafranovich     Expires March 3, 2019                 [Page 3]
+Foudil & Shafranovich     Expires March 6, 2019                 [Page 3]
 
-Internet-Draft     A Method for Web Security Policies        August 2018
+Internet-Draft     A Method for Web Security Policies     September 2018
 
 
 2.  Note to Readers
@@ -221,9 +221,9 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-Foudil & Shafranovich     Expires March 3, 2019                 [Page 4]
+Foudil & Shafranovich     Expires March 6, 2019                 [Page 4]
 
-Internet-Draft     A Method for Web Security Policies        August 2018
+Internet-Draft     A Method for Web Security Policies     September 2018
 
 
 3.1.  Scope
@@ -277,9 +277,9 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-Foudil & Shafranovich     Expires March 3, 2019                 [Page 5]
+Foudil & Shafranovich     Expires March 6, 2019                 [Page 5]
 
-Internet-Draft     A Method for Web Security Policies        August 2018
+Internet-Draft     A Method for Web Security Policies     September 2018
 
 
 3.4.  Field Definitions
@@ -333,9 +333,9 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-Foudil & Shafranovich     Expires March 3, 2019                 [Page 6]
+Foudil & Shafranovich     Expires March 6, 2019                 [Page 6]
 
-Internet-Draft     A Method for Web Security Policies        August 2018
+Internet-Draft     A Method for Web Security Policies     September 2018
 
 
 3.4.3.  Encryption
@@ -353,15 +353,15 @@ Internet-Draft     A Method for Web Security Policies        August 2018
    this key is used to generate the signature file referenced in
    Section 3.4.7.
 
-   Example of a PGP key available from a web server:
+   Example of an OpenPGP key available from a web server:
 
    Encryption: https://example.com/pgp-key.txt
 
-   Example of a PGP key available from an OPENPGPKEY DNS:
+   Example of an OpenPGP key available from an OPENPGPKEY DNS:
 
 Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
-   Example of a PGP key being referenced by its fingerprint:
+   Example of an OpenPGP key being referenced by its fingerprint:
 
    Encryption: openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f
 
@@ -389,9 +389,9 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
 
 
-Foudil & Shafranovich     Expires March 3, 2019                 [Page 7]
+Foudil & Shafranovich     Expires March 6, 2019                 [Page 7]
 
-Internet-Draft     A Method for Web Security Policies        August 2018
+Internet-Draft     A Method for Web Security Policies     September 2018
 
 
    researchers as being granted permission to test the resource.
@@ -415,45 +415,53 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
    Policy: https://example.com/security-policy.html
 
-3.4.7.  Signature
+3.4.7.  Signature-Type
 
-   This directive allows you to specify a full URI (as per [RFC3986]) of
-   an external signature file that can be used to check the authenticity
-   of a "security.txt" file.  External signature files SHOULD be named
-   "security.txt.sig" and SHOULD be placed under the /.well-known/ path
-   ("/.well-known/security.txt.sig").  If this directive indicates a web
-   URL, then it is RECOMMENDED to always use "https://" URLs (as per
-   section 2.7.2 of [RFC7230]).  This directive MUST NOT appear more
-   than once.
+   This directive allows you to indicate the type of digital signature
+   to be used to verify the authenticity of a "security.txt" file.  A
+   digital signature can either appear inside the "security.txt" file
+   itself ("inline"), or in a separate file ("detached").  If it is
+   detached, the digital signature MUST BE named "security.txt.sig" and
+   MUST be placed in the same location as the "security.txt" file it's
+   signing.  This is usually under the /.well-known/ path ("/.well-
+   known/security.txt.sig").  It is RECOMMENDED that detached signature
+   files be loaded over HTTPS (as per section 2.7.2 of [RFC7230]).
 
-   It is RECOMMENDED to implementers that this directive always be used.
+   This directive MUST NOT appear more than once.  It is RECOMMENDED to
+   implementers that this directive always be used.
 
-   When it comes to verifying the authenticity of the file, it is always
-   the security researcher's responsibility to make sure the key being
-   specified is indeed one they trust.
+   The generation, formatting and parsing of digital signatures MUST
+   follow the document where the specific signature type is defined.
+   For example, for OpenPGP this would be defined in [RFC4880].
 
-   Here is an example of an external signature file.
+   When it comes to verifying the key used to generate the signature, it
+   is always the security researcher's responsibility to make sure the
+   key being specified is indeed one they trust.
 
-   Signature: https://example.com/.well-known/security.txt.sig
+   Here is an example of a detached signature using OpenPGP: ~~~~~~~~~~
+   Signature-Type: openpgp-detached ~~~~~~~~~~
+
+
+
+
+
+Foudil & Shafranovich     Expires March 6, 2019                 [Page 8]
+
+Internet-Draft     A Method for Web Security Policies     September 2018
+
+
+   Here is an example of an inline signature using OpenPGP: ~~~~~~~~~~
+   ---BEGIN PGP SIGNED MESSAGE---
+
+   Signature-Type: openpgp-inline ---BEGIN PGP SIGNATURE--- signature
+   ---END PGP SIGNATURE--- ~~~~~~~~~~
 
 3.5.  Example of a "security.txt" file
-
-
-
-
-
-
-
-
-Foudil & Shafranovich     Expires March 3, 2019                 [Page 8]
-
-Internet-Draft     A Method for Web Security Policies        August 2018
-
 
    # Our security address
    Contact: mailto:security@example.com
 
-   # Our PGP key
+   # Our OpenPGP key
    Encryption: https://example.com/pgp-key.txt
 
    # Our security policy
@@ -463,7 +471,7 @@ Internet-Draft     A Method for Web Security Policies        August 2018
    Acknowledgments: https://example.com/hall-of-fame.html
 
    # Verify this security.txt file
-   Signature: https://example.com/.well-known/security.txt.sig
+   Signature-Type: openpgp-detached
 
 4.  Location of the security.txt file
 
@@ -489,6 +497,15 @@ Internet-Draft     A Method for Web Security Policies        August 2018
    |                        |
    +------------------------+
 
+
+
+
+
+Foudil & Shafranovich     Expires March 6, 2019                 [Page 9]
+
+Internet-Draft     A Method for Web Security Policies     September 2018
+
+
 4.1.  Web-based services
 
    Web-based services SHOULD place the security.txt file under the
@@ -497,14 +514,6 @@ Internet-Draft     A Method for Web Security Policies        August 2018
    SHOULD either redirect (as per section 6.4 of [RFC7231]) to the
    security.txt file under the /.well-known/ path or be used as a fall
    back.
-
-
-
-
-Foudil & Shafranovich     Expires March 3, 2019                 [Page 9]
-
-Internet-Draft     A Method for Web Security Policies        August 2018
-
 
 4.2.  Filesystems
 
@@ -533,11 +542,25 @@ Internet-Draft     A Method for Web Security Policies        August 2018
    extensibility and interoperability, implementors MUST ignore any
    fields they do not explicitly support.
 
+   There is also a second IANA registry defined in Section 7.3 for
+   indicating types of digital signatures used to sign "security.txt"
+   files.  To encourage extensibility and interoperability, implementors
+   MUST ignore any signature types they do not explicitly support.
+
 5.  File Format Description and ABNF Grammar
 
    The expected file format of the security.txt file is plain text (MIME
    type "text/plain") as defined in section 4.1.3 of [RFC2046] and is
    encoded using UTF-8 [RFC3629] in Net-Unicode form [RFC5198].
+
+
+
+
+
+Foudil & Shafranovich     Expires March 6, 2019                [Page 10]
+
+Internet-Draft     A Method for Web Security Policies     September 2018
+
 
    The following is an ABNF definition of the security.txt format, using
    the conventions defined in [RFC5234] and [RFC5322].
@@ -557,9 +580,42 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-Foudil & Shafranovich     Expires March 3, 2019                [Page 10]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Foudil & Shafranovich     Expires March 6, 2019                [Page 11]
 
-Internet-Draft     A Method for Web Security Policies        August 2018
+Internet-Draft     A Method for Web Security Policies     September 2018
 
 
   body                   = *line (perm-field eol) (sign-field eol) *line
@@ -597,7 +653,13 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
   policy-field           = "Policy" fs SP uri
 
-  sign-field             = "Signature" fs SP uri
+  sign-field             = "Signature-Type" fs SP sign-type
+
+  sign-type              = "openpgp-inline" /
+                           "openpgp-detached" /
+                           ext-sign-type
+
+  ext-sign-type          = unstructured
 
   ext-field              = field-name fs SP unstructured
 
@@ -605,18 +667,15 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
   unstructured           = <as per section 3.2.5 of {{RFC5322}}>
 
+
+
+Foudil & Shafranovich     Expires March 6, 2019                [Page 12]
+
+Internet-Draft     A Method for Web Security Policies     September 2018
+
+
    "ext-field" refers to extension fields, which are discussed in
    Section 4.4
-
-
-
-
-
-
-Foudil & Shafranovich     Expires March 3, 2019                [Page 11]
-
-Internet-Draft     A Method for Web Security Policies        August 2018
-
 
 6.  Security considerations
 
@@ -632,11 +691,11 @@ Internet-Draft     A Method for Web Security Policies        August 2018
    and are kept secure.
 
    To ensure the authenticity of the security.txt file, organizations
-   SHOULD sign the file and include the signature using the "Signature"
-   directive (Section 3.4.7).  As stated in Section 3.4.3 and
-   Section 3.4.7, it is RECOMMENDED that both encryption keys and
-   external signature files be loaded over HTTPS (as per section 2.7.2
-   of [RFC7230]).
+   SHOULD digitally sign the file and indicate the signature type using
+   the "Signature-Type" directive (Section 3.4.7).  As stated in
+   Section 3.4.3 and Section 3.4.7, it is RECOMMENDED that both
+   encryption keys and detached signature files be loaded over HTTPS (as
+   per section 2.7.2 of [RFC7230]).
 
    Websites SHOULD reserve the security.txt namespace to ensure no
    third-party can create a page with the "security.txt" name.
@@ -666,12 +725,9 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-
-
-
-Foudil & Shafranovich     Expires March 3, 2019                [Page 12]
+Foudil & Shafranovich     Expires March 6, 2019                [Page 13]
 
-Internet-Draft     A Method for Web Security Policies        August 2018
+Internet-Draft     A Method for Web Security Policies     September 2018
 
 
 7.2.  Registry for security.txt Header Fields
@@ -725,9 +781,9 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-Foudil & Shafranovich     Expires March 3, 2019                [Page 13]
+Foudil & Shafranovich     Expires March 6, 2019                [Page 14]
 
-Internet-Draft     A Method for Web Security Policies        August 2018
+Internet-Draft     A Method for Web Security Policies     September 2018
 
 
    Field Name: Acknowledgments
@@ -766,11 +822,67 @@ Internet-Draft     A Method for Web Security Policies        August 2018
    Published in: this document
    Status: current
 
-   Field Name: Signature
-   Description: signature used to verify the authenticity of the file
+   Field Name: Signature-Type
+   Description: the type of digital signature used
    Multiple Appearances: No
    Published in: this document
    Status: current
+
+7.3.  Registry for security.txt Signature Type
+
+   IANA is requested to create the "security.txt Signature Type"
+   registry in accordance with [RFC8126].  This registry will contain
+   types of digital signatures used to sign security.txt files, as
+
+
+
+
+Foudil & Shafranovich     Expires March 6, 2019                [Page 15]
+
+Internet-Draft     A Method for Web Security Policies     September 2018
+
+
+   defined by this specification.  As per section 2.3 of [RFC5234], the
+   names of the signature types are case-insensitive.
+
+   New registrations or updates MUST be published in accordance with the
+   "Expert Review" guidelines as described in section 4.5 of [RFC8126].
+
+   New registrations and updates MUST contain the following information:
+
+   1.  Name of the signature type being registered or updated
+
+   2.  Short description of the digital signature type
+
+   3.  Location of the signature as per section Section 3.4.7, which
+       MUST be one of: inline: the signature appears inside the
+       security.txt file itself detached: the signature is stored in a
+       separate "security.txt.sig" file
+
+   4.  The document in which the specification and format of the digital
+       signature is published
+
+   5.  New or updated status, which MUST be one of: current: This value
+       is in current use deprecated: This value is in current use, but
+       its use is discouraged historic: This value is no longer in
+       current use
+
+   An update may make a notation on an existing registration indicating
+   that a registered value is historical or deprecated if appropriate.
+
+   The initial registry contains these values:
+
+      Signature Type Name: openpgp-inline
+      Description: cleartext OpenPGP signature surrounding the content
+      Location: inline
+      Published in: section 7 of {{RFC4880}}
+      Status: current
+
+      Field Name: openpgp-detached
+      Description: OpenPGP signature stored in a separate file
+      Location: detached
+      Published in: section 11.4 of {{RFC4880}}
+      Status: current
 
 8.  Contributors
 
@@ -781,9 +893,9 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 
 
 
-Foudil & Shafranovich     Expires March 3, 2019                [Page 14]
+Foudil & Shafranovich     Expires March 6, 2019                [Page 16]
 
-Internet-Draft     A Method for Web Security Policies        August 2018
+Internet-Draft     A Method for Web Security Policies     September 2018
 
 
    The authors would also like to acknowledge the feedback provided by
@@ -821,6 +933,11 @@ Internet-Draft     A Method for Web Security Policies        August 2018
               RFC 3986, DOI 10.17487/RFC3986, January 2005,
               <https://www.rfc-editor.org/info/rfc3986>.
 
+   [RFC4880]  Callas, J., Donnerhacke, L., Finney, H., Shaw, D., and R.
+              Thayer, "OpenPGP Message Format", RFC 4880,
+              DOI 10.17487/RFC4880, November 2007,
+              <https://www.rfc-editor.org/info/rfc4880>.
+
    [RFC5198]  Klensin, J. and M. Padlipsky, "Unicode Format for Network
               Interchange", RFC 5198, DOI 10.17487/RFC5198, March 2008,
               <https://www.rfc-editor.org/info/rfc5198>.
@@ -830,17 +947,16 @@ Internet-Draft     A Method for Web Security Policies        August 2018
               DOI 10.17487/RFC5234, January 2008,
               <https://www.rfc-editor.org/info/rfc5234>.
 
+
+
+Foudil & Shafranovich     Expires March 6, 2019                [Page 17]
+
+Internet-Draft     A Method for Web Security Policies     September 2018
+
+
    [RFC5322]  Resnick, P., Ed., "Internet Message Format", RFC 5322,
               DOI 10.17487/RFC5322, October 2008,
               <https://www.rfc-editor.org/info/rfc5322>.
-
-
-
-
-Foudil & Shafranovich     Expires March 3, 2019                [Page 15]
-
-Internet-Draft     A Method for Web Security Policies        August 2018
-
 
    [RFC5785]  Nottingham, M. and E. Hammer-Lahav, "Defining Well-Known
               Uniform Resource Identifiers (URIs)", RFC 5785,
@@ -886,17 +1002,18 @@ Internet-Draft     A Method for Web Security Policies        August 2018
               RFC 6890, DOI 10.17487/RFC6890, April 2013,
               <https://www.rfc-editor.org/info/rfc6890>.
 
+
+
+
+Foudil & Shafranovich     Expires March 6, 2019                [Page 18]
+
+Internet-Draft     A Method for Web Security Policies     September 2018
+
+
    [RFC7485]  Zhou, L., Kong, N., Shen, S., Sheng, S., and A. Servin,
               "Inventory and Analysis of WHOIS Registration Objects",
               RFC 7485, DOI 10.17487/RFC7485, March 2015,
               <https://www.rfc-editor.org/info/rfc7485>.
-
-
-
-Foudil & Shafranovich     Expires March 3, 2019                [Page 16]
-
-Internet-Draft     A Method for Web Security Policies        August 2018
-
 
    [RFC8126]  Cotton, M., Leiba, B., and T. Narten, "Guidelines for
               Writing an IANA Considerations Section in RFCs", BCP 26,
@@ -937,6 +1054,18 @@ B.1.  Since draft-foudil-securitytxt-00
    The full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt-01
 
+
+
+
+
+
+
+
+Foudil & Shafranovich     Expires March 6, 2019                [Page 19]
+
+Internet-Draft     A Method for Web Security Policies     September 2018
+
+
 B.2.  Since draft-foudil-securitytxt-01
 
    o  Added appendix with pointer to Github and document history
@@ -944,15 +1073,6 @@ B.2.  Since draft-foudil-securitytxt-01
    o  Added external signature file to the well known URI registry (#59)
 
    o  Added policy field (#53)
-
-
-
-
-
-Foudil & Shafranovich     Expires March 3, 2019                [Page 17]
-
-Internet-Draft     A Method for Web Security Policies        August 2018
-
 
    o  Added diagram explaining the location of the file on public vs.
       internal systems
@@ -995,6 +1115,13 @@ B.4.  Since draft-foudil-securitytxt-03
 
    o  Added reference to the mailing list (#111)
 
+
+
+Foudil & Shafranovich     Expires March 6, 2019                [Page 20]
+
+Internet-Draft     A Method for Web Security Policies     September 2018
+
+
    o  Added a section referencing related work (#113)
 
    o  Fixes for idnits (#82)
@@ -1003,13 +1130,6 @@ B.4.  Since draft-foudil-securitytxt-03
 
    o  Adding "Permission" field (#30)
 
-
-
-Foudil & Shafranovich     Expires March 3, 2019                [Page 18]
-
-Internet-Draft     A Method for Web Security Policies        August 2018
-
-
    o  Fixing remaining ABNF issues (#83)
 
    o  Additional editorial changes and edits
@@ -1017,6 +1137,8 @@ Internet-Draft     A Method for Web Security Policies        August 2018
 B.5.  Since draft-foudil-securitytxt-04
 
    o  Addressing IETF feedback (#118)
+
+   o  Changing the signature field to signature type
 
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt
@@ -1051,14 +1173,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-
-
-
-Foudil & Shafranovich     Expires March 3, 2019                [Page 19]
+Foudil & Shafranovich     Expires March 6, 2019                [Page 21]
