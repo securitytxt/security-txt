@@ -16,11 +16,7 @@ https://github.com/securitytxt/
 
 # Internet draft
 
-The Internet draft for security.txt can be found here: https://tools.ietf.org/html/draft-foudil-securitytxt-04.
-
-# Mailing list
-
-There is a mailing list for the security.txt project: https://www.freelists.org/list/securitytxt.
+The Internet draft for security.txt can be found here: https://tools.ietf.org/html/draft-foudil-securitytxt.
 
 # Building the Draft
 
@@ -46,7 +42,7 @@ The main purpose of `security.txt` is to help make things easier for companies a
 
 **Is `security.txt` supposed to replace bug bounty platforms?**
 
-No. Security.txt is supposed to accompany them.
+No, security.txt is supposed to accompany them.
 
 # Code of conduct
 
@@ -57,7 +53,7 @@ To maintain an orderly, productive, and fun environment, the _security.txt_ proj
 - Be cautious with how you word things. Our goal is to remain professional.
 - When we disagree, try to understand why.
 - Direct contributions to the specification will only be accepted from individuals <sup>[[1]](https://en.oxforddictionaries.com/definition/individual)</sup>. The _security.txt_ project will not accept contributions to the specification in the name of an organisation. This is to ensure that the specifications and tools remain as neutral as possible.
-- Registering an account on any service in the name of the _security.txt_ project must be clearly communicated via the team first. Only verified accounts on the _security.txt_ project's [Keybase account](https://keybase.io/securitytxtkey) are affiliated with the project.
+- Registering an account on any service in the name of the _security.txt_ project must be clearly communicated via the team first.
 
 # Contributing
 
@@ -74,19 +70,3 @@ The bug tracker utilizes several labels to help organize and identify issues.
 ### Guidelines for bug reports 🐛
 
 Use the GitHub issue search — check if the issue has already been reported.
-
-### Donations
-
-The security.txt project accepts donations via [Liberapay](https://liberapay.com/security.txt) and [Open Collective](https://opencollective.com/securitytxt). The money is used to pay bounties to individuals who report valid security vulnerabilities in the security.txt project.
-
-<a href="https://liberapay.com/security.txt/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
-
-<a href="https://opencollective.com/securitytxt/donate" target="_blank">
-  <img src="https://opencollective.com/securitytxt/donate/button@2x.png?color=blue" width=300 />
-</a>
-
-We also accept Bitcoin and Ethereum donations:
-
-**BTC:** `1E2fZRNrrkCKPnWpKZAsJzByBoyoBURADN`
-
-**ETH:** `0xe98FC23fB4A8762d700c0354979dA5Db6c29Acc3`
