@@ -32,7 +32,7 @@ researchers to follow in order to report security vulnerabilities.
 ## Motivation and Prior Work
 
 Many security researchers encounter situations where they are unable
-to responsibly report security issues to organizations because there is
+to report security issues to organizations because there is
 no course of action laid out or no way indicated to contact the owner of a particular
 resource.
 
@@ -50,7 +50,7 @@ in section 3.2 of {{?RFC2350}} and for site operators in section 5.2 of
 Regional Internet Registries (RIRs) and domain registries for owners of IP
 addresses, autonomous system numbers (ASNs) and domain names. However, none of
 these address the issue of how security researchers can locate disclosure
-policies and contact information for organizations in order to responsibly report
+policies and contact information for organizations in order to report
 security issues.
 
 In this document, we define a richer, machine-parsable and more extensible way

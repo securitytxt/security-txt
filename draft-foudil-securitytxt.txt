@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: July 7, 2019                           Nightwatch Cybersecurity
-                                                        January 03, 2019
+Expires: July 9, 2019                           Nightwatch Cybersecurity
+                                                        January 05, 2019
 
 
                    A Method for Web Security Policies
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 7, 2019.
+   This Internet-Draft will expire on July 9, 2019.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich     Expires July 7, 2019                  [Page 1]
+Foudil & Shafranovich     Expires July 9, 2019                  [Page 1]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Foudil & Shafranovich     Expires July 7, 2019                  [Page 2]
+Foudil & Shafranovich     Expires July 9, 2019                  [Page 2]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -119,9 +119,9 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 1.1.  Motivation and Prior Work
 
    Many security researchers encounter situations where they are unable
-   to responsibly report security issues to organizations because there
-   is no course of action laid out or no way indicated to contact the
-   owner of a particular resource.
+   to report security issues to organizations because there is no course
+   of action laid out or no way indicated to contact the owner of a
+   particular resource.
 
    As per section 4 of [RFC2142], there is an existing convention of
    using the <SECURITY@domain> email address for communications
@@ -138,8 +138,8 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    (RIRs) and domain registries for owners of IP addresses, autonomous
    system numbers (ASNs) and domain names.  However, none of these
    address the issue of how security researchers can locate disclosure
-   policies and contact information for organizations in order to
-   responsibly report security issues.
+   policies and contact information for organizations in order to report
+   security issues.
 
    In this document, we define a richer, machine-parsable and more
    extensible way for organizations to communicate information about
@@ -165,7 +165,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 7, 2019                  [Page 3]
+Foudil & Shafranovich     Expires July 9, 2019                  [Page 3]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -221,7 +221,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 7, 2019                  [Page 4]
+Foudil & Shafranovich     Expires July 9, 2019                  [Page 4]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -277,7 +277,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 7, 2019                  [Page 5]
+Foudil & Shafranovich     Expires July 9, 2019                  [Page 5]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -333,7 +333,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 7, 2019                  [Page 6]
+Foudil & Shafranovich     Expires July 9, 2019                  [Page 6]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -389,7 +389,7 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
 
 
-Foudil & Shafranovich     Expires July 7, 2019                  [Page 7]
+Foudil & Shafranovich     Expires July 9, 2019                  [Page 7]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -445,7 +445,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 7, 2019                  [Page 8]
+Foudil & Shafranovich     Expires July 9, 2019                  [Page 8]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -501,7 +501,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 7, 2019                  [Page 9]
+Foudil & Shafranovich     Expires July 9, 2019                  [Page 9]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -557,7 +557,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 7, 2019                 [Page 10]
+Foudil & Shafranovich     Expires July 9, 2019                 [Page 10]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -613,7 +613,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 7, 2019                 [Page 11]
+Foudil & Shafranovich     Expires July 9, 2019                 [Page 11]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -669,7 +669,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 7, 2019                 [Page 12]
+Foudil & Shafranovich     Expires July 9, 2019                 [Page 12]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -725,7 +725,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 7, 2019                 [Page 13]
+Foudil & Shafranovich     Expires July 9, 2019                 [Page 13]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -781,7 +781,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 7, 2019                 [Page 14]
+Foudil & Shafranovich     Expires July 9, 2019                 [Page 14]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -837,7 +837,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 7, 2019                 [Page 15]
+Foudil & Shafranovich     Expires July 9, 2019                 [Page 15]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -893,7 +893,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 7, 2019                 [Page 16]
+Foudil & Shafranovich     Expires July 9, 2019                 [Page 16]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -949,7 +949,7 @@ B.2.  Since draft-foudil-securitytxt-01
 
 
 
-Foudil & Shafranovich     Expires July 7, 2019                 [Page 17]
+Foudil & Shafranovich     Expires July 9, 2019                 [Page 17]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -1005,7 +1005,7 @@ B.4.  Since draft-foudil-securitytxt-03
 
 
 
-Foudil & Shafranovich     Expires July 7, 2019                 [Page 18]
+Foudil & Shafranovich     Expires July 9, 2019                 [Page 18]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -1061,4 +1061,4 @@ Authors' Addresses
 
 
 
-Foudil & Shafranovich     Expires July 7, 2019                 [Page 19]
+Foudil & Shafranovich     Expires July 9, 2019                 [Page 19]
