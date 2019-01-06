@@ -87,11 +87,11 @@ in disclosing security issues.
 The file is named "security.txt", and this file SHOULD be placed under the
 /.well-known/ path ("/.well-known/security.txt") {{!RFC5785}} of a domain name or IP address for web
 properties. If it is not possible to place the security.txt file in the /.well-known/ path or setup a redirect, web-based services MAY place the file in the top-level path
-of a given web domain or IP address ("/security.txt") as a fall back option. For web-based services, the file MUST be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}, and it is RECOMMENDED that this file be served with "https" (as per section 2.7.2 of {{!RFC7230}}). For file systems and version control repositories a ".security.txt" file SHOULD be placed in the root directory of a particular file system or source code project.
+of a given web domain or IP address ("/security.txt") as a fall back option. For web-based services, the file MUST be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}, and it is RECOMMENDED that this file be served with "https" (as per section 2.7.2 of {{!RFC7230}}. For file systems and version control repositories a ".security.txt" file SHOULD be placed in the root directory of a particular file system or source code project.
 
 This text file contains multiple directives
 with different values. The "directive" is the first part of a field all the way up
-to the colon ("Contact:"). Directives MUST be case-insensitive (as per section 2.3 of {{!RFC5234}}).
+to the colon ("Contact:"). Directives MUST be case-insensitive (as per section 2.3 of {{!RFC5234}}.
 The "value" comes after the directive ("https://example.com/security").
 A "field" MUST always consist of a directive and a value
 ("Contact: https://example.com/security"). A security.txt file
@@ -209,7 +209,7 @@ security researchers SHOULD use for encrypted communication. You MUST NOT
 directly add your key to the field, instead the value of this field
 MUST be a URI pointing to a location where the key can be retrieved from.
 If this directive indicates a web URL, then it is RECOMMENDED to always use "https://" URLs
-(as per section 2.7.2 of {{!RFC7230}}).
+(as per section 2.7.2 of {{!RFC7230}}.
 
 When it comes to verifying the authenticity of the key, it is always the security researcher's responsibility to make sure the key being specified is indeed one they trust. Researchers MUST NOT assume that this key is used to generate the signature file
 referenced in {{!signature}}.
@@ -236,7 +236,7 @@ Encryption: openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f
 
 The "Hiring" directive is used for linking to the vendor's security-related job positions.
 If this directive indicates a web URL, then it is RECOMMENDED to always use "https://" URLs
-(as per section 2.7.2 of {{!RFC7230}}).
+(as per section 2.7.2 of {{!RFC7230}}.
 
 ~~~~~~~~~~
 Hiring: https://example.com/jobs.html
@@ -248,7 +248,7 @@ The presence of the "Permission" directive is used to indicate to security
 researchers that they MUST NOT perform any kind of testing against
 the resource hosting the "security.txt" file. This field MUST have a value
 which is REQUIRED to be set to the string "none" and be interpreted as
-case-insensitive (as per section 2.3 of {{!RFC5234}}).
+case-insensitive (as per section 2.3 of {{!RFC5234}}.
 Other values MUST NOT be used. This field MUST NOT appear more than once.
 
 The absence of the "Permission" directive or the use of any other value other
@@ -282,8 +282,8 @@ This directive can be used to indicate a set of natural languages that
 are preferred when submitting security reports. This set MAY list multiple
 values, separated by commas. If this directive is included then at least
 one value MUST be listed. The values within this set are language tags
-(as defined in {{!RFC5646}}). If this directive is absent, security researchers
-MAY assume that English is the default language to be used, as per section 4.5
+(as defined in {{!RFC5646}}. If this directive is absent, security researchers
+MAY assume that English is the default language to be used (as per section 4.5
 of {{!RFC2277}}).
 
 The order in which they appear MUST NOT be interpreted as an indication of

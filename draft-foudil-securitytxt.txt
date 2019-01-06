@@ -198,14 +198,14 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    resource of Internet Media Type "text/plain" with the default charset
    parameter set to "utf-8" per section 4.1.3 of [RFC2046], and it is
    RECOMMENDED that this file be served with "https" (as per section
-   2.7.2 of [RFC7230]).  For file systems and version control
+   2.7.2 of [RFC7230].  For file systems and version control
    repositories a ".security.txt" file SHOULD be placed in the root
    directory of a particular file system or source code project.
 
    This text file contains multiple directives with different values.
    The "directive" is the first part of a field all the way up to the
    colon ("Contact:").  Directives MUST be case-insensitive (as per
-   section 2.3 of [RFC5234]).  The "value" comes after the directive
+   section 2.3 of [RFC5234].  The "value" comes after the directive
    ("https://example.com/security").  A "field" MUST always consist of a
    directive and a value ("Contact: https://example.com/security").  A
    security.txt file can have an unlimited number of fields.  It is
@@ -345,7 +345,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    directly add your key to the field, instead the value of this field
    MUST be a URI pointing to a location where the key can be retrieved
    from.  If this directive indicates a web URL, then it is RECOMMENDED
-   to always use "https://" URLs (as per section 2.7.2 of [RFC7230]).
+   to always use "https://" URLs (as per section 2.7.2 of [RFC7230].
 
    When it comes to verifying the authenticity of the key, it is always
    the security researcher's responsibility to make sure the key being
@@ -370,7 +370,7 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
    The "Hiring" directive is used for linking to the vendor's security-
    related job positions.  If this directive indicates a web URL, then
    it is RECOMMENDED to always use "https://" URLs (as per section 2.7.2
-   of [RFC7230]).
+   of [RFC7230].
 
    Hiring: https://example.com/jobs.html
 
@@ -381,7 +381,7 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
    against the resource hosting the "security.txt" file.  This field
    MUST have a value which is REQUIRED to be set to the string "none"
    and be interpreted as case-insensitive (as per section 2.3 of
-   [RFC5234]).  Other values MUST NOT be used.  This field MUST NOT
+   [RFC5234].  Other values MUST NOT be used.  This field MUST NOT
    appear more than once.
 
    The absence of the "Permission" directive or the use of any other
@@ -421,9 +421,9 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    that are preferred when submitting security reports.  This set MAY
    list multiple values, separated by commas.  If this directive is
    included then at least one value MUST be listed.  The values within
-   this set are language tags (as defined in [RFC5646]).  If this
+   this set are language tags (as defined in [RFC5646].  If this
    directive is absent, security researchers MAY assume that English is
-   the default language to be used, as per section 4.5 of [RFC2277]).
+   the default language to be used (as per section 4.5 of [RFC2277]).
 
    The order in which they appear MUST NOT be interpreted as an
    indication of priority - rather these MUST BE interpreted as all
