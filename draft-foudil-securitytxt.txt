@@ -421,7 +421,9 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    that are preferred when submitting security reports.  This set MAY
    list multiple values, separated by commas.  If this directive is
    included then at least one value MUST be listed.  The values within
-   this set are language tags (as defined in [RFC5646]).
+   this set are language tags (as defined in [RFC5646]).  If this
+   directive is absent, security researchers MAY assume that English is
+   the default language to be used, as per section 4.5 of [RFC2277]).
 
    The order in which they appear MUST NOT be interpreted as an
    indication of priority - rather these MUST BE interpreted as all
@@ -440,8 +442,6 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    of a "security.txt" file.  External signature files SHOULD be named
    "security.txt.sig" and SHOULD be placed under the /.well-known/ path
    ("/.well-known/security.txt.sig").  If this directive indicates a web
-   URL, then it is RECOMMENDED to always use "https://" URLs (as per
-
 
 
 
@@ -450,6 +450,7 @@ Foudil & Shafranovich     Expires July 10, 2019                 [Page 8]
 Internet-Draft     A Method for Web Security Policies       January 2019
 
 
+   URL, then it is RECOMMENDED to always use "https://" URLs (as per
    section 2.7.2 of [RFC7230]).  This directive MUST NOT appear more
    than once.
 
@@ -481,7 +482,6 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    Signature: https://example.com/.well-known/security.txt.sig
 
 4.  Location of the security.txt file
-
 
 
 
@@ -875,6 +875,10 @@ Internet-Draft     A Method for Web Security Policies       January 2019
               Functions", RFC 2142, DOI 10.17487/RFC2142, May 1997,
               <https://www.rfc-editor.org/info/rfc2142>.
 
+   [RFC2277]  Alvestrand, H., "IETF Policy on Character Sets and
+              Languages", BCP 18, RFC 2277, DOI 10.17487/RFC2277,
+              January 1998, <https://www.rfc-editor.org/info/rfc2277>.
+
    [RFC3629]  Yergeau, F., "UTF-8, a transformation format of ISO
               10646", STD 63, RFC 3629, DOI 10.17487/RFC3629, November
               2003, <https://www.rfc-editor.org/info/rfc3629>.
@@ -883,10 +887,6 @@ Internet-Draft     A Method for Web Security Policies       January 2019
               Resource Identifier (URI): Generic Syntax", STD 66,
               RFC 3986, DOI 10.17487/RFC3986, January 2005,
               <https://www.rfc-editor.org/info/rfc3986>.
-
-   [RFC5198]  Klensin, J. and M. Padlipsky, "Unicode Format for Network
-              Interchange", RFC 5198, DOI 10.17487/RFC5198, March 2008,
-              <https://www.rfc-editor.org/info/rfc5198>.
 
 
 
@@ -897,6 +897,10 @@ Foudil & Shafranovich     Expires July 10, 2019                [Page 16]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
+
+   [RFC5198]  Klensin, J. and M. Padlipsky, "Unicode Format for Network
+              Interchange", RFC 5198, DOI 10.17487/RFC5198, March 2008,
+              <https://www.rfc-editor.org/info/rfc5198>.
 
    [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
               Specifications: ABNF", STD 68, RFC 5234,
@@ -941,10 +945,6 @@ Internet-Draft     A Method for Web Security Policies       January 2019
               DOI 10.17487/RFC2350, June 1998,
               <https://www.rfc-editor.org/info/rfc2350>.
 
-   [RFC2606]  Eastlake 3rd, D. and A. Panitz, "Reserved Top Level DNS
-              Names", BCP 32, RFC 2606, DOI 10.17487/RFC2606, June 1999,
-              <https://www.rfc-editor.org/info/rfc2606>.
-
 
 
 
@@ -953,6 +953,10 @@ Foudil & Shafranovich     Expires July 10, 2019                [Page 17]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
+
+   [RFC2606]  Eastlake 3rd, D. and A. Panitz, "Reserved Top Level DNS
+              Names", BCP 32, RFC 2606, DOI 10.17487/RFC2606, June 1999,
+              <https://www.rfc-editor.org/info/rfc2606>.
 
    [RFC3013]  Killalea, T., "Recommended Internet Service Provider
               Security Services and Procedures", BCP 46, RFC 3013,
@@ -997,11 +1001,7 @@ B.1.  Since draft-foudil-securitytxt-00
 
    o  Added extensibility with an IANA registry for fields (#34)
 
-   o  Added text explaining relationship to RFC 2142 / security@ email
-      address (#25)
 
-   o  Scope expanded to include internal hosts, domains, IP addresses
-      and file systems
 
 
 
@@ -1009,6 +1009,12 @@ Foudil & Shafranovich     Expires July 10, 2019                [Page 18]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
+
+   o  Added text explaining relationship to RFC 2142 / security@ email
+      address (#25)
+
+   o  Scope expanded to include internal hosts, domains, IP addresses
+      and file systems
 
    o  Support for digital signatures added (#19)
 
@@ -1051,12 +1057,6 @@ B.3.  Since draft-foudil-securitytxt-02
 
    o  Added clarification for newline values
 
-   o  Clarified the encryption field language, added examples of DNS-
-      stored encryption keys (#28 and #94)
-
-   o  Added "Hiring" field
-
-
 
 
 
@@ -1065,6 +1065,11 @@ Foudil & Shafranovich     Expires July 10, 2019                [Page 19]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
+
+   o  Clarified the encryption field language, added examples of DNS-
+      stored encryption keys (#28 and #94)
+
+   o  Added "Hiring" field
 
 B.4.  Since draft-foudil-securitytxt-03
 
@@ -1108,11 +1113,6 @@ Authors' Addresses
    Nightwatch Cybersecurity
 
    Email: yakov+ietf@nightwatchcybersecurity.com
-
-
-
-
-
 
 
 

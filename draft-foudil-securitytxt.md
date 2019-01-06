@@ -282,7 +282,9 @@ This directive can be used to indicate a set of natural languages that
 are preferred when submitting security reports. This set MAY list multiple
 values, separated by commas. If this directive is included then at least
 one value MUST be listed. The values within this set are language tags
-(as defined in {{!RFC5646}}).
+(as defined in {{!RFC5646}}). If this directive is absent, security researchers
+MAY assume that English is the default language to be used, as per section 4.5
+of {{!RFC2277}}).
 
 The order in which they appear MUST NOT be interpreted as an indication of
 priority - rather these MUST BE interpreted as all being of equal priority.

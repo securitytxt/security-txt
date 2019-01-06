@@ -606,7 +606,7 @@ Policy: https://example.com/security-policy.html
 <h1 id="rfc.section.3.4.7">
 <a href="#rfc.section.3.4.7">3.4.7.</a> <a href="#preflang" id="preflang">Preferred-Languages</a>
 </h1>
-<p id="rfc.section.3.4.7.p.1">This directive can be used to indicate a set of natural languages that are preferred when submitting security reports. This set MAY list multiple values, separated by commas. If this directive is included then at least one value MUST be listed. The values within this set are language tags (as defined in <a href="#RFC5646" class="xref">[RFC5646]</a>).</p>
+<p id="rfc.section.3.4.7.p.1">This directive can be used to indicate a set of natural languages that are preferred when submitting security reports. This set MAY list multiple values, separated by commas. If this directive is included then at least one value MUST be listed. The values within this set are language tags (as defined in <a href="#RFC5646" class="xref">[RFC5646]</a>). If this directive is absent, security researchers MAY assume that English is the default language to be used, as per section 4.5 of <a href="#RFC2277" class="xref">[RFC2277]</a>).</p>
 <p id="rfc.section.3.4.7.p.2">The order in which they appear MUST NOT be interpreted as an indication of priority - rather these MUST BE interpreted as all being of equal priority.</p>
 <p id="rfc.section.3.4.7.p.3">This directive MUST NOT appear more than once.</p>
 <p id="rfc.section.3.4.7.p.4">Example:</p>
@@ -861,6 +861,11 @@ unstructured           = &lt;as per section 3.2.5 of {{RFC5322}}&gt;
 <td class="reference"><b id="RFC2142">[RFC2142]</b></td>
 <td class="top">
 <a>Crocker, D.</a>, "<a href="https://tools.ietf.org/html/rfc2142">Mailbox Names for Common Services, Roles and Functions</a>", RFC 2142, DOI 10.17487/RFC2142, May 1997.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC2277">[RFC2277]</b></td>
+<td class="top">
+<a>Alvestrand, H.</a>, "<a href="https://tools.ietf.org/html/rfc2277">IETF Policy on Character Sets and Languages</a>", BCP 18, RFC 2277, DOI 10.17487/RFC2277, January 1998.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RFC3629">[RFC3629]</b></td>
