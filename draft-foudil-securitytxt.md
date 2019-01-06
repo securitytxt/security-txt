@@ -20,10 +20,10 @@ author:
 --- abstract
 When security risks are discovered by independent
 security researchers, they
-often lack the channels to disclose them properly. As a result,
+often lack the channels to report them properly. As a result,
 security issues may be left unreported. This document defines a format
 ("security.txt") to help organizations describe the process for security
-researchers to follow in order to disclose security vulnerabilities securely.
+researchers to follow in order to report security vulnerabilities.
 
 --- middle
 
@@ -32,7 +32,7 @@ researchers to follow in order to disclose security vulnerabilities securely.
 ## Motivation and Prior Work
 
 Many security researchers encounter situations where they are unable
-to responsibly disclose security issues to companies because there is
+to report security issues to organizations because there is
 no course of action laid out or no way indicated to contact the owner of a particular
 resource.
 
@@ -50,15 +50,15 @@ in section 3.2 of {{?RFC2350}} and for site operators in section 5.2 of
 Regional Internet Registries (RIRs) and domain registries for owners of IP
 addresses, autonomous system numbers (ASNs) and domain names. However, none of
 these address the issue of how security researchers can locate disclosure
-policies and contact information for companies in order to responsibly disclose
+policies and contact information for organizations in order to report
 security issues.
 
 In this document, we define a richer, machine-parsable and more extensible way
-for companies to communicate information about their security disclosure
+for organizations to communicate information about their security disclosure
 policies, which is not limited to email and also allows for additional features
 such as encryption. This format is designed to help
 assist with the security disclosure process by making it easier
-for companies to designate the preferred steps for researchers to take
+for organizations to designate the preferred steps for researchers to take
 when trying to reach out to them with security issues.
 
 ## Terminology
@@ -155,8 +155,10 @@ a line feed character (LF / %x0A).
 
 This directive allows you to link to a page where security
 researchers are recognized for their reports. The page being linked to
-SHOULD list individuals or companies that disclosed security vulnerabilities
-and worked with you to remediate the issue.
+SHOULD list individuals or organizations that reported security vulnerabilities
+and worked with you to remediate the issue. Organizations SHOULD be careful
+to limit the vulnerability information being published in order
+to prevent future attacks.
 
 Example:
 

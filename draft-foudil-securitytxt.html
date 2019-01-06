@@ -278,7 +278,7 @@ address {
   .github-fork-ribbon-wrapper {
     position: fixed;
   }
-  /*]]>*/</style>
+/*]]>*/</style>
 
 
   <link href="#rfc.toc" rel="Contents">
@@ -323,14 +323,14 @@ address {
 <link href="#rfc.authors" rel="Chapter">
 
 
-  <meta name="generator" content="xml2rfc version 2.9.6 - https://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.16.0 - https://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Foudil, E. and Y. Shafranovich" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-foudil-securitytxt-05" />
-  <meta name="dct.issued" scheme="ISO8601" content="2018-08-30" />
-  <meta name="dct.abstract" content="When security risks are discovered by independent security researchers, they often lack the channels to disclose them properly. As a result, security issues may be left unreported. This document defines a format (&#8220;security.txt&#8221;) to help organizations describe the process for security researchers to follow in order to disclose security vulnerabilities securely." />
-  <meta name="description" content="When security risks are discovered by independent security researchers, they often lack the channels to disclose them properly. As a result, security issues may be left unreported. This document defines a format (&#8220;security.txt&#8221;) to help organizations describe the process for security researchers to follow in order to disclose security vulnerabilities securely." />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-01-05" />
+  <meta name="dct.abstract" content="When security risks are discovered by independent security researchers, they often lack the channels to report them properly. As a result, security issues may be left unreported. This document defines a format (&#8220;security.txt&#8221;) to help organizations describe the process for security researchers to follow in order to report security vulnerabilities." />
+  <meta name="description" content="When security risks are discovered by independent security researchers, they often lack the channels to report them properly. As a result, security issues may be left unreported. This document defines a format (&#8220;security.txt&#8221;) to help organizations describe the process for security researchers to follow in order to report security vulnerabilities." />
 
 </head>
 
@@ -352,12 +352,12 @@ address {
 <td class="right">Y. Shafranovich</td>
 </tr>
 <tr>
-<td class="left">Expires: March 3, 2019</td>
+<td class="left">Expires: July 9, 2019</td>
 <td class="right">Nightwatch Cybersecurity</td>
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">August 30, 2018</td>
+<td class="right">January 05, 2019</td>
 </tr>
 
     	
@@ -368,14 +368,14 @@ address {
   <span class="filename">draft-foudil-securitytxt-05</span></p>
   
   <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
-<p>When security risks are discovered by independent security researchers, they often lack the channels to disclose them properly. As a result, security issues may be left unreported. This document defines a format (&#8220;security.txt&#8221;) to help organizations describe the process for security researchers to follow in order to disclose security vulnerabilities securely.</p>
+<p>When security risks are discovered by independent security researchers, they often lack the channels to report them properly. As a result, security issues may be left unreported. This document defines a format (&#8220;security.txt&#8221;) to help organizations describe the process for security researchers to follow in order to report security vulnerabilities.</p>
 <h1 id="rfc.status"><a href="#rfc.status">Status of This Memo</a></h1>
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on March 3, 2019.</p>
+<p>This Internet-Draft will expire on July 9, 2019.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
-<p>Copyright (c) 2018 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
 
   
@@ -471,10 +471,10 @@ address {
 <h1 id="rfc.section.1.1">
 <a href="#rfc.section.1.1">1.1.</a> <a href="#motivation-and-prior-work" id="motivation-and-prior-work">Motivation and Prior Work</a>
 </h1>
-<p id="rfc.section.1.1.p.1">Many security researchers encounter situations where they are unable to responsibly disclose security issues to companies because there is no course of action laid out or no way indicated to contact the owner of a particular resource.</p>
+<p id="rfc.section.1.1.p.1">Many security researchers encounter situations where they are unable to report security issues to organizations because there is no course of action laid out or no way indicated to contact the owner of a particular resource.</p>
 <p id="rfc.section.1.1.p.2">As per section 4 of <a href="#RFC2142" class="xref">[RFC2142]</a>, there is an existing convention of using the &lt;SECURITY@domain&gt; email address for communications regarding security issues. That convention provides only a single, email-based channel of communication for security issues per domain, and does not provide a way for domain owners to publish information about their security disclosure policies.</p>
-<p id="rfc.section.1.1.p.3">There are also contact conventions prescribed for Internet Service Providers (ISPs) in section 2 of <a href="#RFC3013" class="xref">[RFC3013]</a>, for Computer Security Incident Response Teams (CSIRTs) in section 3.2 of <a href="#RFC2350" class="xref">[RFC2350]</a> and for site operators in section 5.2 of <a href="#RFC2196" class="xref">[RFC2196]</a>. As per <a href="#RFC7485" class="xref">[RFC7485]</a>, there is also contact information provided by Regional Internet Registries (RIRs) and domain registries for owners of IP addresses, autonomous system numbers (ASNs) and domain names. However, none of these address the issue of how security researchers can locate disclosure policies and contact information for companies in order to responsibly disclose security issues.</p>
-<p id="rfc.section.1.1.p.4">In this document, we define a richer, machine-parsable and more extensible way for companies to communicate information about their security disclosure policies, which is not limited to email and also allows for additional features such as encryption. This format is designed to help assist with the security disclosure process by making it easier for companies to designate the preferred steps for researchers to take when trying to reach out to them with security issues.</p>
+<p id="rfc.section.1.1.p.3">There are also contact conventions prescribed for Internet Service Providers (ISPs) in section 2 of <a href="#RFC3013" class="xref">[RFC3013]</a>, for Computer Security Incident Response Teams (CSIRTs) in section 3.2 of <a href="#RFC2350" class="xref">[RFC2350]</a> and for site operators in section 5.2 of <a href="#RFC2196" class="xref">[RFC2196]</a>. As per <a href="#RFC7485" class="xref">[RFC7485]</a>, there is also contact information provided by Regional Internet Registries (RIRs) and domain registries for owners of IP addresses, autonomous system numbers (ASNs) and domain names. However, none of these address the issue of how security researchers can locate disclosure policies and contact information for organizations in order to report security issues.</p>
+<p id="rfc.section.1.1.p.4">In this document, we define a richer, machine-parsable and more extensible way for organizations to communicate information about their security disclosure policies, which is not limited to email and also allows for additional features such as encryption. This format is designed to help assist with the security disclosure process by making it easier for organizations to designate the preferred steps for researchers to take when trying to reach out to them with security issues.</p>
 <h1 id="rfc.section.1.2">
 <a href="#rfc.section.1.2">1.2.</a> <a href="#terminology" id="terminology">Terminology</a>
 </h1>
@@ -534,7 +534,7 @@ https://[2001:db8:8:4::2]/.well-known/security.txt
 <h1 id="rfc.section.3.4.1">
 <a href="#rfc.section.3.4.1">3.4.1.</a> <a href="#acknowledgments" id="acknowledgments">Acknowledgments</a>
 </h1>
-<p id="rfc.section.3.4.1.p.1">This directive allows you to link to a page where security researchers are recognized for their reports. The page being linked to SHOULD list individuals or companies that disclosed security vulnerabilities and worked with you to remediate the issue.</p>
+<p id="rfc.section.3.4.1.p.1">This directive allows you to link to a page where security researchers are recognized for their reports. The page being linked to SHOULD list individuals or organizations that reported security vulnerabilities and worked with you to remediate the issue. Organizations SHOULD be careful to limit the vulnerability information being published in order to prevent future attacks.</p>
 <p id="rfc.section.3.4.1.p.2">Example:</p>
 <pre>
 Acknowledgments: https://example.com/hall-of-fame.html
