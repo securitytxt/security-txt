@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: July 10, 2019                          Nightwatch Cybersecurity
-                                                        January 06, 2019
+Expires: July 11, 2019                          Nightwatch Cybersecurity
+                                                        January 07, 2019
 
 
                    A Method for Web Security Policies
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 10, 2019.
+   This Internet-Draft will expire on July 11, 2019.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                 [Page 1]
+Foudil & Shafranovich     Expires July 11, 2019                 [Page 1]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                 [Page 2]
+Foudil & Shafranovich     Expires July 11, 2019                 [Page 2]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -165,7 +165,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                 [Page 3]
+Foudil & Shafranovich     Expires July 11, 2019                 [Page 3]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -198,14 +198,14 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    resource of Internet Media Type "text/plain" with the default charset
    parameter set to "utf-8" per section 4.1.3 of [RFC2046], and it is
    RECOMMENDED that this file be served with "https" (as per section
-   2.7.2 of [RFC7230].  For file systems and version control
+   2.7.2 of [RFC7230]).  For file systems and version control
    repositories a ".security.txt" file SHOULD be placed in the root
    directory of a particular file system or source code project.
 
    This text file contains multiple directives with different values.
    The "directive" is the first part of a field all the way up to the
    colon ("Contact:").  Directives MUST be case-insensitive (as per
-   section 2.3 of [RFC5234].  The "value" comes after the directive
+   section 2.3 of [RFC5234]).  The "value" comes after the directive
    ("https://example.com/security").  A "field" MUST always consist of a
    directive and a value ("Contact: https://example.com/security").  A
    security.txt file can have an unlimited number of fields.  It is
@@ -221,7 +221,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                 [Page 4]
+Foudil & Shafranovich     Expires July 11, 2019                 [Page 4]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -277,7 +277,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                 [Page 5]
+Foudil & Shafranovich     Expires July 11, 2019                 [Page 5]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -333,7 +333,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                 [Page 6]
+Foudil & Shafranovich     Expires July 11, 2019                 [Page 6]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -345,7 +345,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    directly add your key to the field, instead the value of this field
    MUST be a URI pointing to a location where the key can be retrieved
    from.  If this directive indicates a web URL, then it is RECOMMENDED
-   to always use "https://" URLs (as per section 2.7.2 of [RFC7230].
+   to always use "https://" URLs (as per section 2.7.2 of [RFC7230]).
 
    When it comes to verifying the authenticity of the key, it is always
    the security researcher's responsibility to make sure the key being
@@ -370,7 +370,7 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
    The "Hiring" directive is used for linking to the vendor's security-
    related job positions.  If this directive indicates a web URL, then
    it is RECOMMENDED to always use "https://" URLs (as per section 2.7.2
-   of [RFC7230].
+   of [RFC7230]).
 
    Hiring: https://example.com/jobs.html
 
@@ -381,7 +381,7 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
    against the resource hosting the "security.txt" file.  This field
    MUST have a value which is REQUIRED to be set to the string "none"
    and be interpreted as case-insensitive (as per section 2.3 of
-   [RFC5234].  Other values MUST NOT be used.  This field MUST NOT
+   [RFC5234]).  Other values MUST NOT be used.  This field MUST NOT
    appear more than once.
 
    The absence of the "Permission" directive or the use of any other
@@ -389,7 +389,7 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                 [Page 7]
+Foudil & Shafranovich     Expires July 11, 2019                 [Page 7]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -421,7 +421,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    that are preferred when submitting security reports.  This set MAY
    list multiple values, separated by commas.  If this directive is
    included then at least one value MUST be listed.  The values within
-   this set are language tags (as defined in [RFC5646].  If this
+   this set are language tags (as defined in [RFC5646]).  If this
    directive is absent, security researchers MAY assume that English is
    the default language to be used (as per section 4.5 of [RFC2277]).
 
@@ -445,7 +445,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                 [Page 8]
+Foudil & Shafranovich     Expires July 11, 2019                 [Page 8]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -501,7 +501,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                 [Page 9]
+Foudil & Shafranovich     Expires July 11, 2019                 [Page 9]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -557,7 +557,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                [Page 10]
+Foudil & Shafranovich     Expires July 11, 2019                [Page 10]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -613,7 +613,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                [Page 11]
+Foudil & Shafranovich     Expires July 11, 2019                [Page 11]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -669,7 +669,7 @@ unstructured           = <as per section 3.2.5 of {{RFC5322}}>
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                [Page 12]
+Foudil & Shafranovich     Expires July 11, 2019                [Page 12]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -725,7 +725,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                [Page 13]
+Foudil & Shafranovich     Expires July 11, 2019                [Page 13]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -781,7 +781,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                [Page 14]
+Foudil & Shafranovich     Expires July 11, 2019                [Page 14]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -837,7 +837,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                [Page 15]
+Foudil & Shafranovich     Expires July 11, 2019                [Page 15]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -893,7 +893,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                [Page 16]
+Foudil & Shafranovich     Expires July 11, 2019                [Page 16]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -949,7 +949,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                [Page 17]
+Foudil & Shafranovich     Expires July 11, 2019                [Page 17]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -1005,7 +1005,7 @@ B.1.  Since draft-foudil-securitytxt-00
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                [Page 18]
+Foudil & Shafranovich     Expires July 11, 2019                [Page 18]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -1061,7 +1061,7 @@ B.3.  Since draft-foudil-securitytxt-02
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                [Page 19]
+Foudil & Shafranovich     Expires July 11, 2019                [Page 19]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -1117,4 +1117,4 @@ Authors' Addresses
 
 
 
-Foudil & Shafranovich     Expires July 10, 2019                [Page 20]
+Foudil & Shafranovich     Expires July 11, 2019                [Page 20]
