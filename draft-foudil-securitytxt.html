@@ -297,7 +297,8 @@ address {
 <link href="#rfc.section.3.4.4" rel="Chapter" title="3.4.4 Hiring">
 <link href="#rfc.section.3.4.5" rel="Chapter" title="3.4.5 Permission">
 <link href="#rfc.section.3.4.6" rel="Chapter" title="3.4.6 Policy">
-<link href="#rfc.section.3.4.7" rel="Chapter" title="3.4.7 Signature">
+<link href="#rfc.section.3.4.7" rel="Chapter" title="3.4.7 Preferred-Languages">
+<link href="#rfc.section.3.4.8" rel="Chapter" title="3.4.8 Signature">
 <link href="#rfc.section.3.5" rel="Chapter" title="3.5 Example of a &#8220;security.txt&#8221; file">
 <link href="#rfc.section.4" rel="Chapter" title="4 Location of the security.txt file">
 <link href="#rfc.section.4.1" rel="Chapter" title="4.1 Web-based services">
@@ -328,7 +329,7 @@ address {
 
   <meta name="dct.creator" content="Foudil, E. and Y. Shafranovich" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-foudil-securitytxt-05" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-01-05" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-01-07" />
   <meta name="dct.abstract" content="When security risks are discovered by independent security researchers, they often lack the channels to report them properly. As a result, security issues may be left unreported. This document defines a format (&#8220;security.txt&#8221;) to help organizations describe the process for security researchers to follow in order to report security vulnerabilities." />
   <meta name="description" content="When security risks are discovered by independent security researchers, they often lack the channels to report them properly. As a result, security issues may be left unreported. This document defines a format (&#8220;security.txt&#8221;) to help organizations describe the process for security researchers to follow in order to report security vulnerabilities." />
 
@@ -352,12 +353,12 @@ address {
 <td class="right">Y. Shafranovich</td>
 </tr>
 <tr>
-<td class="left">Expires: July 9, 2019</td>
+<td class="left">Expires: July 11, 2019</td>
 <td class="right">Nightwatch Cybersecurity</td>
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">January 05, 2019</td>
+<td class="right">January 07, 2019</td>
 </tr>
 
     	
@@ -373,7 +374,7 @@ address {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on July 9, 2019.</p>
+<p>This Internet-Draft will expire on July 11, 2019.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -413,7 +414,9 @@ address {
 </li>
 <li>3.4.6.   <a href="#rfc.section.3.4.6">Policy</a>
 </li>
-<li>3.4.7.   <a href="#rfc.section.3.4.7">Signature</a>
+<li>3.4.7.   <a href="#rfc.section.3.4.7">Preferred-Languages</a>
+</li>
+<li>3.4.8.   <a href="#rfc.section.3.4.8">Signature</a>
 </li>
 </ul><li>3.5.   <a href="#rfc.section.3.5">Example of a &#8220;security.txt&#8221; file</a>
 </li>
@@ -563,7 +566,7 @@ Contact: https://example.com/security-contact.html
 <a href="#rfc.section.3.4.3">3.4.3.</a> <a href="#encryption" id="encryption">Encryption</a>
 </h1>
 <p id="rfc.section.3.4.3.p.1">This directive allows you to point to an encryption key that security researchers SHOULD use for encrypted communication. You MUST NOT directly add your key to the field, instead the value of this field MUST be a URI pointing to a location where the key can be retrieved from.  If this directive indicates a web URL, then it is RECOMMENDED to always use &#8220;https://&#8221; URLs (as per section 2.7.2 of <a href="#RFC7230" class="xref">[RFC7230]</a>).</p>
-<p id="rfc.section.3.4.3.p.2">When it comes to verifying the authenticity of the key, it is always the security researcher&#8217;s responsibility to make sure the key being specified is indeed one they trust. Researchers MUST NOT assume that this key is used to generate the signature file referenced in <a href="#signature" class="xref">Section 3.4.7</a>.</p>
+<p id="rfc.section.3.4.3.p.2">When it comes to verifying the authenticity of the key, it is always the security researcher&#8217;s responsibility to make sure the key being specified is indeed one they trust. Researchers MUST NOT assume that this key is used to generate the signature file referenced in <a href="#signature" class="xref">Section 3.4.8</a>.</p>
 <p id="rfc.section.3.4.3.p.3">Example of a PGP key available from a web server:</p>
 <pre>
 Encryption: https://example.com/pgp-key.txt
@@ -601,12 +604,22 @@ Permission: none
 Policy: https://example.com/security-policy.html
 </pre>
 <h1 id="rfc.section.3.4.7">
-<a href="#rfc.section.3.4.7">3.4.7.</a> <a href="#signature" id="signature">Signature</a>
+<a href="#rfc.section.3.4.7">3.4.7.</a> <a href="#preflang" id="preflang">Preferred-Languages</a>
 </h1>
-<p id="rfc.section.3.4.7.p.1">This directive allows you to specify a full URI (as per <a href="#RFC3986" class="xref">[RFC3986]</a>) of an external signature file that can be used to check the authenticity of a &#8220;security.txt&#8221; file.  External signature files SHOULD be named &#8220;security.txt.sig&#8221; and SHOULD be placed under the /.well-known/ path (&#8220;/.well-known/security.txt.sig&#8221;).  If this directive indicates a web URL, then it is RECOMMENDED to always use &#8220;https://&#8221; URLs (as per section 2.7.2 of <a href="#RFC7230" class="xref">[RFC7230]</a>).  This directive MUST NOT appear more than once.</p>
-<p id="rfc.section.3.4.7.p.2">It is RECOMMENDED to implementers that this directive always be used.</p>
-<p id="rfc.section.3.4.7.p.3">When it comes to verifying the authenticity of the file, it is always the security researcher&#8217;s responsibility to make sure the key being specified is indeed one they trust.</p>
-<p id="rfc.section.3.4.7.p.4">Here is an example of an external signature file.</p>
+<p id="rfc.section.3.4.7.p.1">This directive can be used to indicate a set of natural languages that are preferred when submitting security reports. This set MAY list multiple values, separated by commas. If this directive is included then at least one value MUST be listed. The values within this set are language tags (as defined in <a href="#RFC5646" class="xref">[RFC5646]</a>). If this directive is absent, security researchers MAY assume that English is the default language to be used (as per section 4.5 of <a href="#RFC2277" class="xref">[RFC2277]</a>).</p>
+<p id="rfc.section.3.4.7.p.2">The order in which they appear MUST NOT be interpreted as an indication of priority - rather these MUST BE interpreted as all being of equal priority.</p>
+<p id="rfc.section.3.4.7.p.3">This directive MUST NOT appear more than once.</p>
+<p id="rfc.section.3.4.7.p.4">Example:</p>
+<pre>
+Preferred-Languages: en, es, fr
+</pre>
+<h1 id="rfc.section.3.4.8">
+<a href="#rfc.section.3.4.8">3.4.8.</a> <a href="#signature" id="signature">Signature</a>
+</h1>
+<p id="rfc.section.3.4.8.p.1">This directive allows you to specify a full URI (as per <a href="#RFC3986" class="xref">[RFC3986]</a>) of an external signature file that can be used to check the authenticity of a &#8220;security.txt&#8221; file.  External signature files SHOULD be named &#8220;security.txt.sig&#8221; and SHOULD be placed under the /.well-known/ path (&#8220;/.well-known/security.txt.sig&#8221;).  If this directive indicates a web URL, then it is RECOMMENDED to always use &#8220;https://&#8221; URLs (as per section 2.7.2 of <a href="#RFC7230" class="xref">[RFC7230]</a>).  This directive MUST NOT appear more than once.</p>
+<p id="rfc.section.3.4.8.p.2">It is RECOMMENDED to implementers that this directive always be used.</p>
+<p id="rfc.section.3.4.8.p.3">When it comes to verifying the authenticity of the file, it is always the security researcher&#8217;s responsibility to make sure the key being specified is indeed one they trust.</p>
+<p id="rfc.section.3.4.8.p.4">Here is an example of an external signature file.</p>
 <pre>
 Signature: https://example.com/.well-known/security.txt.sig
 </pre>
@@ -696,6 +709,7 @@ field                  = acknowledgments-field /
                          encryption-field /                         
                          hiring-field /
                          policy-field /
+                         preflang-field /
                          ext-field
 
 fs                     = ":"
@@ -708,6 +722,8 @@ contact-field          = "Contact" fs SP (email / uri / phone)
 
 email                  = &lt;Email address as per {{RFC5322}}&gt;
 
+lang-tag               = &lt;Language tag as per {{RFC5646}}&gt;
+
 phone                  = "+" *1(DIGIT / "-" / "(" / ")" / SP)
 
 uri                    = &lt;URI as per {{RFC3986}}&gt;
@@ -719,6 +735,8 @@ hiring-field           = "Hiring" fs SP uri
 perm-field             = "Permission" fs SP "none"
 
 policy-field           = "Policy" fs SP uri
+
+preflang-field         = "Preferred-Languages" fs SP lang-tag *("," [WSP] lang-tag)
 
 sign-field             = "Signature" fs SP uri
 
@@ -733,7 +751,7 @@ unstructured           = &lt;as per section 3.2.5 of {{RFC5322}}&gt;
 <a href="#rfc.section.6">6.</a> <a href="#security-considerations" id="security-considerations">Security considerations</a>
 </h1>
 <p id="rfc.section.6.p.1">Organizations creating security.txt files will need to consider several security-related issues. These include exposure to sensitive information and attacks where limited access to a server could grant the ability to modify the contents of the security.txt file or affect how it is served. Organizations SHOULD also monitor their security.txt files regularly to detect tampering. Organizations SHOULD also ensure that any resources such as web pages, email addresses and telephone numbers references by a &#8220;security.txt&#8221; file are kept current, are accessible and controlled by the organization, and are kept secure.</p>
-<p id="rfc.section.6.p.2">To ensure the authenticity of the security.txt file, organizations SHOULD sign the file and include the signature using the &#8220;Signature&#8221; directive (<a href="#signature" class="xref">Section 3.4.7</a>). As stated in <a href="#encryption" class="xref">Section 3.4.3</a> and <a href="#signature" class="xref">Section 3.4.7</a>, it is RECOMMENDED that both encryption keys and external signature files be loaded over HTTPS (as per section 2.7.2 of <a href="#RFC7230" class="xref">[RFC7230]</a>).</p>
+<p id="rfc.section.6.p.2">To ensure the authenticity of the security.txt file, organizations SHOULD sign the file and include the signature using the &#8220;Signature&#8221; directive (<a href="#signature" class="xref">Section 3.4.8</a>). As stated in <a href="#encryption" class="xref">Section 3.4.3</a> and <a href="#signature" class="xref">Section 3.4.8</a>, it is RECOMMENDED that both encryption keys and external signature files be loaded over HTTPS (as per section 2.7.2 of <a href="#RFC7230" class="xref">[RFC7230]</a>).</p>
 <p id="rfc.section.6.p.3">Websites SHOULD reserve the security.txt namespace to ensure no third-party can create a page with the &#8220;security.txt&#8221; name.</p>
 <h1 id="rfc.section.7">
 <a href="#rfc.section.7">7.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a>
@@ -802,6 +820,12 @@ unstructured           = &lt;as per section 3.2.5 of {{RFC5322}}&gt;
    Published in: this document
    Status: current
 
+   Field Name: Preferred-Languages
+   Description: list of preferred languages for security reports
+   Multiple Appearances: No
+   Published in: this document
+   Status: current
+
    Field Name: Signature
    Description: signature used to verify the authenticity of the file
    Multiple Appearances: No
@@ -839,6 +863,11 @@ unstructured           = &lt;as per section 3.2.5 of {{RFC5322}}&gt;
 <a>Crocker, D.</a>, "<a href="https://tools.ietf.org/html/rfc2142">Mailbox Names for Common Services, Roles and Functions</a>", RFC 2142, DOI 10.17487/RFC2142, May 1997.</td>
 </tr>
 <tr>
+<td class="reference"><b id="RFC2277">[RFC2277]</b></td>
+<td class="top">
+<a>Alvestrand, H.</a>, "<a href="https://tools.ietf.org/html/rfc2277">IETF Policy on Character Sets and Languages</a>", BCP 18, RFC 2277, DOI 10.17487/RFC2277, January 1998.</td>
+</tr>
+<tr>
 <td class="reference"><b id="RFC3629">[RFC3629]</b></td>
 <td class="top">
 <a>Yergeau, F.</a>, "<a href="https://tools.ietf.org/html/rfc3629">UTF-8, a transformation format of ISO 10646</a>", STD 63, RFC 3629, DOI 10.17487/RFC3629, November 2003.</td>
@@ -862,6 +891,11 @@ unstructured           = &lt;as per section 3.2.5 of {{RFC5322}}&gt;
 <td class="reference"><b id="RFC5322">[RFC5322]</b></td>
 <td class="top">
 <a>Resnick, P.</a>, "<a href="https://tools.ietf.org/html/rfc5322">Internet Message Format</a>", RFC 5322, DOI 10.17487/RFC5322, October 2008.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC5646">[RFC5646]</b></td>
+<td class="top">
+<a>Phillips, A.</a> and <a>M. Davis</a>, "<a href="https://tools.ietf.org/html/rfc5646">Tags for Identifying Languages</a>", BCP 47, RFC 5646, DOI 10.17487/RFC5646, September 2009.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RFC5785">[RFC5785]</b></td>
@@ -1004,7 +1038,11 @@ unstructured           = &lt;as per section 3.2.5 of {{RFC5322}}&gt;
 </h1>
 <p></p>
 
-<ul><li>Addressing IETF feedback (#118)</li></ul>
+<ul>
+<li>Addressing IETF feedback (#118)</li>
+<li>Case sensitivity clarification (#127)</li>
+<li>Syntax fixes (#133, #135 and #136)</li>
+</ul>
 <p id="rfc.section.B.5.p.2">Full list of changes can be viewed via the IETF document tracker: https://tools.ietf.org/html/draft-foudil-securitytxt</p>
 <h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
 <div class="avoidbreak">

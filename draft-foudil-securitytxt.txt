@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: July 9, 2019                           Nightwatch Cybersecurity
-                                                        January 05, 2019
+Expires: July 11, 2019                          Nightwatch Cybersecurity
+                                                        January 07, 2019
 
 
                    A Method for Web Security Policies
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 9, 2019.
+   This Internet-Draft will expire on July 11, 2019.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich     Expires July 9, 2019                  [Page 1]
+Foudil & Shafranovich     Expires July 11, 2019                 [Page 1]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -78,38 +78,38 @@ Table of Contents
        3.4.4.  Hiring  . . . . . . . . . . . . . . . . . . . . . . .   7
        3.4.5.  Permission  . . . . . . . . . . . . . . . . . . . . .   7
        3.4.6.  Policy  . . . . . . . . . . . . . . . . . . . . . . .   8
-       3.4.7.  Signature . . . . . . . . . . . . . . . . . . . . . .   8
-     3.5.  Example of a "security.txt" file  . . . . . . . . . . . .   8
+       3.4.7.  Preferred-Languages . . . . . . . . . . . . . . . . .   8
+       3.4.8.  Signature . . . . . . . . . . . . . . . . . . . . . .   8
+     3.5.  Example of a "security.txt" file  . . . . . . . . . . . .   9
    4.  Location of the security.txt file . . . . . . . . . . . . . .   9
-     4.1.  Web-based services  . . . . . . . . . . . . . . . . . . .   9
+     4.1.  Web-based services  . . . . . . . . . . . . . . . . . . .  10
      4.2.  Filesystems . . . . . . . . . . . . . . . . . . . . . . .  10
      4.3.  Internal hosts  . . . . . . . . . . . . . . . . . . . . .  10
-     4.4.  Extensibility . . . . . . . . . . . . . . . . . . . . . .  10
-   5.  File Format Description and ABNF Grammar  . . . . . . . . . .  10
-   6.  Security considerations . . . . . . . . . . . . . . . . . . .  12
-   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  12
-     7.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .  12
-     7.2.  Registry for security.txt Header Fields . . . . . . . . .  13
-   8.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  14
-   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  15
-     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  15
-     9.2.  Informative References  . . . . . . . . . . . . . . . . .  16
-   Appendix A.  Note to Readers  . . . . . . . . . . . . . . . . . .  17
-   Appendix B.  Document History . . . . . . . . . . . . . . . . . .  17
-     B.1.  Since draft-foudil-securitytxt-00 . . . . . . . . . . . .  17
-     B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  17
-     B.3.  Since draft-foudil-securitytxt-02 . . . . . . . . . . . .  18
-     B.4.  Since draft-foudil-securitytxt-03 . . . . . . . . . . . .  18
-     B.5.  Since draft-foudil-securitytxt-04 . . . . . . . . . . . .  19
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  19
+     4.4.  Extensibility . . . . . . . . . . . . . . . . . . . . . .  11
+   5.  File Format Description and ABNF Grammar  . . . . . . . . . .  11
+   6.  Security considerations . . . . . . . . . . . . . . . . . . .  13
+   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  13
+     7.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .  13
+     7.2.  Registry for security.txt Header Fields . . . . . . . . .  14
+   8.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  16
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  16
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  16
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .  17
+   Appendix A.  Note to Readers  . . . . . . . . . . . . . . . . . .  18
+   Appendix B.  Document History . . . . . . . . . . . . . . . . . .  18
+     B.1.  Since draft-foudil-securitytxt-00 . . . . . . . . . . . .  18
+     B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  19
+     B.3.  Since draft-foudil-securitytxt-02 . . . . . . . . . . . .  19
+     B.4.  Since draft-foudil-securitytxt-03 . . . . . . . . . . . .  20
+     B.5.  Since draft-foudil-securitytxt-04 . . . . . . . . . . . .  20
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  20
 
 
 
 
 
 
-
-Foudil & Shafranovich     Expires July 9, 2019                  [Page 2]
+Foudil & Shafranovich     Expires July 11, 2019                 [Page 2]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -165,7 +165,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 9, 2019                  [Page 3]
+Foudil & Shafranovich     Expires July 11, 2019                 [Page 3]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -221,7 +221,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 9, 2019                  [Page 4]
+Foudil & Shafranovich     Expires July 11, 2019                 [Page 4]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -277,7 +277,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 9, 2019                  [Page 5]
+Foudil & Shafranovich     Expires July 11, 2019                 [Page 5]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -333,7 +333,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 9, 2019                  [Page 6]
+Foudil & Shafranovich     Expires July 11, 2019                 [Page 6]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -351,7 +351,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    the security researcher's responsibility to make sure the key being
    specified is indeed one they trust.  Researchers MUST NOT assume that
    this key is used to generate the signature file referenced in
-   Section 3.4.7.
+   Section 3.4.8.
 
    Example of a PGP key available from a web server:
 
@@ -389,7 +389,7 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
 
 
-Foudil & Shafranovich     Expires July 9, 2019                  [Page 7]
+Foudil & Shafranovich     Expires July 11, 2019                 [Page 7]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -415,13 +415,41 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
    Policy: https://example.com/security-policy.html
 
-3.4.7.  Signature
+3.4.7.  Preferred-Languages
+
+   This directive can be used to indicate a set of natural languages
+   that are preferred when submitting security reports.  This set MAY
+   list multiple values, separated by commas.  If this directive is
+   included then at least one value MUST be listed.  The values within
+   this set are language tags (as defined in [RFC5646]).  If this
+   directive is absent, security researchers MAY assume that English is
+   the default language to be used (as per section 4.5 of [RFC2277]).
+
+   The order in which they appear MUST NOT be interpreted as an
+   indication of priority - rather these MUST BE interpreted as all
+   being of equal priority.
+
+   This directive MUST NOT appear more than once.
+
+   Example:
+
+   Preferred-Languages: en, es, fr
+
+3.4.8.  Signature
 
    This directive allows you to specify a full URI (as per [RFC3986]) of
    an external signature file that can be used to check the authenticity
    of a "security.txt" file.  External signature files SHOULD be named
    "security.txt.sig" and SHOULD be placed under the /.well-known/ path
    ("/.well-known/security.txt.sig").  If this directive indicates a web
+
+
+
+Foudil & Shafranovich     Expires July 11, 2019                 [Page 8]
+
+Internet-Draft     A Method for Web Security Policies       January 2019
+
+
    URL, then it is RECOMMENDED to always use "https://" URLs (as per
    section 2.7.2 of [RFC7230]).  This directive MUST NOT appear more
    than once.
@@ -437,18 +465,6 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    Signature: https://example.com/.well-known/security.txt.sig
 
 3.5.  Example of a "security.txt" file
-
-
-
-
-
-
-
-
-Foudil & Shafranovich     Expires July 9, 2019                  [Page 8]
-
-Internet-Draft     A Method for Web Security Policies       January 2019
-
 
    # Our security address
    Contact: mailto:security@example.com
@@ -466,6 +482,29 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    Signature: https://example.com/.well-known/security.txt.sig
 
 4.  Location of the security.txt file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Foudil & Shafranovich     Expires July 11, 2019                 [Page 9]
+
+Internet-Draft     A Method for Web Security Policies       January 2019
+
 
                              External
    +----------------------------------------------------------------+
@@ -498,14 +537,6 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    security.txt file under the /.well-known/ path or be used as a fall
    back.
 
-
-
-
-Foudil & Shafranovich     Expires July 9, 2019                  [Page 9]
-
-Internet-Draft     A Method for Web Security Policies       January 2019
-
-
 4.2.  Filesystems
 
    File systems SHOULD place the security.txt file under the root
@@ -522,6 +553,14 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
    A .security.txt file SHOULD be placed in the root directory of an
    internal host.
+
+
+
+
+Foudil & Shafranovich     Expires July 11, 2019                [Page 10]
+
+Internet-Draft     A Method for Web Security Policies       January 2019
+
 
 4.4.  Extensibility
 
@@ -557,66 +596,86 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 9, 2019                 [Page 10]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Foudil & Shafranovich     Expires July 11, 2019                [Page 11]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
 
-  body                   = *line (perm-field eol) (sign-field eol) *line
+body                   = *line (perm-field eol) (sign-field eol) *line
 
-  line                   = *1(field / comment) eol
+line                   = *1(field / comment) eol
 
-  eol                    = *WSP [CR] LF
+eol                    = *WSP [CR] LF
 
-  field                  = acknowledgments-field /
-                           contact-field /
-                           encryption-field /
-                           hiring-field /
-                           policy-field /
-                           ext-field
+field                  = acknowledgments-field /
+                         contact-field /
+                         encryption-field /
+                         hiring-field /
+                         policy-field /
+                         preflang-field /
+                         ext-field
 
-  fs                     = ":"
+fs                     = ":"
 
-  comment                = "#" *(WSP / VCHAR / %xA0-E007F)
+comment                = "#" *(WSP / VCHAR / %xA0-E007F)
 
-  acknowledgments-field  = "Acknowledgments" fs SP uri
+acknowledgments-field  = "Acknowledgments" fs SP uri
 
-  contact-field          = "Contact" fs SP (email / uri / phone)
+contact-field          = "Contact" fs SP (email / uri / phone)
 
-  email                  = <Email address as per {{RFC5322}}>
+email                  = <Email address as per {{RFC5322}}>
 
-  phone                  = "+" *1(DIGIT / "-" / "(" / ")" / SP)
+lang-tag               = <Language tag as per {{RFC5646}}>
 
-  uri                    = <URI as per {{RFC3986}}>
+phone                  = "+" *1(DIGIT / "-" / "(" / ")" / SP)
 
-  encryption-field       = "Encryption" fs SP uri
+uri                    = <URI as per {{RFC3986}}>
 
-  hiring-field           = "Hiring" fs SP uri
+encryption-field       = "Encryption" fs SP uri
 
-  perm-field             = "Permission" fs SP "none"
+hiring-field           = "Hiring" fs SP uri
 
-  policy-field           = "Policy" fs SP uri
+perm-field             = "Permission" fs SP "none"
 
-  sign-field             = "Signature" fs SP uri
+policy-field           = "Policy" fs SP uri
 
-  ext-field              = field-name fs SP unstructured
+preflang-field         = "Preferred-Languages" fs SP lang-tag *("," [WSP] lang-tag)
 
-  field-name             = <as per section 3.6.8 of {{RFC5322}}>
+sign-field             = "Signature" fs SP uri
 
-  unstructured           = <as per section 3.2.5 of {{RFC5322}}>
+ext-field              = field-name fs SP unstructured
+
+field-name             = <as per section 3.6.8 of {{RFC5322}}>
+
+unstructured           = <as per section 3.2.5 of {{RFC5322}}>
+
+
+
+
+Foudil & Shafranovich     Expires July 11, 2019                [Page 12]
+
+Internet-Draft     A Method for Web Security Policies       January 2019
+
 
    "ext-field" refers to extension fields, which are discussed in
    Section 4.4
-
-
-
-
-
-
-Foudil & Shafranovich     Expires July 9, 2019                 [Page 11]
-
-Internet-Draft     A Method for Web Security Policies       January 2019
-
 
 6.  Security considerations
 
@@ -633,8 +692,8 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
    To ensure the authenticity of the security.txt file, organizations
    SHOULD sign the file and include the signature using the "Signature"
-   directive (Section 3.4.7).  As stated in Section 3.4.3 and
-   Section 3.4.7, it is RECOMMENDED that both encryption keys and
+   directive (Section 3.4.8).  As stated in Section 3.4.3 and
+   Section 3.4.8, it is RECOMMENDED that both encryption keys and
    external signature files be loaded over HTTPS (as per section 2.7.2
    of [RFC7230]).
 
@@ -666,10 +725,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-
-
-
-Foudil & Shafranovich     Expires July 9, 2019                 [Page 12]
+Foudil & Shafranovich     Expires July 11, 2019                [Page 13]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -725,7 +781,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 9, 2019                 [Page 13]
+Foudil & Shafranovich     Expires July 11, 2019                [Page 14]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -766,11 +822,25 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    Published in: this document
    Status: current
 
+   Field Name: Preferred-Languages
+   Description: list of preferred languages for security reports
+   Multiple Appearances: No
+   Published in: this document
+   Status: current
+
    Field Name: Signature
    Description: signature used to verify the authenticity of the file
    Multiple Appearances: No
    Published in: this document
    Status: current
+
+
+
+
+Foudil & Shafranovich     Expires July 11, 2019                [Page 15]
+
+Internet-Draft     A Method for Web Security Policies       January 2019
+
 
 8.  Contributors
 
@@ -778,13 +848,6 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    development of this document by Tom Hudson, Joel Margolis, Jobert
    Abma, Gerben Janssen van Doorn, Austin Heap, Justin Calmus, and Casey
    Ellis.
-
-
-
-Foudil & Shafranovich     Expires July 9, 2019                 [Page 14]
-
-Internet-Draft     A Method for Web Security Policies       January 2019
-
 
    The authors would also like to acknowledge the feedback provided by
    multiple members of IETF's SAAG and SEC-DISPATCH lists.
@@ -812,6 +875,10 @@ Internet-Draft     A Method for Web Security Policies       January 2019
               Functions", RFC 2142, DOI 10.17487/RFC2142, May 1997,
               <https://www.rfc-editor.org/info/rfc2142>.
 
+   [RFC2277]  Alvestrand, H., "IETF Policy on Character Sets and
+              Languages", BCP 18, RFC 2277, DOI 10.17487/RFC2277,
+              January 1998, <https://www.rfc-editor.org/info/rfc2277>.
+
    [RFC3629]  Yergeau, F., "UTF-8, a transformation format of ISO
               10646", STD 63, RFC 3629, DOI 10.17487/RFC3629, November
               2003, <https://www.rfc-editor.org/info/rfc3629>.
@@ -820,6 +887,16 @@ Internet-Draft     A Method for Web Security Policies       January 2019
               Resource Identifier (URI): Generic Syntax", STD 66,
               RFC 3986, DOI 10.17487/RFC3986, January 2005,
               <https://www.rfc-editor.org/info/rfc3986>.
+
+
+
+
+
+
+Foudil & Shafranovich     Expires July 11, 2019                [Page 16]
+
+Internet-Draft     A Method for Web Security Policies       January 2019
+
 
    [RFC5198]  Klensin, J. and M. Padlipsky, "Unicode Format for Network
               Interchange", RFC 5198, DOI 10.17487/RFC5198, March 2008,
@@ -834,13 +911,9 @@ Internet-Draft     A Method for Web Security Policies       January 2019
               DOI 10.17487/RFC5322, October 2008,
               <https://www.rfc-editor.org/info/rfc5322>.
 
-
-
-
-Foudil & Shafranovich     Expires July 9, 2019                 [Page 15]
-
-Internet-Draft     A Method for Web Security Policies       January 2019
-
+   [RFC5646]  Phillips, A., Ed. and M. Davis, Ed., "Tags for Identifying
+              Languages", BCP 47, RFC 5646, DOI 10.17487/RFC5646,
+              September 2009, <https://www.rfc-editor.org/info/rfc5646>.
 
    [RFC5785]  Nottingham, M. and E. Hammer-Lahav, "Defining Well-Known
               Uniform Resource Identifiers (URIs)", RFC 5785,
@@ -872,6 +945,15 @@ Internet-Draft     A Method for Web Security Policies       January 2019
               DOI 10.17487/RFC2350, June 1998,
               <https://www.rfc-editor.org/info/rfc2350>.
 
+
+
+
+
+Foudil & Shafranovich     Expires July 11, 2019                [Page 17]
+
+Internet-Draft     A Method for Web Security Policies       January 2019
+
+
    [RFC2606]  Eastlake 3rd, D. and A. Panitz, "Reserved Top Level DNS
               Names", BCP 32, RFC 2606, DOI 10.17487/RFC2606, June 1999,
               <https://www.rfc-editor.org/info/rfc2606>.
@@ -890,13 +972,6 @@ Internet-Draft     A Method for Web Security Policies       January 2019
               "Inventory and Analysis of WHOIS Registration Objects",
               RFC 7485, DOI 10.17487/RFC7485, March 2015,
               <https://www.rfc-editor.org/info/rfc7485>.
-
-
-
-Foudil & Shafranovich     Expires July 9, 2019                 [Page 16]
-
-Internet-Draft     A Method for Web Security Policies       January 2019
-
 
    [RFC8126]  Cotton, M., Leiba, B., and T. Narten, "Guidelines for
               Writing an IANA Considerations Section in RFCs", BCP 26,
@@ -926,6 +1001,15 @@ B.1.  Since draft-foudil-securitytxt-00
 
    o  Added extensibility with an IANA registry for fields (#34)
 
+
+
+
+
+Foudil & Shafranovich     Expires July 11, 2019                [Page 18]
+
+Internet-Draft     A Method for Web Security Policies       January 2019
+
+
    o  Added text explaining relationship to RFC 2142 / security@ email
       address (#25)
 
@@ -944,15 +1028,6 @@ B.2.  Since draft-foudil-securitytxt-01
    o  Added external signature file to the well known URI registry (#59)
 
    o  Added policy field (#53)
-
-
-
-
-
-Foudil & Shafranovich     Expires July 9, 2019                 [Page 17]
-
-Internet-Draft     A Method for Web Security Policies       January 2019
-
 
    o  Added diagram explaining the location of the file on public vs.
       internal systems
@@ -982,6 +1057,15 @@ B.3.  Since draft-foudil-securitytxt-02
 
    o  Added clarification for newline values
 
+
+
+
+
+Foudil & Shafranovich     Expires July 11, 2019                [Page 19]
+
+Internet-Draft     A Method for Web Security Policies       January 2019
+
+
    o  Clarified the encryption field language, added examples of DNS-
       stored encryption keys (#28 and #94)
 
@@ -1003,13 +1087,6 @@ B.4.  Since draft-foudil-securitytxt-03
 
    o  Adding "Permission" field (#30)
 
-
-
-Foudil & Shafranovich     Expires July 9, 2019                 [Page 18]
-
-Internet-Draft     A Method for Web Security Policies       January 2019
-
-
    o  Fixing remaining ABNF issues (#83)
 
    o  Additional editorial changes and edits
@@ -1017,6 +1094,10 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 B.5.  Since draft-foudil-securitytxt-04
 
    o  Addressing IETF feedback (#118)
+
+   o  Case sensitivity clarification (#127)
+
+   o  Syntax fixes (#133, #135 and #136)
 
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt
@@ -1036,29 +1117,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Foudil & Shafranovich     Expires July 9, 2019                 [Page 19]
+Foudil & Shafranovich     Expires July 11, 2019                [Page 20]
