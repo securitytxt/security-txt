@@ -279,6 +279,27 @@ Example:
 Policy: https://example.com/security-policy.html
 ~~~~~~~~~~
 
+### Preferred-Languages {#preflang}
+
+This directive can be used to indicate a set of natural languages that
+are preferred when submitting security reports. This set MAY list multiple
+values, separated by commas. If this directive is included then at least
+one value MUST be listed. The values within this set are language tags
+(as defined in {{!RFC5646}}). If this directive is absent, security researchers
+MAY assume that English is the default language to be used (as per section 4.5
+of {{!RFC2277}}).
+
+The order in which they appear MUST NOT be interpreted as an indication of
+priority - rather these MUST BE interpreted as all being of equal priority.
+
+This directive MUST NOT appear more than once.
+
+Example:
+
+~~~~~~~~~~
+Preferred-Languages: en, es, fr
+~~~~~~~~~~
+
 ### Signature {#signature}
 
 This directive allows you to specify a full URI (as per {{!RFC3986}}) of an external signature file that can be
@@ -398,6 +419,7 @@ field                  = acknowledgments-field /
                          encryption-field /                         
                          hiring-field /
                          policy-field /
+                         preflang-field /
                          ext-field
 
 fs                     = ":"
@@ -410,6 +432,8 @@ contact-field          = "Contact" fs SP (email / uri / phone)
 
 email                  = <Email address as per {{!RFC5322}}>
 
+lang-tag               = <Language tag as per {{!RFC5646}}>
+
 phone                  = "+" *1(DIGIT / "-" / "(" / ")" / SP)
 
 uri                    = <URI as per {{!RFC3986}}>
@@ -421,6 +445,8 @@ hiring-field           = "Hiring" fs SP uri
 perm-field             = "Permission" fs SP "none"
 
 policy-field           = "Policy" fs SP uri
+
+preflang-field         = "Preferred-Languages" fs SP lang-tag *("," [WSP] lang-tag)
 
 sign-field             = "Signature" fs SP uri
 
@@ -537,6 +563,12 @@ The initial registry contains these values:
        Published in: this document
        Status: current
 
+       Field Name: Preferred-Languages
+       Description: list of preferred languages for security reports
+       Multiple Appearances: No
+       Published in: this document
+       Status: current
+
        Field Name: Signature
        Description: signature used to verify the authenticity of the file
        Multiple Appearances: No
@@ -611,7 +643,9 @@ of DNS-stored encryption keys (#28 and #94)
 
 ## Since draft-foudil-securitytxt-04
 - Addressing IETF feedback (#118)
+- Case sensitivity clarification (#127)
 - Adding additional explanation regarding comments (#123)
+- Syntax fixes (#133, #135 and #136)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
