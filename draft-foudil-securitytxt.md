@@ -131,6 +131,9 @@ https://[2001:db8:8:4::2]/.well-known/security.txt
 ## Comments
 
 Any line beginning with the "#" (%x30) symbol MUST be interpreted as a comment.
+The content of the comment may contain any ASCII or Unicode characters in the
+%x21-7E and %x80-FFFFF ranges, and also including the tab (%x09) and
+space (%x20) characters.
 
 Example:
 
@@ -399,7 +402,7 @@ field                  = acknowledgments-field /
 
 fs                     = ":"
 
-comment                = "#" *(WSP / VCHAR / %xA0-E007F)
+comment                = "#" *(WSP / VCHAR / %x80-FFFFF)
 
 acknowledgments-field  = "Acknowledgments" fs SP uri
 
@@ -608,6 +611,7 @@ of DNS-stored encryption keys (#28 and #94)
 
 ## Since draft-foudil-securitytxt-04
 - Addressing IETF feedback (#118)
+- Adding additional explanation regarding comments (#123)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
