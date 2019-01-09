@@ -18,10 +18,10 @@ author:
   email: yakov+ietf@nightwatchcybersecurity.com
 
 --- abstract
-When security risks are discovered by independent
+When security vulnerabilities are discovered by independent
 security researchers, they
 often lack the channels to report them properly. As a result,
-security issues may be left unreported. This document defines a format
+security vulnerabilities may be left unreported. This document defines a format
 ("security.txt") to help organizations describe the process for security
 researchers to follow in order to report security vulnerabilities.
 
@@ -32,14 +32,14 @@ researchers to follow in order to report security vulnerabilities.
 ## Motivation and Prior Work
 
 Many security researchers encounter situations where they are unable
-to report security issues to organizations because there is
+to report security vulnerabilities to organizations because there is
 no course of action laid out or no way indicated to contact the owner of a particular
 resource.
 
 As per section 4 of {{?RFC2142}}, there is an existing convention
 of using the \<SECURITY@domain\> email address for communications regarding
-security issues. That convention provides only a single, email-based
-channel of communication for security issues per domain, and does not provide
+security vulnerabilities. That convention provides only a single, email-based
+channel of communication for security vulnerabilities per domain, and does not provide
 a way for domain owners to publish information about their security disclosure
 policies.
 
@@ -51,7 +51,7 @@ Regional Internet Registries (RIRs) and domain registries for owners of IP
 addresses, autonomous system numbers (ASNs) and domain names. However, none of
 these address the issue of how security researchers can locate disclosure
 policies and contact information for organizations in order to report
-security issues.
+security vulnerabilities.
 
 In this document, we define a richer, machine-parsable and more extensible way
 for organizations to communicate information about their security disclosure
@@ -59,7 +59,7 @@ policies, which is not limited to email and also allows for additional features
 such as encryption. This format is designed to help
 assist with the security disclosure process by making it easier
 for organizations to designate the preferred steps for researchers to take
-when trying to reach out to them with security issues.
+when trying to reach out to them with security vulnerabilities.
 
 ## Terminology
 
@@ -80,7 +80,7 @@ Development of this draft takes place on Github at: https://github.com/securityt
 
 This document defines a text file to be placed in a known location
 that provides information for security researchers to assist
-in disclosing security issues.
+in disclosing security vulnerabilities.
 
 The file is named "security.txt", and this file SHOULD be placed under the
 /.well-known/ path ("/.well-known/security.txt") {{!RFC5785}} of a domain name or IP address for web
@@ -152,7 +152,8 @@ a line feed character (LF / %x0A).
 It is RECOMMENDED that a security.txt file be digitally signed
 using an OpenPGP cleartext signature as described in
 section 7 of {{!RFC4880}}. When digital signatures are used, it is also
-RECOMMENDED that implementors use the "Canonical" directive as per {{canonical}}.
+RECOMMENDED that implementors use the "Canonical" directive as per {{canonical}},
+thus allowing the digital signature to authenticate the location of the file.
 
 When it comes to verifying the key used to generate the signature, it is always
 the security researcher's responsibility to make sure the key being
@@ -189,7 +190,7 @@ We would like to thank the following researchers:
 ### Canonical {#canonical}
 
 This directive indicates the canonical URI where the security.txt file is located,
-which is usually something like "example.com/.well-known/security.txt".
+which is usually something like "https://example.com/.well-known/security.txt".
 
 This directive MUST NOT appear more than once.
 
@@ -201,7 +202,7 @@ Canonical: https://example.com/.well-known/security.txt
 
 This directive allows you to provide an address that researchers
 SHOULD use for reporting security
-issues. The value MAY be an email address, a phone number and/or a
+vulnerabilities. The value MAY be an email address, a phone number and/or a
 contact page with more information. The "Contact:" directive MUST
 always be present in a security.txt file. If this directive indicates a web URL,
 then it RECOMMENDED that it begins with "https://" (as per section 2.7.2 of {{!RFC7230}}).
@@ -479,7 +480,8 @@ numbers references by a "security.txt" file are kept current, are accessible
 and controlled by the organization, and are kept secure.
 
 To ensure the authenticity of the security.txt file, organizations SHOULD
-digitally sign this file with OpenPGP as per {{signature}}.
+digitally sign this file with OpenPGP as per {{signature}} and SHOULD also
+use the "Canonical" directive as per {{canonical}}. 
 As stated in {{encryption}}, it is RECOMMENDED that encryption keys
 be loaded over HTTPS (as per section 2.7.2 of {{!RFC7230}}).
 
@@ -545,7 +547,7 @@ The initial registry contains these values:
        Status: current
 
        Field Name: Contact
-       Description: contact information to use for reporting security issues
+       Description: contact information to use for reporting security vulnerabilities
        Multiple Appearances: Yes
        Published in: this document
        Status: current
@@ -647,6 +649,7 @@ of DNS-stored encryption keys (#28 and #94)
 - Removed permission directive (#30)
 - Removed signature directive and switched to inline signatures (#93 and #128)
 - Adding canonical directive (#100)
+- Text and ABNF grammar improvements
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
