@@ -553,7 +553,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 body                   = signed / unsigned
 
-signed                 = sign-header CRLF unsigned sign-footer
+signed                 = sign-header unsigned sign-footer
 
 
 
@@ -562,13 +562,13 @@ Foudil & Shafranovich     Expires July 12, 2019                [Page 10]
 Internet-Draft     A Method for Web Security Policies       January 2019
 
 
-sign-header            = <OpenPGP cleartext header and armor headers as per section 7 of {{RFC4880}}>
+sign-header            = <OpenPGP headers and empty line as per section 7 of {{RFC4880}}>
 
 sign-footer            = <OpenPGP ASCII armored signature as per section 7 of {{RFC4880}}>
 
 unsigned               = *line (canonical-field eol) (preflang-field eol) *line
 
-line                   = *1(field / comment) eol
+line                   = (field / comment) eol
 
 eol                    = *WSP [CR] LF
 
@@ -589,11 +589,11 @@ canonical-field        = "Canonical" fs SP uri
 
 contact-field          = "Contact" fs SP (email / uri / phone)
 
-email                  = <Email address as per {{RFC5322}}>
+email                  = <addr-spec as per section 3.4.1 of {{RFC5322}}>
 
-lang-tag               = <Language tag as per {{RFC5646}}>
+lang-tag               = <Language-Tag as per section 2.1 of {{RFC5646}}>
 
-phone                  = "+" *1(DIGIT / "-" / "(" / ")" / SP)
+phone                  = <telephone-subscriber as per section 3 of {{RFC3966}}>
 
 uri                    = <URI as per {{RFC3986}}>
 
@@ -820,6 +820,10 @@ Internet-Draft     A Method for Web Security Policies       January 2019
               10646", STD 63, RFC 3629, DOI 10.17487/RFC3629, November
               2003, <https://www.rfc-editor.org/info/rfc3629>.
 
+   [RFC3966]  Schulzrinne, H., "The tel URI for Telephone Numbers",
+              RFC 3966, DOI 10.17487/RFC3966, December 2004,
+              <https://www.rfc-editor.org/info/rfc3966>.
+
    [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
               Resource Identifier (URI): Generic Syntax", STD 66,
               RFC 3986, DOI 10.17487/RFC3986, January 2005,
@@ -830,10 +834,6 @@ Internet-Draft     A Method for Web Security Policies       January 2019
               DOI 10.17487/RFC4880, November 2007,
               <https://www.rfc-editor.org/info/rfc4880>.
 
-   [RFC5198]  Klensin, J. and M. Padlipsky, "Unicode Format for Network
-              Interchange", RFC 5198, DOI 10.17487/RFC5198, March 2008,
-              <https://www.rfc-editor.org/info/rfc5198>.
-
 
 
 
@@ -841,6 +841,10 @@ Foudil & Shafranovich     Expires July 12, 2019                [Page 15]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
+
+   [RFC5198]  Klensin, J. and M. Padlipsky, "Unicode Format for Network
+              Interchange", RFC 5198, DOI 10.17487/RFC5198, March 2008,
+              <https://www.rfc-editor.org/info/rfc5198>.
 
    [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
               Specifications: ABNF", STD 68, RFC 5234,
@@ -885,10 +889,6 @@ Internet-Draft     A Method for Web Security Policies       January 2019
               DOI 10.17487/RFC2350, June 1998,
               <https://www.rfc-editor.org/info/rfc2350>.
 
-   [RFC2606]  Eastlake 3rd, D. and A. Panitz, "Reserved Top Level DNS
-              Names", BCP 32, RFC 2606, DOI 10.17487/RFC2606, June 1999,
-              <https://www.rfc-editor.org/info/rfc2606>.
-
 
 
 
@@ -897,6 +897,10 @@ Foudil & Shafranovich     Expires July 12, 2019                [Page 16]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
+
+   [RFC2606]  Eastlake 3rd, D. and A. Panitz, "Reserved Top Level DNS
+              Names", BCP 32, RFC 2606, DOI 10.17487/RFC2606, June 1999,
+              <https://www.rfc-editor.org/info/rfc2606>.
 
    [RFC3013]  Killalea, T., "Recommended Internet Service Provider
               Security Services and Procedures", BCP 46, RFC 3013,
@@ -941,11 +945,7 @@ B.1.  Since draft-foudil-securitytxt-00
 
    o  Added extensibility with an IANA registry for fields (#34)
 
-   o  Added text explaining relationship to RFC 2142 / security@ email
-      address (#25)
 
-   o  Scope expanded to include internal hosts, domains, IP addresses
-      and file systems
 
 
 
@@ -953,6 +953,12 @@ Foudil & Shafranovich     Expires July 12, 2019                [Page 17]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
+
+   o  Added text explaining relationship to RFC 2142 / security@ email
+      address (#25)
+
+   o  Scope expanded to include internal hosts, domains, IP addresses
+      and file systems
 
    o  Support for digital signatures added (#19)
 
@@ -995,12 +1001,6 @@ B.3.  Since draft-foudil-securitytxt-02
 
    o  Added clarification for newline values
 
-   o  Clarified the encryption field language, added examples of DNS-
-      stored encryption keys (#28 and #94)
-
-   o  Added "Hiring" field
-
-
 
 
 
@@ -1009,6 +1009,11 @@ Foudil & Shafranovich     Expires July 12, 2019                [Page 18]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
+
+   o  Clarified the encryption field language, added examples of DNS-
+      stored encryption keys (#28 and #94)
+
+   o  Added "Hiring" field
 
 B.4.  Since draft-foudil-securitytxt-03
 
@@ -1053,11 +1058,6 @@ Authors' Addresses
    Edwin Foudil
 
    Email: contact@edoverflow.com
-
-
-
-
-
 
 
 

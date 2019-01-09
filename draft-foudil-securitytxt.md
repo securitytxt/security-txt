@@ -412,15 +412,15 @@ the conventions defined in {{!RFC5234}} and {{!RFC5322}}.
 ~~~~~~~~~~
 body                   = signed / unsigned
 
-signed                 = sign-header CRLF unsigned sign-footer
+signed                 = sign-header unsigned sign-footer
 
-sign-header            = <OpenPGP cleartext header and armor headers as per section 7 of {{!RFC4880}}>
+sign-header            = <OpenPGP headers and empty line as per section 7 of {{!RFC4880}}>
 
 sign-footer            = <OpenPGP ASCII armored signature as per section 7 of {{!RFC4880}}>
 
 unsigned               = *line (canonical-field eol) (preflang-field eol) *line
 
-line                   = *1(field / comment) eol
+line                   = (field / comment) eol
 
 eol                    = *WSP [CR] LF
 
@@ -441,11 +441,11 @@ canonical-field        = "Canonical" fs SP uri
 
 contact-field          = "Contact" fs SP (email / uri / phone)
 
-email                  = <Email address as per {{!RFC5322}}>
+email                  = <addr-spec as per section 3.4.1 of {{!RFC5322}}>
 
-lang-tag               = <Language tag as per {{!RFC5646}}>
+lang-tag               = <Language-Tag as per section 2.1 of {{!RFC5646}}>
 
-phone                  = "+" *1(DIGIT / "-" / "(" / ")" / SP)
+phone                  = <telephone-subscriber as per section 3 of {{!RFC3966}}>
 
 uri                    = <URI as per {{!RFC3986}}>
 

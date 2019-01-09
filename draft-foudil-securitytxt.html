@@ -720,15 +720,15 @@ example-file
 <pre>
 body                   = signed / unsigned
 
-signed                 = sign-header CRLF unsigned sign-footer
+signed                 = sign-header unsigned sign-footer
 
-sign-header            = &lt;OpenPGP cleartext header and armor headers as per section 7 of {{RFC4880}}&gt;
+sign-header            = &lt;OpenPGP headers and empty line as per section 7 of {{RFC4880}}&gt;
 
 sign-footer            = &lt;OpenPGP ASCII armored signature as per section 7 of {{RFC4880}}&gt;
 
 unsigned               = *line (canonical-field eol) (preflang-field eol) *line
 
-line                   = *1(field / comment) eol
+line                   = (field / comment) eol
 
 eol                    = *WSP [CR] LF
 
@@ -749,11 +749,11 @@ canonical-field        = "Canonical" fs SP uri
 
 contact-field          = "Contact" fs SP (email / uri / phone)
 
-email                  = &lt;Email address as per {{RFC5322}}&gt;
+email                  = &lt;addr-spec as per section 3.4.1 of {{RFC5322}}&gt;
 
-lang-tag               = &lt;Language tag as per {{RFC5646}}&gt;
+lang-tag               = &lt;Language-Tag as per section 2.1 of {{RFC5646}}&gt;
 
-phone                  = "+" *1(DIGIT / "-" / "(" / ")" / SP)
+phone                  = &lt;telephone-subscriber as per section 3 of {{RFC3966}}&gt;
 
 uri                    = &lt;URI as per {{RFC3986}}&gt;
 
@@ -889,6 +889,11 @@ unstructured           = &lt;as per section 3.2.5 of {{RFC5322}}&gt;
 <td class="reference"><b id="RFC3629">[RFC3629]</b></td>
 <td class="top">
 <a>Yergeau, F.</a>, "<a href="https://tools.ietf.org/html/rfc3629">UTF-8, a transformation format of ISO 10646</a>", STD 63, RFC 3629, DOI 10.17487/RFC3629, November 2003.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC3966">[RFC3966]</b></td>
+<td class="top">
+<a>Schulzrinne, H.</a>, "<a href="https://tools.ietf.org/html/rfc3966">The tel URI for Telephone Numbers</a>", RFC 3966, DOI 10.17487/RFC3966, December 2004.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RFC3986">[RFC3986]</b></td>
