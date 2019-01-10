@@ -379,7 +379,7 @@ to the security.txt file under the /.well-known/ path or be used as a fall back.
 
 ## Filesystems
 
-File systems SHOULD place the ".security.txt" file under the root directory; e.g., ""/.security.txt", "C:\.security.txt".
+File systems SHOULD place the ".security.txt" file under the root directory; e.g., "/.security.txt", "C:\.security.txt".
 
 Example:
 

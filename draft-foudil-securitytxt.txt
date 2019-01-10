@@ -540,7 +540,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 4.2.  Filesystems
 
    File systems SHOULD place the ".security.txt" file under the root
-   directory; e.g., ""/.security.txt", "C:.security.txt".
+   directory; e.g., "/.security.txt", "C:.security.txt".
 
    Example:
 
