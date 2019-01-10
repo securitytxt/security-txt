@@ -523,7 +523,7 @@ https://[2001:db8:8:4::2]/.well-known/security.txt
 <h1 id="rfc.section.3.2">
 <a href="#rfc.section.3.2">3.2.</a> <a href="#comments" id="comments">Comments</a>
 </h1>
-<p id="rfc.section.3.2.p.1">Any line beginning with the &#8220;#&#8221; (%x30) symbol MUST be interpreted as a comment.</p>
+<p id="rfc.section.3.2.p.1">Any line beginning with the &#8220;#&#8221; (%x30) symbol MUST be interpreted as a comment.  The content of the comment may contain any ASCII or Unicode characters in the %x21-7E and %x80-FFFFF ranges plus the tab (%x09) and space (%x20) characters.</p>
 <p id="rfc.section.3.2.p.2">Example:</p>
 <pre>
 # This is a comment.
@@ -741,7 +741,7 @@ field                  = acknowledgments-field /
 
 fs                     = ":"
 
-comment                = "#" *(WSP / VCHAR / %xA0-E007F)
+comment                = "#" *(WSP / VCHAR / %x80-FFFFF)
 
 acknowledgments-field  = "Acknowledgments" fs SP uri
 
@@ -1073,7 +1073,7 @@ unstructured           = &lt;as per section 3.2.5 of {{RFC5322}}&gt;
 <li>Removed permission directive (#30)</li>
 <li>Removed signature directive and switched to inline signatures (#93 and #128)</li>
 <li>Adding canonical directive (#100)</li>
-<li>Text and ABNF grammar improvements</li>
+<li>Text and ABNF grammar improvementsm plus comments ABNF (#123)</li>
 </ul>
 <p id="rfc.section.B.5.p.2">Full list of changes can be viewed via the IETF document tracker: https://tools.ietf.org/html/draft-foudil-securitytxt</p>
 <h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
