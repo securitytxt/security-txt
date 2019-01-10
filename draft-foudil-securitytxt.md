@@ -105,7 +105,7 @@ A "security.txt" file MUST only apply to the domain in the URI used to retrieve 
 not to any of its subdomains or parent domains. A "security.txt" file that is found
 in a file system or version control repository MUST only apply to the folder
 or repository in which it is located, and not to any of its parent or sibling folders,
-or repositories.
+or repositories. However, it will apply to all subfolders.
 
 Some examples appear below:
 
@@ -205,12 +205,11 @@ Canonical: https://example.com/.well-known/security.txt
 This directive allows you to provide an address that researchers
 SHOULD use for reporting security
 vulnerabilities. The value MAY be an email address, a phone number and/or a
-contact page with more information. The "Contact:" directive MUST
+web page with contact information. The "Contact:" directive MUST
 always be present in a security.txt file. If this directive indicates a web URL,
 then it RECOMMENDED that it begins with "https://" (as per section 2.7.2 of {{!RFC7230}}).
 Security email addresses SHOULD use the conventions defined in section
-4 of {{!RFC2142}}, but there is no requirement for this directive
-to be an email address.
+4 of {{!RFC2142}}.
 
 The value MUST follow the general syntax described in {{!RFC3986}}.
 This means that "mailto" and "tel" URI schemes MUST be used when specifying email addresses and telephone numbers.
@@ -383,7 +382,7 @@ to the security.txt file under the /.well-known/ path or be used as a fall back.
 File systems SHOULD place the security.txt file under the root directory; e.g., /.security.txt, C:\.security.txt.
 
 ~~~~~~~~~~
-user:/$ l
+user:/$
 .security.txt
 example-directory-1/
 example-directory-2/

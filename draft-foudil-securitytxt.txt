@@ -77,7 +77,7 @@ Table of Contents
        3.5.2.  Canonical . . . . . . . . . . . . . . . . . . . . . .   6
        3.5.3.  Contact . . . . . . . . . . . . . . . . . . . . . . .   6
        3.5.4.  Encryption  . . . . . . . . . . . . . . . . . . . . .   7
-       3.5.5.  Hiring  . . . . . . . . . . . . . . . . . . . . . . .   8
+       3.5.5.  Hiring  . . . . . . . . . . . . . . . . . . . . . . .   7
        3.5.6.  Policy  . . . . . . . . . . . . . . . . . . . . . . .   8
        3.5.7.  Preferred-Languages . . . . . . . . . . . . . . . . .   8
      3.6.  Example of an unsigned "security.txt" file  . . . . . . .   8
@@ -227,7 +227,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
    located, and not to any of its parent or sibling folders, or
-   repositories.
+   repositories.  However, it will apply to all subfolders.
 
    Some examples appear below:
 
@@ -327,7 +327,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
    This directive allows you to provide an address that researchers
    SHOULD use for reporting security vulnerabilities.  The value MAY be
-   an email address, a phone number and/or a contact page with more
+   an email address, a phone number and/or a web page with contact
    information.  The "Contact:" directive MUST always be present in a
    security.txt file.  If this directive indicates a web URL, then it
 
@@ -340,8 +340,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
    RECOMMENDED that it begins with "https://" (as per section 2.7.2 of
    [RFC7230]).  Security email addresses SHOULD use the conventions
-   defined in section 4 of [RFC2142], but there is no requirement for
-   this directive to be an email address.
+   defined in section 4 of [RFC2142].
 
    The value MUST follow the general syntax described in [RFC3986].
    This means that "mailto" and "tel" URI schemes MUST be used when
@@ -382,9 +381,10 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
    Encryption: openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f
 
+3.5.5.  Hiring
 
-
-
+   The "Hiring" directive is used for linking to the vendor's security-
+   related job positions.  If this directive indicates a web URL, then
 
 
 
@@ -394,10 +394,6 @@ Foudil & Shafranovich     Expires July 14, 2019                 [Page 7]
 Internet-Draft     A Method for Web Security Policies       January 2019
 
 
-3.5.5.  Hiring
-
-   The "Hiring" directive is used for linking to the vendor's security-
-   related job positions.  If this directive indicates a web URL, then
    it is RECOMMENDED to always use "https://" URLs (as per section 2.7.2
    of [RFC7230]).
 
@@ -437,6 +433,10 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    Preferred-Languages: en, es, fr
 
 3.6.  Example of an unsigned "security.txt" file
+
+
+
+
 
 
 
@@ -542,7 +542,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    File systems SHOULD place the security.txt file under the root
    directory; e.g., /.security.txt, C:.security.txt.
 
-   user:/$ l
+   user:/$
    .security.txt
    example-directory-1/
    example-directory-2/

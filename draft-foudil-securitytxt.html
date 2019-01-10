@@ -502,7 +502,7 @@ address {
 <h1 id="rfc.section.3.1">
 <a href="#rfc.section.3.1">3.1.</a> <a href="#scope" id="scope">Scope</a>
 </h1>
-<p id="rfc.section.3.1.p.1">A &#8220;security.txt&#8221; file MUST only apply to the domain in the URI used to retrieve it, not to any of its subdomains or parent domains. A &#8220;security.txt&#8221; file that is found in a file system or version control repository MUST only apply to the folder or repository in which it is located, and not to any of its parent or sibling folders, or repositories.</p>
+<p id="rfc.section.3.1.p.1">A &#8220;security.txt&#8221; file MUST only apply to the domain in the URI used to retrieve it, not to any of its subdomains or parent domains. A &#8220;security.txt&#8221; file that is found in a file system or version control repository MUST only apply to the folder or repository in which it is located, and not to any of its parent or sibling folders, or repositories. However, it will apply to all subfolders.</p>
 <p id="rfc.section.3.1.p.2">Some examples appear below:</p>
 <pre>
 # The following only applies to example.com.
@@ -569,7 +569,7 @@ Canonical: https://example.com/.well-known/security.txt
 <h1 id="rfc.section.3.5.3">
 <a href="#rfc.section.3.5.3">3.5.3.</a> <a href="#contact" id="contact">Contact</a>
 </h1>
-<p id="rfc.section.3.5.3.p.1">This directive allows you to provide an address that researchers SHOULD use for reporting security vulnerabilities. The value MAY be an email address, a phone number and/or a contact page with more information. The &#8220;Contact:&#8221; directive MUST always be present in a security.txt file. If this directive indicates a web URL, then it RECOMMENDED that it begins with &#8220;https://&#8221; (as per section 2.7.2 of <a href="#RFC7230" class="xref">[RFC7230]</a>).  Security email addresses SHOULD use the conventions defined in section 4 of <a href="#RFC2142" class="xref">[RFC2142]</a>, but there is no requirement for this directive to be an email address.</p>
+<p id="rfc.section.3.5.3.p.1">This directive allows you to provide an address that researchers SHOULD use for reporting security vulnerabilities. The value MAY be an email address, a phone number and/or a web page with contact information. The &#8220;Contact:&#8221; directive MUST always be present in a security.txt file. If this directive indicates a web URL, then it RECOMMENDED that it begins with &#8220;https://&#8221; (as per section 2.7.2 of <a href="#RFC7230" class="xref">[RFC7230]</a>).  Security email addresses SHOULD use the conventions defined in section 4 of <a href="#RFC2142" class="xref">[RFC2142]</a>.</p>
 <p id="rfc.section.3.5.3.p.2">The value MUST follow the general syntax described in <a href="#RFC3986" class="xref">[RFC3986]</a>.  This means that &#8220;mailto&#8221; and &#8220;tel&#8221; URI schemes MUST be used when specifying email addresses and telephone numbers.</p>
 <p id="rfc.section.3.5.3.p.3">The precedence SHOULD be in listed order. The first field is the preferred method of contact. In the example below, the e-mail address is the preferred method of contact.</p>
 <pre>
@@ -697,7 +697,7 @@ Version: GnuPG v1
 </h1>
 <p id="rfc.section.4.2.p.1">File systems SHOULD place the security.txt file under the root directory; e.g., /.security.txt, C:.security.txt.</p>
 <pre>
-user:/$ l
+user:/$
 .security.txt
 example-directory-1/
 example-directory-2/
