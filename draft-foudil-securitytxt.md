@@ -481,7 +481,7 @@ and controlled by the organization, and are kept secure.
 
 To ensure the authenticity of the security.txt file, organizations SHOULD
 digitally sign this file with OpenPGP as per {{signature}} and SHOULD also
-use the "Canonical" directive as per {{canonical}}. 
+use the "Canonical" directive as per {{canonical}}.
 As stated in {{encryption}}, it is RECOMMENDED that encryption keys
 be loaded over HTTPS (as per section 2.7.2 of {{!RFC7230}}).
 
@@ -579,7 +579,10 @@ The initial registry contains these values:
 # Contributors
 
 The authors would like to acknowledge the help provided during the
-development of this document by Tom Hudson, Joel Margolis, Jobert Abma, Gerben Janssen van Doorn, Austin Heap, Justin Calmus, and Casey Ellis.
+development of this document by Tom Hudson, Jobert Abma,
+Gerben Janssen van Doorn, Austin Heap, Stephane Bortzmeyer, Eduardo Vela
+and Krzysztof Kotowicz.
+
 
 The authors would also like to acknowledge the feedback provided by multiple members of IETF's SAAG and SEC-DISPATCH lists.
 
