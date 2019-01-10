@@ -85,7 +85,7 @@ Table of Contents
    4.  Location of the security.txt file . . . . . . . . . . . . . .   9
      4.1.  Web-based services  . . . . . . . . . . . . . . . . . . .  10
      4.2.  Filesystems . . . . . . . . . . . . . . . . . . . . . . .  10
-     4.3.  Internal hosts  . . . . . . . . . . . . . . . . . . . . .  10
+     4.3.  Internal hosts  . . . . . . . . . . . . . . . . . . . . .  11
      4.4.  Extensibility . . . . . . . . . . . . . . . . . . . . . .  11
    5.  File Format Description and ABNF Grammar  . . . . . . . . . .  11
    6.  Security considerations . . . . . . . . . . . . . . . . . . .  12
@@ -93,17 +93,17 @@ Table of Contents
      7.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .  13
      7.2.  Registry for security.txt Header Fields . . . . . . . . .  13
    8.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  15
-   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  15
-     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  15
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  16
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  16
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  17
-   Appendix A.  Note to Readers  . . . . . . . . . . . . . . . . . .  17
-   Appendix B.  Document History . . . . . . . . . . . . . . . . . .  17
+   Appendix A.  Note to Readers  . . . . . . . . . . . . . . . . . .  18
+   Appendix B.  Document History . . . . . . . . . . . . . . . . . .  18
      B.1.  Since draft-foudil-securitytxt-00 . . . . . . . . . . . .  18
-     B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  18
-     B.3.  Since draft-foudil-securitytxt-02 . . . . . . . . . . . .  18
-     B.4.  Since draft-foudil-securitytxt-03 . . . . . . . . . . . .  19
-     B.5.  Since draft-foudil-securitytxt-04 . . . . . . . . . . . .  19
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  20
+     B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  19
+     B.3.  Since draft-foudil-securitytxt-02 . . . . . . . . . . . .  19
+     B.4.  Since draft-foudil-securitytxt-03 . . . . . . . . . . . .  20
+     B.5.  Since draft-foudil-securitytxt-04 . . . . . . . . . . . .  20
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  21
 
 
 
@@ -216,8 +216,8 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
    A "security.txt" file MUST only apply to the domain in the URI used
    to retrieve it, not to any of its subdomains or parent domains.  A
-   "security.txt" file that is found in a file system or version control
-   repository MUST only apply to the folder or repository in which it is
+   ".security.txt" file that is found in a file system or version
+   control repository MUST only apply to the folder or repository in
 
 
 
@@ -226,8 +226,8 @@ Foudil & Shafranovich     Expires July 14, 2019                 [Page 4]
 Internet-Draft     A Method for Web Security Policies       January 2019
 
 
-   located, and not to any of its parent or sibling folders, or
-   repositories.  However, it will apply to all subfolders.
+   which it is located, and not to any of its parent or sibling folders,
+   or repositories.  However, it will apply to all subfolders.
 
    Some examples appear below:
 
@@ -243,8 +243,8 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    # This security.txt file applies to IPv6 address of 2001:db8:8:4::2.
    https://[2001:db8:8:4::2]/.well-known/security.txt
 
-   # This security.txt file applies to the /example/folder1 directory.
-   /example/folder1/security.txt
+   # This .security.txt file applies to the /example/folder1 directory.
+   /example/folder1/.security.txt
 
 3.2.  Comments
 
@@ -539,20 +539,20 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 4.2.  Filesystems
 
-   File systems SHOULD place the security.txt file under the root
-   directory; e.g., /.security.txt, C:.security.txt.
+   File systems SHOULD place the ".security.txt" file under the root
+   directory; e.g., ""/.security.txt", "C:.security.txt".
 
-   user:/$
+   Example:
+
+   user:/$ ls -a
    .security.txt
    example-directory-1/
    example-directory-2/
    example-directory-3/
    example-file
 
-4.3.  Internal hosts
 
-   A .security.txt file SHOULD be placed in the root directory of an
-   internal host.
+
 
 
 
@@ -561,6 +561,11 @@ Foudil & Shafranovich     Expires July 14, 2019                [Page 10]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
+
+4.3.  Internal hosts
+
+   A ".security.txt" file SHOULD be placed in the root directory of an
+   internal host.
 
 4.4.  Extensibility
 
@@ -606,17 +611,16 @@ fs                     = ":"
 
 comment                = "#" *(WSP / VCHAR / %x80-FFFFF)
 
-acknowledgments-field  = "Acknowledgments" fs SP uri
-
-canonical-field        = "Canonical" fs SP uri
-
-
 
 
 Foudil & Shafranovich     Expires July 14, 2019                [Page 11]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
+
+acknowledgments-field  = "Acknowledgments" fs SP uri
+
+canonical-field        = "Canonical" fs SP uri
 
 contact-field          = "Contact" fs SP (email / uri / phone)
 
@@ -661,11 +665,7 @@ unstructured           = <as per section 3.2.5 of {{RFC5322}}>
    To ensure the authenticity of the security.txt file, organizations
    SHOULD digitally sign this file with OpenPGP as per Section 3.4 and
    SHOULD also use the "Canonical" directive as per Section 3.5.2.  As
-   stated in Section 3.5.4, it is RECOMMENDED that encryption keys be
-   loaded over HTTPS (as per section 2.7.2 of [RFC7230]).
 
-   Websites SHOULD reserve the security.txt namespace to ensure no
-   third-party can create a page with the "security.txt" name.
 
 
 
@@ -673,6 +673,12 @@ Foudil & Shafranovich     Expires July 14, 2019                [Page 12]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
+
+   stated in Section 3.5.4, it is RECOMMENDED that encryption keys be
+   loaded over HTTPS (as per section 2.7.2 of [RFC7230]).
+
+   Websites SHOULD reserve the security.txt namespace to ensure no
+   third-party can create a page with the "security.txt" name.
 
 7.  IANA Considerations
 
@@ -715,13 +721,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
    4.  The document in which the specification of the field is published
 
-   5.  New or updated status, which MUST be one of: current: The field
-       is in current use deprecated: The field is in current use, but
-       its use is discouraged historic: The field is no longer in
-       current use
 
-   An update may make a notation on an existing registration indicating
-   that a registered field is historical or deprecated if appropriate.
 
 
 
@@ -730,7 +730,61 @@ Foudil & Shafranovich     Expires July 14, 2019                [Page 13]
 Internet-Draft     A Method for Web Security Policies       January 2019
 
 
+   5.  New or updated status, which MUST be one of: current: The field
+       is in current use deprecated: The field is in current use, but
+       its use is discouraged historic: The field is no longer in
+       current use
+
+   An update may make a notation on an existing registration indicating
+   that a registered field is historical or deprecated if appropriate.
+
    The initial registry contains these values:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Foudil & Shafranovich     Expires July 14, 2019                [Page 14]
+
+Internet-Draft     A Method for Web Security Policies       January 2019
+
 
    Field Name: Acknowledgments
    Description: link to page where security researchers are recognized
@@ -774,24 +828,19 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    Published in: this document
    Status: current
 
-
-
-
-
-
-
-
-Foudil & Shafranovich     Expires July 14, 2019                [Page 14]
-
-Internet-Draft     A Method for Web Security Policies       January 2019
-
-
 8.  Contributors
 
    The authors would like to acknowledge the help provided during the
    development of this document by Tom Hudson, Jobert Abma, Gerben
    Janssen van Doorn, Austin Heap, Stephane Bortzmeyer, Eduardo Vela and
    Krzysztof Kotowicz.
+
+
+
+Foudil & Shafranovich     Expires July 14, 2019                [Page 15]
+
+Internet-Draft     A Method for Web Security Policies       January 2019
+
 
    The authors would also like to acknowledge the feedback provided by
    multiple members of IETF's SAAG and SEC-DISPATCH lists.
@@ -831,17 +880,6 @@ Internet-Draft     A Method for Web Security Policies       January 2019
               RFC 3966, DOI 10.17487/RFC3966, December 2004,
               <https://www.rfc-editor.org/info/rfc3966>.
 
-
-
-
-
-
-
-Foudil & Shafranovich     Expires July 14, 2019                [Page 15]
-
-Internet-Draft     A Method for Web Security Policies       January 2019
-
-
    [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
               Resource Identifier (URI): Generic Syntax", STD 66,
               RFC 3986, DOI 10.17487/RFC3986, January 2005,
@@ -851,6 +889,14 @@ Internet-Draft     A Method for Web Security Policies       January 2019
               Thayer, "OpenPGP Message Format", RFC 4880,
               DOI 10.17487/RFC4880, November 2007,
               <https://www.rfc-editor.org/info/rfc4880>.
+
+
+
+
+Foudil & Shafranovich     Expires July 14, 2019                [Page 16]
+
+Internet-Draft     A Method for Web Security Policies       January 2019
+
 
    [RFC5198]  Klensin, J. and M. Padlipsky, "Unicode Format for Network
               Interchange", RFC 5198, DOI 10.17487/RFC5198, March 2008,
@@ -888,16 +934,6 @@ Internet-Draft     A Method for Web Security Policies       January 2019
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
-
-
-
-
-
-Foudil & Shafranovich     Expires July 14, 2019                [Page 16]
-
-Internet-Draft     A Method for Web Security Policies       January 2019
-
-
 9.2.  Informative References
 
    [RFC2196]  Fraser, B., "Site Security Handbook", FYI 8, RFC 2196,
@@ -908,6 +944,15 @@ Internet-Draft     A Method for Web Security Policies       January 2019
               Security Incident Response", BCP 21, RFC 2350,
               DOI 10.17487/RFC2350, June 1998,
               <https://www.rfc-editor.org/info/rfc2350>.
+
+
+
+
+
+Foudil & Shafranovich     Expires July 14, 2019                [Page 17]
+
+Internet-Draft     A Method for Web Security Policies       January 2019
+
 
    [RFC2606]  Eastlake 3rd, D. and A. Panitz, "Reserved Top Level DNS
               Names", BCP 32, RFC 2606, DOI 10.17487/RFC2606, June 1999,
@@ -946,14 +991,6 @@ Appendix B.  Document History
       *Note to the RFC Editor:* Please remove this section prior to
       publication.
 
-
-
-
-Foudil & Shafranovich     Expires July 14, 2019                [Page 17]
-
-Internet-Draft     A Method for Web Security Policies       January 2019
-
-
 B.1.  Since draft-foudil-securitytxt-00
 
    o  Moved to use IETF's markdown tools for draft updates
@@ -963,6 +1000,15 @@ B.1.  Since draft-foudil-securitytxt-00
    o  Moved file to .well-known URI and added IANA registration (#3)
 
    o  Added extensibility with an IANA registry for fields (#34)
+
+
+
+
+
+Foudil & Shafranovich     Expires July 14, 2019                [Page 18]
+
+Internet-Draft     A Method for Web Security Policies       January 2019
+
 
    o  Added text explaining relationship to RFC 2142 / security@ email
       address (#25)
@@ -1003,13 +1049,6 @@ B.3.  Since draft-foudil-securitytxt-02
 
    o  Clarified that the root directory is a fall back option (#72)
 
-
-
-Foudil & Shafranovich     Expires July 14, 2019                [Page 18]
-
-Internet-Draft     A Method for Web Security Policies       January 2019
-
-
    o  Defined content-type for the response (#68)
 
    o  Clarify the scope of the security.txt file (#69)
@@ -1017,6 +1056,15 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    o  Cleaning up text based on the NITS tools suggestions (#82)
 
    o  Added clarification for newline values
+
+
+
+
+
+Foudil & Shafranovich     Expires July 14, 2019                [Page 19]
+
+Internet-Draft     A Method for Web Security Policies       January 2019
+
 
    o  Clarified the encryption field language, added examples of DNS-
       stored encryption keys (#28 and #94)
@@ -1058,18 +1106,21 @@ B.5.  Since draft-foudil-securitytxt-04
 
    o  Adding canonical directive (#100)
 
-
-
-
-Foudil & Shafranovich     Expires July 14, 2019                [Page 19]
-
-Internet-Draft     A Method for Web Security Policies       January 2019
-
-
    o  Text and ABNF grammar improvementsm plus comments ABNF (#123)
 
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt
+
+
+
+
+
+
+
+Foudil & Shafranovich     Expires July 14, 2019                [Page 20]
+
+Internet-Draft     A Method for Web Security Policies       January 2019
+
 
 Authors' Addresses
 
@@ -1117,4 +1168,9 @@ Authors' Addresses
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                [Page 20]
+
+
+
+
+
+Foudil & Shafranovich     Expires July 14, 2019                [Page 21]

@@ -102,7 +102,7 @@ any directive MAY appear multiple times.
 ## Scope
 
 A "security.txt" file MUST only apply to the domain in the URI used to retrieve it,
-not to any of its subdomains or parent domains. A "security.txt" file that is found
+not to any of its subdomains or parent domains. A ".security.txt" file that is found
 in a file system or version control repository MUST only apply to the folder
 or repository in which it is located, and not to any of its parent or sibling folders,
 or repositories. However, it will apply to all subfolders.
@@ -122,8 +122,8 @@ https://192.0.2.0/.well-known/security.txt
 # This security.txt file applies to IPv6 address of 2001:db8:8:4::2.
 https://[2001:db8:8:4::2]/.well-known/security.txt
 
-# This security.txt file applies to the /example/folder1 directory.
-/example/folder1/security.txt
+# This .security.txt file applies to the /example/folder1 directory.
+/example/folder1/.security.txt
 ~~~~~~~~~~
 
 ## Comments
@@ -379,10 +379,12 @@ to the security.txt file under the /.well-known/ path or be used as a fall back.
 
 ## Filesystems
 
-File systems SHOULD place the security.txt file under the root directory; e.g., /.security.txt, C:\.security.txt.
+File systems SHOULD place the ".security.txt" file under the root directory; e.g., ""/.security.txt", "C:\.security.txt".
+
+Example:
 
 ~~~~~~~~~~
-user:/$
+user:/$ ls -a
 .security.txt
 example-directory-1/
 example-directory-2/
@@ -392,7 +394,7 @@ example-file
 
 ## Internal hosts
 
-A .security.txt file SHOULD be placed in the root directory of an internal host.
+A ".security.txt" file SHOULD be placed in the root directory of an internal host.
 
 ## Extensibility {#extensibility}
 
