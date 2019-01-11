@@ -381,15 +381,14 @@ to the security.txt file under the /.well-known/ path or be used as a fall back.
 
 File systems SHOULD place the "security.txt" file under the root directory; e.g., "/security.txt", "C:\security.txt".
 
-Example:
+Example file system:
 
 ~~~~~~~~~~
-user:/$ ls -1
-example-directory-1/
-example-directory-2/
-example-directory-3/
-example-file
-security.txt
+/example-directory-1/
+/example-directory-2/
+/example-directory-3/
+/example-file
+/security.txt
 ~~~~~~~~~~
 
 ## Internal hosts
