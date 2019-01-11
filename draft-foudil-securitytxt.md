@@ -18,10 +18,10 @@ author:
   email: yakov+ietf@nightwatchcybersecurity.com
 
 --- abstract
-When security risks are discovered by independent
+When security vulnerabilities are discovered by independent
 security researchers, they
 often lack the channels to report them properly. As a result,
-security issues may be left unreported. This document defines a format
+security vulnerabilities may be left unreported. This document defines a format
 ("security.txt") to help organizations describe the process for security
 researchers to follow in order to report security vulnerabilities.
 
@@ -32,14 +32,14 @@ researchers to follow in order to report security vulnerabilities.
 ## Motivation and Prior Work
 
 Many security researchers encounter situations where they are unable
-to report security issues to organizations because there is
+to report security vulnerabilities to organizations because there is
 no course of action laid out or no way indicated to contact the owner of a particular
 resource.
 
 As per section 4 of {{?RFC2142}}, there is an existing convention
 of using the \<SECURITY@domain\> email address for communications regarding
-security issues. That convention provides only a single, email-based
-channel of communication for security issues per domain, and does not provide
+security vulnerabilities. That convention provides only a single, email-based
+channel of communication for security vulnerabilities per domain, and does not provide
 a way for domain owners to publish information about their security disclosure
 policies.
 
@@ -51,7 +51,7 @@ Regional Internet Registries (RIRs) and domain registries for owners of IP
 addresses, autonomous system numbers (ASNs) and domain names. However, none of
 these address the issue of how security researchers can locate disclosure
 policies and contact information for organizations in order to report
-security issues.
+security vulnerabilities.
 
 In this document, we define a richer, machine-parsable and more extensible way
 for organizations to communicate information about their security disclosure
@@ -59,7 +59,7 @@ policies, which is not limited to email and also allows for additional features
 such as encryption. This format is designed to help
 assist with the security disclosure process by making it easier
 for organizations to designate the preferred steps for researchers to take
-when trying to reach out to them with security issues.
+when trying to reach out to them with security vulnerabilities.
 
 ## Terminology
 
@@ -76,18 +76,16 @@ capitals, as shown here.
 
 Development of this draft takes place on Github at: https://github.com/securitytxt/security-txt
 
-A mailing list is available for discussion at: https://www.freelists.org/list/securitytxt
-
 # The Specification
 
 This document defines a text file to be placed in a known location
 that provides information for security researchers to assist
-in disclosing security issues.
+in disclosing security vulnerabilities.
 
 The file is named "security.txt", and this file SHOULD be placed under the
 /.well-known/ path ("/.well-known/security.txt") {{!RFC5785}} of a domain name or IP address for web
 properties. If it is not possible to place the security.txt file in the /.well-known/ path or setup a redirect, web-based services MAY place the file in the top-level path
-of a given web domain or IP address ("/security.txt") as a fall back option. For web-based services, the file MUST be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}, and it is RECOMMENDED that this file be served with "https" (as per section 2.7.2 of {{!RFC7230}}). For file systems and version control repositories a ".security.txt" file SHOULD be placed in the root directory of a particular file system or source code project.
+of a given web domain or IP address ("/security.txt") as a fall back option. For web-based services, the file MUST be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}, and it is RECOMMENDED that this file be served with "https" (as per section 2.7.2 of {{!RFC7230}}). For file systems and version control repositories a "security.txt" file SHOULD be placed in the root directory of a particular file system or source code project.
 
 This text file contains multiple directives
 with different values. The "directive" is the first part of a field all the way up
@@ -107,7 +105,7 @@ A "security.txt" file MUST only apply to the domain in the URI used to retrieve 
 not to any of its subdomains or parent domains. A "security.txt" file that is found
 in a file system or version control repository MUST only apply to the folder
 or repository in which it is located, and not to any of its parent or sibling folders,
-or repositories.
+or repositories. However, it will apply to all subfolders.
 
 Some examples appear below:
 
@@ -131,6 +129,8 @@ https://[2001:db8:8:4::2]/.well-known/security.txt
 ## Comments
 
 Any line beginning with the "#" (%x30) symbol MUST be interpreted as a comment.
+The content of the comment may contain any ASCII or Unicode characters in the
+%x21-7E and %x80-FFFFF ranges plus the tab (%x09) and space (%x20) characters.
 
 Example:
 
@@ -148,6 +148,18 @@ A separate line is REQUIRED for every new value and field. You MUST
 NOT chain everything into a single field. Every line MUST end either
 with a carriage return and line feed characters (CRLF / %x0D %x0A) or just
 a line feed character (LF / %x0A).
+
+## Digital signature {#signature}
+
+It is RECOMMENDED that a security.txt file be digitally signed
+using an OpenPGP cleartext signature as described in
+section 7 of {{!RFC4880}}. When digital signatures are used, it is also
+RECOMMENDED that implementors use the "Canonical" directive as per {{canonical}},
+thus allowing the digital signature to authenticate the location of the file.
+
+When it comes to verifying the key used to generate the signature, it is always
+the security researcher's responsibility to make sure the key being
+used is indeed one they trust.
 
 ## Field Definitions
 
@@ -177,17 +189,27 @@ We would like to thank the following researchers:
 (2016-06-10) Anna Richmond - A server configuration issue
 ~~~~~~~~~~
 
+### Canonical {#canonical}
+
+This directive indicates the canonical URI where the security.txt file is located,
+which is usually something like "https://example.com/.well-known/security.txt".
+
+This directive MUST NOT appear more than once.
+
+~~~~~~~~~~
+Canonical: https://example.com/.well-known/security.txt
+~~~~~~~~~~
+
 ### Contact {#contact}
 
 This directive allows you to provide an address that researchers
 SHOULD use for reporting security
-issues. The value MAY be an email address, a phone number and/or a
-contact page with more information. The "Contact:" directive MUST
+vulnerabilities. The value MAY be an email address, a phone number and/or a
+web page with contact information. The "Contact:" directive MUST
 always be present in a security.txt file. If this directive indicates a web URL,
 then it RECOMMENDED that it begins with "https://" (as per section 2.7.2 of {{!RFC7230}}).
 Security email addresses SHOULD use the conventions defined in section
-4 of {{!RFC2142}}, but there is no requirement for this directive
-to be an email address.
+4 of {{!RFC2142}}.
 
 The value MUST follow the general syntax described in {{!RFC3986}}.
 This means that "mailto" and "tel" URI schemes MUST be used when specifying email addresses and telephone numbers.
@@ -211,22 +233,24 @@ MUST be a URI pointing to a location where the key can be retrieved from.
 If this directive indicates a web URL, then it is RECOMMENDED to always use "https://" URLs
 (as per section 2.7.2 of {{!RFC7230}}).
 
-When it comes to verifying the authenticity of the key, it is always the security researcher's responsibility to make sure the key being specified is indeed one they trust. Researchers MUST NOT assume that this key is used to generate the signature file
-referenced in {{!signature}}.
+When it comes to verifying the authenticity of the key, it is always the security
+researcher's responsibility to make sure the key being specified is indeed one
+they trust. Researchers MUST NOT assume that this key is
+used to generate the digital signature referenced in {{signature}}.
 
-Example of a PGP key available from a web server:
+Example of an OpenPGP key available from a web server:
 
 ~~~~~~~~~~
 Encryption: https://example.com/pgp-key.txt
 ~~~~~~~~~~
 
-Example of a PGP key available from an OPENPGPKEY DNS:
+Example of an OpenPGP key available from an OPENPGPKEY DNS record:
 
 ~~~~~~~~~~
 Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 ~~~~~~~~~~
 
-Example of a PGP key being referenced by its fingerprint:
+Example of an OpenPGP key being referenced by its fingerprint:
 
 ~~~~~~~~~~
 Encryption: openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f
@@ -240,26 +264,6 @@ If this directive indicates a web URL, then it is RECOMMENDED to always use "htt
 
 ~~~~~~~~~~
 Hiring: https://example.com/jobs.html
-~~~~~~~~~~
-
-### Permission {#permission}
-
-The presence of the "Permission" directive is used to indicate to security
-researchers that they MUST NOT perform any kind of testing against
-the resource hosting the "security.txt" file. This field MUST have a value
-which is REQUIRED to be set to the string "none" and be interpreted as
-case-insensitive (as per section 2.3 of {{!RFC5234}}).
-Other values MUST NOT be used. This field MUST NOT appear more than once.
-
-The absence of the "Permission" directive or the use of any other value other
-than "none" for this directive MUST NOT be interpreted by researchers
-as being granted permission to test the resource. Additionally, the presence
-or absence of this directive MUST NOT be interpreted as having any legal value.
-
-Example:
-
-~~~~~~~~~~
-Permission: none
 ~~~~~~~~~~
 
 ### Policy {#policy}
@@ -297,34 +301,13 @@ Example:
 Preferred-Languages: en, es, fr
 ~~~~~~~~~~
 
-### Signature {#signature}
-
-This directive allows you to specify a full URI (as per {{!RFC3986}}) of an external signature file that can be
-used to check the authenticity of a "security.txt" file.
-External signature files SHOULD be named "security.txt.sig" and SHOULD be placed
-under the /.well-known/ path ("/.well-known/security.txt.sig").
-If this directive indicates a web URL, then it is RECOMMENDED to always use "https://" URLs (as per section 2.7.2 of {{!RFC7230}}).
-This directive MUST NOT appear more than once.
-
-It is RECOMMENDED to implementers that this directive always be used.
-
-When it comes to verifying the authenticity of the file, it is always
-the security researcher's responsibility to make sure the key being
-specified is indeed one they trust.
-
-Here is an example of an external signature file.
-
-~~~~~~~~~~
-Signature: https://example.com/.well-known/security.txt.sig
-~~~~~~~~~~
-
-## Example of a "security.txt" file
+## Example of an unsigned "security.txt" file
 
 ~~~~~~~~~~
 # Our security address
 Contact: mailto:security@example.com
 
-# Our PGP key
+# Our OpenPGP key
 Encryption: https://example.com/pgp-key.txt
 
 # Our security policy
@@ -332,9 +315,33 @@ Policy: https://example.com/security-policy.html
 
 # Our security acknowledgments page
 Acknowledgments: https://example.com/hall-of-fame.html
+~~~~~~~~~~
 
-# Verify this security.txt file
-Signature: https://example.com/.well-known/security.txt.sig
+## Example of a signed "security.txt" file
+
+~~~~~~~~~~
+----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+# Canonical URL
+Canonical: https://example.com/.well-known/security.txt
+
+# Our security address
+Contact: mailto:security@example.com
+
+# Our OpenPGP key
+Encryption: https://example.com/pgp-key.txt
+
+# Our security policy
+Policy: https://example.com/security-policy.html
+
+# Our security acknowledgments page
+Acknowledgments: https://example.com/hall-of-fame.html
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1
+
+[signature]
+-----END PGP SIGNATURE-----
 ~~~~~~~~~~
 
 # Location of the security.txt file
@@ -356,7 +363,7 @@ Signature: https://example.com/.well-known/security.txt.sig
 |                        |
 |  +------------------+  |
 |  |                  |  |
-|  |  /.security.txt  |  |
+|  |  /security.txt   |  |
 |  |                  |  |
 |  +------------------+  |
 |                        |
@@ -372,20 +379,21 @@ to the security.txt file under the /.well-known/ path or be used as a fall back.
 
 ## Filesystems
 
-File systems SHOULD place the security.txt file under the root directory; e.g., /.security.txt, C:\.security.txt.
+File systems SHOULD place the "security.txt" file under the root directory; e.g., "/security.txt", "C:\security.txt".
+
+Example file system:
 
 ~~~~~~~~~~
-user:/$ l
-.security.txt
-example-directory-1/
-example-directory-2/
-example-directory-3/
-example-file
+/example-directory-1/
+/example-directory-2/
+/example-directory-3/
+/example-file
+/security.txt
 ~~~~~~~~~~
 
 ## Internal hosts
 
-A .security.txt file SHOULD be placed in the root directory of an internal host.
+A "security.txt" file SHOULD be placed in the root directory of an internal host.
 
 ## Extensibility {#extensibility}
 
@@ -402,12 +410,20 @@ The expected file format of the security.txt file is plain text (MIME type "text
 in section 4.1.3 of {{!RFC2046}} and is encoded using UTF-8 {{!RFC3629}} in Net-Unicode form {{!RFC5198}}.
 
 The following is an ABNF definition of the security.txt format, using
-the conventions defined in {{!RFC5234}} and {{!RFC5322}}.
+the conventions defined in {{!RFC5234}}.
 
 ~~~~~~~~~~
-body                   = *line (perm-field eol) (sign-field eol) *line
+body                   = signed / unsigned
 
-line                   = *1(field / comment) eol
+signed                 = sign-header unsigned sign-footer
+
+sign-header            = <OpenPGP headers and empty line as per section 7 of {{!RFC4880}}>
+
+sign-footer            = <OpenPGP ASCII armored signature as per section 7 of {{!RFC4880}}>
+
+unsigned               = *line (canonical-field eol) (preflang-field eol) *line
+
+line                   = (field / comment) eol
 
 eol                    = *WSP [CR] LF
 
@@ -416,22 +432,23 @@ field                  = acknowledgments-field /
                          encryption-field /                         
                          hiring-field /
                          policy-field /
-                         preflang-field /
                          ext-field
 
 fs                     = ":"
 
-comment                = "#" *(WSP / VCHAR / %xA0-E007F)
+comment                = "#" *(WSP / VCHAR / %x80-FFFFF)
 
 acknowledgments-field  = "Acknowledgments" fs SP uri
 
+canonical-field        = "Canonical" fs SP uri
+
 contact-field          = "Contact" fs SP (email / uri / phone)
 
-email                  = <Email address as per {{!RFC5322}}>
+email                  = <addr-spec as per section 3.4.1 of {{!RFC5322}}>
 
-lang-tag               = <Language tag as per {{!RFC5646}}>
+lang-tag               = <Language-Tag as per section 2.1 of {{!RFC5646}}>
 
-phone                  = "+" *1(DIGIT / "-" / "(" / ")" / SP)
+phone                  = <telephone-subscriber as per section 3 of {{!RFC3966}}>
 
 uri                    = <URI as per {{!RFC3986}}>
 
@@ -439,13 +456,9 @@ encryption-field       = "Encryption" fs SP uri
 
 hiring-field           = "Hiring" fs SP uri
 
-perm-field             = "Permission" fs SP "none"
-
 policy-field           = "Policy" fs SP uri
 
 preflang-field         = "Preferred-Languages" fs SP lang-tag *("," [WSP] lang-tag)
-
-sign-field             = "Signature" fs SP uri
 
 ext-field              = field-name fs SP unstructured
 
@@ -469,9 +482,10 @@ numbers references by a "security.txt" file are kept current, are accessible
 and controlled by the organization, and are kept secure.
 
 To ensure the authenticity of the security.txt file, organizations SHOULD
-sign the file and include the signature using the "Signature"
-directive ({{signature}}). As stated in {{encryption}} and {{signature}}, it is RECOMMENDED that both encryption keys
-and external signature files be loaded over HTTPS (as per section 2.7.2 of {{!RFC7230}}).
+digitally sign this file with OpenPGP as per {{signature}} and SHOULD also
+use the "Canonical" directive as per {{canonical}}.
+As stated in {{encryption}}, it is RECOMMENDED that encryption keys
+be loaded over HTTPS (as per section 2.7.2 of {{!RFC7230}}).
 
 Websites SHOULD reserve the security.txt namespace
 to ensure no third-party can create a page with the "security.txt" name.
@@ -490,8 +504,6 @@ The "Well-Known URIs" registry should be updated with the following additional
 values (using the template from {{?RFC5785}}):
 
 URI suffix: security.txt
-
-URI suffix: security.txt.sig
 
 Change controller: IETF
 
@@ -530,8 +542,14 @@ The initial registry contains these values:
        Published in: this document
        Status: current
 
+       Field Name: Canonical
+       Description: canonical URL for this file
+       Multiple Appearances: No
+       Published in: this document
+       Status: current
+
        Field Name: Contact
-       Description: contact information to use for reporting security issues
+       Description: contact information to use for reporting security vulnerabilities
        Multiple Appearances: Yes
        Published in: this document
        Status: current
@@ -548,12 +566,6 @@ The initial registry contains these values:
        Published in: this document
        Status: current
 
-       Field Name: Permission
-       Description: indicates that researchers MUST NOT do any testing
-       Multiple Appearances: No
-       Published in: this document
-       Status: current
-
        Field Name: Policy
        Description: link to security policy page
        Multiple Appearances: Yes
@@ -566,16 +578,13 @@ The initial registry contains these values:
        Published in: this document
        Status: current
 
-       Field Name: Signature
-       Description: signature used to verify the authenticity of the file
-       Multiple Appearances: No
-       Published in: this document
-       Status: current
-
 # Contributors
 
 The authors would like to acknowledge the help provided during the
-development of this document by Tom Hudson, Joel Margolis, Jobert Abma, Gerben Janssen van Doorn, Austin Heap, Justin Calmus, and Casey Ellis.
+development of this document by Tom Hudson, Jobert Abma,
+Gerben Janssen van Doorn, Austin Heap, Stephane Bortzmeyer, Eduardo Vela
+and Krzysztof Kotowicz.
+
 
 The authors would also like to acknowledge the feedback provided by multiple members of IETF's SAAG and SEC-DISPATCH lists.
 
@@ -642,6 +651,11 @@ of DNS-stored encryption keys (#28 and #94)
 - Addressing IETF feedback (#118)
 - Case sensitivity clarification (#127)
 - Syntax fixes (#133, #135 and #136)
+- Removed permission directive (#30)
+- Removed signature directive and switched to inline signatures (#93 and #128)
+- Adding canonical directive (#100)
+- Text and ABNF grammar improvements plus ABNF changes for comments (#123)
+- Changed ".security.txt" to "security.txt" to be consistent
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
