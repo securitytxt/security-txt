@@ -373,7 +373,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
    Encryption: https://example.com/pgp-key.txt
 
-   Example of an OpenPGP key available from an OPENPGPKEY DNS:
+   Example of an OpenPGP key available from an OPENPGPKEY DNS record:
 
 Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
@@ -584,7 +584,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    encoded using UTF-8 [RFC3629] in Net-Unicode form [RFC5198].
 
    The following is an ABNF definition of the security.txt format, using
-   the conventions defined in [RFC5234] and [RFC5322].
+   the conventions defined in [RFC5234].
 
 body                   = signed / unsigned
 

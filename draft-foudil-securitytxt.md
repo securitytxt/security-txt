@@ -244,7 +244,7 @@ Example of an OpenPGP key available from a web server:
 Encryption: https://example.com/pgp-key.txt
 ~~~~~~~~~~
 
-Example of an OpenPGP key available from an OPENPGPKEY DNS:
+Example of an OpenPGP key available from an OPENPGPKEY DNS record:
 
 ~~~~~~~~~~
 Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
@@ -410,7 +410,7 @@ The expected file format of the security.txt file is plain text (MIME type "text
 in section 4.1.3 of {{!RFC2046}} and is encoded using UTF-8 {{!RFC3629}} in Net-Unicode form {{!RFC5198}}.
 
 The following is an ABNF definition of the security.txt format, using
-the conventions defined in {{!RFC5234}} and {{!RFC5322}}.
+the conventions defined in {{!RFC5234}}.
 
 ~~~~~~~~~~
 body                   = signed / unsigned

@@ -586,7 +586,7 @@ Contact: https://example.com/security-contact.html
 <pre>
 Encryption: https://example.com/pgp-key.txt
 </pre>
-<p id="rfc.section.3.5.4.p.4">Example of an OpenPGP key available from an OPENPGPKEY DNS:</p>
+<p id="rfc.section.3.5.4.p.4">Example of an OpenPGP key available from an OPENPGPKEY DNS record:</p>
 <pre>
 Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 </pre>
@@ -716,7 +716,7 @@ Version: GnuPG v1
 <a href="#rfc.section.5">5.</a> <a href="#file-format-description-and-abnf-grammar" id="file-format-description-and-abnf-grammar">File Format Description and ABNF Grammar</a>
 </h1>
 <p id="rfc.section.5.p.1">The expected file format of the security.txt file is plain text (MIME type &#8220;text/plain&#8221;) as defined in section 4.1.3 of <a href="#RFC2046" class="xref">[RFC2046]</a> and is encoded using UTF-8 <a href="#RFC3629" class="xref">[RFC3629]</a> in Net-Unicode form <a href="#RFC5198" class="xref">[RFC5198]</a>.</p>
-<p id="rfc.section.5.p.2">The following is an ABNF definition of the security.txt format, using the conventions defined in <a href="#RFC5234" class="xref">[RFC5234]</a> and <a href="#RFC5322" class="xref">[RFC5322]</a>.</p>
+<p id="rfc.section.5.p.2">The following is an ABNF definition of the security.txt format, using the conventions defined in <a href="#RFC5234" class="xref">[RFC5234]</a>.</p>
 <pre>
 body                   = signed / unsigned
 
