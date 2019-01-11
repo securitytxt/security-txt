@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: July 14, 2019                          Nightwatch Cybersecurity
-                                                        January 10, 2019
+Expires: July 15, 2019                          Nightwatch Cybersecurity
+                                                        January 11, 2019
 
 
                    A Method for Web Security Policies
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 14, 2019.
+   This Internet-Draft will expire on July 15, 2019.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                 [Page 1]
+Foudil & Shafranovich     Expires July 15, 2019                 [Page 1]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                 [Page 2]
+Foudil & Shafranovich     Expires July 15, 2019                 [Page 2]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -165,7 +165,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                 [Page 3]
+Foudil & Shafranovich     Expires July 15, 2019                 [Page 3]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -196,7 +196,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    parameter set to "utf-8" per section 4.1.3 of [RFC2046], and it is
    RECOMMENDED that this file be served with "https" (as per section
    2.7.2 of [RFC7230]).  For file systems and version control
-   repositories a ".security.txt" file SHOULD be placed in the root
+   repositories a "security.txt" file SHOULD be placed in the root
    directory of a particular file system or source code project.
 
    This text file contains multiple directives with different values.
@@ -216,18 +216,18 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
    A "security.txt" file MUST only apply to the domain in the URI used
    to retrieve it, not to any of its subdomains or parent domains.  A
-   ".security.txt" file that is found in a file system or version
-   control repository MUST only apply to the folder or repository in
+   "security.txt" file that is found in a file system or version control
+   repository MUST only apply to the folder or repository in which it is
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                 [Page 4]
+Foudil & Shafranovich     Expires July 15, 2019                 [Page 4]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
 
-   which it is located, and not to any of its parent or sibling folders,
-   or repositories.  However, it will apply to all subfolders.
+   located, and not to any of its parent or sibling folders, or
+   repositories.  However, it will apply to all subfolders.
 
    Some examples appear below:
 
@@ -243,8 +243,8 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    # This security.txt file applies to IPv6 address of 2001:db8:8:4::2.
    https://[2001:db8:8:4::2]/.well-known/security.txt
 
-   # This .security.txt file applies to the /example/folder1 directory.
-   /example/folder1/.security.txt
+   # This security.txt file applies to the /example/folder1 directory.
+   /example/folder1/security.txt
 
 3.2.  Comments
 
@@ -277,7 +277,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                 [Page 5]
+Foudil & Shafranovich     Expires July 15, 2019                 [Page 5]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -333,7 +333,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                 [Page 6]
+Foudil & Shafranovich     Expires July 15, 2019                 [Page 6]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -389,7 +389,7 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                 [Page 7]
+Foudil & Shafranovich     Expires July 15, 2019                 [Page 7]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -445,7 +445,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                 [Page 8]
+Foudil & Shafranovich     Expires July 15, 2019                 [Page 8]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -501,7 +501,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                 [Page 9]
+Foudil & Shafranovich     Expires July 15, 2019                 [Page 9]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -522,7 +522,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
    |                        |
    |  +------------------+  |
    |  |                  |  |
-   |  |  /.security.txt  |  |
+   |  |  /security.txt   |  |
    |  |                  |  |
    |  +------------------+  |
    |                        |
@@ -539,17 +539,17 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 4.2.  Filesystems
 
-   File systems SHOULD place the ".security.txt" file under the root
-   directory; e.g., "/.security.txt", "C:.security.txt".
+   File systems SHOULD place the "security.txt" file under the root
+   directory; e.g., "/security.txt", "C:\security.txt".
 
    Example:
 
-   user:/$ ls -a
-   .security.txt
+   user:/$ ls -1
    example-directory-1/
    example-directory-2/
    example-directory-3/
    example-file
+   security.txt
 
 
 
@@ -557,14 +557,14 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                [Page 10]
+Foudil & Shafranovich     Expires July 15, 2019                [Page 10]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 4.3.  Internal hosts
 
-   A ".security.txt" file SHOULD be placed in the root directory of an
+   A "security.txt" file SHOULD be placed in the root directory of an
    internal host.
 
 4.4.  Extensibility
@@ -613,7 +613,7 @@ comment                = "#" *(WSP / VCHAR / %x80-FFFFF)
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                [Page 11]
+Foudil & Shafranovich     Expires July 15, 2019                [Page 11]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -669,7 +669,7 @@ unstructured           = <as per section 3.2.5 of {{RFC5322}}>
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                [Page 12]
+Foudil & Shafranovich     Expires July 15, 2019                [Page 12]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -725,7 +725,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                [Page 13]
+Foudil & Shafranovich     Expires July 15, 2019                [Page 13]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -781,7 +781,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                [Page 14]
+Foudil & Shafranovich     Expires July 15, 2019                [Page 14]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -837,7 +837,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                [Page 15]
+Foudil & Shafranovich     Expires July 15, 2019                [Page 15]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -893,7 +893,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                [Page 16]
+Foudil & Shafranovich     Expires July 15, 2019                [Page 16]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -949,7 +949,7 @@ Internet-Draft     A Method for Web Security Policies       January 2019
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                [Page 17]
+Foudil & Shafranovich     Expires July 15, 2019                [Page 17]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -1005,7 +1005,7 @@ B.1.  Since draft-foudil-securitytxt-00
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                [Page 18]
+Foudil & Shafranovich     Expires July 15, 2019                [Page 18]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -1061,7 +1061,7 @@ B.3.  Since draft-foudil-securitytxt-02
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                [Page 19]
+Foudil & Shafranovich     Expires July 15, 2019                [Page 19]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -1106,7 +1106,10 @@ B.5.  Since draft-foudil-securitytxt-04
 
    o  Adding canonical directive (#100)
 
-   o  Text and ABNF grammar improvementsm plus comments ABNF (#123)
+   o  Text and ABNF grammar improvements plus ABNF changes for comments
+      (#123)
+
+   o  Changed ".security.txt" to "security.txt" to be consistent
 
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt
@@ -1114,10 +1117,7 @@ B.5.  Since draft-foudil-securitytxt-04
 
 
 
-
-
-
-Foudil & Shafranovich     Expires July 14, 2019                [Page 20]
+Foudil & Shafranovich     Expires July 15, 2019                [Page 20]
 
 Internet-Draft     A Method for Web Security Policies       January 2019
 
@@ -1173,4 +1173,4 @@ Authors' Addresses
 
 
 
-Foudil & Shafranovich     Expires July 14, 2019                [Page 21]
+Foudil & Shafranovich     Expires July 15, 2019                [Page 21]
