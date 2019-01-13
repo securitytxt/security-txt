@@ -89,8 +89,11 @@ of a given web domain or IP address ("/security.txt") as a fall back option. For
 
 This text file contains multiple directives
 with different values. The "directive" is the first part of a field all the way up
-to the colon ("Contact:"). Directives MUST be case-insensitive (as per section 2.3 of {{!RFC5234}}).
-The "value" comes after the directive ("https://example.com/security").
+to the colon ("Contact:") and follows the syntax defined for "field-name" in section 3.6.8
+of {{!RFC5322}}. Directives MUST be case-insensitive (as per section 2.3 of {{!RFC5234}}).
+The "value" comes after the directive ("https://example.com/security") and follows the syntax
+defined for "unstructured" in section 3.2.5 of {{!RFC5322}}.
+
 A "field" MUST always consist of a directive and a value
 ("Contact: https://example.com/security"). A security.txt file
 can have an unlimited number of fields. It is important to note that
@@ -211,8 +214,10 @@ then it RECOMMENDED that it begins with "https://" (as per section 2.7.2 of {{!R
 Security email addresses SHOULD use the conventions defined in section
 4 of {{!RFC2142}}.
 
-The value MUST follow the general syntax described in {{!RFC3986}}.
-This means that "mailto" and "tel" URI schemes MUST be used when specifying email addresses and telephone numbers.
+The value MUST follow the URI syntax described in {{!RFC3986}}.
+This means that "mailto" and "tel" URI schemes MUST be used
+when specifying email addresses and telephone numbers, as defined in {{!RFC6068}}
+and {{!RFC3966}}.
 
 The precedence SHOULD be in listed order. The first field is the preferred
 method of contact. In the example below, the e-mail address is
@@ -413,58 +418,56 @@ The following is an ABNF definition of the security.txt format, using
 the conventions defined in {{!RFC5234}}.
 
 ~~~~~~~~~~
-body                   = signed / unsigned
+body             = signed / unsigned
 
-signed                 = sign-header unsigned sign-footer
+signed           = sign-header unsigned sign-footer
 
-sign-header            = <OpenPGP headers and empty line as per section 7 of {{!RFC4880}}>
+sign-header      = <headers and line from section 7 of [RFC4880]>
 
-sign-footer            = <OpenPGP ASCII armored signature as per section 7 of {{!RFC4880}}>
+sign-footer      = <OpenPGP signature from section 7 of [RFC4880]>
 
-unsigned               = *line (canonical-field eol) (preflang-field eol) *line
+unsigned         = *line (canonical-field eol) (lang-field eol) *line
 
-line                   = (field / comment) eol
+line             = (field / comment) eol
 
-eol                    = *WSP [CR] LF
+eol              = *WSP [CR] LF
 
-field                  = acknowledgments-field /
-                         contact-field /
-                         encryption-field /                         
-                         hiring-field /
-                         policy-field /
-                         ext-field
+field            = ack-field /
+                   contact-field /
+                   encryption-field /                         
+                   hiring-field /
+                   policy-field /
+                   ext-field
 
-fs                     = ":"
+fs               = ":"
 
-comment                = "#" *(WSP / VCHAR / %x80-FFFFF)
+comment          = "#" *(WSP / VCHAR / %x80-FFFFF)
 
-acknowledgments-field  = "Acknowledgments" fs SP uri
+ack-field        = "Acknowledgments" fs SP uri
 
-canonical-field        = "Canonical" fs SP uri
+canonical-field  = "Canonical" fs SP uri
 
-contact-field          = "Contact" fs SP (email / uri / phone)
+contact-field    = "Contact" fs SP uri
 
-email                  = <addr-spec as per section 3.4.1 of {{!RFC5322}}>
+lang-tag         = <Language-Tag from section 2.1 of [RFC5646]>
 
-lang-tag               = <Language-Tag as per section 2.1 of {{!RFC5646}}>
+uri              = <URI as per [RFC3986]>
 
-phone                  = <telephone-subscriber as per section 3 of {{!RFC3966}}>
+encryption-field = "Encryption" fs SP uri
 
-uri                    = <URI as per {{!RFC3986}}>
+hiring-field     = "Hiring" fs SP uri
 
-encryption-field       = "Encryption" fs SP uri
+policy-field     = "Policy" fs SP uri
 
-hiring-field           = "Hiring" fs SP uri
+lang-field       = "Preferred-Languages" fs SP lang-values
 
-policy-field           = "Policy" fs SP uri
+lang-values      = lang-tag *("," [WSP] lang-tag)
 
-preflang-field         = "Preferred-Languages" fs SP lang-tag *("," [WSP] lang-tag)
+ext-field        = field-name fs SP unstructured
 
-ext-field              = field-name fs SP unstructured
+field-name       = <imported from section 3.6.8 of [RFC5322]>
 
-field-name             = <as per section 3.6.8 of {{!RFC5322}}>
-
-unstructured           = <as per section 3.2.5 of {{!RFC5322}}>
+unstructured     = <imported from section 3.2.5 of [RFC5322]>
 ~~~~~~~~~~
 
 "ext-field" refers to extension fields, which are discussed in {{extensibility}}
@@ -549,7 +552,7 @@ The initial registry contains these values:
        Status: current
 
        Field Name: Contact
-       Description: contact information to use for reporting security vulnerabilities
+       Description: contact information to use for reporting vulnerabilities
        Multiple Appearances: Yes
        Published in: this document
        Status: current
