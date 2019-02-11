@@ -85,7 +85,7 @@ in disclosing security vulnerabilities.
 The file is named "security.txt", and this file SHOULD be placed under the
 /.well-known/ path ("/.well-known/security.txt") {{!RFC5785}} of a domain name or IP address for web
 properties. If it is not possible to place the security.txt file in the /.well-known/ path or setup a redirect, web-based services MAY place the file in the top-level path
-of a given web domain or IP address ("/security.txt") as a fall back option. For web-based services, the file MUST be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}, and it is RECOMMENDED that this file be served with "https" (as per section 2.7.2 of {{!RFC7230}}). For file systems and version control repositories a "security.txt" file SHOULD be placed in the root directory of a particular file system or source code project.
+of a given web domain or IP address ("/security.txt") as a fall back option. For web-based services, the file MUST be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}, and it MUST be served with "https" (as per section 2.7.2 of {{!RFC7230}}). For file systems and version control repositories a "security.txt" file SHOULD be placed in the root directory of a particular file system or source code project.
 
 This text file contains multiple directives
 with different values. The "directive" is the first part of a field all the way up
@@ -175,6 +175,9 @@ and worked with you to remediate the issue. Organizations SHOULD be careful
 to limit the vulnerability information being published in order
 to prevent future attacks.
 
+If this directive indicates a web URL, then it is RECOMMENDED to always use "https://" URLs
+(as per section 2.7.2 of {{!RFC7230}}).
+
 Example:
 
 ~~~~~~~~~~
@@ -196,6 +199,8 @@ We would like to thank the following researchers:
 
 This directive indicates the canonical URI where the security.txt file is located,
 which is usually something like "https://example.com/.well-known/security.txt".
+If this directive indicates a web URL, then it is RECOMMENDED to always use "https://" URLs
+(as per section 2.7.2 of {{!RFC7230}}).
 
 This directive MUST NOT appear more than once.
 
@@ -210,14 +215,15 @@ SHOULD use for reporting security
 vulnerabilities. The value MAY be an email address, a phone number and/or a
 web page with contact information. The "Contact:" directive MUST
 always be present in a security.txt file. If this directive indicates a web URL,
-then it RECOMMENDED that it begins with "https://" (as per section 2.7.2 of {{!RFC7230}}).
+then it MUST begin with "https://" (as per section 2.7.2 of {{!RFC7230}}).
 Security email addresses SHOULD use the conventions defined in section
 4 of {{!RFC2142}}.
 
 The value MUST follow the URI syntax described in {{!RFC3986}}.
 This means that "mailto" and "tel" URI schemes MUST be used
 when specifying email addresses and telephone numbers, as defined in {{!RFC6068}}
-and {{!RFC3966}}.
+and {{!RFC3966}}. When the value of this directive is an email address,
+it is RECOMMENDED that encryption be used (as per {{encryption}}).
 
 The precedence SHOULD be in listed order. The first field is the preferred
 method of contact. In the example below, the e-mail address is
@@ -235,7 +241,7 @@ This directive allows you to point to an encryption key that
 security researchers SHOULD use for encrypted communication. You MUST NOT
 directly add your key to the field, instead the value of this field
 MUST be a URI pointing to a location where the key can be retrieved from.
-If this directive indicates a web URL, then it is RECOMMENDED to always use "https://" URLs
+If this directive indicates a web URL, then it MUST always use "https://" URLs
 (as per section 2.7.2 of {{!RFC7230}}).
 
 When it comes to verifying the authenticity of the key, it is always the security
@@ -276,7 +282,7 @@ Hiring: https://example.com/jobs.html
 This directive allows you to link to where your security policy and/or
 disclosure policy is located. This can help security researchers understand
 what you are looking for and how to report security vulnerabilities.
-If this directive indicates a web URL, then it is RECOMMENDED to always use "https://" URLs
+If this directive indicates a web URL, then it MUST always use "https://" URLs
 (as per section 2.7.2 of {{!RFC7230}}).
 
 Example:
@@ -487,7 +493,7 @@ and controlled by the organization, and are kept secure.
 To ensure the authenticity of the security.txt file, organizations SHOULD
 digitally sign this file with OpenPGP as per {{signature}} and SHOULD also
 use the "Canonical" directive as per {{canonical}}.
-As stated in {{encryption}}, it is RECOMMENDED that encryption keys
+As stated in {{encryption}}, encryption keys MUST
 be loaded over HTTPS (as per section 2.7.2 of {{!RFC7230}}).
 
 Websites SHOULD reserve the security.txt namespace
@@ -659,6 +665,10 @@ of DNS-stored encryption keys (#28 and #94)
 - Adding canonical directive (#100)
 - Text and ABNF grammar improvements plus ABNF changes for comments (#123)
 - Changed ".security.txt" to "security.txt" to be consistent
+
+## Since draft-foudil-securitytxt-05
+- Changing HTTPS to MUST (#55)
+- Adding language recommending encryption for email reports (#134)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
