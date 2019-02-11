@@ -357,36 +357,11 @@ Version: GnuPG v1
 
 # Location of the security.txt file
 
-~~~~~~~~~~
-                          External
-+----------------------------------------------------------------+
-|              Default                                           |
-|  +-----------------------------+          +-----------------+  |
-|  |                             | Redirect |                 |  |
-|  |  /.well-known/security.txt  <----------+  /security.txt  |  |
-|  |                             |          |                 |  |
-|  +-----------------------------+          +-----------------+  |
-|                                                                |
-+----------------------------------------------------------------+
-
-        Internal
-+------------------------+
-|                        |
-|  +------------------+  |
-|  |                  |  |
-|  |  /security.txt   |  |
-|  |                  |  |
-|  +------------------+  |
-|                        |
-+------------------------+
-~~~~~~~~~~
-
 ## Web-based services
 
-Web-based services SHOULD place the security.txt file under the /.well-known/ path; e.g. https://example.com/.well-known/security.txt.
-A security.txt file located under the top-level path SHOULD either redirect (as per section 6.4 of {{!RFC7231}})
-to the security.txt file under the /.well-known/ path or be used as a fall back.
-
+Web-based services SHOULD place the security.txt file under the /.well-known/ path; e.g. https://example.com/.well-known/security.txt
+as per {{!RFC5785}}. A security.txt file located under the top-level path SHOULD either redirect (as per section 6.4 of {{!RFC7231}})
+to the security.txt file under the /.well-known/ path or be used as a fall back if the ".well-known" path cannot be used.
 
 ## Filesystems
 
