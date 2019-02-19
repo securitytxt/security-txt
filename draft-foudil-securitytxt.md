@@ -516,8 +516,7 @@ this file. Such resources and reports may be hostile, malformed or malicious.
 
 The presence of a security.txt file can be interpreted by researchers
 as providing permission to do security testing against that asset.
-this can lead to increased testing
-against an organization by researchers. On the other hand, a decision not
+This can lead to increased testing against an organization by researchers. On the other hand, a decision not
 to publish a security.txt file on a particular website, can be interpreted by the
 organization operating that website as a way to signal to researchers
 that permission to test that particular site is denied. This can lead to pushback against
