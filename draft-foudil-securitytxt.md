@@ -85,7 +85,9 @@ in disclosing security vulnerabilities.
 The file is named "security.txt", and this file SHOULD be placed under the
 /.well-known/ path ("/.well-known/security.txt") {{!RFC5785}} of a domain name or IP address for web
 properties. If it is not possible to place the security.txt file in the /.well-known/ path or setup a redirect, web-based services MAY place the file in the top-level path
-of a given web domain or IP address ("/security.txt") as a fall back option. For web-based services, the file MUST be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}, and it MUST be served with "https" (as per section 2.7.2 of {{!RFC7230}}). For file systems and version control repositories a "security.txt" file SHOULD be placed in the root directory of a particular file system or source code project.
+of a given web domain or IP address ("/security.txt") as a fall back option (see section {{weblocation}}).
+
+For web-based services, the file MUST be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}, and it MUST be served with "https" (as per section 2.7.2 of {{!RFC7230}}). For file systems and version control repositories a "security.txt" file SHOULD be placed in the root directory of a particular file system or source code project.
 
 This text file contains multiple directives
 with different values. The "directive" is the first part of a field all the way up
@@ -175,7 +177,7 @@ and worked with you to remediate the issue. Organizations SHOULD be careful
 to limit the vulnerability information being published in order
 to prevent future attacks.
 
-If this directive indicates a web URL, then it is RECOMMENDED to always use "https://" URLs
+If this directive indicates a web URL, then it MUST begin with "https://"
 (as per section 2.7.2 of {{!RFC7230}}).
 
 Example:
@@ -199,7 +201,7 @@ We would like to thank the following researchers:
 
 This directive indicates the canonical URI where the security.txt file is located,
 which is usually something like "https://example.com/.well-known/security.txt".
-If this directive indicates a web URL, then it is RECOMMENDED to always use "https://" URLs
+If this directive indicates a web URL, then it MUST begin with "https://"
 (as per section 2.7.2 of {{!RFC7230}}).
 
 This directive MUST NOT appear more than once.
@@ -241,7 +243,7 @@ This directive allows you to point to an encryption key that
 security researchers SHOULD use for encrypted communication. You MUST NOT
 directly add your key to the field, instead the value of this field
 MUST be a URI pointing to a location where the key can be retrieved from.
-If this directive indicates a web URL, then it MUST always use "https://" URLs
+If this directive indicates a web URL, then it MUST begin with "https://"
 (as per section 2.7.2 of {{!RFC7230}}).
 
 When it comes to verifying the authenticity of the key, it is always the security
@@ -270,7 +272,7 @@ Encryption: openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f
 ### Hiring {#hiring}
 
 The "Hiring" directive is used for linking to the vendor's security-related job positions.
-If this directive indicates a web URL, then it is RECOMMENDED to always use "https://" URLs
+If this directive indicates a web URL, then it MUST begin with "https://"
 (as per section 2.7.2 of {{!RFC7230}}).
 
 ~~~~~~~~~~
@@ -282,7 +284,7 @@ Hiring: https://example.com/jobs.html
 This directive allows you to link to where your security policy and/or
 disclosure policy is located. This can help security researchers understand
 what you are looking for and how to report security vulnerabilities.
-If this directive indicates a web URL, then it MUST always use "https://" URLs
+If this directive indicates a web URL, then it MUST begin with "https://"
 (as per section 2.7.2 of {{!RFC7230}}).
 
 Example:
@@ -357,11 +359,19 @@ Version: GnuPG v1
 
 # Location of the security.txt file
 
-## Web-based services
+## Web-based services {#weblocation}
 
 Web-based services SHOULD place the security.txt file under the /.well-known/ path; e.g. https://example.com/.well-known/security.txt
 as per {{!RFC5785}}. A security.txt file located under the top-level path SHOULD either redirect (as per section 6.4 of {{!RFC7231}})
 to the security.txt file under the /.well-known/ path or be used as a fall back if the ".well-known" path cannot be used.
+
+If retrieval of a "security.txt" file results in a redirect (as per
+section 6.4 of {{!RFC7231}}), the implementors MUST NOT follow
+redirects that lead to another domain or subdomain
+but MAY follow redirects within the same domain name
+(but not different subdomain on the same domain).
+
+This does not apply to resource locations that appear within the file.
 
 ## Filesystems
 
@@ -390,7 +400,10 @@ in {{registry}}. Any directives registered via that process MUST be
 considered optional. To encourage extensibility and interoperability,
 implementors MUST ignore any fields they do not explicitly support.
 
-# File Format Description and ABNF Grammar
+In general, implementors SHOULD "be conservative in what you do,
+be liberal in what you accept from others" (as per {{?RFC0793}}).
+
+# File Format Description and ABNF Grammar {#abnf}
 
 The expected file format of the security.txt file is plain text (MIME type "text/plain") as defined
 in section 4.1.3 of {{!RFC2046}} and is encoded using UTF-8 {{!RFC3629}} in Net-Unicode form {{!RFC5198}}.
@@ -453,26 +466,105 @@ unstructured     = <imported from section 3.2.5 of [RFC5322]>
 
 "ext-field" refers to extension fields, which are discussed in {{extensibility}}
 
-# Security considerations
+# Security Considerations
 
-Organizations creating security.txt files will need to consider several
-security-related issues. These include exposure
-to sensitive information and attacks where limited access to a server
-could grant the ability to modify the contents of the security.txt
-file or affect how it is served. Organizations SHOULD also monitor
-their security.txt files regularly to detect tampering. Organizations SHOULD
-also ensure that any resources such as web pages, email addresses and telephone
-numbers references by a "security.txt" file are kept current, are accessible
-and controlled by the organization, and are kept secure.
+## Compromised Files and Redirects
 
-To ensure the authenticity of the security.txt file, organizations SHOULD
-digitally sign this file with OpenPGP as per {{signature}} and SHOULD also
-use the "Canonical" directive as per {{canonical}}.
-As stated in {{encryption}}, encryption keys MUST
-be loaded over HTTPS (as per section 2.7.2 of {{!RFC7230}}).
+An attacker that has compromised a website is able to compromise
+the "security.txt" file as well or setup a redirect to their own site.
+This can result in security reports not being received by the organization
+or sent to the attacker.
 
-Websites SHOULD reserve the security.txt namespace
-to ensure no third-party can create a page with the "security.txt" name.
+To protect against this, organizations SHOULD digitally sign their "security.txt"
+files (as per {{signature}}), use the canonical directive to sign the location
+of the file (as per {{canonical}}), and regularly monitor the file and
+the referenced resources to detect tampering.
+
+Security researchers SHOULD check verify the "security.txt" including the
+signature and checking historical records before using the information. If
+the information in a "security.txt" file looks suspicious or compromised,
+it SHOULD NOT be used.
+
+To avoid redirect attacks, redirects for these files MUST NOT be followed
+if they lead to a different domain (as per {{weblocation}}).
+
+## Incorrect or Stale Information
+
+If information and resources referenced in a "security.txt" file are incorrect
+or not kept up to date, this can result in security reports not being received
+by the organization or sent to incorrect contacts, thus exposing possible
+security issues to third parties.
+
+Organizations SHOULD ensure that any this file and any resources such as web pages,
+email addresses and telephone numbers references by a "security.txt"
+file are kept current, are accessible, controlled by the organization,
+and are kept secure.
+
+## Intentionally Malformed Files, Resources and Reports
+
+It is possible for attackers to generate files that are extraordinarily
+large or otherwise malformed in an attempt to discover or exploit weaknesses
+in parsing code. Implementors SHOULD make sure that any such code
+be robust against large and malformed files. ABNF grammar (as defined in
+{{abnf}}) SHOULD be used a way to verify these files.
+
+Same concerns apply to any other resources referenced within security.txt
+files, as well as any security reports received as the result of publishing
+this file. Such resources and reports may be hostile, malformed or malicious.
+
+## No Implied Permission for Testing
+
+The presence of a security.txt file can be interpreted as providing permission
+to do security testing against that asset. This can lead to increased testing
+against an organization by researchers. On the other hand, a decision not
+to publish a security.txt file can be interpreted by an organization as
+signaling to researchers that permission to test is denied.
+This can lead to pushback against researchers reporting security issues
+to organization.
+
+Therefore implementors MUST NOT assume that presence or absence
+of a security.txt files grants or denies permission for security testing.
+Any such permission MAY be defined in a security or disclosure policy
+(as per {{policy}}) or a new directive (as per {{extensibility}}).
+
+## Multi-user Environments
+
+In multi-user / multi-tenant environments, it may possible for a user to take
+over the location of the "security.txt" file. Organizations SHOULD reserve
+the "security.txt" namespace to ensure no third-party can create a page with
+the "security.txt" AND "/.well-known/security.txt" names.
+
+## Protecting Data in Transit
+
+To protect security.txt file from being tampered in transit, implementors MUST use
+HTTPS for the file itself and any web URLs referenced in it (except as noted in
+this specification). Implementors MUST also perform the correct TLS
+verification (as per {{!RFC6125}}).
+
+As an additional layer of protection. it is also RECOMMENDED that
+organizations digitally sign this file with OpenPGP (as per {{signature}}).
+Also, to protect security reports from being tampered or seen while in transit,
+organizations SHOULD specify encryption keys (as per {{encryption}}) unless
+HTTPS is being used.
+
+However, the determination of validity of keys being used is out of scope
+for this specification. Implementors MUST establish other secure means to
+verify these keys.
+
+## Spam and Spurious Reports
+
+Similar to concerns in {{!RFC2142}}, denial of service attacks via spam reports
+would become easier once a "security.txt" file is published by
+an organization. In addition, there is an increased likelihood of reports
+being sent in an automated fashion and/or as result of automated scans without
+human triage.
+
+Organizations SHOULD weigh the advantages of publishing this file versus
+the possible disadvantages and increased resources required to triage
+security reports.
+
+Security researchers MUST NOT send reports in an automated
+fashion or as results of automated scans until human triage has been done.
 
 # IANA Considerations
 
@@ -644,6 +736,8 @@ of DNS-stored encryption keys (#28 and #94)
 ## Since draft-foudil-securitytxt-05
 - Changing HTTPS to MUST (#55)
 - Adding language recommending encryption for email reports (#134)
+- Added language handling redirects (#143)
+- Expanded security considerations section (#30, #73, #103, #112)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
