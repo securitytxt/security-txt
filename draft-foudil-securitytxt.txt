@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: August 22, 2019                        Nightwatch Cybersecurity
-                                                       February 18, 2019
+Expires: August 23, 2019                        Nightwatch Cybersecurity
+                                                       February 19, 2019
 
 
                    A Method for Web Security Policies
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on August 22, 2019.
+   This Internet-Draft will expire on August 23, 2019.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich    Expires August 22, 2019                [Page 1]
+Foudil & Shafranovich    Expires August 23, 2019                [Page 1]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
@@ -94,7 +94,7 @@ Table of Contents
      6.3.  Intentionally Malformed Files, Resources and Reports  . .  13
      6.4.  No Implied Permission for Testing . . . . . . . . . . . .  13
      6.5.  Multi-user Environments . . . . . . . . . . . . . . . . .  13
-     6.6.  Protecting Data in Transit  . . . . . . . . . . . . . . .  13
+     6.6.  Protecting Data in Transit  . . . . . . . . . . . . . . .  14
      6.7.  Spam and Spurious Reports . . . . . . . . . . . . . . . .  14
    7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  14
      7.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .  14
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Foudil & Shafranovich    Expires August 22, 2019                [Page 2]
+Foudil & Shafranovich    Expires August 23, 2019                [Page 2]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
@@ -165,7 +165,7 @@ Internet-Draft     A Method for Web Security Policies      February 2019
 
 
 
-Foudil & Shafranovich    Expires August 22, 2019                [Page 3]
+Foudil & Shafranovich    Expires August 23, 2019                [Page 3]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
@@ -198,7 +198,7 @@ Internet-Draft     A Method for Web Security Policies      February 2019
    possible to place the security.txt file in the /.well-known/ path or
    setup a redirect, web-based services MAY place the file in the top-
    level path of a given web domain or IP address ("/security.txt") as a
-   fall back option (see section Section 4.1).
+   fallback option (see section Section 4.1).
 
    For web-based services, the file MUST be accessible via the Hypertext
    Transfer Protocol [RFC1945] as a resource of Internet Media Type
@@ -221,7 +221,7 @@ Internet-Draft     A Method for Web Security Policies      February 2019
 
 
 
-Foudil & Shafranovich    Expires August 22, 2019                [Page 4]
+Foudil & Shafranovich    Expires August 23, 2019                [Page 4]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
@@ -277,7 +277,7 @@ Internet-Draft     A Method for Web Security Policies      February 2019
 
 
 
-Foudil & Shafranovich    Expires August 22, 2019                [Page 5]
+Foudil & Shafranovich    Expires August 23, 2019                [Page 5]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
@@ -333,7 +333,7 @@ Internet-Draft     A Method for Web Security Policies      February 2019
 
 
 
-Foudil & Shafranovich    Expires August 22, 2019                [Page 6]
+Foudil & Shafranovich    Expires August 23, 2019                [Page 6]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
@@ -389,7 +389,7 @@ Internet-Draft     A Method for Web Security Policies      February 2019
 
 
 
-Foudil & Shafranovich    Expires August 22, 2019                [Page 7]
+Foudil & Shafranovich    Expires August 23, 2019                [Page 7]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
@@ -445,7 +445,7 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
 
 
-Foudil & Shafranovich    Expires August 22, 2019                [Page 8]
+Foudil & Shafranovich    Expires August 23, 2019                [Page 8]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
@@ -501,7 +501,7 @@ Internet-Draft     A Method for Web Security Policies      February 2019
 
 
 
-Foudil & Shafranovich    Expires August 22, 2019                [Page 9]
+Foudil & Shafranovich    Expires August 23, 2019                [Page 9]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
@@ -514,12 +514,12 @@ Internet-Draft     A Method for Web Security Policies      February 2019
    /.well-known/ path; e.g. https://example.com/.well-known/security.txt
    as per [RFC5785].  A security.txt file located under the top-level
    path SHOULD either redirect (as per section 6.4 of [RFC7231]) to the
-   security.txt file under the /.well-known/ path or be used as a fall
-   back if the ".well-known" path cannot be used.
+   security.txt file under the /.well-known/ path or be used as a
+   fallback if the ".well-known" path cannot be used.
 
    If retrieval of a "security.txt" file results in a redirect (as per
    section 6.4 of [RFC7231]), the implementors MUST NOT follow redirects
-   that lead to another domain or subdomain but MAY follow redirects
+   that lead to another domain or subdomain but SHOULD follow redirects
    within the same domain name (but not different subdomain on the same
    domain).
 
@@ -557,7 +557,7 @@ Internet-Draft     A Method for Web Security Policies      February 2019
 
 
 
-Foudil & Shafranovich    Expires August 22, 2019               [Page 10]
+Foudil & Shafranovich    Expires August 23, 2019               [Page 10]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
@@ -613,7 +613,7 @@ Internet-Draft     A Method for Web Security Policies      February 2019
 
 
 
-Foudil & Shafranovich    Expires August 22, 2019               [Page 11]
+Foudil & Shafranovich    Expires August 23, 2019               [Page 11]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
@@ -650,10 +650,11 @@ Internet-Draft     A Method for Web Security Policies      February 2019
    and regularly monitor the file and the referenced resources to detect
    tampering.
 
-   Security researchers SHOULD check verify the "security.txt" including
-   the signature and checking historical records before using the
-   information.  If the information in a "security.txt" file looks
-   suspicious or compromised, it SHOULD NOT be used.
+   Security researchers SHOULD check the "security.txt" including
+   verifying the digital signature and checking historical records
+   before using the information contained in the file.  If
+   "security.txt" file looks suspicious or compromised, it SHOULD NOT be
+   used.
 
    To avoid redirect attacks, redirects for these files MUST NOT be
    followed if they lead to a different domain (as per Section 4.1).
@@ -668,16 +669,15 @@ Internet-Draft     A Method for Web Security Policies      February 2019
 
 
 
-
-Foudil & Shafranovich    Expires August 22, 2019               [Page 12]
+Foudil & Shafranovich    Expires August 23, 2019               [Page 12]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
 
-   Organizations SHOULD ensure that any this file and any resources such
-   as web pages, email addresses and telephone numbers references by a
-   "security.txt" file are kept current, are accessible, controlled by
-   the organization, and are kept secure.
+   Organizations SHOULD ensure that information in this file and any
+   referenced resources such as web pages, email addresses and telephone
+   numbers are kept current, are accessible, controlled by the
+   organization, and are kept secure.
 
 6.3.  Intentionally Malformed Files, Resources and Reports
 
@@ -695,16 +695,18 @@ Internet-Draft     A Method for Web Security Policies      February 2019
 
 6.4.  No Implied Permission for Testing
 
-   The presence of a security.txt file can be interpreted as providing
-   permission to do security testing against that asset.  This can lead
-   to increased testing against an organization by researchers.  On the
-   other hand, a decision not to publish a security.txt file can be
-   interpreted by an organization as signaling to researchers that
-   permission to test is denied.  This can lead to pushback against
-   researchers reporting security issues to organization.
+   The presence of a security.txt file can be interpreted by researchers
+   as providing permission to do security testing against that asset.
+   this can lead to increased testing against an organization by
+   researchers.  On the other hand, a decision not to publish a
+   security.txt file on a particular website, can be interpreted by the
+   organization operating that website as a way to signal to researchers
+   that permission to test that particular site is denied.  This can
+   lead to pushback against researchers reporting security issues to
+   that organization.
 
    Therefore implementors MUST NOT assume that presence or absence of a
-   security.txt files grants or denies permission for security testing.
+   "security.txt" file grants or denies permission for security testing.
    Any such permission MAY be defined in a security or disclosure policy
    (as per Section 3.5.6) or a new directive (as per Section 4.4).
 
@@ -716,20 +718,23 @@ Internet-Draft     A Method for Web Security Policies      February 2019
    can create a page with the "security.txt" AND "/.well-known/
    security.txt" names.
 
-6.6.  Protecting Data in Transit
-
-   To protect security.txt file from being tampered in transit,
-   implementors MUST use HTTPS for the file itself and any web URLs
-   referenced in it (except as noted in this specification).
 
 
 
 
-Foudil & Shafranovich    Expires August 22, 2019               [Page 13]
+
+
+
+Foudil & Shafranovich    Expires August 23, 2019               [Page 13]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
 
+6.6.  Protecting Data in Transit
+
+   To protect a "security.txt" file from being tampered in transit,
+   implementors MUST use HTTPS for the file itself and any web URLs
+   referenced in it (except as noted in this specification).
    Implementors MUST also perform the correct TLS verification (as per
    [RFC6125]).
 
@@ -773,18 +778,17 @@ Internet-Draft     A Method for Web Security Policies      February 2019
 
    URI suffix: security.txt
 
-   Change controller: IETF
-
-   Specification document(s): this document
 
 
 
-
-
-Foudil & Shafranovich    Expires August 22, 2019               [Page 14]
+Foudil & Shafranovich    Expires August 23, 2019               [Page 14]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
+
+   Change controller: IETF
+
+   Specification document(s): this document
 
 7.2.  Registry for security.txt Header Fields
 
@@ -833,11 +837,7 @@ Internet-Draft     A Method for Web Security Policies      February 2019
 
 
 
-
-
-
-
-Foudil & Shafranovich    Expires August 22, 2019               [Page 15]
+Foudil & Shafranovich    Expires August 23, 2019               [Page 15]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
@@ -893,7 +893,7 @@ Internet-Draft     A Method for Web Security Policies      February 2019
 
 
 
-Foudil & Shafranovich    Expires August 22, 2019               [Page 16]
+Foudil & Shafranovich    Expires August 23, 2019               [Page 16]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
@@ -949,7 +949,7 @@ Internet-Draft     A Method for Web Security Policies      February 2019
 
 
 
-Foudil & Shafranovich    Expires August 22, 2019               [Page 17]
+Foudil & Shafranovich    Expires August 23, 2019               [Page 17]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
@@ -1005,7 +1005,7 @@ Internet-Draft     A Method for Web Security Policies      February 2019
 
 
 
-Foudil & Shafranovich    Expires August 22, 2019               [Page 18]
+Foudil & Shafranovich    Expires August 23, 2019               [Page 18]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
@@ -1061,7 +1061,7 @@ Appendix A.  Note to Readers
 
 
 
-Foudil & Shafranovich    Expires August 22, 2019               [Page 19]
+Foudil & Shafranovich    Expires August 23, 2019               [Page 19]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
@@ -1117,7 +1117,7 @@ B.2.  Since draft-foudil-securitytxt-01
 
 
 
-Foudil & Shafranovich    Expires August 22, 2019               [Page 20]
+Foudil & Shafranovich    Expires August 23, 2019               [Page 20]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
@@ -1128,7 +1128,7 @@ B.3.  Since draft-foudil-securitytxt-02
 
    o  Fix typo in the "Example" section (#64)
 
-   o  Clarified that the root directory is a fall back option (#72)
+   o  Clarified that the root directory is a fallback option (#72)
 
    o  Defined content-type for the response (#68)
 
@@ -1173,7 +1173,7 @@ B.5.  Since draft-foudil-securitytxt-04
 
 
 
-Foudil & Shafranovich    Expires August 22, 2019               [Page 21]
+Foudil & Shafranovich    Expires August 23, 2019               [Page 21]
 
 Internet-Draft     A Method for Web Security Policies      February 2019
 
@@ -1229,4 +1229,4 @@ Authors' Addresses
 
 
 
-Foudil & Shafranovich    Expires August 22, 2019               [Page 22]
+Foudil & Shafranovich    Expires August 23, 2019               [Page 22]
