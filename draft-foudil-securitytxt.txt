@@ -700,10 +700,10 @@ Internet-Draft     A Method for Web Security Policies      February 2019
    This can lead to increased testing against an organization by
    researchers.  On the other hand, a decision not to publish a
    security.txt file on a particular website, can be interpreted by the
-   organization operating that website as a way to signal to researchers
-   that permission to test that particular site is denied.  This can
-   lead to pushback against researchers reporting security issues to
-   that organization.
+   organization operating that website to be a way to signal to
+   researchers that permission to test that particular site is denied.
+   This can lead to pushback against researchers reporting security
+   issues to that organization.
 
    Therefore implementors MUST NOT assume that presence or absence of a
    "security.txt" file grants or denies permission for security testing.
