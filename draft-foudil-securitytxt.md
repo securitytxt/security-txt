@@ -85,7 +85,7 @@ in disclosing security vulnerabilities.
 The file is named "security.txt", and this file SHOULD be placed under the
 /.well-known/ path ("/.well-known/security.txt") {{!RFC5785}} of a domain name or IP address for web
 properties. If it is not possible to place the security.txt file in the /.well-known/ path or setup a redirect, web-based services MAY place the file in the top-level path
-of a given web domain or IP address ("/security.txt") as a fall back option (see section {{weblocation}}).
+of a given web domain or IP address ("/security.txt") as a fallback option (see section {{weblocation}}).
 
 For web-based services, the file MUST be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}, and it MUST be served with "https" (as per section 2.7.2 of {{!RFC7230}}). For file systems and version control repositories a "security.txt" file SHOULD be placed in the root directory of a particular file system or source code project.
 
@@ -363,12 +363,12 @@ Version: GnuPG v1
 
 Web-based services SHOULD place the security.txt file under the /.well-known/ path; e.g. https://example.com/.well-known/security.txt
 as per {{!RFC5785}}. A security.txt file located under the top-level path SHOULD either redirect (as per section 6.4 of {{!RFC7231}})
-to the security.txt file under the /.well-known/ path or be used as a fall back if the ".well-known" path cannot be used.
+to the security.txt file under the /.well-known/ path or be used as a fallback if the ".well-known" path cannot be used.
 
 If retrieval of a "security.txt" file results in a redirect (as per
 section 6.4 of {{!RFC7231}}), the implementors MUST NOT follow
 redirects that lead to another domain or subdomain
-but MAY follow redirects within the same domain name
+but SHOULD follow redirects within the same domain name
 (but not different subdomain on the same domain).
 
 This does not apply to resource locations that appear within the file.
@@ -480,9 +480,9 @@ files (as per {{signature}}), use the canonical directive to sign the location
 of the file (as per {{canonical}}), and regularly monitor the file and
 the referenced resources to detect tampering.
 
-Security researchers SHOULD check verify the "security.txt" including the
-signature and checking historical records before using the information. If
-the information in a "security.txt" file looks suspicious or compromised,
+Security researchers SHOULD check the "security.txt" including verifying
+the digital signature and checking historical records before using the information
+contained in the file. If "security.txt" file looks suspicious or compromised,
 it SHOULD NOT be used.
 
 To avoid redirect attacks, redirects for these files MUST NOT be followed
@@ -495,9 +495,9 @@ or not kept up to date, this can result in security reports not being received
 by the organization or sent to incorrect contacts, thus exposing possible
 security issues to third parties.
 
-Organizations SHOULD ensure that any this file and any resources such as web pages,
-email addresses and telephone numbers references by a "security.txt"
-file are kept current, are accessible, controlled by the organization,
+Organizations SHOULD ensure that information in this file and any referenced
+resources such as web pages, email addresses and telephone numbers
+are kept current, are accessible, controlled by the organization,
 and are kept secure.
 
 ## Intentionally Malformed Files, Resources and Reports
@@ -514,16 +514,17 @@ this file. Such resources and reports may be hostile, malformed or malicious.
 
 ## No Implied Permission for Testing
 
-The presence of a security.txt file can be interpreted as providing permission
-to do security testing against that asset. This can lead to increased testing
+The presence of a security.txt file can be interpreted by researchers
+as providing permission to do security testing against that asset.
+this can lead to increased testing
 against an organization by researchers. On the other hand, a decision not
-to publish a security.txt file can be interpreted by an organization as
-signaling to researchers that permission to test is denied.
-This can lead to pushback against researchers reporting security issues
-to organization.
+to publish a security.txt file on a particular website, can be interpreted by the
+organization operating that website as a way to signal to researchers
+that permission to test that particular site is denied. This can lead to pushback against
+researchers reporting security issues to that organization.
 
-Therefore implementors MUST NOT assume that presence or absence
-of a security.txt files grants or denies permission for security testing.
+Therefore implementors MUST NOT assume that presence or absence of
+a "security.txt" file grants or denies permission for security testing.
 Any such permission MAY be defined in a security or disclosure policy
 (as per {{policy}}) or a new directive (as per {{extensibility}}).
 
@@ -536,7 +537,7 @@ the "security.txt" AND "/.well-known/security.txt" names.
 
 ## Protecting Data in Transit
 
-To protect security.txt file from being tampered in transit, implementors MUST use
+To protect a "security.txt" file from being tampered in transit, implementors MUST use
 HTTPS for the file itself and any web URLs referenced in it (except as noted in
 this specification). Implementors MUST also perform the correct TLS
 verification (as per {{!RFC6125}}).
@@ -703,7 +704,7 @@ https://tools.ietf.org/html/draft-foudil-securitytxt-02
 ## Since draft-foudil-securitytxt-02
 - Use "mailto" and "tel" (#62)
 - Fix typo in the "Example" section (#64)
-- Clarified that the root directory is a fall back option (#72)
+- Clarified that the root directory is a fallback option (#72)
 - Defined content-type for the response (#68)
 - Clarify the scope of the security.txt file (#69)
 - Cleaning up text based on the NITS tools suggestions (#82)
