@@ -480,8 +480,8 @@ files (as per {{signature}}), use the canonical directive to sign the location
 of the file (as per {{canonical}}), and regularly monitor the file and
 the referenced resources to detect tampering.
 
-Security researchers SHOULD check the "security.txt" including verifying
-the digital signature and checking historical records before using the information
+Security researchers SHOULD check the "security.txt" file including verifying
+the digital signature and checking any available historical records before using the information
 contained in the file. If "security.txt" file looks suspicious or compromised,
 it SHOULD NOT be used.
 
@@ -506,10 +506,10 @@ It is possible for attackers to generate files that are extraordinarily
 large or otherwise malformed in an attempt to discover or exploit weaknesses
 in parsing code. Implementors SHOULD make sure that any such code
 be robust against large and malformed files. ABNF grammar (as defined in
-{{abnf}}) SHOULD be used a way to verify these files.
+{{abnf}}) SHOULD be used as a way to verify these files.
 
 Same concerns apply to any other resources referenced within security.txt
-files, as well as any security reports received as the result of publishing
+files, as well as any security reports received as a result of publishing
 this file. Such resources and reports may be hostile, malformed or malicious.
 
 ## No Implied Permission for Testing
@@ -517,12 +517,12 @@ this file. Such resources and reports may be hostile, malformed or malicious.
 The presence of a security.txt file can be interpreted by researchers
 as providing permission to do security testing against that asset.
 This can lead to increased testing against an organization by researchers. On the other hand, a decision not
-to publish a security.txt file on a particular website, can be interpreted by the
+to publish a security.txt file, can be interpreted by the
 organization operating that website to be a way to signal to researchers
-that permission to test that particular site is denied. This can lead to pushback against
+that permission to test that particular site or project is denied. This can lead to pushback against
 researchers reporting security issues to that organization.
 
-Therefore implementors MUST NOT assume that presence or absence of
+Therefore, implementors MUST NOT assume that presence or absence of
 a "security.txt" file grants or denies permission for security testing.
 Any such permission MAY be defined in a security or disclosure policy
 (as per {{policy}}) or a new directive (as per {{extensibility}}).
@@ -537,13 +537,13 @@ the "security.txt" AND "/.well-known/security.txt" names.
 ## Protecting Data in Transit
 
 To protect a "security.txt" file from being tampered in transit, implementors MUST use
-HTTPS for the file itself and any web URLs referenced in it (except as noted in
+HTTPS when serving the file itself and any web URLs referenced in it (except as noted in
 this specification). Implementors MUST also perform the correct TLS
 verification (as per {{!RFC6125}}).
 
-As an additional layer of protection. it is also RECOMMENDED that
-organizations digitally sign this file with OpenPGP (as per {{signature}}).
-Also, to protect security reports from being tampered or seen while in transit,
+As an additional layer of protection, it is also RECOMMENDED that
+organizations digitally sign their "security.txt" file with OpenPGP (as per {{signature}}).
+Also, to protect security reports from being tampered with or seen while in transit,
 organizations SHOULD specify encryption keys (as per {{encryption}}) unless
 HTTPS is being used.
 
@@ -737,7 +737,7 @@ of DNS-stored encryption keys (#28 and #94)
 - Changing HTTPS to MUST (#55)
 - Adding language recommending encryption for email reports (#134)
 - Added language handling redirects (#143)
-- Expanded security considerations section (#30, #73, #103, #112)
+- Expanded security considerations section and fixed typos (#30, #73, #103, #112)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
