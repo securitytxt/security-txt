@@ -810,14 +810,14 @@ unstructured     = &lt;imported from section 3.2.5 of [RFC5322]&gt;
 <a href="#rfc.section.6.6">6.6.</a> <a href="#protecting-data-in-transit" id="protecting-data-in-transit">Protecting Data in Transit</a>
 </h1>
 <p id="rfc.section.6.6.p.1">To protect a &#8220;security.txt&#8221; file from being tampered in transit, implementors MUST use HTTPS when serving the file itself and any web URLs referenced in it (except as noted in this specification). Implementors MUST also perform the correct TLS verification (as per <a href="#RFC6125" class="xref">[RFC6125]</a>).</p>
-<p id="rfc.section.6.6.p.2">As an additional layer of protection, it is also RECOMMENDED that organizations digitally sign their &#8220;security.txt&#8221; file with OpenPGP (as per <a href="#signature" class="xref">Section 3.4</a>).  Also, to protect security reports from being tampered with or seen while in transit, organizations SHOULD specify encryption keys (as per <a href="#encryption" class="xref">Section 3.5.4</a>) unless HTTPS is being used.</p>
+<p id="rfc.section.6.6.p.2">As an additional layer of protection, it is also RECOMMENDED that organizations digitally sign their &#8220;security.txt&#8221; file with OpenPGP (as per <a href="#signature" class="xref">Section 3.4</a>).  Also, to protect security reports from being tampered with or observed while in transit, organizations SHOULD specify encryption keys (as per <a href="#encryption" class="xref">Section 3.5.4</a>) unless HTTPS is being used.</p>
 <p id="rfc.section.6.6.p.3">However, the determination of validity of keys being used is out of scope for this specification. Implementors MUST establish other secure means to verify these keys.</p>
 <h1 id="rfc.section.6.7">
 <a href="#rfc.section.6.7">6.7.</a> <a href="#spam-and-spurious-reports" id="spam-and-spurious-reports">Spam and Spurious Reports</a>
 </h1>
 <p id="rfc.section.6.7.p.1">Similar to concerns in <a href="#RFC2142" class="xref">[RFC2142]</a>, denial of service attacks via spam reports would become easier once a &#8220;security.txt&#8221; file is published by an organization. In addition, there is an increased likelihood of reports being sent in an automated fashion and/or as result of automated scans without human triage.</p>
 <p id="rfc.section.6.7.p.2">Organizations SHOULD weigh the advantages of publishing this file versus the possible disadvantages and increased resources required to triage security reports.</p>
-<p id="rfc.section.6.7.p.3">Security researchers MUST NOT send reports in an automated fashion or as results of automated scans until human triage has been done.</p>
+<p id="rfc.section.6.7.p.3">Security researchers SHOULD consult the organization&#8217;s policy, if available, before submitting reports in an automated fashion or as resulting from automated scans.</p>
 <h1 id="rfc.section.7">
 <a href="#rfc.section.7">7.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a>
 </h1>

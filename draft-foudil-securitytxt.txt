@@ -741,8 +741,9 @@ Internet-Draft     A Method for Web Security Policies         March 2019
    As an additional layer of protection, it is also RECOMMENDED that
    organizations digitally sign their "security.txt" file with OpenPGP
    (as per Section 3.4).  Also, to protect security reports from being
-   tampered with or seen while in transit, organizations SHOULD specify
-   encryption keys (as per Section 3.5.4) unless HTTPS is being used.
+   tampered with or observed while in transit, organizations SHOULD
+   specify encryption keys (as per Section 3.5.4) unless HTTPS is being
+   used.
 
    However, the determination of validity of keys being used is out of
    scope for this specification.  Implementors MUST establish other
@@ -760,8 +761,9 @@ Internet-Draft     A Method for Web Security Policies         March 2019
    versus the possible disadvantages and increased resources required to
    triage security reports.
 
-   Security researchers MUST NOT send reports in an automated fashion or
-   as results of automated scans until human triage has been done.
+   Security researchers SHOULD consult the organization's policy, if
+   available, before submitting reports in an automated fashion or as
+   resulting from automated scans.
 
 7.  IANA Considerations
 
@@ -776,8 +778,6 @@ Internet-Draft     A Method for Web Security Policies         March 2019
    The "Well-Known URIs" registry should be updated with the following
    additional values (using the template from [RFC5785]):
 
-   URI suffix: security.txt
-
 
 
 
@@ -785,6 +785,8 @@ Foudil & Shafranovich  Expires September 13, 2019              [Page 14]
 
 Internet-Draft     A Method for Web Security Policies         March 2019
 
+
+   URI suffix: security.txt
 
    Change controller: IETF
 
@@ -821,8 +823,6 @@ Internet-Draft     A Method for Web Security Policies         March 2019
    that a registered field is historical or deprecated if appropriate.
 
    The initial registry contains these values:
-
-
 
 
 

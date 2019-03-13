@@ -543,7 +543,7 @@ verification (as per {{!RFC6125}}).
 
 As an additional layer of protection, it is also RECOMMENDED that
 organizations digitally sign their "security.txt" file with OpenPGP (as per {{signature}}).
-Also, to protect security reports from being tampered with or seen while in transit,
+Also, to protect security reports from being tampered with or observed while in transit,
 organizations SHOULD specify encryption keys (as per {{encryption}}) unless
 HTTPS is being used.
 
@@ -563,8 +563,9 @@ Organizations SHOULD weigh the advantages of publishing this file versus
 the possible disadvantages and increased resources required to triage
 security reports.
 
-Security researchers MUST NOT send reports in an automated
-fashion or as results of automated scans until human triage has been done.
+Security researchers SHOULD consult the organization's policy, if available,
+before submitting reports in an automated fashion or as resulting from
+automated scans.
 
 # IANA Considerations
 
