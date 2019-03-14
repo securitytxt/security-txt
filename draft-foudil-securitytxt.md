@@ -228,7 +228,7 @@ and {{!RFC3966}}. When the value of this directive is an email address,
 it is RECOMMENDED that encryption be used (as per {{encryption}}).
 
 The precedence SHOULD be in listed order. The first field is the preferred
-method of contact. In the example below, the e-mail address is
+method of contact. In the example below, the email address is
 the preferred method of contact.
 
 ~~~~~~~~~~
