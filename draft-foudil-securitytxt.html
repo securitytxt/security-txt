@@ -598,7 +598,7 @@ Canonical: https://example.com/.well-known/security.txt
 </h1>
 <p id="rfc.section.3.5.3.p.1">This directive allows you to provide an address that researchers SHOULD use for reporting security vulnerabilities. The value MAY be an email address, a phone number and/or a web page with contact information. The &#8220;Contact:&#8221; directive MUST always be present in a security.txt file. If this directive indicates a web URL, then it MUST begin with &#8220;https://&#8221; (as per section 2.7.2 of <a href="#RFC7230" class="xref">[RFC7230]</a>).  Security email addresses SHOULD use the conventions defined in section 4 of <a href="#RFC2142" class="xref">[RFC2142]</a>.</p>
 <p id="rfc.section.3.5.3.p.2">The value MUST follow the URI syntax described in <a href="#RFC3986" class="xref">[RFC3986]</a>.  This means that &#8220;mailto&#8221; and &#8220;tel&#8221; URI schemes MUST be used when specifying email addresses and telephone numbers, as defined in <a href="#RFC6068" class="xref">[RFC6068]</a> and <a href="#RFC3966" class="xref">[RFC3966]</a>. When the value of this directive is an email address, it is RECOMMENDED that encryption be used (as per <a href="#encryption" class="xref">Section 3.5.4</a>).</p>
-<p id="rfc.section.3.5.3.p.3">The precedence SHOULD be in listed order. The first field is the preferred method of contact. In the example below, the e-mail address is the preferred method of contact.</p>
+<p id="rfc.section.3.5.3.p.3">The precedence SHOULD be in listed order. The first field is the preferred method of contact. In the example below, the email address is the preferred method of contact.</p>
 <pre>
 Contact: mailto:security@example.com
 Contact: tel:+1-201-555-0123

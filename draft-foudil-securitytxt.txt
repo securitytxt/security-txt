@@ -369,8 +369,8 @@ Internet-Draft     A Method for Web Security Policies         March 2019
    Section 3.5.4).
 
    The precedence SHOULD be in listed order.  The first field is the
-   preferred method of contact.  In the example below, the e-mail
-   address is the preferred method of contact.
+   preferred method of contact.  In the example below, the email address
+   is the preferred method of contact.
 
    Contact: mailto:security@example.com
    Contact: tel:+1-201-555-0123
