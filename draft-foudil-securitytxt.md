@@ -659,8 +659,7 @@ The initial registry contains these values:
 
 The authors would like to acknowledge the help provided during the
 development of this document by Tom Hudson, Jobert Abma,
-Gerben Janssen van Doorn, Austin Heap, Stephane Bortzmeyer, Eduardo Vela
-and Krzysztof Kotowicz.
+Gerben Janssen van Doorn, Austin Heap, Stephane Bortzmeyer, Max Smith, Eduardo Vela and Krzysztof Kotowicz.
 
 
 The authors would also like to acknowledge the feedback provided by multiple members of IETF's SAAG and SEC-DISPATCH lists.
