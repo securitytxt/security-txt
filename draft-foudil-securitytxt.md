@@ -85,9 +85,9 @@ in disclosing security vulnerabilities.
 The file is named "security.txt", and this file SHOULD be placed under the
 /.well-known/ path ("/.well-known/security.txt") {{!RFC5785}} of a domain name or IP address for web
 properties. If it is not possible to place the security.txt file in the /.well-known/ path or setup a redirect, web-based services MAY place the file in the top-level path
-of a given web domain or IP address ("/security.txt") as a fallback option (see section {{weblocation}}).
+of a given web domain or IP address ("/security.txt") as a fallback option (see {{weblocation}}).
 
-For web-based services, the file MUST be accessible via the Hypertext Transfer Protocol {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}, and it MUST be served with "https" (as per section 2.7.2 of {{!RFC7230}}). For file systems and version control repositories a "security.txt" file SHOULD be placed in the root directory of a particular file system or source code project.
+For web-based services, the file MUST be accessible via the Hypertext Transfer Protocol (HTTP) {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}, and it MUST be served with "https" (as per section 2.7.2 of {{!RFC7230}}). For file systems and version control repositories a "security.txt" file SHOULD be placed in the root directory of a particular file system or source code project.
 
 This text file contains multiple directives
 with different values. The "directive" is the first part of a field all the way up
@@ -100,7 +100,7 @@ A "field" MUST always consist of a directive and a value
 ("Contact: https://example.com/security"). A security.txt file
 can have an unlimited number of fields. It is important to note that
 you MUST have a separate line for every field. One MUST NOT chain multiple
-values for a single directive and everything MUST be in a separate field. Unless
+values for a single directive unless it is explicitly defined by that particular field. Unless
 otherwise indicated in a definition of a particular field,
 any directive MAY appear multiple times.
 
@@ -127,7 +127,7 @@ https://192.0.2.0/.well-known/security.txt
 # This security.txt file applies to IPv6 address of 2001:db8:8:4::2.
 https://[2001:db8:8:4::2]/.well-known/security.txt
 
-# This security.txt file applies to the /example/folder1 directory.
+# This security.txt file applies to the /example/folder1 directory and subfolders.
 /example/folder1/security.txt
 ~~~~~~~~~~
 
@@ -150,7 +150,7 @@ respective field.
 ## Separate Fields
 
 A separate line is REQUIRED for every new value and field. You MUST
-NOT chain everything into a single field. Every line MUST end either
+NOT chain everything into a single field unless defined by that field. Every line MUST end either
 with a carriage return and line feed characters (CRLF / %x0D %x0A) or just
 a line feed character (LF / %x0A).
 
@@ -159,7 +159,7 @@ a line feed character (LF / %x0A).
 It is RECOMMENDED that a security.txt file be digitally signed
 using an OpenPGP cleartext signature as described in
 section 7 of {{!RFC4880}}. When digital signatures are used, it is also
-RECOMMENDED that implementors use the "Canonical" directive as per {{canonical}},
+RECOMMENDED that implementors use the "Canonical" directive (as per {{canonical}}),
 thus allowing the digital signature to authenticate the location of the file.
 
 When it comes to verifying the key used to generate the signature, it is always
@@ -202,7 +202,8 @@ We would like to thank the following researchers:
 This directive indicates the canonical URI where the security.txt file is located,
 which is usually something like "https://example.com/.well-known/security.txt".
 If this directive indicates a web URL, then it MUST begin with "https://"
-(as per section 2.7.2 of {{!RFC7230}}).
+(as per section 2.7.2 of {{!RFC7230}}). The purpose of this directive is to allow
+a digital signature to be applied to the location of the "security.txt" file.
 
 This directive MUST NOT appear more than once.
 
@@ -308,7 +309,7 @@ priority - rather these MUST BE interpreted as all being of equal priority.
 
 This directive MUST NOT appear more than once.
 
-Example:
+Example (English, Spanish and French):
 
 ~~~~~~~~~~
 Preferred-Languages: en, es, fr
@@ -371,7 +372,7 @@ redirects that lead to another domain or subdomain
 but SHOULD follow redirects within the same domain name
 (but not different subdomain on the same domain).
 
-This does not apply to resource locations that appear within the file.
+The guidance regarding redirects SHOULD NOT apply to the resource locations that appear within the file.
 
 ## Filesystems
 
