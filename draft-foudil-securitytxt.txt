@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: September 25, 2019                     Nightwatch Cybersecurity
-                                                          March 24, 2019
+Expires: October 9, 2019                        Nightwatch Cybersecurity
+                                                          April 07, 2019
 
 
                    A Method for Web Security Policies
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 25, 2019.
+   This Internet-Draft will expire on October 9, 2019.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019               [Page 1]
+Foudil & Shafranovich    Expires October 9, 2019                [Page 1]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019               [Page 2]
+Foudil & Shafranovich    Expires October 9, 2019                [Page 2]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
      B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  20
@@ -165,9 +165,9 @@ Internet-Draft     A Method for Web Security Policies         March 2019
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019               [Page 3]
+Foudil & Shafranovich    Expires October 9, 2019                [Page 3]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 1.2.  Terminology
@@ -198,13 +198,13 @@ Internet-Draft     A Method for Web Security Policies         March 2019
    possible to place the security.txt file in the /.well-known/ path or
    setup a redirect, web-based services MAY place the file in the top-
    level path of a given web domain or IP address ("/security.txt") as a
-   fallback option (see section Section 4.1).
+   fallback option (see Section 4.1).
 
    For web-based services, the file MUST be accessible via the Hypertext
-   Transfer Protocol [RFC1945] as a resource of Internet Media Type
-   "text/plain" with the default charset parameter set to "utf-8" per
-   section 4.1.3 of [RFC2046], and it MUST be served with "https" (as
-   per section 2.7.2 of [RFC7230]).  For file systems and version
+   Transfer Protocol (HTTP) [RFC1945] as a resource of Internet Media
+   Type "text/plain" with the default charset parameter set to "utf-8"
+   per section 4.1.3 of [RFC2046], and it MUST be served with "https"
+   (as per section 2.7.2 of [RFC7230]).  For file systems and version
    control repositories a "security.txt" file SHOULD be placed in the
    root directory of a particular file system or source code project.
 
@@ -221,16 +221,16 @@ Internet-Draft     A Method for Web Security Policies         March 2019
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019               [Page 4]
+Foudil & Shafranovich    Expires October 9, 2019                [Page 4]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
    unlimited number of fields.  It is important to note that you MUST
    have a separate line for every field.  One MUST NOT chain multiple
-   values for a single directive and everything MUST be in a separate
-   field.  Unless otherwise indicated in a definition of a particular
-   field, any directive MAY appear multiple times.
+   values for a single directive unless it is explicitly defined by that
+   particular field.  Unless otherwise indicated in a definition of a
+   particular field, any directive MAY appear multiple times.
 
 3.1.  Scope
 
@@ -243,20 +243,20 @@ Internet-Draft     A Method for Web Security Policies         March 2019
 
    Some examples appear below:
 
-   # The following only applies to example.com.
-   https://example.com/.well-known/security.txt
+# The following only applies to example.com.
+https://example.com/.well-known/security.txt
 
-   # This only applies to subdomain.example.com.
-   https://subdomain.example.com/.well-known/security.txt
+# This only applies to subdomain.example.com.
+https://subdomain.example.com/.well-known/security.txt
 
-   # This security.txt file applies to IPv4 address of 192.0.2.0.
-   https://192.0.2.0/.well-known/security.txt
+# This security.txt file applies to IPv4 address of 192.0.2.0.
+https://192.0.2.0/.well-known/security.txt
 
-   # This security.txt file applies to IPv6 address of 2001:db8:8:4::2.
-   https://[2001:db8:8:4::2]/.well-known/security.txt
+# This security.txt file applies to IPv6 address of 2001:db8:8:4::2.
+https://[2001:db8:8:4::2]/.well-known/security.txt
 
-   # This security.txt file applies to the /example/folder1 directory.
-   /example/folder1/security.txt
+# This security.txt file applies to the /example/folder1 directory and subfolders.
+/example/folder1/security.txt
 
 3.2.  Comments
 
@@ -277,26 +277,27 @@ Internet-Draft     A Method for Web Security Policies         March 2019
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019               [Page 5]
+Foudil & Shafranovich    Expires October 9, 2019                [Page 5]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 3.3.  Separate Fields
 
    A separate line is REQUIRED for every new value and field.  You MUST
-   NOT chain everything into a single field.  Every line MUST end either
-   with a carriage return and line feed characters (CRLF / %x0D %x0A) or
-   just a line feed character (LF / %x0A).
+   NOT chain everything into a single field unless defined by that
+   field.  Every line MUST end either with a carriage return and line
+   feed characters (CRLF / %x0D %x0A) or just a line feed character (LF
+   / %x0A).
 
 3.4.  Digital signature
 
    It is RECOMMENDED that a security.txt file be digitally signed using
    an OpenPGP cleartext signature as described in section 7 of
    [RFC4880].  When digital signatures are used, it is also RECOMMENDED
-   that implementors use the "Canonical" directive as per Section 3.5.2,
-   thus allowing the digital signature to authenticate the location of
-   the file.
+   that implementors use the "Canonical" directive (as per
+   Section 3.5.2), thus allowing the digital signature to authenticate
+   the location of the file.
 
    When it comes to verifying the key used to generate the signature, it
    is always the security researcher's responsibility to make sure the
@@ -332,10 +333,9 @@ Internet-Draft     A Method for Web Security Policies         March 2019
 
 
 
-
-Foudil & Shafranovich  Expires September 25, 2019               [Page 6]
+Foudil & Shafranovich    Expires October 9, 2019                [Page 6]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 3.5.2.  Canonical
@@ -344,7 +344,9 @@ Internet-Draft     A Method for Web Security Policies         March 2019
    file is located, which is usually something like
    "https://example.com/.well-known/security.txt".  If this directive
    indicates a web URL, then it MUST begin with "https://" (as per
-   section 2.7.2 of [RFC7230]).
+   section 2.7.2 of [RFC7230]).  The purpose of this directive is to
+   allow a digital signature to be applied to the location of the
+   "security.txt" file.
 
    This directive MUST NOT appear more than once.
 
@@ -387,11 +389,9 @@ Internet-Draft     A Method for Web Security Policies         March 2019
 
 
 
-
-
-Foudil & Shafranovich  Expires September 25, 2019               [Page 7]
+Foudil & Shafranovich    Expires October 9, 2019                [Page 7]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
    When it comes to verifying the authenticity of the key, it is always
@@ -445,9 +445,9 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019               [Page 8]
+Foudil & Shafranovich    Expires October 9, 2019                [Page 8]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
    The order in which they appear MUST NOT be interpreted as an
@@ -456,7 +456,7 @@ Internet-Draft     A Method for Web Security Policies         March 2019
 
    This directive MUST NOT appear more than once.
 
-   Example:
+   Example (English, Spanish and French):
 
    Preferred-Languages: en, es, fr
 
@@ -501,9 +501,9 @@ Internet-Draft     A Method for Web Security Policies         March 2019
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019               [Page 9]
+Foudil & Shafranovich    Expires October 9, 2019                [Page 9]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 4.  Location of the security.txt file
@@ -523,8 +523,8 @@ Internet-Draft     A Method for Web Security Policies         March 2019
    within the same domain name (but not different subdomain on the same
    domain).
 
-   This does not apply to resource locations that appear within the
-   file.
+   The guidance regarding redirects SHOULD NOT apply to the resource
+   locations that appear within the file.
 
 4.2.  Filesystems
 
@@ -557,9 +557,9 @@ Internet-Draft     A Method for Web Security Policies         March 2019
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019              [Page 10]
+Foudil & Shafranovich    Expires October 9, 2019               [Page 10]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
    In general, implementors SHOULD "be conservative in what you do, be
@@ -613,9 +613,9 @@ Internet-Draft     A Method for Web Security Policies         March 2019
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019              [Page 11]
+Foudil & Shafranovich    Expires October 9, 2019               [Page 11]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
    hiring-field     = "Hiring" fs SP uri
@@ -669,9 +669,9 @@ Internet-Draft     A Method for Web Security Policies         March 2019
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019              [Page 12]
+Foudil & Shafranovich    Expires October 9, 2019               [Page 12]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
    Organizations SHOULD ensure that information in this file and any
@@ -725,9 +725,9 @@ Internet-Draft     A Method for Web Security Policies         March 2019
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019              [Page 13]
+Foudil & Shafranovich    Expires October 9, 2019               [Page 13]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 6.6.  Protecting Data in Transit
@@ -781,9 +781,9 @@ Internet-Draft     A Method for Web Security Policies         March 2019
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019              [Page 14]
+Foudil & Shafranovich    Expires October 9, 2019               [Page 14]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
    URI suffix: security.txt
@@ -837,9 +837,9 @@ Internet-Draft     A Method for Web Security Policies         March 2019
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019              [Page 15]
+Foudil & Shafranovich    Expires October 9, 2019               [Page 15]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
    Field Name: Acknowledgments
@@ -893,9 +893,9 @@ Internet-Draft     A Method for Web Security Policies         March 2019
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019              [Page 16]
+Foudil & Shafranovich    Expires October 9, 2019               [Page 16]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
    The authors would also like to acknowledge the feedback provided by
@@ -949,9 +949,9 @@ Internet-Draft     A Method for Web Security Policies         March 2019
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019              [Page 17]
+Foudil & Shafranovich    Expires October 9, 2019               [Page 17]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
    [RFC5198]  Klensin, J. and M. Padlipsky, "Unicode Format for Network
@@ -1005,9 +1005,9 @@ Internet-Draft     A Method for Web Security Policies         March 2019
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019              [Page 18]
+Foudil & Shafranovich    Expires October 9, 2019               [Page 18]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 9.2.  Informative References
@@ -1061,9 +1061,9 @@ Appendix A.  Note to Readers
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019              [Page 19]
+Foudil & Shafranovich    Expires October 9, 2019               [Page 19]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 Appendix B.  Document History
@@ -1117,9 +1117,9 @@ B.2.  Since draft-foudil-securitytxt-01
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019              [Page 20]
+Foudil & Shafranovich    Expires October 9, 2019               [Page 20]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 B.3.  Since draft-foudil-securitytxt-02
@@ -1173,9 +1173,9 @@ B.5.  Since draft-foudil-securitytxt-04
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019              [Page 21]
+Foudil & Shafranovich    Expires October 9, 2019               [Page 21]
 
-Internet-Draft     A Method for Web Security Policies         March 2019
+Internet-Draft     A Method for Web Security Policies         April 2019
 
 
    o  Removed permission directive (#30)
@@ -1229,4 +1229,4 @@ Authors' Addresses
 
 
 
-Foudil & Shafranovich  Expires September 25, 2019              [Page 22]
+Foudil & Shafranovich    Expires October 9, 2019               [Page 22]
