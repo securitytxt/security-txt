@@ -732,8 +732,8 @@ sign-header      = &lt;headers and line from section 7 of [RFC4880]&gt;
 
 sign-footer      = &lt;OpenPGP signature from section 7 of [RFC4880]&gt;
 
-unsigned         = *line (canonical-field eol) *line (lang-field eol) *line
-unsigned        /= *line (lang-field eol) *line (canonical-field eol) *line
+unsigned         = *line [canonical-field eol] *line [lang-field eol] *line
+unsigned        /= *line [lang-field eol] *line [canonical-field eol] *line
 
 line             = (field / comment) eol
 
