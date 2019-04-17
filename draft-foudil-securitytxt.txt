@@ -119,6 +119,7 @@ Internet-Draft     A Method for Web Security Policies         April 2019
      B.4.  Since draft-foudil-securitytxt-03 . . . . . . . . . . . .  21
      B.5.  Since draft-foudil-securitytxt-04 . . . . . . . . . . . .  21
      B.6.  Since draft-foudil-securitytxt-05 . . . . . . . . . . . .  22
+     B.7.  Since draft-foudil-securitytxt-06 . . . . . . . . . . . .  22
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  22
 
 1.  Introduction
@@ -157,7 +158,6 @@ Internet-Draft     A Method for Web Security Policies         April 2019
    making it easier for organizations to designate the preferred steps
    for researchers to take when trying to reach out to them with
    security vulnerabilities.
-
 
 
 
@@ -1201,6 +1201,10 @@ B.6.  Since draft-foudil-securitytxt-05
    o  Expanded security considerations section and fixed typos (#30,
       #73, #103, #112)
 
+B.7.  Since draft-foudil-securitytxt-06
+
+   o  Fixed ABNF grammar for non-chainable directives (#150)
+
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt
 
@@ -1215,10 +1219,6 @@ Authors' Addresses
    Nightwatch Cybersecurity
 
    Email: yakov+ietf@nightwatchcybersecurity.com
-
-
-
-
 
 
 

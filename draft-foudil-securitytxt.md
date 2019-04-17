@@ -741,5 +741,8 @@ of DNS-stored encryption keys (#28 and #94)
 - Added language handling redirects (#143)
 - Expanded security considerations section and fixed typos (#30, #73, #103, #112)
 
+## Since draft-foudil-securitytxt-06
+- Fixed ABNF grammar for non-chainable directives (#150)
+
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
