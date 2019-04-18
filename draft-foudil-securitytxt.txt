@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: October 19, 2019                       Nightwatch Cybersecurity
-                                                          April 17, 2019
+Expires: October 21, 2019                       Nightwatch Cybersecurity
+                                                          April 19, 2019
 
 
                    A Method for Web Security Policies
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on October 19, 2019.
+   This Internet-Draft will expire on October 21, 2019.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019                [Page 1]
+Foudil & Shafranovich   Expires October 21, 2019                [Page 1]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019                [Page 2]
+Foudil & Shafranovich   Expires October 21, 2019                [Page 2]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -165,7 +165,7 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019                [Page 3]
+Foudil & Shafranovich   Expires October 21, 2019                [Page 3]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -221,7 +221,7 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019                [Page 4]
+Foudil & Shafranovich   Expires October 21, 2019                [Page 4]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -277,7 +277,7 @@ https://[2001:db8:8:4::2]/.well-known/security.txt
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019                [Page 5]
+Foudil & Shafranovich   Expires October 21, 2019                [Page 5]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -333,7 +333,7 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019                [Page 6]
+Foudil & Shafranovich   Expires October 21, 2019                [Page 6]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -389,7 +389,7 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019                [Page 7]
+Foudil & Shafranovich   Expires October 21, 2019                [Page 7]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -445,7 +445,7 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019                [Page 8]
+Foudil & Shafranovich   Expires October 21, 2019                [Page 8]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -501,7 +501,7 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019                [Page 9]
+Foudil & Shafranovich   Expires October 21, 2019                [Page 9]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -557,7 +557,7 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019               [Page 10]
+Foudil & Shafranovich   Expires October 21, 2019               [Page 10]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -582,8 +582,8 @@ sign-header      = <headers and line from section 7 of [RFC4880]>
 
 sign-footer      = <OpenPGP signature from section 7 of [RFC4880]>
 
-unsigned         = *line [canonical-field eol] *line [lang-field eol] *line
-unsigned        /= *line [lang-field eol] *line [canonical-field eol] *line
+unsigned         = *line [canonical-field eol *line] [lang-field eol] *line
+unsigned         =/ *line [lang-field eol *line] [canonical-field eol] *line
 
 line             = (field / comment) eol
 
@@ -613,7 +613,7 @@ uri              = <URI as per [RFC3986]>
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019               [Page 11]
+Foudil & Shafranovich   Expires October 21, 2019               [Page 11]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -669,7 +669,7 @@ unstructured     = <imported from section 3.2.5 of [RFC5322]>
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019               [Page 12]
+Foudil & Shafranovich   Expires October 21, 2019               [Page 12]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -725,7 +725,7 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019               [Page 13]
+Foudil & Shafranovich   Expires October 21, 2019               [Page 13]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -781,7 +781,7 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019               [Page 14]
+Foudil & Shafranovich   Expires October 21, 2019               [Page 14]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -837,7 +837,7 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019               [Page 15]
+Foudil & Shafranovich   Expires October 21, 2019               [Page 15]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -893,7 +893,7 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019               [Page 16]
+Foudil & Shafranovich   Expires October 21, 2019               [Page 16]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -949,7 +949,7 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019               [Page 17]
+Foudil & Shafranovich   Expires October 21, 2019               [Page 17]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -1005,7 +1005,7 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019               [Page 18]
+Foudil & Shafranovich   Expires October 21, 2019               [Page 18]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -1061,7 +1061,7 @@ Appendix A.  Note to Readers
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019               [Page 19]
+Foudil & Shafranovich   Expires October 21, 2019               [Page 19]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -1117,7 +1117,7 @@ B.2.  Since draft-foudil-securitytxt-01
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019               [Page 20]
+Foudil & Shafranovich   Expires October 21, 2019               [Page 20]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -1173,7 +1173,7 @@ B.5.  Since draft-foudil-securitytxt-04
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019               [Page 21]
+Foudil & Shafranovich   Expires October 21, 2019               [Page 21]
 
 Internet-Draft     A Method for Web Security Policies         April 2019
 
@@ -1229,4 +1229,4 @@ Authors' Addresses
 
 
 
-Foudil & Shafranovich   Expires October 19, 2019               [Page 22]
+Foudil & Shafranovich   Expires October 21, 2019               [Page 22]
