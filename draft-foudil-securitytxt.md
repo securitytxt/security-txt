@@ -413,56 +413,57 @@ The following is an ABNF definition of the security.txt format, using
 the conventions defined in {{!RFC5234}}.
 
 ~~~~~~~~~~
-body             = signed / unsigned
+body             =  signed / unsigned
 
-signed           = sign-header unsigned sign-footer
+signed           =  sign-header unsigned sign-footer
 
-sign-header      = <headers and line from section 7 of [RFC4880]>
+sign-header      =  <headers and line from section 7 of [RFC4880]>
 
-sign-footer      = <OpenPGP signature from section 7 of [RFC4880]>
+sign-footer      =  <OpenPGP signature from section 7 of [RFC4880]>
 
-unsigned         = *line (canonical-field eol) (lang-field eol) *line
+unsigned         =  *line [canonical-field eol *line] [lang-field eol] *line
+unsigned         =/ *line [lang-field eol *line] [canonical-field eol] *line
 
-line             = (field / comment) eol
+line             =  (field / comment) eol
 
-eol              = *WSP [CR] LF
+eol              =  *WSP [CR] LF
 
-field            = ack-field /
-                   contact-field /
-                   encryption-field /                         
-                   hiring-field /
-                   policy-field /
-                   ext-field
+field            =  ack-field /
+                    contact-field /
+                    encryption-field /                         
+                    hiring-field /
+                    policy-field /
+                    ext-field
 
-fs               = ":"
+fs               =  ":"
 
-comment          = "#" *(WSP / VCHAR / %x80-FFFFF)
+comment          =  "#" *(WSP / VCHAR / %x80-FFFFF)
 
-ack-field        = "Acknowledgments" fs SP uri
+ack-field        =  "Acknowledgments" fs SP uri
 
-canonical-field  = "Canonical" fs SP uri
+canonical-field  =  "Canonical" fs SP uri
 
-contact-field    = "Contact" fs SP uri
+contact-field    =  "Contact" fs SP uri
 
-lang-tag         = <Language-Tag from section 2.1 of [RFC5646]>
+lang-tag         =  <Language-Tag from section 2.1 of [RFC5646]>
 
-uri              = <URI as per [RFC3986]>
+uri              =  <URI as per [RFC3986]>
 
-encryption-field = "Encryption" fs SP uri
+encryption-field =  "Encryption" fs SP uri
 
-hiring-field     = "Hiring" fs SP uri
+hiring-field     =  "Hiring" fs SP uri
 
-policy-field     = "Policy" fs SP uri
+policy-field     =  "Policy" fs SP uri
 
-lang-field       = "Preferred-Languages" fs SP lang-values
+lang-field       =  "Preferred-Languages" fs SP lang-values
 
-lang-values      = lang-tag *("," [WSP] lang-tag)
+lang-values      =  lang-tag *("," [WSP] lang-tag)
 
-ext-field        = field-name fs SP unstructured
+ext-field        =  field-name fs SP unstructured
 
-field-name       = <imported from section 3.6.8 of [RFC5322]>
+field-name       =  <imported from section 3.6.8 of [RFC5322]>
 
-unstructured     = <imported from section 3.2.5 of [RFC5322]>
+unstructured     =  <imported from section 3.2.5 of [RFC5322]>
 ~~~~~~~~~~
 
 "ext-field" refers to extension fields, which are discussed in {{extensibility}}
@@ -739,6 +740,9 @@ of DNS-stored encryption keys (#28 and #94)
 - Adding language recommending encryption for email reports (#134)
 - Added language handling redirects (#143)
 - Expanded security considerations section and fixed typos (#30, #73, #103, #112)
+
+## Since draft-foudil-securitytxt-06
+- Fixed ABNF grammar for non-chainable directives (#150)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
