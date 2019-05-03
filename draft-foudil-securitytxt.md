@@ -413,57 +413,62 @@ The following is an ABNF definition of the security.txt format, using
 the conventions defined in {{!RFC5234}}.
 
 ~~~~~~~~~~
-body             =  signed / unsigned
+body                   =  signed / unsigned
 
-signed           =  sign-header unsigned sign-footer
+signed                 =  sign-header unsigned sign-footer
 
-sign-header      =  <headers and line from section 7 of [RFC4880]>
+sign-header            =  <headers and line from section 7 of [RFC4880]>
 
-sign-footer      =  <OpenPGP signature from section 7 of [RFC4880]>
+sign-footer            =  <OpenPGP signature from section 7 of [RFC4880]>
 
-unsigned         =  *line [canonical-field eol *line] [lang-field eol] *line
-unsigned         =/ *line [lang-field eol *line] [canonical-field eol] *line
+unsigned               =  *line <in any order, but exactly once each: opt-canonical-line-etc, opt-lang-line-etc, contact-line-etc>
 
-line             =  (field / comment) eol
+line                   =  (field / comment) eol
 
-eol              =  *WSP [CR] LF
+eol                    =  *WSP [CR] LF
 
-field            =  ack-field /
-                    contact-field /
-                    encryption-field /                         
-                    hiring-field /
-                    policy-field /
-                    ext-field
+field                  =  ack-field /
+                          contact-field /
+                          encryption-field /
+                          hiring-field /
+                          policy-field /
+                          ext-field
 
-fs               =  ":"
+opt-canonical-line-etc =  [canonical-field eol *line]
 
-comment          =  "#" *(WSP / VCHAR / %x80-FFFFF)
+opt-lang-line-etc      =  [lang-field eol *line]
 
-ack-field        =  "Acknowledgments" fs SP uri
+contact-line-etc       =  contact-field eol *line
 
-canonical-field  =  "Canonical" fs SP uri
+fs                     =  ":"
 
-contact-field    =  "Contact" fs SP uri
+comment                =  "#" *(WSP / VCHAR / %x80-FFFFF)
 
-lang-tag         =  <Language-Tag from section 2.1 of [RFC5646]>
+ack-field              =  "Acknowledgments" fs SP uri
 
-uri              =  <URI as per [RFC3986]>
+canonical-field        =  "Canonical" fs SP uri
 
-encryption-field =  "Encryption" fs SP uri
+contact-field          =  "Contact" fs SP uri
 
-hiring-field     =  "Hiring" fs SP uri
+lang-tag               =  <Language-Tag from section 2.1 of [RFC5646]>
 
-policy-field     =  "Policy" fs SP uri
+uri                    =  <URI as per [RFC3986]>
 
-lang-field       =  "Preferred-Languages" fs SP lang-values
+encryption-field       =  "Encryption" fs SP uri
 
-lang-values      =  lang-tag *("," [WSP] lang-tag)
+hiring-field           =  "Hiring" fs SP uri
 
-ext-field        =  field-name fs SP unstructured
+policy-field           =  "Policy" fs SP uri
 
-field-name       =  <imported from section 3.6.8 of [RFC5322]>
+lang-field             =  "Preferred-Languages" fs SP lang-values
 
-unstructured     =  <imported from section 3.2.5 of [RFC5322]>
+lang-values            =  lang-tag *("," [WSP] lang-tag)
+
+ext-field              =  field-name fs SP unstructured
+
+field-name             =  <imported from section 3.6.8 of [RFC5322]>
+
+unstructured           =  <imported from section 3.2.5 of [RFC5322]>
 ~~~~~~~~~~
 
 "ext-field" refers to extension fields, which are discussed in {{extensibility}}
