@@ -16,7 +16,7 @@ https://github.com/securitytxt/
 
 # Internet draft
 
-The Internet draft for security.txt can be found here: https://tools.ietf.org/html/draft-foudil-securitytxt.
+The Internet draft for security.txt can be found here: https://tools.ietf.org/html/draft-foudil-securitytxt-06.
 
 # Building the Draft
 
