@@ -70,3 +70,5 @@ The bug tracker utilizes several labels to help organize and identify issues.
 ### Guidelines for bug reports 🐛
 
 Use the GitHub issue search — check if the issue has already been reported.
+
+<a href="https://www.buymeacoffee.com/edoverflow" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
