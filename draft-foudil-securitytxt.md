@@ -366,7 +366,7 @@ Web-based services SHOULD place the security.txt file under the /.well-known/ pa
 as per {{!RFC5785}}. A security.txt file located under the top-level path SHOULD either redirect (as per section 6.4 of {{!RFC7231}})
 to the security.txt file under the /.well-known/ path or be used as a fallback if the ".well-known" path cannot be used.
 
-If retrieval of a "security.txt" file results in a redirect (as per
+If retrieval of a "security.txt" file from the top-level path results in a redirect (as per
 section 6.4 of {{!RFC7231}}), the implementors MUST NOT follow
 redirects that lead to another domain or subdomain
 but SHOULD follow redirects within the same domain name
@@ -421,8 +421,8 @@ sign-header      =  <headers and line from section 7 of [RFC4880]>
 
 sign-footer      =  <OpenPGP signature from section 7 of [RFC4880]>
 
-unsigned         =  *line [canonical-field eol *line] [lang-field eol] *line
-unsigned         =/ *line [lang-field eol *line] [canonical-field eol] *line
+unsigned         =  *line (can-field eol) *line contact-field *line (lang-field eol) *line
+                    ;the order of elements is not important
 
 line             =  (field / comment) eol
 
@@ -441,7 +441,7 @@ comment          =  "#" *(WSP / VCHAR / %x80-FFFFF)
 
 ack-field        =  "Acknowledgments" fs SP uri
 
-canonical-field  =  "Canonical" fs SP uri
+can-field        =  "Canonical" fs SP uri
 
 contact-field    =  "Contact" fs SP uri
 
@@ -488,7 +488,8 @@ contained in the file. If "security.txt" file looks suspicious or compromised,
 it SHOULD NOT be used.
 
 To avoid redirect attacks, redirects for these files MUST NOT be followed
-if they lead to a different domain (as per {{weblocation}}).
+when the file is placed in the top level path if they lead to a different
+domain (as per {{weblocation}}).
 
 ## Incorrect or Stale Information
 
@@ -743,6 +744,8 @@ of DNS-stored encryption keys (#28 and #94)
 
 ## Since draft-foudil-securitytxt-06
 - Fixed ABNF grammar for non-chainable directives (#150)
+- Clarified ABNF grammar (#152)
+- Clarified redirect logic (#143)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt

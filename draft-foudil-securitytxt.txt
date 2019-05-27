@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: October 21, 2019                       Nightwatch Cybersecurity
-                                                          April 19, 2019
+Expires: November 28, 2019                      Nightwatch Cybersecurity
+                                                            May 27, 2019
 
 
                    A Method for Web Security Policies
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on October 21, 2019.
+   This Internet-Draft will expire on November 28, 2019.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich   Expires October 21, 2019                [Page 1]
+Foudil & Shafranovich   Expires November 28, 2019               [Page 1]
 
-Internet-Draft     A Method for Web Security Policies         April 2019
+Internet-Draft     A Method for Web Security Policies           May 2019
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -90,14 +90,14 @@ Table of Contents
    5.  File Format Description and ABNF Grammar  . . . . . . . . . .  11
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .  12
      6.1.  Compromised Files and Redirects . . . . . . . . . . . . .  12
-     6.2.  Incorrect or Stale Information  . . . . . . . . . . . . .  12
+     6.2.  Incorrect or Stale Information  . . . . . . . . . . . . .  13
      6.3.  Intentionally Malformed Files, Resources and Reports  . .  13
      6.4.  No Implied Permission for Testing . . . . . . . . . . . .  13
      6.5.  Multi-user Environments . . . . . . . . . . . . . . . . .  13
      6.6.  Protecting Data in Transit  . . . . . . . . . . . . . . .  14
      6.7.  Spam and Spurious Reports . . . . . . . . . . . . . . . .  14
    7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  14
-     7.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .  14
+     7.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .  15
      7.2.  Registry for security.txt Header Fields . . . . . . . . .  15
    8.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  16
    9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  17
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Foudil & Shafranovich   Expires October 21, 2019                [Page 2]
+Foudil & Shafranovich   Expires November 28, 2019               [Page 2]
 
-Internet-Draft     A Method for Web Security Policies         April 2019
+Internet-Draft     A Method for Web Security Policies           May 2019
 
 
      B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  20
@@ -165,9 +165,9 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 21, 2019                [Page 3]
+Foudil & Shafranovich   Expires November 28, 2019               [Page 3]
 
-Internet-Draft     A Method for Web Security Policies         April 2019
+Internet-Draft     A Method for Web Security Policies           May 2019
 
 
 1.2.  Terminology
@@ -221,9 +221,9 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 21, 2019                [Page 4]
+Foudil & Shafranovich   Expires November 28, 2019               [Page 4]
 
-Internet-Draft     A Method for Web Security Policies         April 2019
+Internet-Draft     A Method for Web Security Policies           May 2019
 
 
    unlimited number of fields.  It is important to note that you MUST
@@ -277,9 +277,9 @@ https://[2001:db8:8:4::2]/.well-known/security.txt
 
 
 
-Foudil & Shafranovich   Expires October 21, 2019                [Page 5]
+Foudil & Shafranovich   Expires November 28, 2019               [Page 5]
 
-Internet-Draft     A Method for Web Security Policies         April 2019
+Internet-Draft     A Method for Web Security Policies           May 2019
 
 
 3.3.  Separate Fields
@@ -333,9 +333,9 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 21, 2019                [Page 6]
+Foudil & Shafranovich   Expires November 28, 2019               [Page 6]
 
-Internet-Draft     A Method for Web Security Policies         April 2019
+Internet-Draft     A Method for Web Security Policies           May 2019
 
 
 3.5.2.  Canonical
@@ -389,9 +389,9 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 21, 2019                [Page 7]
+Foudil & Shafranovich   Expires November 28, 2019               [Page 7]
 
-Internet-Draft     A Method for Web Security Policies         April 2019
+Internet-Draft     A Method for Web Security Policies           May 2019
 
 
    When it comes to verifying the authenticity of the key, it is always
@@ -445,9 +445,9 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
 
 
-Foudil & Shafranovich   Expires October 21, 2019                [Page 8]
+Foudil & Shafranovich   Expires November 28, 2019               [Page 8]
 
-Internet-Draft     A Method for Web Security Policies         April 2019
+Internet-Draft     A Method for Web Security Policies           May 2019
 
 
    The order in which they appear MUST NOT be interpreted as an
@@ -501,9 +501,9 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 21, 2019                [Page 9]
+Foudil & Shafranovich   Expires November 28, 2019               [Page 9]
 
-Internet-Draft     A Method for Web Security Policies         April 2019
+Internet-Draft     A Method for Web Security Policies           May 2019
 
 
 4.  Location of the security.txt file
@@ -517,11 +517,11 @@ Internet-Draft     A Method for Web Security Policies         April 2019
    security.txt file under the /.well-known/ path or be used as a
    fallback if the ".well-known" path cannot be used.
 
-   If retrieval of a "security.txt" file results in a redirect (as per
-   section 6.4 of [RFC7231]), the implementors MUST NOT follow redirects
-   that lead to another domain or subdomain but SHOULD follow redirects
-   within the same domain name (but not different subdomain on the same
-   domain).
+   If retrieval of a "security.txt" file from the top-level path results
+   in a redirect (as per section 6.4 of [RFC7231]), the implementors
+   MUST NOT follow redirects that lead to another domain or subdomain
+   but SHOULD follow redirects within the same domain name (but not
+   different subdomain on the same domain).
 
    The guidance regarding redirects SHOULD NOT apply to the resource
    locations that appear within the file.
@@ -557,9 +557,9 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 21, 2019               [Page 10]
+Foudil & Shafranovich   Expires November 28, 2019              [Page 10]
 
-Internet-Draft     A Method for Web Security Policies         April 2019
+Internet-Draft     A Method for Web Security Policies           May 2019
 
 
    In general, implementors SHOULD "be conservative in what you do, be
@@ -582,8 +582,8 @@ sign-header      =  <headers and line from section 7 of [RFC4880]>
 
 sign-footer      =  <OpenPGP signature from section 7 of [RFC4880]>
 
-unsigned         =  *line [canonical-field eol *line] [lang-field eol] *line
-unsigned         =/ *line [lang-field eol *line] [canonical-field eol] *line
+unsigned         =  *line (can-field eol) *line contact-field *line (lang-field eol) *line
+                    ;the order of elements is not important
 
 line             =  (field / comment) eol
 
@@ -602,7 +602,7 @@ comment          =  "#" *(WSP / VCHAR / %x80-FFFFF)
 
 ack-field        =  "Acknowledgments" fs SP uri
 
-canonical-field  =  "Canonical" fs SP uri
+can-field        =  "Canonical" fs SP uri
 
 contact-field    =  "Contact" fs SP uri
 
@@ -613,9 +613,9 @@ uri              =  <URI as per [RFC3986]>
 
 
 
-Foudil & Shafranovich   Expires October 21, 2019               [Page 11]
+Foudil & Shafranovich   Expires November 28, 2019              [Page 11]
 
-Internet-Draft     A Method for Web Security Policies         April 2019
+Internet-Draft     A Method for Web Security Policies           May 2019
 
 
 encryption-field =  "Encryption" fs SP uri
@@ -659,21 +659,25 @@ unstructured     =  <imported from section 3.2.5 of [RFC5322]>
    used.
 
    To avoid redirect attacks, redirects for these files MUST NOT be
-   followed if they lead to a different domain (as per Section 4.1).
+   followed when the file is placed in the top level path if they lead
+   to a different domain (as per Section 4.1).
+
+
+
+
+
+
+
+
+Foudil & Shafranovich   Expires November 28, 2019              [Page 12]
+
+Internet-Draft     A Method for Web Security Policies           May 2019
+
 
 6.2.  Incorrect or Stale Information
 
    If information and resources referenced in a "security.txt" file are
    incorrect or not kept up to date, this can result in security reports
-
-
-
-
-Foudil & Shafranovich   Expires October 21, 2019               [Page 12]
-
-Internet-Draft     A Method for Web Security Policies         April 2019
-
-
    not being received by the organization or sent to incorrect contacts,
    thus exposing possible security issues to third parties.
 
@@ -718,17 +722,16 @@ Internet-Draft     A Method for Web Security Policies         April 2019
    In multi-user / multi-tenant environments, it may possible for a user
    to take over the location of the "security.txt" file.  Organizations
    SHOULD reserve the "security.txt" namespace to ensure no third-party
+
+
+
+Foudil & Shafranovich   Expires November 28, 2019              [Page 13]
+
+Internet-Draft     A Method for Web Security Policies           May 2019
+
+
    can create a page with the "security.txt" AND "/.well-known/
    security.txt" names.
-
-
-
-
-
-Foudil & Shafranovich   Expires October 21, 2019               [Page 13]
-
-Internet-Draft     A Method for Web Security Policies         April 2019
-
 
 6.6.  Protecting Data in Transit
 
@@ -773,18 +776,20 @@ Internet-Draft     A Method for Web Security Policies         April 2019
    192.0.2.0 and 2001:db8:8:4::2 are used in this document following the
    uses indicated in [RFC6890].
 
+
+
+
+
+
+Foudil & Shafranovich   Expires November 28, 2019              [Page 14]
+
+Internet-Draft     A Method for Web Security Policies           May 2019
+
+
 7.1.  Well-Known URIs registry
 
    The "Well-Known URIs" registry should be updated with the following
    additional values (using the template from [RFC5785]):
-
-
-
-
-Foudil & Shafranovich   Expires October 21, 2019               [Page 14]
-
-Internet-Draft     A Method for Web Security Policies         April 2019
-
 
    URI suffix: security.txt
 
@@ -832,14 +837,9 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-
-
-
-
-
-Foudil & Shafranovich   Expires October 21, 2019               [Page 15]
+Foudil & Shafranovich   Expires November 28, 2019              [Page 15]
 
-Internet-Draft     A Method for Web Security Policies         April 2019
+Internet-Draft     A Method for Web Security Policies           May 2019
 
 
    Field Name: Acknowledgments
@@ -893,9 +893,9 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 21, 2019               [Page 16]
+Foudil & Shafranovich   Expires November 28, 2019              [Page 16]
 
-Internet-Draft     A Method for Web Security Policies         April 2019
+Internet-Draft     A Method for Web Security Policies           May 2019
 
 
    The authors would also like to acknowledge the feedback provided by
@@ -949,9 +949,9 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 21, 2019               [Page 17]
+Foudil & Shafranovich   Expires November 28, 2019              [Page 17]
 
-Internet-Draft     A Method for Web Security Policies         April 2019
+Internet-Draft     A Method for Web Security Policies           May 2019
 
 
    [RFC5198]  Klensin, J. and M. Padlipsky, "Unicode Format for Network
@@ -1005,9 +1005,9 @@ Internet-Draft     A Method for Web Security Policies         April 2019
 
 
 
-Foudil & Shafranovich   Expires October 21, 2019               [Page 18]
+Foudil & Shafranovich   Expires November 28, 2019              [Page 18]
 
-Internet-Draft     A Method for Web Security Policies         April 2019
+Internet-Draft     A Method for Web Security Policies           May 2019
 
 
 9.2.  Informative References
@@ -1061,9 +1061,9 @@ Appendix A.  Note to Readers
 
 
 
-Foudil & Shafranovich   Expires October 21, 2019               [Page 19]
+Foudil & Shafranovich   Expires November 28, 2019              [Page 19]
 
-Internet-Draft     A Method for Web Security Policies         April 2019
+Internet-Draft     A Method for Web Security Policies           May 2019
 
 
 Appendix B.  Document History
@@ -1117,9 +1117,9 @@ B.2.  Since draft-foudil-securitytxt-01
 
 
 
-Foudil & Shafranovich   Expires October 21, 2019               [Page 20]
+Foudil & Shafranovich   Expires November 28, 2019              [Page 20]
 
-Internet-Draft     A Method for Web Security Policies         April 2019
+Internet-Draft     A Method for Web Security Policies           May 2019
 
 
 B.3.  Since draft-foudil-securitytxt-02
@@ -1173,9 +1173,9 @@ B.5.  Since draft-foudil-securitytxt-04
 
 
 
-Foudil & Shafranovich   Expires October 21, 2019               [Page 21]
+Foudil & Shafranovich   Expires November 28, 2019              [Page 21]
 
-Internet-Draft     A Method for Web Security Policies         April 2019
+Internet-Draft     A Method for Web Security Policies           May 2019
 
 
    o  Removed permission directive (#30)
@@ -1205,6 +1205,10 @@ B.7.  Since draft-foudil-securitytxt-06
 
    o  Fixed ABNF grammar for non-chainable directives (#150)
 
+   o  Clarified ABNF grammar (#152)
+
+   o  Clarified redirect logic (#143)
+
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt
 
@@ -1225,8 +1229,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-Foudil & Shafranovich   Expires October 21, 2019               [Page 22]
+Foudil & Shafranovich   Expires November 28, 2019              [Page 22]
