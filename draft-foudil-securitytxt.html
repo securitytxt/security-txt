@@ -699,7 +699,7 @@ Version: GnuPG v1
 <a href="#rfc.section.4.1">4.1.</a> <a href="#weblocation" id="weblocation">Web-based services</a>
 </h1>
 <p id="rfc.section.4.1.p.1">Web-based services SHOULD place the security.txt file under the /.well-known/ path; e.g. https://example.com/.well-known/security.txt as per <a href="#RFC5785" class="xref">[RFC5785]</a>. A security.txt file located under the top-level path SHOULD either redirect (as per section 6.4 of <a href="#RFC7231" class="xref">[RFC7231]</a>) to the security.txt file under the /.well-known/ path or be used as a fallback if the &#8220;.well-known&#8221; path cannot be used.</p>
-<p id="rfc.section.4.1.p.2">If retrieval of a &#8220;security.txt&#8221; file from the top-level path results in a redirect (as per section 6.4 of <a href="#RFC7231" class="xref">[RFC7231]</a>), the implementors MUST NOT follow redirects that lead to another domain or subdomain but SHOULD follow redirects within the same domain name (but not different subdomain on the same domain).</p>
+<p id="rfc.section.4.1.p.2">If retrieval of a &#8220;security.txt&#8221; file from the top-level path results in a redirect (as per section 6.4 of <a href="#RFC7231" class="xref">[RFC7231]</a>), the implementors MUST NOT follow that redirect if it leads to another domain or subdomain but SHOULD follow such redirect within the same domain name (but not different subdomain on the same domain).</p>
 <p id="rfc.section.4.1.p.3">The guidance regarding redirects SHOULD NOT apply to the resource locations that appear within the file.</p>
 <h1 id="rfc.section.4.2">
 <a href="#rfc.section.4.2">4.2.</a> <a href="#filesystems" id="filesystems">Filesystems</a>
