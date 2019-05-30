@@ -339,7 +339,7 @@ address {
 
   <meta name="dct.creator" content="Foudil, E. and Y. Shafranovich" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-foudil-securitytxt-06" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-05-27" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-05-29" />
   <meta name="dct.abstract" content="When security vulnerabilities are discovered by independent security researchers, they often lack the channels to report them properly. As a result, security vulnerabilities may be left unreported. This document defines a format (&#8220;security.txt&#8221;) to help organizations describe the process for security researchers to follow in order to report security vulnerabilities." />
   <meta name="description" content="When security vulnerabilities are discovered by independent security researchers, they often lack the channels to report them properly. As a result, security vulnerabilities may be left unreported. This document defines a format (&#8220;security.txt&#8221;) to help organizations describe the process for security researchers to follow in order to report security vulnerabilities." />
 
@@ -363,12 +363,12 @@ address {
 <td class="right">Y. Shafranovich</td>
 </tr>
 <tr>
-<td class="left">Expires: November 28, 2019</td>
+<td class="left">Expires: November 30, 2019</td>
 <td class="right">Nightwatch Cybersecurity</td>
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">May 27, 2019</td>
+<td class="right">May 29, 2019</td>
 </tr>
 
     	
@@ -384,7 +384,7 @@ address {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on November 28, 2019.</p>
+<p>This Internet-Draft will expire on November 30, 2019.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -736,8 +736,8 @@ sign-header      =  &lt;headers and line from section 7 of [RFC4880]&gt;
 
 sign-footer      =  &lt;OpenPGP signature from section 7 of [RFC4880]&gt;
 
-unsigned         =  *line (can-field eol) *line contact-field *line (lang-field eol) *line
-                    ;the order of elements is not important
+unsigned         =  *line [can-field eol] *line contact-field eol *line [lang-field eol] *line
+                    ; the order of elements is not important
 
 line             =  (field / comment) eol
 

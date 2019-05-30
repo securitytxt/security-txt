@@ -421,8 +421,8 @@ sign-header      =  <headers and line from section 7 of [RFC4880]>
 
 sign-footer      =  <OpenPGP signature from section 7 of [RFC4880]>
 
-unsigned         =  *line (can-field eol) *line contact-field *line (lang-field eol) *line
-                    ;the order of elements is not important
+unsigned         =  *line [can-field eol] *line contact-field eol *line [lang-field eol] *line
+                    ; the order of elements is not important
 
 line             =  (field / comment) eol
 
