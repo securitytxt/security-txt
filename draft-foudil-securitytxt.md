@@ -369,7 +369,7 @@ to the security.txt file under the /.well-known/ path or be used as a fallback i
 If retrieval of a "security.txt" file from the top-level path results in a redirect (as per
 section 6.4 of {{!RFC7231}}), the implementors MUST NOT follow that
 redirect if it leads to another domain or subdomain
-but SHOULD follow such redirect within the same domain name
+but SHOULD follow that redirect within the same domain name
 (but not different subdomain on the same domain).
 
 The guidance regarding redirects SHOULD NOT apply to the resource locations that appear within the file.
@@ -421,7 +421,7 @@ sign-header      =  <headers and line from section 7 of [RFC4880]>
 
 sign-footer      =  <OpenPGP signature from section 7 of [RFC4880]>
 
-unsigned         =  *line [can-field eol] *line contact-field eol *line [lang-field eol] *line
+unsigned         =  *line [can-field eol] *line (contact-field eol) *line [lang-field eol] *line
                     ; the order of elements is not important
 
 line             =  (field / comment) eol
