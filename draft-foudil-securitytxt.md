@@ -149,7 +149,7 @@ respective field.
 
 ## Separate Fields
 
-A separate line is REQUIRED for every new field. You MUST
+A separate line is REQUIRED for every field. You MUST
 NOT chain everything into a single field unless defined by that field. Every line MUST end either
 with a carriage return and line feed characters (CRLF / %x0D %x0A) or just
 a line feed character (LF / %x0A).
