@@ -149,7 +149,7 @@ respective field.
 
 ## Separate Fields
 
-A separate line is REQUIRED for every new value and field. You MUST
+A separate line is REQUIRED for every new field. You MUST
 NOT chain everything into a single field unless defined by that field. Every line MUST end either
 with a carriage return and line feed characters (CRLF / %x0D %x0A) or just
 a line feed character (LF / %x0A).
@@ -508,7 +508,7 @@ and are kept secure.
 It is possible for attackers to generate files that are extraordinarily
 large or otherwise malformed in an attempt to discover or exploit weaknesses
 in parsing code. Implementors SHOULD make sure that any such code
-be robust against large and malformed files. ABNF grammar (as defined in
+is robust against large and malformed files. ABNF grammar (as defined in
 {{abnf}}) SHOULD be used as a way to verify these files.
 
 Same concerns apply to any other resources referenced within security.txt
@@ -520,7 +520,7 @@ this file. Such resources and reports may be hostile, malformed or malicious.
 The presence of a security.txt file can be interpreted by researchers
 as providing permission to do security testing against that asset.
 This can lead to increased testing against an organization by researchers. On the other hand, a decision not
-to publish a security.txt file, can be interpreted by the
+to publish a security.txt file can be interpreted by the
 organization operating that website to be a way to signal to researchers
 that permission to test that particular site or project is denied. This can lead to pushback against
 researchers reporting security issues to that organization.
@@ -539,7 +539,7 @@ the "security.txt" AND "/.well-known/security.txt" names.
 
 ## Protecting Data in Transit
 
-To protect a "security.txt" file from being tampered in transit, implementors MUST use
+To protect a "security.txt" file from being tampered with in transit, implementors MUST use
 HTTPS when serving the file itself and any web URLs referenced in it (except as noted in
 this specification). Implementors MUST also perform the correct TLS
 verification (as per {{!RFC6125}}).
