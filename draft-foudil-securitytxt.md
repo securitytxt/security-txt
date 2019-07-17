@@ -83,7 +83,7 @@ that provides information for security researchers to assist
 in disclosing security vulnerabilities.
 
 The file is named "security.txt", and this file SHOULD be placed under the
-/.well-known/ path ("/.well-known/security.txt") {{!RFC5785}} of a domain name or IP address for web
+/.well-known/ path ("/.well-known/security.txt") {{!RFC8615}} of a domain name or IP address for web
 properties. If it is not possible to place the security.txt file in the /.well-known/ path or setup a redirect, web-based services MAY place the file in the top-level path
 of a given web domain or IP address ("/security.txt") as a fallback option (see {{weblocation}}).
 
@@ -127,7 +127,7 @@ https://192.0.2.0/.well-known/security.txt
 # This security.txt file applies to IPv6 address of 2001:db8:8:4::2.
 https://[2001:db8:8:4::2]/.well-known/security.txt
 
-# This security.txt file applies to the /example/folder1 directory and subfolders.
+# This file applies to the /example/folder1 directory and subfolders.
 /example/folder1/security.txt
 ~~~~~~~~~~
 
@@ -145,11 +145,12 @@ Example:
 
 You MAY use one or more comments as descriptive text immediately
 before the field. Parsers SHOULD associate the comments with the
-respective field.
+respective field. Only the line most immediately preceding a field SHOULD
+be associated with that field.
 
 ## Separate Fields
 
-A separate line is REQUIRED for every field. You MUST
+A separate line is REQUIRED for every new field. You MUST
 NOT chain everything into a single field unless defined by that field. Every line MUST end either
 with a carriage return and line feed characters (CRLF / %x0D %x0A) or just
 a line feed character (LF / %x0A).
@@ -363,7 +364,7 @@ Version: GnuPG v1
 ## Web-based services {#weblocation}
 
 Web-based services SHOULD place the security.txt file under the /.well-known/ path; e.g. https://example.com/.well-known/security.txt
-as per {{!RFC5785}}. A security.txt file located under the top-level path SHOULD either redirect (as per section 6.4 of {{!RFC7231}})
+as per {{!RFC8615}}. A security.txt file located under the top-level path SHOULD either redirect (as per section 6.4 of {{!RFC7231}})
 to the security.txt file under the /.well-known/ path or be used as a fallback if the ".well-known" path cannot be used.
 
 If retrieval of a "security.txt" file from the top-level path results in a redirect (as per
@@ -417,9 +418,9 @@ body             =  signed / unsigned
 
 signed           =  sign-header unsigned sign-footer
 
-sign-header      =  <headers and line from section 7 of [RFC4880]>
+sign-header      =  < headers and line from section 7 of [RFC4880] >
 
-sign-footer      =  <OpenPGP signature from section 7 of [RFC4880]>
+sign-footer      =  < OpenPGP signature from section 7 of [RFC4880] >
 
 unsigned         =  *line [can-field eol] *line (contact-field eol) *line [lang-field eol] *line
                     ; the order of elements is not important
@@ -445,9 +446,9 @@ can-field        =  "Canonical" fs SP uri
 
 contact-field    =  "Contact" fs SP uri
 
-lang-tag         =  <Language-Tag from section 2.1 of [RFC5646]>
+lang-tag         =  < Language-Tag from section 2.1 of [RFC5646] >
 
-uri              =  <URI as per [RFC3986]>
+uri              =  < URI as per [RFC3986] >
 
 encryption-field =  "Encryption" fs SP uri
 
@@ -461,14 +462,17 @@ lang-values      =  lang-tag *("," [WSP] lang-tag)
 
 ext-field        =  field-name fs SP unstructured
 
-field-name       =  <imported from section 3.6.8 of [RFC5322]>
+field-name       =  < imported from section 3.6.8 of [RFC5322] >
 
-unstructured     =  <imported from section 3.2.5 of [RFC5322]>
+unstructured     =  < imported from section 3.2.5 of [RFC5322] >
 ~~~~~~~~~~
 
 "ext-field" refers to extension fields, which are discussed in {{extensibility}}
 
 # Security Considerations
+
+Implementors SHOULD review this section as well as the security considerations
+section of {{!RFC8615}}.
 
 ## Compromised Files and Redirects
 
@@ -581,13 +585,15 @@ the uses indicated in {{?RFC6890}}.
 ## Well-Known URIs registry
 
 The "Well-Known URIs" registry should be updated with the following additional
-values (using the template from {{?RFC5785}}):
+values (using the template from {{?RFC8615}}):
 
 URI suffix: security.txt
 
 Change controller: IETF
 
 Specification document(s): this document
+
+Status: permanent
 
 ## Registry for security.txt Header Fields {#registry}
 
@@ -746,6 +752,9 @@ of DNS-stored encryption keys (#28 and #94)
 - Fixed ABNF grammar for non-chainable directives (#150)
 - Clarified ABNF grammar (#152)
 - Clarified redirect logic (#143)
+- Clarified comments (#158)
+- Updated references and template for well-known URI to RFC 8615
+- Fixed nits from the IETF validator
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt

@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: December 18, 2019                      Nightwatch Cybersecurity
-                                                           June 16, 2019
+Expires: January 17, 2020                       Nightwatch Cybersecurity
+                                                           July 16, 2019
 
 
                    A Method for Web Security Policies
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on December 18, 2019.
+   This Internet-Draft will expire on January 17, 2020.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich   Expires December 18, 2019               [Page 1]
+Foudil & Shafranovich   Expires January 17, 2020                [Page 1]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Foudil & Shafranovich   Expires December 18, 2019               [Page 2]
+Foudil & Shafranovich   Expires January 17, 2020                [Page 2]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
      B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  20
@@ -165,9 +165,9 @@ Internet-Draft     A Method for Web Security Policies          June 2019
 
 
 
-Foudil & Shafranovich   Expires December 18, 2019               [Page 3]
+Foudil & Shafranovich   Expires January 17, 2020                [Page 3]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
 1.2.  Terminology
@@ -193,7 +193,7 @@ Internet-Draft     A Method for Web Security Policies          June 2019
    disclosing security vulnerabilities.
 
    The file is named "security.txt", and this file SHOULD be placed
-   under the /.well-known/ path ("/.well-known/security.txt") [RFC5785]
+   under the /.well-known/ path ("/.well-known/security.txt") [RFC8615]
    of a domain name or IP address for web properties.  If it is not
    possible to place the security.txt file in the /.well-known/ path or
    setup a redirect, web-based services MAY place the file in the top-
@@ -221,9 +221,9 @@ Internet-Draft     A Method for Web Security Policies          June 2019
 
 
 
-Foudil & Shafranovich   Expires December 18, 2019               [Page 4]
+Foudil & Shafranovich   Expires January 17, 2020                [Page 4]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
    unlimited number of fields.  It is important to note that you MUST
@@ -243,20 +243,20 @@ Internet-Draft     A Method for Web Security Policies          June 2019
 
    Some examples appear below:
 
-# The following only applies to example.com.
-https://example.com/.well-known/security.txt
+   # The following only applies to example.com.
+   https://example.com/.well-known/security.txt
 
-# This only applies to subdomain.example.com.
-https://subdomain.example.com/.well-known/security.txt
+   # This only applies to subdomain.example.com.
+   https://subdomain.example.com/.well-known/security.txt
 
-# This security.txt file applies to IPv4 address of 192.0.2.0.
-https://192.0.2.0/.well-known/security.txt
+   # This security.txt file applies to IPv4 address of 192.0.2.0.
+   https://192.0.2.0/.well-known/security.txt
 
-# This security.txt file applies to IPv6 address of 2001:db8:8:4::2.
-https://[2001:db8:8:4::2]/.well-known/security.txt
+   # This security.txt file applies to IPv6 address of 2001:db8:8:4::2.
+   https://[2001:db8:8:4::2]/.well-known/security.txt
 
-# This security.txt file applies to the /example/folder1 directory and subfolders.
-/example/folder1/security.txt
+   # This file applies to the /example/folder1 directory and subfolders.
+   /example/folder1/security.txt
 
 3.2.  Comments
 
@@ -271,20 +271,20 @@ https://[2001:db8:8:4::2]/.well-known/security.txt
 
    You MAY use one or more comments as descriptive text immediately
    before the field.  Parsers SHOULD associate the comments with the
-   respective field.
+   respective field.  Only the line most immediately preceding a field
+   SHOULD be associated with that field.
 
 
 
 
-
-Foudil & Shafranovich   Expires December 18, 2019               [Page 5]
+Foudil & Shafranovich   Expires January 17, 2020                [Page 5]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
 3.3.  Separate Fields
 
-   A separate line is REQUIRED for every field.  You MUST NOT chain
+   A separate line is REQUIRED for every new field.  You MUST NOT chain
    everything into a single field unless defined by that field.  Every
    line MUST end either with a carriage return and line feed characters
    (CRLF / %x0D %x0A) or just a line feed character (LF / %x0A).
@@ -333,9 +333,9 @@ Internet-Draft     A Method for Web Security Policies          June 2019
 
 
 
-Foudil & Shafranovich   Expires December 18, 2019               [Page 6]
+Foudil & Shafranovich   Expires January 17, 2020                [Page 6]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
 3.5.2.  Canonical
@@ -389,9 +389,9 @@ Internet-Draft     A Method for Web Security Policies          June 2019
 
 
 
-Foudil & Shafranovich   Expires December 18, 2019               [Page 7]
+Foudil & Shafranovich   Expires January 17, 2020                [Page 7]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
    When it comes to verifying the authenticity of the key, it is always
@@ -445,9 +445,9 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
 
 
-Foudil & Shafranovich   Expires December 18, 2019               [Page 8]
+Foudil & Shafranovich   Expires January 17, 2020                [Page 8]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
    The order in which they appear MUST NOT be interpreted as an
@@ -501,9 +501,9 @@ Internet-Draft     A Method for Web Security Policies          June 2019
 
 
 
-Foudil & Shafranovich   Expires December 18, 2019               [Page 9]
+Foudil & Shafranovich   Expires January 17, 2020                [Page 9]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
 4.  Location of the security.txt file
@@ -512,7 +512,7 @@ Internet-Draft     A Method for Web Security Policies          June 2019
 
    Web-based services SHOULD place the security.txt file under the
    /.well-known/ path; e.g. https://example.com/.well-known/security.txt
-   as per [RFC5785].  A security.txt file located under the top-level
+   as per [RFC8615].  A security.txt file located under the top-level
    path SHOULD either redirect (as per section 6.4 of [RFC7231]) to the
    security.txt file under the /.well-known/ path or be used as a
    fallback if the ".well-known" path cannot be used.
@@ -557,9 +557,9 @@ Internet-Draft     A Method for Web Security Policies          June 2019
 
 
 
-Foudil & Shafranovich   Expires December 18, 2019              [Page 10]
+Foudil & Shafranovich   Expires January 17, 2020               [Page 10]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
    In general, implementors SHOULD "be conservative in what you do, be
@@ -578,9 +578,9 @@ body             =  signed / unsigned
 
 signed           =  sign-header unsigned sign-footer
 
-sign-header      =  <headers and line from section 7 of [RFC4880]>
+sign-header      =  < headers and line from section 7 of [RFC4880] >
 
-sign-footer      =  <OpenPGP signature from section 7 of [RFC4880]>
+sign-footer      =  < OpenPGP signature from section 7 of [RFC4880] >
 
 unsigned         =  *line [can-field eol] *line (contact-field eol) *line [lang-field eol] *line
                     ; the order of elements is not important
@@ -606,16 +606,16 @@ can-field        =  "Canonical" fs SP uri
 
 contact-field    =  "Contact" fs SP uri
 
-lang-tag         =  <Language-Tag from section 2.1 of [RFC5646]>
+lang-tag         =  < Language-Tag from section 2.1 of [RFC5646] >
 
-uri              =  <URI as per [RFC3986]>
-
-
+uri              =  < URI as per [RFC3986] >
 
 
-Foudil & Shafranovich   Expires December 18, 2019              [Page 11]
+
+
+Foudil & Shafranovich   Expires January 17, 2020               [Page 11]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
 encryption-field =  "Encryption" fs SP uri
@@ -630,14 +630,17 @@ lang-values      =  lang-tag *("," [WSP] lang-tag)
 
 ext-field        =  field-name fs SP unstructured
 
-field-name       =  <imported from section 3.6.8 of [RFC5322]>
+field-name       =  < imported from section 3.6.8 of [RFC5322] >
 
-unstructured     =  <imported from section 3.2.5 of [RFC5322]>
+unstructured     =  < imported from section 3.2.5 of [RFC5322] >
 
    "ext-field" refers to extension fields, which are discussed in
    Section 4.4
 
 6.  Security Considerations
+
+   Implementors SHOULD review this section as well as the security
+   considerations section of [RFC8615].
 
 6.1.  Compromised Files and Redirects
 
@@ -666,12 +669,9 @@ unstructured     =  <imported from section 3.2.5 of [RFC5322]>
 
 
 
-
-
-
-Foudil & Shafranovich   Expires December 18, 2019              [Page 12]
+Foudil & Shafranovich   Expires January 17, 2020               [Page 12]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
 6.2.  Incorrect or Stale Information
@@ -725,9 +725,9 @@ Internet-Draft     A Method for Web Security Policies          June 2019
 
 
 
-Foudil & Shafranovich   Expires December 18, 2019              [Page 13]
+Foudil & Shafranovich   Expires January 17, 2020               [Page 13]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
    can create a page with the "security.txt" AND "/.well-known/
@@ -781,21 +781,23 @@ Internet-Draft     A Method for Web Security Policies          June 2019
 
 
 
-Foudil & Shafranovich   Expires December 18, 2019              [Page 14]
+Foudil & Shafranovich   Expires January 17, 2020               [Page 14]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
 7.1.  Well-Known URIs registry
 
    The "Well-Known URIs" registry should be updated with the following
-   additional values (using the template from [RFC5785]):
+   additional values (using the template from [RFC8615]):
 
    URI suffix: security.txt
 
    Change controller: IETF
 
    Specification document(s): this document
+
+   Status: permanent
 
 7.2.  Registry for security.txt Header Fields
 
@@ -835,11 +837,9 @@ Internet-Draft     A Method for Web Security Policies          June 2019
 
 
 
-
-
-Foudil & Shafranovich   Expires December 18, 2019              [Page 15]
+Foudil & Shafranovich   Expires January 17, 2020               [Page 15]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
    Field Name: Acknowledgments
@@ -893,9 +893,9 @@ Internet-Draft     A Method for Web Security Policies          June 2019
 
 
 
-Foudil & Shafranovich   Expires December 18, 2019              [Page 16]
+Foudil & Shafranovich   Expires January 17, 2020               [Page 16]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
    The authors would also like to acknowledge the feedback provided by
@@ -949,9 +949,9 @@ Internet-Draft     A Method for Web Security Policies          June 2019
 
 
 
-Foudil & Shafranovich   Expires December 18, 2019              [Page 17]
+Foudil & Shafranovich   Expires January 17, 2020               [Page 17]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
    [RFC5198]  Klensin, J. and M. Padlipsky, "Unicode Format for Network
@@ -970,11 +970,6 @@ Internet-Draft     A Method for Web Security Policies          June 2019
    [RFC5646]  Phillips, A., Ed. and M. Davis, Ed., "Tags for Identifying
               Languages", BCP 47, RFC 5646, DOI 10.17487/RFC5646,
               September 2009, <https://www.rfc-editor.org/info/rfc5646>.
-
-   [RFC5785]  Nottingham, M. and E. Hammer-Lahav, "Defining Well-Known
-              Uniform Resource Identifiers (URIs)", RFC 5785,
-              DOI 10.17487/RFC5785, April 2010,
-              <https://www.rfc-editor.org/info/rfc5785>.
 
    [RFC6068]  Duerst, M., Masinter, L., and J. Zawinski, "The 'mailto'
               URI Scheme", RFC 6068, DOI 10.17487/RFC6068, October 2010,
@@ -1001,13 +996,18 @@ Internet-Draft     A Method for Web Security Policies          June 2019
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
+   [RFC8615]  Nottingham, M., "Well-Known Uniform Resource Identifiers
+              (URIs)", RFC 8615, DOI 10.17487/RFC8615, May 2019,
+              <https://www.rfc-editor.org/info/rfc8615>.
 
 
 
 
-Foudil & Shafranovich   Expires December 18, 2019              [Page 18]
+
+
+Foudil & Shafranovich   Expires January 17, 2020               [Page 18]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
 9.2.  Informative References
@@ -1061,9 +1061,9 @@ Appendix A.  Note to Readers
 
 
 
-Foudil & Shafranovich   Expires December 18, 2019              [Page 19]
+Foudil & Shafranovich   Expires January 17, 2020               [Page 19]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
 Appendix B.  Document History
@@ -1117,9 +1117,9 @@ B.2.  Since draft-foudil-securitytxt-01
 
 
 
-Foudil & Shafranovich   Expires December 18, 2019              [Page 20]
+Foudil & Shafranovich   Expires January 17, 2020               [Page 20]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
 B.3.  Since draft-foudil-securitytxt-02
@@ -1173,9 +1173,9 @@ B.5.  Since draft-foudil-securitytxt-04
 
 
 
-Foudil & Shafranovich   Expires December 18, 2019              [Page 21]
+Foudil & Shafranovich   Expires January 17, 2020               [Page 21]
 
-Internet-Draft     A Method for Web Security Policies          June 2019
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
    o  Removed permission directive (#30)
@@ -1209,6 +1209,12 @@ B.7.  Since draft-foudil-securitytxt-06
 
    o  Clarified redirect logic (#143)
 
+   o  Clarified comments (#158)
+
+   o  Updated references and template for well-known URI to RFC 8615
+
+   o  Fixed nits from the IETF validator
+
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt
 
@@ -1217,6 +1223,15 @@ Authors' Addresses
    Edwin Foudil
 
    Email: contact@edoverflow.com
+
+
+
+
+
+
+Foudil & Shafranovich   Expires January 17, 2020               [Page 22]
+
+Internet-Draft     A Method for Web Security Policies          July 2019
 
 
    Yakov Shafranovich
@@ -1229,4 +1244,45 @@ Authors' Addresses
 
 
 
-Foudil & Shafranovich   Expires December 18, 2019              [Page 22]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Foudil & Shafranovich   Expires January 17, 2020               [Page 23]
