@@ -10,7 +10,7 @@ Expires: January 22, 2020                       Nightwatch Cybersecurity
 
 
                    A Method for Web Security Policies
-                      draft-foudil-securitytxt-07
+                      draft-foudil-securitytxt-08
 
 Abstract
 
@@ -120,7 +120,8 @@ Internet-Draft     A Method for Web Security Policies          July 2019
      B.5.  Since draft-foudil-securitytxt-04 . . . . . . . . . . . .  21
      B.6.  Since draft-foudil-securitytxt-05 . . . . . . . . . . . .  22
      B.7.  Since draft-foudil-securitytxt-06 . . . . . . . . . . . .  22
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  22
+     B.8.  Since draft-foudil-securitytxt-07 . . . . . . . . . . . .  22
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  23
 
 1.  Introduction
 
@@ -158,7 +159,6 @@ Internet-Draft     A Method for Web Security Policies          July 2019
    making it easier for organizations to designate the preferred steps
    for researchers to take when trying to reach out to them with
    security vulnerabilities.
-
 
 
 
@@ -1215,14 +1215,14 @@ B.7.  Since draft-foudil-securitytxt-06
 
    o  Fixed nits from the IETF validator
 
+B.8.  Since draft-foudil-securitytxt-07
+
+   o  TBD
+
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt
 
-Authors' Addresses
 
-   Edwin Foudil
-
-   Email: contact@edoverflow.com
 
 
 
@@ -1234,17 +1234,17 @@ Foudil & Shafranovich   Expires January 22, 2020               [Page 22]
 Internet-Draft     A Method for Web Security Policies          July 2019
 
 
+Authors' Addresses
+
+   Edwin Foudil
+
+   Email: contact@edoverflow.com
+
+
    Yakov Shafranovich
    Nightwatch Cybersecurity
 
    Email: yakov+ietf@nightwatchcybersecurity.com
-
-
-
-
-
-
-
 
 
 
