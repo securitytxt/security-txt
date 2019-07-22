@@ -1,6 +1,6 @@
 ---
 title: A Method for Web Security Policies
-docname: draft-foudil-securitytxt-07
+docname: draft-foudil-securitytxt-08
 ipr: trust200902
 cat: info
 pi:
@@ -755,6 +755,9 @@ of DNS-stored encryption keys (#28 and #94)
 - Clarified comments (#158)
 - Updated references and template for well-known URI to RFC 8615
 - Fixed nits from the IETF validator
+
+## Since draft-foudil-securitytxt-07
+- TBD
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
