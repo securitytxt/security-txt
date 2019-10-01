@@ -33,7 +33,7 @@ researchers to follow in order to report security vulnerabilities.
 
 Many security researchers encounter situations where they are unable
 to report security vulnerabilities to organizations because there is
-no course of action laid out or no way indicated to contact the owner of a particular
+no course of action laid out and no way indicated to contact the owner of a particular
 resource.
 
 As per section 4 of {{?RFC2142}}, there is an existing convention
@@ -98,11 +98,11 @@ defined for "unstructured" in section 3.2.5 of {{!RFC5322}}.
 
 A "field" MUST always consist of a directive and a value
 ("Contact: https://example.com/security"). A security.txt file
-can have an unlimited number of fields. It is important to note that
-you MUST have a separate line for every field. One MUST NOT chain multiple
-values for a single directive unless it is explicitly defined by that particular field. Unless
-otherwise indicated in a definition of a particular field,
-any directive MAY appear multiple times.
+can have an unlimited number of fields. It is important to note that each field MUST appear on 
+its own line. Unless specified otherwise by the field definition,
+multiple values MUST NOT be chained together for a single directive. 
+Unless otherwise indicated in a definition of a particular field, any directive MAY appear
+multiple times.
 
 ## Scope
 
@@ -215,7 +215,7 @@ Canonical: https://example.com/.well-known/security.txt
 ### Contact {#contact}
 
 This directive allows you to provide an address that researchers
-SHOULD use for reporting security
+should use for reporting security
 vulnerabilities. The value MAY be an email address, a phone number and/or a
 web page with contact information. The "Contact:" directive MUST
 always be present in a security.txt file. If this directive indicates a web URL,
@@ -244,7 +244,7 @@ Contact: https://example.com/security-contact.html
 This directive allows you to point to an encryption key that
 security researchers SHOULD use for encrypted communication. You MUST NOT
 directly add your key to the field, instead the value of this field
-MUST be a URI pointing to a location where the key can be retrieved from.
+MUST be a URI pointing to a location where the key can be retrieved.
 If this directive indicates a web URL, then it MUST begin with "https://"
 (as per section 2.7.2 of {{!RFC7230}}).
 
@@ -306,7 +306,7 @@ MAY assume that English is the default language to be used (as per section 4.5
 of {{!RFC2277}}).
 
 The order in which they appear MUST NOT be interpreted as an indication of
-priority - rather these MUST BE interpreted as all being of equal priority.
+priority - rather these MUST be interpreted as all being of equal priority.
 
 This directive MUST NOT appear more than once.
 
@@ -471,8 +471,8 @@ unstructured     =  < imported from section 3.2.5 of [RFC5322] >
 
 # Security Considerations
 
-Implementors SHOULD review this section as well as the security considerations
-section of {{!RFC8615}}.
+In addition to the security considerations of {{!RFC8615}}, the following considerations
+apply.
 
 ## Compromised Files and Redirects
 
@@ -512,16 +512,16 @@ and are kept secure.
 It is possible for attackers to generate files that are extraordinarily
 large or otherwise malformed in an attempt to discover or exploit weaknesses
 in parsing code. Implementors SHOULD make sure that any such code
-is robust against large and malformed files. ABNF grammar (as defined in
+is robust against large and malformed files. The ABNF grammar (as defined in
 {{abnf}}) SHOULD be used as a way to verify these files.
 
-Same concerns apply to any other resources referenced within security.txt
+The same concerns apply to any other resources referenced within security.txt
 files, as well as any security reports received as a result of publishing
 this file. Such resources and reports may be hostile, malformed or malicious.
 
 ## No Implied Permission for Testing
 
-The presence of a security.txt file can be interpreted by researchers
+The presence of a security.txt file might be interpreted by researchers
 as providing permission to do security testing against that asset.
 This can lead to increased testing against an organization by researchers. On the other hand, a decision not
 to publish a security.txt file can be interpreted by the
@@ -613,9 +613,9 @@ New registrations and updates MUST contain the following information:
    3.  Whether the field can appear more than once
    4.  The document in which the specification of the field is published
    5.  New or updated status, which MUST be one of:
-       current:  The field is in current use
-       deprecated:  The field is in current use, but its use is discouraged
-       historic:  The field is no longer in current use
+       - current:  The field is in current use
+       - deprecated:  The field is in current use, but its use is discouraged
+       - historic:  The field is no longer in current use
 
 An update may make a notation on an existing registration indicating
 that a registered field is historical or deprecated if appropriate.
@@ -671,7 +671,7 @@ development of this document by Tom Hudson, Jobert Abma,
 Gerben Janssen van Doorn, Austin Heap, Stephane Bortzmeyer, Max Smith, Eduardo Vela and Krzysztof Kotowicz.
 
 
-The authors would also like to acknowledge the feedback provided by multiple members of IETF's SAAG and SEC-DISPATCH lists.
+The authors would also like to acknowledge the feedback provided by multiple members of IETF's SAAG and SECDISPATCH lists.
 
 --- back
 # Note to Readers
