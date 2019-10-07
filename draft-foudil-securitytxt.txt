@@ -70,7 +70,7 @@ Table of Contents
    3.  The Specification . . . . . . . . . . . . . . . . . . . . . .   4
      3.1.  Scope . . . . . . . . . . . . . . . . . . . . . . . . . .   5
      3.2.  Comments  . . . . . . . . . . . . . . . . . . . . . . . .   5
-     3.3.  Separate Fields . . . . . . . . . . . . . . . . . . . . .   6
+     3.3.  Line Separator  . . . . . . . . . . . . . . . . . . . . .   6
      3.4.  Digital signature . . . . . . . . . . . . . . . . . . . .   6
      3.5.  Field Definitions . . . . . . . . . . . . . . . . . . . .   6
        3.5.1.  Acknowledgments . . . . . . . . . . . . . . . . . . .   6
@@ -93,19 +93,19 @@ Table of Contents
      6.2.  Incorrect or Stale Information  . . . . . . . . . . . . .  13
      6.3.  Intentionally Malformed Files, Resources and Reports  . .  13
      6.4.  No Implied Permission for Testing . . . . . . . . . . . .  13
-     6.5.  Multi-user Environments . . . . . . . . . . . . . . . . .  13
+     6.5.  Multi-user Environments . . . . . . . . . . . . . . . . .  14
      6.6.  Protecting Data in Transit  . . . . . . . . . . . . . . .  14
      6.7.  Spam and Spurious Reports . . . . . . . . . . . . . . . .  14
    7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  14
      7.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .  15
      7.2.  Registry for security.txt Header Fields . . . . . . . . .  15
-   8.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  16
-   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  17
-     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  17
-     9.2.  Informative References  . . . . . . . . . . . . . . . . .  19
-   Appendix A.  Note to Readers  . . . . . . . . . . . . . . . . . .  19
-   Appendix B.  Document History . . . . . . . . . . . . . . . . . .  20
-     B.1.  Since draft-foudil-securitytxt-00 . . . . . . . . . . . .  20
+   8.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  18
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  18
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  18
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .  20
+   Appendix A.  Note to Readers  . . . . . . . . . . . . . . . . . .  21
+   Appendix B.  Document History . . . . . . . . . . . . . . . . . .  21
+     B.1.  Since draft-foudil-securitytxt-00 . . . . . . . . . . . .  21
 
 
 
@@ -114,14 +114,14 @@ Foudil & Shafranovich     Expires April 8, 2020                 [Page 2]
 Internet-Draft     A Method for Web Security Policies       October 2019
 
 
-     B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  20
-     B.3.  Since draft-foudil-securitytxt-02 . . . . . . . . . . . .  21
-     B.4.  Since draft-foudil-securitytxt-03 . . . . . . . . . . . .  21
-     B.5.  Since draft-foudil-securitytxt-04 . . . . . . . . . . . .  21
-     B.6.  Since draft-foudil-securitytxt-05 . . . . . . . . . . . .  22
-     B.7.  Since draft-foudil-securitytxt-06 . . . . . . . . . . . .  22
-     B.8.  Since draft-foudil-securitytxt-07 . . . . . . . . . . . .  22
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  23
+     B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  21
+     B.3.  Since draft-foudil-securitytxt-02 . . . . . . . . . . . .  22
+     B.4.  Since draft-foudil-securitytxt-03 . . . . . . . . . . . .  22
+     B.5.  Since draft-foudil-securitytxt-04 . . . . . . . . . . . .  23
+     B.6.  Since draft-foudil-securitytxt-05 . . . . . . . . . . . .  23
+     B.7.  Since draft-foudil-securitytxt-06 . . . . . . . . . . . .  23
+     B.8.  Since draft-foudil-securitytxt-07 . . . . . . . . . . . .  24
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  24
 
 1.  Introduction
 
@@ -211,8 +211,8 @@ Internet-Draft     A Method for Web Security Policies       October 2019
    This text file contains multiple directives with different values.
    The "directive" is the first part of a field all the way up to the
    colon ("Contact:") and follows the syntax defined for "field-name" in
-   section 3.6.8 of [RFC5322].  Directives MUST be case-insensitive (as
-   per section 2.3 of [RFC5234]).  The "value" comes after the directive
+   section 3.6.8 of [RFC5322].  Directives are case-insensitive (as per
+   section 2.3 of [RFC5234]).  The "value" comes after the directive
    ("https://example.com/security") and follows the syntax defined for
    "unstructured" in section 3.2.5 of [RFC5322].
 
@@ -269,7 +269,7 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
    # This is a comment.
 
-   You MAY use one or more comments as descriptive text immediately
+   One or more comments MAY be used as descriptive text immediately
    before the field.  Parsers SHOULD associate the comments with the
    respective field.  Only the line most immediately preceding a field
    SHOULD be associated with that field.
@@ -282,12 +282,11 @@ Foudil & Shafranovich     Expires April 8, 2020                 [Page 5]
 Internet-Draft     A Method for Web Security Policies       October 2019
 
 
-3.3.  Separate Fields
+3.3.  Line Separator
 
-   A separate line is REQUIRED for every new field.  You MUST NOT chain
-   everything into a single field unless defined by that field.  Every
-   line MUST end either with a carriage return and line feed characters
-   (CRLF / %x0D %x0A) or just a line feed character (LF / %x0A).
+   Every line MUST end either with a carriage return and line feed
+   characters (CRLF / %x0D %x0A) or just a line feed character (LF /
+   %x0A).
 
 3.4.  Digital signature
 
@@ -306,12 +305,12 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
 3.5.1.  Acknowledgments
 
-   This directive allows you to link to a page where security
-   researchers are recognized for their reports.  The page being linked
-   to SHOULD list individuals or organizations that reported security
-   vulnerabilities and worked with you to remediate the issue.
-   Organizations SHOULD be careful to limit the vulnerability
-   information being published in order to prevent future attacks.
+   This directive indicates a link to a page where security researchers
+   are recognized for their reports.  The page being referenced SHOULD
+   list individuals or organizations that reported security
+   vulnerabilities and collaborated to remediate them.  Organizations
+   SHOULD be careful to limit the vulnerability information being
+   published in order to prevent future attacks.
 
    If this directive indicates a web URL, then it MUST begin with
    "https://" (as per section 2.7.2 of [RFC7230]).
@@ -328,6 +327,7 @@ Internet-Draft     A Method for Web Security Policies       October 2019
    (2017-01-02) Alice Quinn  - SQL injection
    (2016-12-24) John Buchner - Stored cross-site scripting
    (2016-06-10) Anna Richmond - A server configuration issue
+
 
 
 
@@ -354,14 +354,14 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
 3.5.3.  Contact
 
-   This directive allows you to provide an address that researchers
-   should use for reporting security vulnerabilities.  The value MAY be
-   an email address, a phone number and/or a web page with contact
-   information.  The "Contact:" directive MUST always be present in a
-   security.txt file.  If this directive indicates a web URL, then it
-   MUST begin with "https://" (as per section 2.7.2 of [RFC7230]).
-   Security email addresses SHOULD use the conventions defined in
-   section 4 of [RFC2142].
+   This directive indicates an address that researchers should use for
+   reporting security vulnerabilities.  The value MAY be an email
+   address, a phone number and/or a web page with contact information.
+   The "Contact:" directive MUST always be present in a security.txt
+   file.  If this directive indicates a web URL, then it MUST begin with
+   "https://" (as per section 2.7.2 of [RFC7230]).  Security email
+   addresses SHOULD use the conventions defined in section 4 of
+   [RFC2142].
 
    The value MUST follow the URI syntax described in [RFC3986].  This
    means that "mailto" and "tel" URI schemes MUST be used when
@@ -380,12 +380,12 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
 3.5.4.  Encryption
 
-   This directive allows you to point to an encryption key that security
-   researchers SHOULD use for encrypted communication.  You MUST NOT
-   directly add your key to the field, instead the value of this field
-   MUST be a URI pointing to a location where the key can be retrieved.
-   If this directive indicates a web URL, then it MUST begin with
-   "https://" (as per section 2.7.2 of [RFC7230]).
+   This directive indicates an encryption key that security researchers
+   SHOULD use for encrypted communication.  Keys MUST NOT appear in this
+   field - instead the value of this field MUST be a URI pointing to a
+   location where the key can be retrieved.  If this directive indicates
+   a web URL, then it MUST begin with "https://" (as per section 2.7.2
+   of [RFC7230]).
 
 
 
@@ -422,11 +422,12 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
 3.5.6.  Policy
 
-   This directive allows you to link to where your security policy and/
-   or disclosure policy is located.  This can help security researchers
-   understand what you are looking for and how to report security
-   vulnerabilities.  If this directive indicates a web URL, then it MUST
-   begin with "https://" (as per section 2.7.2 of [RFC7230]).
+   This directive indicates a link to where the security policy and/or
+   disclosure policy is located.  This can help security researchers
+   understand what an organization is looking for and how to report
+   security vulnerabilities.  If this directive indicates a web URL,
+   then it MUST begin with "https://" (as per section 2.7.2 of
+   [RFC7230]).
 
    Example:
 
@@ -441,7 +442,6 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
    this set are language tags (as defined in [RFC5646]).  If this
    directive is absent, security researchers MAY assume that English is
    the default language to be used (as per section 4.5 of [RFC2277]).
-
 
 
 
@@ -494,7 +494,7 @@ Internet-Draft     A Method for Web Security Policies       October 2019
    # Our security acknowledgments page
    Acknowledgments: https://example.com/hall-of-fame.html
    -----BEGIN PGP SIGNATURE-----
-   Version: GnuPG v1
+   Version: GnuPG v2.2
 
    [signature]
    -----END PGP SIGNATURE-----
@@ -541,8 +541,10 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
 4.3.  Internal hosts
 
-   A "security.txt" file SHOULD be placed in the root directory of an
-   internal host.
+   An internal host is "a host served by a NAT gateway, or protected by
+   a firewall" (as per section 3 of [RFC6887]) and might not be
+   accessible directly from the Internet.  On such systems, a
+   "security.txt" file SHOULD be placed in the root directory.
 
 4.4.  Extensibility
 
@@ -551,8 +553,6 @@ Internet-Draft     A Method for Web Security Policies       October 2019
    Internet.  Therefore, extensibility is provided via an IANA registry
    for directives as defined in Section 7.2.  Any directives registered
    via that process MUST be considered optional.  To encourage
-   extensibility and interoperability, implementors MUST ignore any
-   fields they do not explicitly support.
 
 
 
@@ -561,6 +561,9 @@ Foudil & Shafranovich     Expires April 8, 2020                [Page 10]
 
 Internet-Draft     A Method for Web Security Policies       October 2019
 
+
+   extensibility and interoperability, implementors MUST ignore any
+   fields they do not explicitly support.
 
    In general, implementors SHOULD "be conservative in what you do, be
    liberal in what you accept from others" (as per [RFC0793]).
@@ -608,15 +611,14 @@ contact-field    =  "Contact" fs SP uri
 
 lang-tag         =  < Language-Tag from section 2.1 of [RFC5646] >
 
-uri              =  < URI as per [RFC3986] >
-
-
 
 
 Foudil & Shafranovich     Expires April 8, 2020                [Page 11]
 
 Internet-Draft     A Method for Web Security Policies       October 2019
 
+
+uri              =  < URI as per [RFC3986] >
 
 encryption-field =  "Encryption" fs SP uri
 
@@ -667,8 +669,6 @@ unstructured     =  < imported from section 3.2.5 of [RFC5322] >
 
 
 
-
-
 Foudil & Shafranovich     Expires April 8, 2020                [Page 12]
 
 Internet-Draft     A Method for Web Security Policies       October 2019
@@ -679,7 +679,9 @@ Internet-Draft     A Method for Web Security Policies       October 2019
    If information and resources referenced in a "security.txt" file are
    incorrect or not kept up to date, this can result in security reports
    not being received by the organization or sent to incorrect contacts,
-   thus exposing possible security issues to third parties.
+   thus exposing possible security issues to third parties.  Not having
+   a security.txt file may be preferable to having stale information in
+   this file.
 
    Organizations SHOULD ensure that information in this file and any
    referenced resources such as web pages, email addresses and telephone
@@ -704,24 +706,22 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
    The presence of a security.txt file might be interpreted by
    researchers as providing permission to do security testing against
-   that asset.  This can lead to increased testing against an
+   that asset.  This might result in increased testing against an
    organization by researchers.  On the other hand, a decision not to
-   publish a security.txt file can be interpreted by the organization
+   publish a security.txt file might be interpreted by the organization
    operating that website to be a way to signal to researchers that
    permission to test that particular site or project is denied.  This
-   can lead to pushback against researchers reporting security issues to
-   that organization.
+   might result in pushback against researchers reporting security
+   issues to that organization.
 
    Therefore, implementors MUST NOT assume that presence or absence of a
    "security.txt" file grants or denies permission for security testing.
    Any such permission MAY be defined in a security or disclosure policy
    (as per Section 3.5.6) or a new directive (as per Section 4.4).
 
-6.5.  Multi-user Environments
 
-   In multi-user / multi-tenant environments, it may possible for a user
-   to take over the location of the "security.txt" file.  Organizations
-   SHOULD reserve the "security.txt" namespace to ensure no third-party
+
+
 
 
 
@@ -730,8 +730,13 @@ Foudil & Shafranovich     Expires April 8, 2020                [Page 13]
 Internet-Draft     A Method for Web Security Policies       October 2019
 
 
-   can create a page with the "security.txt" AND "/.well-known/
-   security.txt" names.
+6.5.  Multi-user Environments
+
+   In multi-user / multi-tenant environments, it may possible for a user
+   to take over the location of the "security.txt" file.  Organizations
+   SHOULD reserve the "security.txt" namespace at the root to ensure no
+   third-party can create a page with the "security.txt" AND "/.well-
+   known/security.txt" names.
 
 6.6.  Protecting Data in Transit
 
@@ -773,11 +778,6 @@ Internet-Draft     A Method for Web Security Policies       October 2019
    example.com is used in this document following the uses indicated in
    [RFC2606].
 
-   192.0.2.0 and 2001:db8:8:4::2 are used in this document following the
-   uses indicated in [RFC6890].
-
-
-
 
 
 
@@ -785,6 +785,9 @@ Foudil & Shafranovich     Expires April 8, 2020                [Page 14]
 
 Internet-Draft     A Method for Web Security Policies       October 2019
 
+
+   192.0.2.0 and 2001:db8:8:4::2 are used in this document following the
+   uses indicated in [RFC6890].
 
 7.1.  Well-Known URIs registry
 
@@ -820,6 +823,7 @@ Internet-Draft     A Method for Web Security Policies       October 2019
    3.  Whether the field can appear more than once
 
    4.  The document in which the specification of the field is published
+       (if available)
 
    5.  New or updated status, which MUST be one of:
 
@@ -830,6 +834,16 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
        *  historic: The field is no longer in current use
 
+
+
+
+Foudil & Shafranovich     Expires April 8, 2020                [Page 15]
+
+Internet-Draft     A Method for Web Security Policies       October 2019
+
+
+   6.  Change controller
+
    An update may make a notation on an existing registration indicating
    that a registered field is historical or deprecated if appropriate.
 
@@ -837,7 +851,49 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
 
 
-Foudil & Shafranovich     Expires April 8, 2020                [Page 15]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Foudil & Shafranovich     Expires April 8, 2020                [Page 16]
 
 Internet-Draft     A Method for Web Security Policies       October 2019
 
@@ -847,42 +903,56 @@ Internet-Draft     A Method for Web Security Policies       October 2019
    Multiple Appearances: Yes
    Published in: this document
    Status: current
+   Change controller: IESG
 
    Field Name: Canonical
    Description: canonical URL for this file
    Multiple Appearances: No
    Published in: this document
    Status: current
+   Change controller: IESG
 
    Field Name: Contact
    Description: contact information to use for reporting vulnerabilities
    Multiple Appearances: Yes
    Published in: this document
    Status: current
+   Change controller: IESG
 
    Field Name: Encryption
    Description: link to a key to be used for encrypted communication
    Multiple Appearances: Yes
    Published in: this document
    Status: current
+   Change controller: IESG
 
    Field Name: Hiring
    Description: link to the vendor's security-related job positions
    Multiple Appearances: Yes
    Published in: this document
    Status: current
+   Change controller: IESG
 
    Field Name: Policy
    Description: link to security policy page
    Multiple Appearances: Yes
    Published in: this document
    Status: current
+   Change controller: IESG
 
    Field Name: Preferred-Languages
    Description: list of preferred languages for security reports
    Multiple Appearances: No
    Published in: this document
    Status: current
+   Change controller: IESG
+
+
+
+Foudil & Shafranovich     Expires April 8, 2020                [Page 17]
+
+Internet-Draft     A Method for Web Security Policies       October 2019
+
 
 8.  Contributors
 
@@ -890,13 +960,6 @@ Internet-Draft     A Method for Web Security Policies       October 2019
    development of this document by Tom Hudson, Jobert Abma, Gerben
    Janssen van Doorn, Austin Heap, Stephane Bortzmeyer, Max Smith,
    Eduardo Vela and Krzysztof Kotowicz.
-
-
-
-Foudil & Shafranovich     Expires April 8, 2020                [Page 16]
-
-Internet-Draft     A Method for Web Security Policies       October 2019
-
 
    The authors would also like to acknowledge the feedback provided by
    multiple members of IETF's SAAG and SECDISPATCH lists.
@@ -936,6 +999,17 @@ Internet-Draft     A Method for Web Security Policies       October 2019
               RFC 3966, DOI 10.17487/RFC3966, December 2004,
               <https://www.rfc-editor.org/info/rfc3966>.
 
+
+
+
+
+
+
+Foudil & Shafranovich     Expires April 8, 2020                [Page 18]
+
+Internet-Draft     A Method for Web Security Policies       October 2019
+
+
    [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
               Resource Identifier (URI): Generic Syntax", STD 66,
               RFC 3986, DOI 10.17487/RFC3986, January 2005,
@@ -945,14 +1019,6 @@ Internet-Draft     A Method for Web Security Policies       October 2019
               Thayer, "OpenPGP Message Format", RFC 4880,
               DOI 10.17487/RFC4880, November 2007,
               <https://www.rfc-editor.org/info/rfc4880>.
-
-
-
-
-Foudil & Shafranovich     Expires April 8, 2020                [Page 17]
-
-Internet-Draft     A Method for Web Security Policies       October 2019
-
 
    [RFC5198]  Klensin, J. and M. Padlipsky, "Unicode Format for Network
               Interchange", RFC 5198, DOI 10.17487/RFC5198, March 2008,
@@ -982,10 +1048,23 @@ Internet-Draft     A Method for Web Security Policies       October 2019
               Security (TLS)", RFC 6125, DOI 10.17487/RFC6125, March
               2011, <https://www.rfc-editor.org/info/rfc6125>.
 
+   [RFC6887]  Wing, D., Ed., Cheshire, S., Boucadair, M., Penno, R., and
+              P. Selkirk, "Port Control Protocol (PCP)", RFC 6887,
+              DOI 10.17487/RFC6887, April 2013,
+              <https://www.rfc-editor.org/info/rfc6887>.
+
    [RFC7230]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Message Syntax and Routing",
               RFC 7230, DOI 10.17487/RFC7230, June 2014,
               <https://www.rfc-editor.org/info/rfc7230>.
+
+
+
+
+Foudil & Shafranovich     Expires April 8, 2020                [Page 19]
+
+Internet-Draft     A Method for Web Security Policies       October 2019
+
 
    [RFC7231]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Semantics and Content", RFC 7231,
@@ -999,16 +1078,6 @@ Internet-Draft     A Method for Web Security Policies       October 2019
    [RFC8615]  Nottingham, M., "Well-Known Uniform Resource Identifiers
               (URIs)", RFC 8615, DOI 10.17487/RFC8615, May 2019,
               <https://www.rfc-editor.org/info/rfc8615>.
-
-
-
-
-
-
-Foudil & Shafranovich     Expires April 8, 2020                [Page 18]
-
-Internet-Draft     A Method for Web Security Policies       October 2019
-
 
 9.2.  Informative References
 
@@ -1044,6 +1113,15 @@ Internet-Draft     A Method for Web Security Policies       October 2019
               RFC 7485, DOI 10.17487/RFC7485, March 2015,
               <https://www.rfc-editor.org/info/rfc7485>.
 
+
+
+
+
+Foudil & Shafranovich     Expires April 8, 2020                [Page 20]
+
+Internet-Draft     A Method for Web Security Policies       October 2019
+
+
    [RFC8126]  Cotton, M., Leiba, B., and T. Narten, "Guidelines for
               Writing an IANA Considerations Section in RFCs", BCP 26,
               RFC 8126, DOI 10.17487/RFC8126, June 2017,
@@ -1056,15 +1134,6 @@ Appendix A.  Note to Readers
 
    Development of this draft takes place on Github at
    https://github.com/securitytxt/security-txt
-
-
-
-
-
-Foudil & Shafranovich     Expires April 8, 2020                [Page 19]
-
-Internet-Draft     A Method for Web Security Policies       October 2019
-
 
 Appendix B.  Document History
 
@@ -1100,6 +1169,15 @@ B.2.  Since draft-foudil-securitytxt-01
 
    o  Added policy field (#53)
 
+
+
+
+
+Foudil & Shafranovich     Expires April 8, 2020                [Page 21]
+
+Internet-Draft     A Method for Web Security Policies       October 2019
+
+
    o  Added diagram explaining the location of the file on public vs.
       internal systems
 
@@ -1111,16 +1189,6 @@ B.2.  Since draft-foudil-securitytxt-01
 
    The full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt-02
-
-
-
-
-
-
-Foudil & Shafranovich     Expires April 8, 2020                [Page 20]
-
-Internet-Draft     A Method for Web Security Policies       October 2019
-
 
 B.3.  Since draft-foudil-securitytxt-02
 
@@ -1159,6 +1227,13 @@ B.4.  Since draft-foudil-securitytxt-03
 
    o  Adding "Permission" field (#30)
 
+
+
+Foudil & Shafranovich     Expires April 8, 2020                [Page 22]
+
+Internet-Draft     A Method for Web Security Policies       October 2019
+
+
    o  Fixing remaining ABNF issues (#83)
 
    o  Additional editorial changes and edits
@@ -1170,13 +1245,6 @@ B.5.  Since draft-foudil-securitytxt-04
    o  Case sensitivity clarification (#127)
 
    o  Syntax fixes (#133, #135 and #136)
-
-
-
-Foudil & Shafranovich     Expires April 8, 2020                [Page 21]
-
-Internet-Draft     A Method for Web Security Policies       October 2019
-
 
    o  Removed permission directive (#30)
 
@@ -1215,6 +1283,13 @@ B.7.  Since draft-foudil-securitytxt-06
 
    o  Fixed nits from the IETF validator
 
+
+
+Foudil & Shafranovich     Expires April 8, 2020                [Page 23]
+
+Internet-Draft     A Method for Web Security Policies       October 2019
+
+
 B.8.  Since draft-foudil-securitytxt-07
 
    o  Addressing AD feedback (#165)
@@ -1223,16 +1298,6 @@ B.8.  Since draft-foudil-securitytxt-07
 
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt
-
-
-
-
-
-
-Foudil & Shafranovich     Expires April 8, 2020                [Page 22]
-
-Internet-Draft     A Method for Web Security Policies       October 2019
-
 
 Authors' Addresses
 
@@ -1276,13 +1341,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-
-
-Foudil & Shafranovich     Expires April 8, 2020                [Page 23]
+Foudil & Shafranovich     Expires April 8, 2020                [Page 24]
