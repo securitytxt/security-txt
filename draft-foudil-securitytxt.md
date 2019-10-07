@@ -92,7 +92,7 @@ For web-based services, the file MUST be accessible via the Hypertext Transfer P
 This text file contains multiple directives
 with different values. The "directive" is the first part of a field all the way up
 to the colon ("Contact:") and follows the syntax defined for "field-name" in section 3.6.8
-of {{!RFC5322}}. Directives MUST be case-insensitive (as per section 2.3 of {{!RFC5234}}).
+of {{!RFC5322}}. Directives are case-insensitive (as per section 2.3 of {{!RFC5234}}).
 The "value" comes after the directive ("https://example.com/security") and follows the syntax
 defined for "unstructured" in section 3.2.5 of {{!RFC5322}}.
 
@@ -143,17 +143,15 @@ Example:
 # This is a comment.
 ~~~~~~~~~~
 
-You MAY use one or more comments as descriptive text immediately
+One or more comments MAY be used as descriptive text immediately
 before the field. Parsers SHOULD associate the comments with the
 respective field. Only the line most immediately preceding a field SHOULD
 be associated with that field.
 
-## Separate Fields
+## Line Separator
 
-A separate line is REQUIRED for every new field. You MUST
-NOT chain everything into a single field unless defined by that field. Every line MUST end either
-with a carriage return and line feed characters (CRLF / %x0D %x0A) or just
-a line feed character (LF / %x0A).
+Every line MUST end either with a carriage return and line feed
+characters (CRLF / %x0D %x0A) or just a line feed character (LF / %x0A).
 
 ## Digital signature {#signature}
 
@@ -171,10 +169,10 @@ used is indeed one they trust.
 
 ### Acknowledgments {#acknowledgments}
 
-This directive allows you to link to a page where security
-researchers are recognized for their reports. The page being linked to
+This directive indicates a link to a page where security
+researchers are recognized for their reports. The page being referenced
 SHOULD list individuals or organizations that reported security vulnerabilities
-and worked with you to remediate the issue. Organizations SHOULD be careful
+and collaborated to remediate them. Organizations SHOULD be careful
 to limit the vulnerability information being published in order
 to prevent future attacks.
 
@@ -214,7 +212,7 @@ Canonical: https://example.com/.well-known/security.txt
 
 ### Contact {#contact}
 
-This directive allows you to provide an address that researchers
+This directive indicates an address that researchers
 should use for reporting security
 vulnerabilities. The value MAY be an email address, a phone number and/or a
 web page with contact information. The "Contact:" directive MUST
@@ -241,9 +239,9 @@ Contact: https://example.com/security-contact.html
 
 ### Encryption {#encryption}
 
-This directive allows you to point to an encryption key that
-security researchers SHOULD use for encrypted communication. You MUST NOT
-directly add your key to the field, instead the value of this field
+This directive indicates an encryption key that
+security researchers SHOULD use for encrypted communication. Keys MUST NOT
+appear in this field - instead the value of this field
 MUST be a URI pointing to a location where the key can be retrieved.
 If this directive indicates a web URL, then it MUST begin with "https://"
 (as per section 2.7.2 of {{!RFC7230}}).
@@ -283,9 +281,9 @@ Hiring: https://example.com/jobs.html
 
 ### Policy {#policy}
 
-This directive allows you to link to where your security policy and/or
+This directive indicates a link to where the security policy and/or
 disclosure policy is located. This can help security researchers understand
-what you are looking for and how to report security vulnerabilities.
+what an organization is looking for and how to report security vulnerabilities.
 If this directive indicates a web URL, then it MUST begin with "https://"
 (as per section 2.7.2 of {{!RFC7230}}).
 
@@ -353,7 +351,7 @@ Policy: https://example.com/security-policy.html
 # Our security acknowledgments page
 Acknowledgments: https://example.com/hall-of-fame.html
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1
+Version: GnuPG v2.2
 
 [signature]
 -----END PGP SIGNATURE-----
@@ -391,7 +389,9 @@ Example file system:
 
 ## Internal hosts
 
-A "security.txt" file SHOULD be placed in the root directory of an internal host.
+An internal host is "a host served by a NAT gateway, or protected by a firewall" (as
+per section 3 of {{!RFC6887}}) and might not be accessible directly from the Internet.
+On such systems, a "security.txt" file SHOULD be placed in the root directory.
 
 ## Extensibility {#extensibility}
 
@@ -500,7 +500,8 @@ domain (as per {{weblocation}}).
 If information and resources referenced in a "security.txt" file are incorrect
 or not kept up to date, this can result in security reports not being received
 by the organization or sent to incorrect contacts, thus exposing possible
-security issues to third parties.
+security issues to third parties. Not having a security.txt file may be preferable
+to having stale information in this file.
 
 Organizations SHOULD ensure that information in this file and any referenced
 resources such as web pages, email addresses and telephone numbers
@@ -523,10 +524,10 @@ this file. Such resources and reports may be hostile, malformed or malicious.
 
 The presence of a security.txt file might be interpreted by researchers
 as providing permission to do security testing against that asset.
-This can lead to increased testing against an organization by researchers. On the other hand, a decision not
-to publish a security.txt file can be interpreted by the
+This might result in increased testing against an organization by researchers. On the other hand, a decision not
+to publish a security.txt file might be interpreted by the
 organization operating that website to be a way to signal to researchers
-that permission to test that particular site or project is denied. This can lead to pushback against
+that permission to test that particular site or project is denied. This might result in pushback against
 researchers reporting security issues to that organization.
 
 Therefore, implementors MUST NOT assume that presence or absence of
@@ -538,7 +539,7 @@ Any such permission MAY be defined in a security or disclosure policy
 
 In multi-user / multi-tenant environments, it may possible for a user to take
 over the location of the "security.txt" file. Organizations SHOULD reserve
-the "security.txt" namespace to ensure no third-party can create a page with
+the "security.txt" namespace at the root to ensure no third-party can create a page with
 the "security.txt" AND "/.well-known/security.txt" names.
 
 ## Protecting Data in Transit
@@ -611,11 +612,12 @@ New registrations and updates MUST contain the following information:
    1.  Name of the field being registered or updated
    2.  Short description of the field
    3.  Whether the field can appear more than once
-   4.  The document in which the specification of the field is published
+   4.  The document in which the specification of the field is published (if available)
    5.  New or updated status, which MUST be one of:
-       - current:  The field is in current use
-       - deprecated:  The field is in current use, but its use is discouraged
-       - historic:  The field is no longer in current use
+       - current: The field is in current use
+       - deprecated: The field is in current use, but its use is discouraged
+       - historic: The field is no longer in current use
+   6. Change controller
 
 An update may make a notation on an existing registration indicating
 that a registered field is historical or deprecated if appropriate.
@@ -627,42 +629,49 @@ The initial registry contains these values:
        Multiple Appearances: Yes
        Published in: this document
        Status: current
+       Change controller: IESG
 
        Field Name: Canonical
        Description: canonical URL for this file
        Multiple Appearances: No
        Published in: this document
        Status: current
+       Change controller: IESG
 
        Field Name: Contact
        Description: contact information to use for reporting vulnerabilities
        Multiple Appearances: Yes
        Published in: this document
        Status: current
+       Change controller: IESG
 
        Field Name: Encryption
        Description: link to a key to be used for encrypted communication
        Multiple Appearances: Yes
        Published in: this document
        Status: current
+       Change controller: IESG
 
        Field Name: Hiring
        Description: link to the vendor's security-related job positions
        Multiple Appearances: Yes
        Published in: this document
        Status: current
+       Change controller: IESG
 
        Field Name: Policy
        Description: link to security policy page
        Multiple Appearances: Yes
        Published in: this document
        Status: current
+       Change controller: IESG
 
        Field Name: Preferred-Languages
        Description: list of preferred languages for security reports
        Multiple Appearances: No
        Published in: this document
        Status: current
+       Change controller: IESG
 
 # Contributors
 
