@@ -458,7 +458,7 @@ policy-field     =  "Policy" fs SP uri
 
 lang-field       =  "Preferred-Languages" fs SP lang-values
 
-lang-values      =  lang-tag *("," [WSP] lang-tag)
+lang-values      =  lang-tag *(*WSP "," *WSP lang-tag)
 
 ext-field        =  field-name fs SP unstructured
 
@@ -757,7 +757,7 @@ of DNS-stored encryption keys (#28 and #94)
 - Fixed nits from the IETF validator
 
 ## Since draft-foudil-securitytxt-07
-- TBD
+- Fixed whitespace issue with lang-values ABNF grammar (#164)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
