@@ -194,11 +194,9 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
    The file is named "security.txt", and this file SHOULD be placed
    under the /.well-known/ path ("/.well-known/security.txt") [RFC8615]
-   of a domain name or IP address for web properties.  If it is not
-   possible to place the security.txt file in the /.well-known/ path or
-   setup a redirect, web-based services MAY place the file in the top-
-   level path of a given web domain or IP address ("/security.txt") as a
-   fallback option (see Section 4.1).
+   of a domain name or IP address for web properties.  For legacy
+   compatibility, a security.txt file might be placed at the top level
+   path (see Section 4.1).
 
    For web-based services, the file MUST be accessible via the Hypertext
    Transfer Protocol (HTTP) [RFC1945] as a resource of Internet Media
@@ -218,6 +216,8 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
    A "field" MUST always consist of a directive and a value ("Contact:
    https://example.com/security").  A security.txt file can have an
+   unlimited number of fields.  It is important to note that each field
+   MUST appear on its own line.  Unless specified otherwise by the field
 
 
 
@@ -226,8 +226,6 @@ Foudil & Shafranovich     Expires April 8, 2020                 [Page 4]
 Internet-Draft     A Method for Web Security Policies       October 2019
 
 
-   unlimited number of fields.  It is important to note that each field
-   MUST appear on its own line.  Unless specified otherwise by the field
    definition, multiple values MUST NOT be chained together for a single
    directive.  Unless otherwise indicated in a definition of a
    particular field, any directive MAY appear multiple times.
@@ -273,6 +271,8 @@ Internet-Draft     A Method for Web Security Policies       October 2019
    before the field.  Parsers SHOULD associate the comments with the
    respective field.  Only the line most immediately preceding a field
    SHOULD be associated with that field.
+
+
 
 
 
@@ -512,10 +512,9 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
    Web-based services SHOULD place the security.txt file under the
    /.well-known/ path; e.g. https://example.com/.well-known/security.txt
-   as per [RFC8615].  A security.txt file located under the top-level
-   path SHOULD either redirect (as per section 6.4 of [RFC7231]) to the
-   security.txt file under the /.well-known/ path or be used as a
-   fallback if the ".well-known" path cannot be used.
+   as per [RFC8615].  For legacy compatibility, a security.txt file
+   might be placed at the top-level path or redirect (as per section 6.4
+   of [RFC7231]) to the security.txt file under the /.well-known/ path.
 
    If retrieval of a "security.txt" file from the top-level path results
    in a redirect (as per section 6.4 of [RFC7231]), the implementors
@@ -553,7 +552,8 @@ Internet-Draft     A Method for Web Security Policies       October 2019
    Internet.  Therefore, extensibility is provided via an IANA registry
    for directives as defined in Section 7.2.  Any directives registered
    via that process MUST be considered optional.  To encourage
-
+   extensibility and interoperability, implementors MUST ignore any
+   fields they do not explicitly support.
 
 
 
@@ -561,9 +561,6 @@ Foudil & Shafranovich     Expires April 8, 2020                [Page 10]
 
 Internet-Draft     A Method for Web Security Policies       October 2019
 
-
-   extensibility and interoperability, implementors MUST ignore any
-   fields they do not explicitly support.
 
    In general, implementors SHOULD "be conservative in what you do, be
    liberal in what you accept from others" (as per [RFC0793]).
@@ -611,14 +608,15 @@ contact-field    =  "Contact" fs SP uri
 
 lang-tag         =  < Language-Tag from section 2.1 of [RFC5646] >
 
+uri              =  < URI as per [RFC3986] >
+
+
 
 
 Foudil & Shafranovich     Expires April 8, 2020                [Page 11]
 
 Internet-Draft     A Method for Web Security Policies       October 2019
 
-
-uri              =  < URI as per [RFC3986] >
 
 encryption-field =  "Encryption" fs SP uri
 
@@ -669,6 +667,8 @@ unstructured     =  < imported from section 3.2.5 of [RFC5322] >
 
 
 
+
+
 Foudil & Shafranovich     Expires April 8, 2020                [Page 12]
 
 Internet-Draft     A Method for Web Security Policies       October 2019
@@ -690,12 +690,12 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
 6.3.  Intentionally Malformed Files, Resources and Reports
 
-   It is possible for attackers to generate files that are
-   extraordinarily large or otherwise malformed in an attempt to
-   discover or exploit weaknesses in parsing code.  Implementors SHOULD
-   make sure that any such code is robust against large and malformed
-   files.  The ABNF grammar (as defined in Section 5) SHOULD be used as
-   a way to verify these files.
+   It is possible for compromised or malicious sites to create files
+   that are extraordinarily large or otherwise malformed in an attempt
+   to discover or exploit weaknesses in parsing code.  Implementors
+   SHOULD make sure that any such code is robust against large and
+   malformed files.  The ABNF grammar (as defined in Section 5) SHOULD
+   be used as a way to verify these files.
 
    The same concerns apply to any other resources referenced within
    security.txt files, as well as any security reports received as a

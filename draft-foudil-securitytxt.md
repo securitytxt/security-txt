@@ -84,8 +84,7 @@ in disclosing security vulnerabilities.
 
 The file is named "security.txt", and this file SHOULD be placed under the
 /.well-known/ path ("/.well-known/security.txt") {{!RFC8615}} of a domain name or IP address for web
-properties. If it is not possible to place the security.txt file in the /.well-known/ path or setup a redirect, web-based services MAY place the file in the top-level path
-of a given web domain or IP address ("/security.txt") as a fallback option (see {{weblocation}}).
+properties. For legacy compatibility, a security.txt file might be placed at the top level path (see {{weblocation}}).
 
 For web-based services, the file MUST be accessible via the Hypertext Transfer Protocol (HTTP) {{!RFC1945}} as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}, and it MUST be served with "https" (as per section 2.7.2 of {{!RFC7230}}). For file systems and version control repositories a "security.txt" file SHOULD be placed in the root directory of a particular file system or source code project.
 
@@ -362,8 +361,8 @@ Version: GnuPG v2.2
 ## Web-based services {#weblocation}
 
 Web-based services SHOULD place the security.txt file under the /.well-known/ path; e.g. https://example.com/.well-known/security.txt
-as per {{!RFC8615}}. A security.txt file located under the top-level path SHOULD either redirect (as per section 6.4 of {{!RFC7231}})
-to the security.txt file under the /.well-known/ path or be used as a fallback if the ".well-known" path cannot be used.
+as per {{!RFC8615}}. For legacy compatibility, a security.txt file might be placed at the top-level path
+or redirect (as per section 6.4 of {{!RFC7231}}) to the security.txt file under the /.well-known/ path.
 
 If retrieval of a "security.txt" file from the top-level path results in a redirect (as per
 section 6.4 of {{!RFC7231}}), the implementors MUST NOT follow that
@@ -510,7 +509,7 @@ and are kept secure.
 
 ## Intentionally Malformed Files, Resources and Reports
 
-It is possible for attackers to generate files that are extraordinarily
+It is possible for compromised or malicious sites to create files that are extraordinarily
 large or otherwise malformed in an attempt to discover or exploit weaknesses
 in parsing code. Implementors SHOULD make sure that any such code
 is robust against large and malformed files. The ABNF grammar (as defined in
