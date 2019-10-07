@@ -457,7 +457,7 @@ policy-field     =  "Policy" fs SP uri
 
 lang-field       =  "Preferred-Languages" fs SP lang-values
 
-lang-values      =  lang-values = lang-tag *(*WSP "," *WSP lang-tag)
+lang-values      =  lang-tag *(*WSP "," *WSP lang-tag)
 
 ext-field        =  field-name fs SP unstructured
 
