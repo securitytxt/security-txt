@@ -98,9 +98,9 @@ defined for "unstructured" in section 3.2.5 of {{!RFC5322}}.
 
 A "field" MUST always consist of a directive and a value
 ("Contact: https://example.com/security"). A security.txt file
-can have an unlimited number of fields. It is important to note that each field MUST appear on 
+can have an unlimited number of fields. It is important to note that each field MUST appear on
 its own line. Unless specified otherwise by the field definition,
-multiple values MUST NOT be chained together for a single directive. 
+multiple values MUST NOT be chained together for a single directive.
 Unless otherwise indicated in a definition of a particular field, any directive MAY appear
 multiple times.
 
@@ -458,7 +458,7 @@ policy-field     =  "Policy" fs SP uri
 
 lang-field       =  "Preferred-Languages" fs SP lang-values
 
-lang-values      =  lang-tag *("," [WSP] lang-tag)
+lang-values      =  lang-values = lang-tag *(*WSP "," *WSP lang-tag)
 
 ext-field        =  field-name fs SP unstructured
 
@@ -757,7 +757,8 @@ of DNS-stored encryption keys (#28 and #94)
 - Fixed nits from the IETF validator
 
 ## Since draft-foudil-securitytxt-07
-- TBD
+- Addressing AD feedback (#165)
+- Fix for ABNF grammar in lang-values (#164)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
