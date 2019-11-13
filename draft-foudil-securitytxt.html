@@ -283,11 +283,11 @@ ul.toc li {
 
   <link href="#rfc.toc" rel="Contents">
 <link href="#rfc.section.1" rel="Chapter" title="1 Introduction">
-<link href="#rfc.section.1.1" rel="Chapter" title="1.1 Motivation and Prior Work">
+<link href="#rfc.section.1.1" rel="Chapter" title="1.1 Motivation, Prior Work and Scope">
 <link href="#rfc.section.1.2" rel="Chapter" title="1.2 Terminology">
 <link href="#rfc.section.2" rel="Chapter" title="2 Note to Readers">
 <link href="#rfc.section.3" rel="Chapter" title="3 The Specification">
-<link href="#rfc.section.3.1" rel="Chapter" title="3.1 Scope">
+<link href="#rfc.section.3.1" rel="Chapter" title="3.1 Scope of the File">
 <link href="#rfc.section.3.2" rel="Chapter" title="3.2 Comments">
 <link href="#rfc.section.3.3" rel="Chapter" title="3.3 Line Separator">
 <link href="#rfc.section.3.4" rel="Chapter" title="3.4 Digital signature">
@@ -340,7 +340,7 @@ ul.toc li {
 
   <meta name="dct.creator" content="Foudil, E. and Y. Shafranovich" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-foudil-securitytxt-08" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-10-07" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-11-12" />
   <meta name="dct.abstract" content="When security vulnerabilities are discovered by independent security researchers, they often lack the channels to report them properly. As a result, security vulnerabilities may be left unreported. This document defines a format (&#8220;security.txt&#8221;) to help organizations describe the process for security researchers to follow in order to report security vulnerabilities." />
   <meta name="description" content="When security vulnerabilities are discovered by independent security researchers, they often lack the channels to report them properly. As a result, security vulnerabilities may be left unreported. This document defines a format (&#8220;security.txt&#8221;) to help organizations describe the process for security researchers to follow in order to report security vulnerabilities." />
 
@@ -364,12 +364,12 @@ ul.toc li {
 <td class="right">Y. Shafranovich</td>
 </tr>
 <tr>
-<td class="left">Expires: April 9, 2020</td>
+<td class="left">Expires: May 15, 2020</td>
 <td class="right">Nightwatch Cybersecurity</td>
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">October 07, 2019</td>
+<td class="right">November 12, 2019</td>
 </tr>
 
     	
@@ -385,7 +385,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on April 9, 2020.</p>
+<p>This Internet-Draft will expire on May 15, 2020.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -397,7 +397,7 @@ ul.toc li {
 
   	<li>1.   <a href="#rfc.section.1">Introduction</a>
 </li>
-<ul><li>1.1.   <a href="#rfc.section.1.1">Motivation and Prior Work</a>
+<ul><li>1.1.   <a href="#rfc.section.1.1">Motivation, Prior Work and Scope</a>
 </li>
 <li>1.2.   <a href="#rfc.section.1.2">Terminology</a>
 </li>
@@ -405,7 +405,7 @@ ul.toc li {
 </li>
 <li>3.   <a href="#rfc.section.3">The Specification</a>
 </li>
-<ul><li>3.1.   <a href="#rfc.section.3.1">Scope</a>
+<ul><li>3.1.   <a href="#rfc.section.3.1">Scope of the File</a>
 </li>
 <li>3.2.   <a href="#rfc.section.3.2">Comments</a>
 </li>
@@ -505,12 +505,13 @@ ul.toc li {
 <a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a>
 </h1>
 <h1 id="rfc.section.1.1">
-<a href="#rfc.section.1.1">1.1.</a> <a href="#motivation-and-prior-work" id="motivation-and-prior-work">Motivation and Prior Work</a>
+<a href="#rfc.section.1.1">1.1.</a> <a href="#motivation-prior-work-and-scope" id="motivation-prior-work-and-scope">Motivation, Prior Work and Scope</a>
 </h1>
 <p id="rfc.section.1.1.p.1">Many security researchers encounter situations where they are unable to report security vulnerabilities to organizations because there is no course of action laid out and no way indicated to contact the owner of a particular resource.</p>
 <p id="rfc.section.1.1.p.2">As per section 4 of <a href="#RFC2142" class="xref">[RFC2142]</a>, there is an existing convention of using the &lt;SECURITY@domain&gt; email address for communications regarding security vulnerabilities. That convention provides only a single, email-based channel of communication for security vulnerabilities per domain, and does not provide a way for domain owners to publish information about their security disclosure policies.</p>
 <p id="rfc.section.1.1.p.3">There are also contact conventions prescribed for Internet Service Providers (ISPs) in section 2 of <a href="#RFC3013" class="xref">[RFC3013]</a>, for Computer Security Incident Response Teams (CSIRTs) in section 3.2 of <a href="#RFC2350" class="xref">[RFC2350]</a> and for site operators in section 5.2 of <a href="#RFC2196" class="xref">[RFC2196]</a>. As per <a href="#RFC7485" class="xref">[RFC7485]</a>, there is also contact information provided by Regional Internet Registries (RIRs) and domain registries for owners of IP addresses, autonomous system numbers (ASNs) and domain names. However, none of these address the issue of how security researchers can locate disclosure policies and contact information for organizations in order to report security vulnerabilities.</p>
 <p id="rfc.section.1.1.p.4">In this document, we define a richer, machine-parsable and more extensible way for organizations to communicate information about their security disclosure policies, which is not limited to email and also allows for additional features such as encryption. This format is designed to help assist with the security disclosure process by making it easier for organizations to designate the preferred steps for researchers to take when trying to reach out to them with security vulnerabilities.</p>
+<p id="rfc.section.1.1.p.5">Other details of vulnerability disclosure are outside the scope of this document.  Readers are encouraged to consult other documents such as <a href="#ISO.29147.2018" class="xref">[ISO.29147.2018]</a> or <a href="#CERT.CVD" class="xref">[CERT.CVD]</a>.</p>
 <h1 id="rfc.section.1.2">
 <a href="#rfc.section.1.2">1.2.</a> <a href="#terminology" id="terminology">Terminology</a>
 </h1>
@@ -532,7 +533,7 @@ ul.toc li {
 <p id="rfc.section.3.p.4">This text file contains multiple directives with different values. The &#8220;directive&#8221; is the first part of a field all the way up to the colon (&#8220;Contact:&#8221;) and follows the syntax defined for &#8220;field-name&#8221; in section 3.6.8 of <a href="#RFC5322" class="xref">[RFC5322]</a>. Directives are case-insensitive (as per section 2.3 of <a href="#RFC5234" class="xref">[RFC5234]</a>).  The &#8220;value&#8221; comes after the directive (&#8220;https://example.com/security&#8221;) and follows the syntax defined for &#8220;unstructured&#8221; in section 3.2.5 of <a href="#RFC5322" class="xref">[RFC5322]</a>.</p>
 <p id="rfc.section.3.p.5">A &#8220;field&#8221; MUST always consist of a directive and a value (&#8220;Contact: https://example.com/security&#8221;). A security.txt file can have an unlimited number of fields. It is important to note that each field MUST appear on its own line. Unless specified otherwise by the field definition, multiple values MUST NOT be chained together for a single directive.  Unless otherwise indicated in a definition of a particular field, any directive MAY appear multiple times.</p>
 <h1 id="rfc.section.3.1">
-<a href="#rfc.section.3.1">3.1.</a> <a href="#scope" id="scope">Scope</a>
+<a href="#rfc.section.3.1">3.1.</a> <a href="#scope-of-the-file" id="scope-of-the-file">Scope of the File</a>
 </h1>
 <p id="rfc.section.3.1.p.1">A &#8220;security.txt&#8221; file MUST only apply to the domain in the URI used to retrieve it, not to any of its subdomains or parent domains. A &#8220;security.txt&#8221; file that is found in a file system or version control repository MUST only apply to the folder or repository in which it is located, and not to any of its parent or sibling folders, or repositories. However, it will apply to all subfolders.</p>
 <p id="rfc.section.3.1.p.2">Some examples appear below:</p>
@@ -789,12 +790,12 @@ unstructured     =  &lt; imported from section 3.2.5 of [RFC5322] &gt;
 </h1>
 <p id="rfc.section.6.p.1">In addition to the security considerations of <a href="#RFC8615" class="xref">[RFC8615]</a>, the following considerations apply.</p>
 <h1 id="rfc.section.6.1">
-<a href="#rfc.section.6.1">6.1.</a> <a href="#compromised-files-and-redirects" id="compromised-files-and-redirects">Compromised Files and Redirects</a>
+<a href="#rfc.section.6.1">6.1.</a> <a href="#redirects" id="redirects">Compromised Files and Redirects</a>
 </h1>
 <p id="rfc.section.6.1.p.1">An attacker that has compromised a website is able to compromise the &#8220;security.txt&#8221; file as well or setup a redirect to their own site.  This can result in security reports not being received by the organization or sent to the attacker.</p>
 <p id="rfc.section.6.1.p.2">To protect against this, organizations SHOULD digitally sign their &#8220;security.txt&#8221; files (as per <a href="#signature" class="xref">Section 3.4</a>), use the canonical directive to sign the location of the file (as per <a href="#canonical" class="xref">Section 3.5.2</a>), and regularly monitor the file and the referenced resources to detect tampering.</p>
 <p id="rfc.section.6.1.p.3">Security researchers SHOULD check the &#8220;security.txt&#8221; file including verifying the digital signature and checking any available historical records before using the information contained in the file. If &#8220;security.txt&#8221; file looks suspicious or compromised, it SHOULD NOT be used.</p>
-<p id="rfc.section.6.1.p.4">To avoid redirect attacks, redirects for these files MUST NOT be followed when the file is placed in the top level path if they lead to a different domain (as per <a href="#weblocation" class="xref">Section 4.1</a>).</p>
+<p id="rfc.section.6.1.p.4">To avoid redirect attacks, redirects for these files MUST NOT be followed when the file is placed in the top level path and they lead to a different domain (as per <a href="#weblocation" class="xref">Section 4.1</a>). This restriction is because the top level path is potentially more likely to be compromised as opposed to the &#8220;.well-known&#8221; path.</p>
 <h1 id="rfc.section.6.2">
 <a href="#rfc.section.6.2">6.2.</a> <a href="#incorrect-or-stale-information" id="incorrect-or-stale-information">Incorrect or Stale Information</a>
 </h1>
@@ -817,9 +818,16 @@ unstructured     =  &lt; imported from section 3.2.5 of [RFC5322] &gt;
 <h1 id="rfc.section.6.6">
 <a href="#rfc.section.6.6">6.6.</a> <a href="#protecting-data-in-transit" id="protecting-data-in-transit">Protecting Data in Transit</a>
 </h1>
-<p id="rfc.section.6.6.p.1">To protect a &#8220;security.txt&#8221; file from being tampered with in transit, implementors MUST use HTTPS when serving the file itself and any web URLs referenced in it (except as noted in this specification). Implementors MUST also perform the correct TLS verification (as per <a href="#RFC6125" class="xref">[RFC6125]</a>).</p>
-<p id="rfc.section.6.6.p.2">As an additional layer of protection, it is also RECOMMENDED that organizations digitally sign their &#8220;security.txt&#8221; file with OpenPGP (as per <a href="#signature" class="xref">Section 3.4</a>).  Also, to protect security reports from being tampered with or observed while in transit, organizations SHOULD specify encryption keys (as per <a href="#encryption" class="xref">Section 3.5.4</a>) unless HTTPS is being used.</p>
-<p id="rfc.section.6.6.p.3">However, the determination of validity of keys being used is out of scope for this specification. Implementors MUST establish other secure means to verify these keys.</p>
+<p id="rfc.section.6.6.p.1">To protect a &#8220;security.txt&#8221; file from being tampered with in transit, implementors MUST use HTTPS (as per <a href="#RFC2818" class="xref">[RFC2818]</a>) when serving the file itself and for retrieval of any web URLs referenced in it (except when otherwise noted in this specification). As part of the TLS handshake, implementors MUST validate the provided X.509 certificate in accordance with <a href="#RFC6125" class="xref">[RFC6125]</a> and the following considerations:</p>
+<p></p>
+
+<ul>
+<li>Matching is performed only against the DNS-ID identifiers.</li>
+<li>DNS domain names in server certificates MAY contain the wildcard character &#8216;*&#8217; as the complete left-most label within the identifier.</li>
+</ul>
+<p id="rfc.section.6.6.p.3">The certificate MAY be checked for revocation via the Online Certificate Status Protocol (OCSP) <a href="#RFC6960" class="xref">[RFC6960]</a>, certificate revocation lists (CRLs), or similar mechanisms.</p>
+<p id="rfc.section.6.6.p.4">As an additional layer of protection, it is also RECOMMENDED that organizations digitally sign their &#8220;security.txt&#8221; file with OpenPGP (as per <a href="#signature" class="xref">Section 3.4</a>).  Also, to protect security reports from being tampered with or observed while in transit, organizations SHOULD specify encryption keys (as per <a href="#encryption" class="xref">Section 3.5.4</a>) unless HTTPS is being used.</p>
+<p id="rfc.section.6.6.p.5">However, the determination of validity of such keys is out of scope for this specification. Implementors MUST establish other secure means to verify them.</p>
 <h1 id="rfc.section.6.7">
 <a href="#rfc.section.6.7">6.7.</a> <a href="#spam-and-spurious-reports" id="spam-and-spurious-reports">Spam and Spurious Reports</a>
 </h1>
@@ -948,6 +956,11 @@ unstructured     =  &lt; imported from section 3.2.5 of [RFC5322] &gt;
 <a>Alvestrand, H.</a>, "<a href="https://tools.ietf.org/html/rfc2277">IETF Policy on Character Sets and Languages</a>", BCP 18, RFC 2277, DOI 10.17487/RFC2277, January 1998.</td>
 </tr>
 <tr>
+<td class="reference"><b id="RFC2818">[RFC2818]</b></td>
+<td class="top">
+<a>Rescorla, E.</a>, "<a href="https://tools.ietf.org/html/rfc2818">HTTP Over TLS</a>", RFC 2818, DOI 10.17487/RFC2818, May 2000.</td>
+</tr>
+<tr>
 <td class="reference"><b id="RFC3629">[RFC3629]</b></td>
 <td class="top">
 <a>Yergeau, F.</a>, "<a href="https://tools.ietf.org/html/rfc3629">UTF-8, a transformation format of ISO 10646</a>", STD 63, RFC 3629, DOI 10.17487/RFC3629, November 2003.</td>
@@ -1003,6 +1016,11 @@ unstructured     =  &lt; imported from section 3.2.5 of [RFC5322] &gt;
 <a>Wing, D.</a>, <a>Cheshire, S.</a>, <a>Boucadair, M.</a>, <a>Penno, R.</a> and <a>P. Selkirk</a>, "<a href="https://tools.ietf.org/html/rfc6887">Port Control Protocol (PCP)</a>", RFC 6887, DOI 10.17487/RFC6887, April 2013.</td>
 </tr>
 <tr>
+<td class="reference"><b id="RFC6960">[RFC6960]</b></td>
+<td class="top">
+<a>Santesson, S.</a>, <a>Myers, M.</a>, <a>Ankney, R.</a>, <a>Malpani, A.</a>, <a>Galperin, S.</a> and <a>C. Adams</a>, "<a href="https://tools.ietf.org/html/rfc6960">X.509 Internet Public Key Infrastructure Online Certificate Status Protocol - OCSP</a>", RFC 6960, DOI 10.17487/RFC6960, June 2013.</td>
+</tr>
+<tr>
 <td class="reference"><b id="RFC7230">[RFC7230]</b></td>
 <td class="top">
 <a>Fielding, R.</a> and <a>J. Reschke</a>, "<a href="https://tools.ietf.org/html/rfc7230">Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing</a>", RFC 7230, DOI 10.17487/RFC7230, June 2014.</td>
@@ -1026,6 +1044,16 @@ unstructured     =  &lt; imported from section 3.2.5 of [RFC5322] &gt;
 <h1 id="rfc.references.2">
 <a href="#rfc.references.2">9.2.</a> Informative References</h1>
 <table><tbody>
+<tr>
+<td class="reference"><b id="CERT.CVD">[CERT.CVD]</b></td>
+<td class="top">
+<a>Software Engineering Institute, Carnegie Mellon University</a>, "<a>The CERT Guide to Coordinated Vulnerability Disclosure (CMU/SEI-2017-SR-022)</a>", 2017.</td>
+</tr>
+<tr>
+<td class="reference"><b id="ISO.29147.2018">[ISO.29147.2018]</b></td>
+<td class="top">
+<a>International Organization for Standardization (ISO)</a>, "<a>ISO/IEC 29147:2018, Information technology &#8212; Security techniques &#8212; Vulnerability disclosure</a>", 2018.</td>
+</tr>
 <tr>
 <td class="reference"><b id="RFC0793">[RFC0793]</b></td>
 <td class="top">
