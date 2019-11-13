@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: April 9, 2020                          Nightwatch Cybersecurity
-                                                        October 07, 2019
+Expires: May 15, 2020                           Nightwatch Cybersecurity
+                                                       November 12, 2019
 
 
                    A Method for Web Security Policies
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on April 9, 2020.
+   This Internet-Draft will expire on May 15, 2020.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich     Expires April 9, 2020                 [Page 1]
+Foudil & Shafranovich     Expires May 15, 2020                  [Page 1]
 
-Internet-Draft     A Method for Web Security Policies       October 2019
+Internet-Draft     A Method for Web Security Policies      November 2019
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -64,11 +64,11 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3
-     1.1.  Motivation and Prior Work . . . . . . . . . . . . . . . .   3
+     1.1.  Motivation, Prior Work and Scope  . . . . . . . . . . . .   3
      1.2.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   4
    2.  Note to Readers . . . . . . . . . . . . . . . . . . . . . . .   4
    3.  The Specification . . . . . . . . . . . . . . . . . . . . . .   4
-     3.1.  Scope . . . . . . . . . . . . . . . . . . . . . . . . . .   5
+     3.1.  Scope of the File . . . . . . . . . . . . . . . . . . . .   5
      3.2.  Comments  . . . . . . . . . . . . . . . . . . . . . . . .   5
      3.3.  Line Separator  . . . . . . . . . . . . . . . . . . . . .   6
      3.4.  Digital signature . . . . . . . . . . . . . . . . . . . .   6
@@ -96,7 +96,7 @@ Table of Contents
      6.5.  Multi-user Environments . . . . . . . . . . . . . . . . .  14
      6.6.  Protecting Data in Transit  . . . . . . . . . . . . . . .  14
      6.7.  Spam and Spurious Reports . . . . . . . . . . . . . . . .  14
-   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  14
+   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  15
      7.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .  15
      7.2.  Registry for security.txt Header Fields . . . . . . . . .  15
    8.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  18
@@ -109,23 +109,23 @@ Table of Contents
 
 
 
-Foudil & Shafranovich     Expires April 9, 2020                 [Page 2]
+Foudil & Shafranovich     Expires May 15, 2020                  [Page 2]
 
-Internet-Draft     A Method for Web Security Policies       October 2019
+Internet-Draft     A Method for Web Security Policies      November 2019
 
 
-     B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  21
+     B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  22
      B.3.  Since draft-foudil-securitytxt-02 . . . . . . . . . . . .  22
-     B.4.  Since draft-foudil-securitytxt-03 . . . . . . . . . . . .  22
+     B.4.  Since draft-foudil-securitytxt-03 . . . . . . . . . . . .  23
      B.5.  Since draft-foudil-securitytxt-04 . . . . . . . . . . . .  23
      B.6.  Since draft-foudil-securitytxt-05 . . . . . . . . . . . .  23
-     B.7.  Since draft-foudil-securitytxt-06 . . . . . . . . . . . .  23
+     B.7.  Since draft-foudil-securitytxt-06 . . . . . . . . . . . .  24
      B.8.  Since draft-foudil-securitytxt-07 . . . . . . . . . . . .  24
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  24
 
 1.  Introduction
 
-1.1.  Motivation and Prior Work
+1.1.  Motivation, Prior Work and Scope
 
    Many security researchers encounter situations where they are unable
    to report security vulnerabilities to organizations because there is
@@ -165,10 +165,14 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
 
 
-Foudil & Shafranovich     Expires April 9, 2020                 [Page 3]
+Foudil & Shafranovich     Expires May 15, 2020                  [Page 3]
 
-Internet-Draft     A Method for Web Security Policies       October 2019
+Internet-Draft     A Method for Web Security Policies      November 2019
 
+
+   Other details of vulnerability disclosure are outside the scope of
+   this document.  Readers are encouraged to consult other documents
+   such as [ISO.29147.2018] or [CERT.CVD].
 
 1.2.  Terminology
 
@@ -214,23 +218,23 @@ Internet-Draft     A Method for Web Security Policies       October 2019
    ("https://example.com/security") and follows the syntax defined for
    "unstructured" in section 3.2.5 of [RFC5322].
 
+
+
+
+Foudil & Shafranovich     Expires May 15, 2020                  [Page 4]
+
+Internet-Draft     A Method for Web Security Policies      November 2019
+
+
    A "field" MUST always consist of a directive and a value ("Contact:
    https://example.com/security").  A security.txt file can have an
    unlimited number of fields.  It is important to note that each field
    MUST appear on its own line.  Unless specified otherwise by the field
-
-
-
-Foudil & Shafranovich     Expires April 9, 2020                 [Page 4]
-
-Internet-Draft     A Method for Web Security Policies       October 2019
-
-
    definition, multiple values MUST NOT be chained together for a single
    directive.  Unless otherwise indicated in a definition of a
    particular field, any directive MAY appear multiple times.
 
-3.1.  Scope
+3.1.  Scope of the File
 
    A "security.txt" file MUST only apply to the domain in the URI used
    to retrieve it, not to any of its subdomains or parent domains.  A
@@ -269,18 +273,17 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
    One or more comments MAY be used as descriptive text immediately
    before the field.  Parsers SHOULD associate the comments with the
+
+
+
+
+Foudil & Shafranovich     Expires May 15, 2020                  [Page 5]
+
+Internet-Draft     A Method for Web Security Policies      November 2019
+
+
    respective field.  Only the line most immediately preceding a field
    SHOULD be associated with that field.
-
-
-
-
-
-
-Foudil & Shafranovich     Expires April 9, 2020                 [Page 5]
-
-Internet-Draft     A Method for Web Security Policies       October 2019
-
 
 3.3.  Line Separator
 
@@ -330,12 +333,9 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
 
 
-
-
-
-Foudil & Shafranovich     Expires April 9, 2020                 [Page 6]
+Foudil & Shafranovich     Expires May 15, 2020                  [Page 6]
 
-Internet-Draft     A Method for Web Security Policies       October 2019
+Internet-Draft     A Method for Web Security Policies      November 2019
 
 
 3.5.2.  Canonical
@@ -389,9 +389,9 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
 
 
-Foudil & Shafranovich     Expires April 9, 2020                 [Page 7]
+Foudil & Shafranovich     Expires May 15, 2020                  [Page 7]
 
-Internet-Draft     A Method for Web Security Policies       October 2019
+Internet-Draft     A Method for Web Security Policies      November 2019
 
 
    When it comes to verifying the authenticity of the key, it is always
@@ -445,9 +445,9 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
 
 
-Foudil & Shafranovich     Expires April 9, 2020                 [Page 8]
+Foudil & Shafranovich     Expires May 15, 2020                  [Page 8]
 
-Internet-Draft     A Method for Web Security Policies       October 2019
+Internet-Draft     A Method for Web Security Policies      November 2019
 
 
    The order in which they appear MUST NOT be interpreted as an
@@ -501,9 +501,9 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
 
 
-Foudil & Shafranovich     Expires April 9, 2020                 [Page 9]
+Foudil & Shafranovich     Expires May 15, 2020                  [Page 9]
 
-Internet-Draft     A Method for Web Security Policies       October 2019
+Internet-Draft     A Method for Web Security Policies      November 2019
 
 
 4.  Location of the security.txt file
@@ -557,9 +557,9 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
 
 
-Foudil & Shafranovich     Expires April 9, 2020                [Page 10]
+Foudil & Shafranovich     Expires May 15, 2020                 [Page 10]
 
-Internet-Draft     A Method for Web Security Policies       October 2019
+Internet-Draft     A Method for Web Security Policies      November 2019
 
 
    In general, implementors SHOULD "be conservative in what you do, be
@@ -613,9 +613,9 @@ uri              =  < URI as per [RFC3986] >
 
 
 
-Foudil & Shafranovich     Expires April 9, 2020                [Page 11]
+Foudil & Shafranovich     Expires May 15, 2020                 [Page 11]
 
-Internet-Draft     A Method for Web Security Policies       October 2019
+Internet-Draft     A Method for Web Security Policies      November 2019
 
 
 encryption-field =  "Encryption" fs SP uri
@@ -662,16 +662,16 @@ unstructured     =  < imported from section 3.2.5 of [RFC5322] >
    used.
 
    To avoid redirect attacks, redirects for these files MUST NOT be
-   followed when the file is placed in the top level path if they lead
-   to a different domain (as per Section 4.1).
+   followed when the file is placed in the top level path and they lead
+   to a different domain (as per Section 4.1).  This restriction is
+   because the top level path is potentially more likely to be
+   compromised as opposed to the ".well-known" path.
 
 
 
-
-
-Foudil & Shafranovich     Expires April 9, 2020                [Page 12]
+Foudil & Shafranovich     Expires May 15, 2020                 [Page 12]
 
-Internet-Draft     A Method for Web Security Policies       October 2019
+Internet-Draft     A Method for Web Security Policies      November 2019
 
 
 6.2.  Incorrect or Stale Information
@@ -725,9 +725,9 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
 
 
-Foudil & Shafranovich     Expires April 9, 2020                [Page 13]
+Foudil & Shafranovich     Expires May 15, 2020                 [Page 13]
 
-Internet-Draft     A Method for Web Security Policies       October 2019
+Internet-Draft     A Method for Web Security Policies      November 2019
 
 
 6.5.  Multi-user Environments
@@ -741,10 +741,21 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 6.6.  Protecting Data in Transit
 
    To protect a "security.txt" file from being tampered with in transit,
-   implementors MUST use HTTPS when serving the file itself and any web
-   URLs referenced in it (except as noted in this specification).
-   Implementors MUST also perform the correct TLS verification (as per
-   [RFC6125]).
+   implementors MUST use HTTPS (as per [RFC2818]) when serving the file
+   itself and for retrieval of any web URLs referenced in it (except
+   when otherwise noted in this specification).  As part of the TLS
+   handshake, implementors MUST validate the provided X.509 certificate
+   in accordance with [RFC6125] and the following considerations:
+
+   o  Matching is performed only against the DNS-ID identifiers.
+
+   o  DNS domain names in server certificates MAY contain the wildcard
+      character '*' as the complete left-most label within the
+      identifier.
+
+   The certificate MAY be checked for revocation via the Online
+   Certificate Status Protocol (OCSP) [RFC6960], certificate revocation
+   lists (CRLs), or similar mechanisms.
 
    As an additional layer of protection, it is also RECOMMENDED that
    organizations digitally sign their "security.txt" file with OpenPGP
@@ -753,9 +764,9 @@ Internet-Draft     A Method for Web Security Policies       October 2019
    specify encryption keys (as per Section 3.5.4) unless HTTPS is being
    used.
 
-   However, the determination of validity of keys being used is out of
-   scope for this specification.  Implementors MUST establish other
-   secure means to verify these keys.
+   However, the determination of validity of such keys is out of scope
+   for this specification.  Implementors MUST establish other secure
+   means to verify them.
 
 6.7.  Spam and Spurious Reports
 
@@ -764,6 +775,16 @@ Internet-Draft     A Method for Web Security Policies       October 2019
    by an organization.  In addition, there is an increased likelihood of
    reports being sent in an automated fashion and/or as result of
    automated scans without human triage.
+
+
+
+
+
+
+Foudil & Shafranovich     Expires May 15, 2020                 [Page 14]
+
+Internet-Draft     A Method for Web Security Policies      November 2019
+
 
    Organizations SHOULD weigh the advantages of publishing this file
    versus the possible disadvantages and increased resources required to
@@ -777,14 +798,6 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
    example.com is used in this document following the uses indicated in
    [RFC2606].
-
-
-
-
-Foudil & Shafranovich     Expires April 9, 2020                [Page 14]
-
-Internet-Draft     A Method for Web Security Policies       October 2019
-
 
    192.0.2.0 and 2001:db8:8:4::2 are used in this document following the
    uses indicated in [RFC6890].
@@ -822,6 +835,13 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
    3.  Whether the field can appear more than once
 
+
+
+Foudil & Shafranovich     Expires May 15, 2020                 [Page 15]
+
+Internet-Draft     A Method for Web Security Policies      November 2019
+
+
    4.  The document in which the specification of the field is published
        (if available)
 
@@ -833,14 +853,6 @@ Internet-Draft     A Method for Web Security Policies       October 2019
           discouraged
 
        *  historic: The field is no longer in current use
-
-
-
-
-Foudil & Shafranovich     Expires April 9, 2020                [Page 15]
-
-Internet-Draft     A Method for Web Security Policies       October 2019
-
 
    6.  Change controller
 
@@ -881,21 +893,9 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-Foudil & Shafranovich     Expires April 9, 2020                [Page 16]
+Foudil & Shafranovich     Expires May 15, 2020                 [Page 16]
 
-Internet-Draft     A Method for Web Security Policies       October 2019
+Internet-Draft     A Method for Web Security Policies      November 2019
 
 
    Field Name: Acknowledgments
@@ -949,9 +949,9 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
 
 
-Foudil & Shafranovich     Expires April 9, 2020                [Page 17]
+Foudil & Shafranovich     Expires May 15, 2020                 [Page 17]
 
-Internet-Draft     A Method for Web Security Policies       October 2019
+Internet-Draft     A Method for Web Security Policies      November 2019
 
 
 8.  Contributors
@@ -991,6 +991,10 @@ Internet-Draft     A Method for Web Security Policies       October 2019
               Languages", BCP 18, RFC 2277, DOI 10.17487/RFC2277,
               January 1998, <https://www.rfc-editor.org/info/rfc2277>.
 
+   [RFC2818]  Rescorla, E., "HTTP Over TLS", RFC 2818,
+              DOI 10.17487/RFC2818, May 2000,
+              <https://www.rfc-editor.org/info/rfc2818>.
+
    [RFC3629]  Yergeau, F., "UTF-8, a transformation format of ISO
               10646", STD 63, RFC 3629, DOI 10.17487/RFC3629, November
               2003, <https://www.rfc-editor.org/info/rfc3629>.
@@ -1001,13 +1005,9 @@ Internet-Draft     A Method for Web Security Policies       October 2019
 
 
 
-
-
-
-
-Foudil & Shafranovich     Expires April 9, 2020                [Page 18]
+Foudil & Shafranovich     Expires May 15, 2020                 [Page 18]
 
-Internet-Draft     A Method for Web Security Policies       October 2019
+Internet-Draft     A Method for Web Security Policies      November 2019
 
 
    [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
@@ -1053,18 +1053,23 @@ Internet-Draft     A Method for Web Security Policies       October 2019
               DOI 10.17487/RFC6887, April 2013,
               <https://www.rfc-editor.org/info/rfc6887>.
 
+   [RFC6960]  Santesson, S., Myers, M., Ankney, R., Malpani, A.,
+              Galperin, S., and C. Adams, "X.509 Internet Public Key
+              Infrastructure Online Certificate Status Protocol - OCSP",
+              RFC 6960, DOI 10.17487/RFC6960, June 2013,
+              <https://www.rfc-editor.org/info/rfc6960>.
+
+
+
+Foudil & Shafranovich     Expires May 15, 2020                 [Page 19]
+
+Internet-Draft     A Method for Web Security Policies      November 2019
+
+
    [RFC7230]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Message Syntax and Routing",
               RFC 7230, DOI 10.17487/RFC7230, June 2014,
               <https://www.rfc-editor.org/info/rfc7230>.
-
-
-
-
-Foudil & Shafranovich     Expires April 9, 2020                [Page 19]
-
-Internet-Draft     A Method for Web Security Policies       October 2019
-
 
    [RFC7231]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Semantics and Content", RFC 7231,
@@ -1080,6 +1085,16 @@ Internet-Draft     A Method for Web Security Policies       October 2019
               <https://www.rfc-editor.org/info/rfc8615>.
 
 9.2.  Informative References
+
+   [CERT.CVD]
+              Software Engineering Institute, Carnegie Mellon
+              University, "The CERT Guide to Coordinated Vulnerability
+              Disclosure (CMU/SEI-2017-SR-022)", 2017.
+
+   [ISO.29147.2018]
+              International Organization for Standardization (ISO),
+              "ISO/IEC 29147:2018, Information technology -- Security
+              techniques -- Vulnerability disclosure", 2018.
 
    [RFC0793]  Postel, J., "Transmission Control Protocol", STD 7,
               RFC 793, DOI 10.17487/RFC0793, September 1981,
@@ -1098,6 +1113,15 @@ Internet-Draft     A Method for Web Security Policies       October 2019
               Names", BCP 32, RFC 2606, DOI 10.17487/RFC2606, June 1999,
               <https://www.rfc-editor.org/info/rfc2606>.
 
+
+
+
+
+Foudil & Shafranovich     Expires May 15, 2020                 [Page 20]
+
+Internet-Draft     A Method for Web Security Policies      November 2019
+
+
    [RFC3013]  Killalea, T., "Recommended Internet Service Provider
               Security Services and Procedures", BCP 46, RFC 3013,
               DOI 10.17487/RFC3013, November 2000,
@@ -1112,15 +1136,6 @@ Internet-Draft     A Method for Web Security Policies       October 2019
               "Inventory and Analysis of WHOIS Registration Objects",
               RFC 7485, DOI 10.17487/RFC7485, March 2015,
               <https://www.rfc-editor.org/info/rfc7485>.
-
-
-
-
-
-Foudil & Shafranovich     Expires April 9, 2020                [Page 20]
-
-Internet-Draft     A Method for Web Security Policies       October 2019
-
 
    [RFC8126]  Cotton, M., Leiba, B., and T. Narten, "Guidelines for
               Writing an IANA Considerations Section in RFCs", BCP 26,
@@ -1156,6 +1171,13 @@ B.1.  Since draft-foudil-securitytxt-00
    o  Scope expanded to include internal hosts, domains, IP addresses
       and file systems
 
+
+
+Foudil & Shafranovich     Expires May 15, 2020                 [Page 21]
+
+Internet-Draft     A Method for Web Security Policies      November 2019
+
+
    o  Support for digital signatures added (#19)
 
    The full list of changes can be viewed via the IETF document tracker:
@@ -1168,15 +1190,6 @@ B.2.  Since draft-foudil-securitytxt-01
    o  Added external signature file to the well known URI registry (#59)
 
    o  Added policy field (#53)
-
-
-
-
-
-Foudil & Shafranovich     Expires April 9, 2020                [Page 21]
-
-Internet-Draft     A Method for Web Security Policies       October 2019
-
 
    o  Added diagram explaining the location of the file on public vs.
       internal systems
@@ -1211,6 +1224,16 @@ B.3.  Since draft-foudil-securitytxt-02
 
    o  Added "Hiring" field
 
+
+
+
+
+
+Foudil & Shafranovich     Expires May 15, 2020                 [Page 22]
+
+Internet-Draft     A Method for Web Security Policies      November 2019
+
+
 B.4.  Since draft-foudil-securitytxt-03
 
    o  Added "Hiring" field to the registry section
@@ -1226,13 +1249,6 @@ B.4.  Since draft-foudil-securitytxt-03
    o  Changing some references to informative instead of normative
 
    o  Adding "Permission" field (#30)
-
-
-
-Foudil & Shafranovich     Expires April 9, 2020                [Page 22]
-
-Internet-Draft     A Method for Web Security Policies       October 2019
-
 
    o  Fixing remaining ABNF issues (#83)
 
@@ -1266,6 +1282,14 @@ B.6.  Since draft-foudil-securitytxt-05
 
    o  Added language handling redirects (#143)
 
+
+
+
+Foudil & Shafranovich     Expires May 15, 2020                 [Page 23]
+
+Internet-Draft     A Method for Web Security Policies      November 2019
+
+
    o  Expanded security considerations section and fixed typos (#30,
       #73, #103, #112)
 
@@ -1282,13 +1306,6 @@ B.7.  Since draft-foudil-securitytxt-06
    o  Updated references and template for well-known URI to RFC 8615
 
    o  Fixed nits from the IETF validator
-
-
-
-Foudil & Shafranovich     Expires April 9, 2020                [Page 23]
-
-Internet-Draft     A Method for Web Security Policies       October 2019
-
 
 B.8.  Since draft-foudil-securitytxt-07
 
@@ -1324,21 +1341,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Foudil & Shafranovich     Expires April 9, 2020                [Page 24]
+Foudil & Shafranovich     Expires May 15, 2020                 [Page 24]

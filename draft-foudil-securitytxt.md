@@ -17,6 +17,19 @@ author:
   organization: Nightwatch Cybersecurity
   email: yakov+ietf@nightwatchcybersecurity.com
 
+informative:
+    ISO.29147.2018:
+      title: ISO/IEC 29147:2018, Information technology — Security techniques — Vulnerability disclosure
+      author:
+          org: International Organization for Standardization (ISO)
+      date: 2018
+    CERT.CVD:
+      title: The CERT Guide to Coordinated Vulnerability Disclosure (CMU/SEI-2017-SR-022)
+      author:
+          org: Software Engineering Institute, Carnegie Mellon University
+      date: 2017
+
+
 --- abstract
 When security vulnerabilities are discovered by independent
 security researchers, they
@@ -29,7 +42,7 @@ researchers to follow in order to report security vulnerabilities.
 
 # Introduction
 
-## Motivation and Prior Work
+## Motivation, Prior Work and Scope
 
 Many security researchers encounter situations where they are unable
 to report security vulnerabilities to organizations because there is
@@ -60,6 +73,10 @@ such as encryption. This format is designed to help
 assist with the security disclosure process by making it easier
 for organizations to designate the preferred steps for researchers to take
 when trying to reach out to them with security vulnerabilities.
+
+Other details of vulnerability disclosure are outside the scope of this document.
+Readers are encouraged to consult other documents such as
+{{ISO.29147.2018}} or {{CERT.CVD}}.
 
 ## Terminology
 
@@ -103,7 +120,7 @@ multiple values MUST NOT be chained together for a single directive.
 Unless otherwise indicated in a definition of a particular field, any directive MAY appear
 multiple times.
 
-## Scope
+## Scope of the File
 
 A "security.txt" file MUST only apply to the domain in the URI used to retrieve it,
 not to any of its subdomains or parent domains. A "security.txt" file that is found
@@ -473,7 +490,7 @@ unstructured     =  < imported from section 3.2.5 of [RFC5322] >
 In addition to the security considerations of {{!RFC8615}}, the following considerations
 apply.
 
-## Compromised Files and Redirects
+## Compromised Files and Redirects {#redirects}
 
 An attacker that has compromised a website is able to compromise
 the "security.txt" file as well or setup a redirect to their own site.
@@ -491,8 +508,10 @@ contained in the file. If "security.txt" file looks suspicious or compromised,
 it SHOULD NOT be used.
 
 To avoid redirect attacks, redirects for these files MUST NOT be followed
-when the file is placed in the top level path if they lead to a different
-domain (as per {{weblocation}}).
+when the file is placed in the top level path and they lead to a different
+domain (as per {{weblocation}}). This restriction is because the top level
+path is potentially more likely to be compromised as opposed to the
+".well-known" path.
 
 ## Incorrect or Stale Information
 
@@ -544,9 +563,18 @@ the "security.txt" AND "/.well-known/security.txt" names.
 ## Protecting Data in Transit
 
 To protect a "security.txt" file from being tampered with in transit, implementors MUST use
-HTTPS when serving the file itself and any web URLs referenced in it (except as noted in
-this specification). Implementors MUST also perform the correct TLS
-verification (as per {{!RFC6125}}).
+HTTPS (as per {{!RFC2818}}) when serving the file itself and for retrieval of any web URLs
+referenced in it (except when otherwise noted in this specification). As part of the TLS
+handshake, implementors MUST validate the provided X.509 certificate
+in accordance with {{!RFC6125}} and the following considerations:
+
+- Matching is performed only against the DNS-ID identifiers.
+
+- DNS domain names in server certificates MAY contain the wildcard
+character '*' as the complete left-most label within the identifier.
+
+The certificate MAY be checked for revocation via the Online Certificate Status
+Protocol (OCSP) {{!RFC6960}}, certificate revocation lists (CRLs), or similar mechanisms.
 
 As an additional layer of protection, it is also RECOMMENDED that
 organizations digitally sign their "security.txt" file with OpenPGP (as per {{signature}}).
@@ -554,9 +582,9 @@ Also, to protect security reports from being tampered with or observed while in 
 organizations SHOULD specify encryption keys (as per {{encryption}}) unless
 HTTPS is being used.
 
-However, the determination of validity of keys being used is out of scope
+However, the determination of validity of such keys is out of scope
 for this specification. Implementors MUST establish other secure means to
-verify these keys.
+verify them.
 
 ## Spam and Spurious Reports
 
