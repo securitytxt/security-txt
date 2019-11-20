@@ -1,6 +1,6 @@
 ---
 title: A Method for Web Security Policies
-docname: draft-foudil-securitytxt-08
+docname: draft-foudil-securitytxt-09
 ipr: trust200902
 cat: info
 pi:
@@ -803,6 +803,9 @@ of DNS-stored encryption keys (#28 and #94)
 - Fix for ABNF grammar in lang-values (#164)
 - Fixing idnits warnings
 - Adding guidance for designated experts
+
+## Since draft-foudil-securitytxt-08
+- TBD
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt

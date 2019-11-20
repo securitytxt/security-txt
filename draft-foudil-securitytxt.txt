@@ -10,7 +10,7 @@ Expires: May 22, 2020                           Nightwatch Cybersecurity
 
 
                    A Method for Web Security Policies
-                      draft-foudil-securitytxt-08
+                      draft-foudil-securitytxt-09
 
 Abstract
 
@@ -121,6 +121,7 @@ Internet-Draft     A Method for Web Security Policies      November 2019
      B.6.  Since draft-foudil-securitytxt-05 . . . . . . . . . . . .  23
      B.7.  Since draft-foudil-securitytxt-06 . . . . . . . . . . . .  24
      B.8.  Since draft-foudil-securitytxt-07 . . . . . . . . . . . .  24
+     B.9.  Since draft-foudil-securitytxt-08 . . . . . . . . . . . .  24
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  24
 
 1.  Introduction
@@ -159,7 +160,6 @@ Internet-Draft     A Method for Web Security Policies      November 2019
    easier for organizations to designate the preferred steps for
    researchers to take when trying to reach out to them with security
    vulnerabilities.
-
 
 
 
@@ -1317,6 +1317,10 @@ B.8.  Since draft-foudil-securitytxt-07
 
    o  Adding guidance for designated experts
 
+B.9.  Since draft-foudil-securitytxt-08
+
+   o  TBD
+
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt
 
@@ -1331,10 +1335,6 @@ Authors' Addresses
    Nightwatch Cybersecurity
 
    Email: yakov+ietf@nightwatchcybersecurity.com
-
-
-
-
 
 
 
