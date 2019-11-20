@@ -66,7 +66,7 @@ these address the issue of how security researchers can locate disclosure
 policies and contact information for organizations in order to report
 security vulnerabilities.
 
-In this document, we define a richer, machine-parsable and more extensible way
+In this document, we define a richer, machine-parsable and extensible way
 for organizations to communicate information about their security disclosure
 policies, which is not limited to email and also allows for additional features
 such as encryption. This format is designed to help
@@ -438,7 +438,9 @@ sign-header      =  < headers and line from section 7 of [RFC4880] >
 
 sign-footer      =  < OpenPGP signature from section 7 of [RFC4880] >
 
-unsigned         =  *line [can-field eol] *line (contact-field eol) *line [lang-field eol] *line
+unsigned         =  *line [can-field eol]
+                    *line (contact-field eol)
+                    *line [lang-field eol] *line
                     ; the order of elements is not important
 
 line             =  (field / comment) eol
@@ -630,9 +632,13 @@ accordance with {{?RFC8126}}. This registry will contain header fields for
 use in security.txt files, defined by this specification.
 
 New registrations or updates MUST be published in accordance with the
-"Expert Review" guidelines as described in section 4.5 of
+"Expert Review" guidelines as described in sections 4.5 and 5 of
 {{?RFC8126}}. Any new field thus registered is considered optional
 by this specification unless a new version of this specification is published.
+
+Designated Experts are expected to check whether a proposed registration or update
+makes sense in the context of this specification and provides value to the wider
+Internet community.
 
 New registrations and updates MUST contain the following information:
 
@@ -795,6 +801,8 @@ of DNS-stored encryption keys (#28 and #94)
 ## Since draft-foudil-securitytxt-07
 - Addressing AD feedback (#165)
 - Fix for ABNF grammar in lang-values (#164)
+- Fixing idnits warnings
+- Adding guidance for designated experts
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt

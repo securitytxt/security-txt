@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: May 15, 2020                           Nightwatch Cybersecurity
-                                                       November 12, 2019
+Expires: May 22, 2020                           Nightwatch Cybersecurity
+                                                       November 19, 2019
 
 
                    A Method for Web Security Policies
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on May 15, 2020.
+   This Internet-Draft will expire on May 22, 2020.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich     Expires May 15, 2020                  [Page 1]
+Foudil & Shafranovich     Expires May 22, 2020                  [Page 1]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Foudil & Shafranovich     Expires May 15, 2020                  [Page 2]
+Foudil & Shafranovich     Expires May 22, 2020                  [Page 2]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -151,21 +151,21 @@ Internet-Draft     A Method for Web Security Policies      November 2019
    policies and contact information for organizations in order to report
    security vulnerabilities.
 
-   In this document, we define a richer, machine-parsable and more
-   extensible way for organizations to communicate information about
-   their security disclosure policies, which is not limited to email and
-   also allows for additional features such as encryption.  This format
-   is designed to help assist with the security disclosure process by
-   making it easier for organizations to designate the preferred steps
-   for researchers to take when trying to reach out to them with
-   security vulnerabilities.
+   In this document, we define a richer, machine-parsable and extensible
+   way for organizations to communicate information about their security
+   disclosure policies, which is not limited to email and also allows
+   for additional features such as encryption.  This format is designed
+   to help assist with the security disclosure process by making it
+   easier for organizations to designate the preferred steps for
+   researchers to take when trying to reach out to them with security
+   vulnerabilities.
 
 
 
 
 
 
-Foudil & Shafranovich     Expires May 15, 2020                  [Page 3]
+Foudil & Shafranovich     Expires May 22, 2020                  [Page 3]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -221,7 +221,7 @@ Internet-Draft     A Method for Web Security Policies      November 2019
 
 
 
-Foudil & Shafranovich     Expires May 15, 2020                  [Page 4]
+Foudil & Shafranovich     Expires May 22, 2020                  [Page 4]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -277,7 +277,7 @@ Internet-Draft     A Method for Web Security Policies      November 2019
 
 
 
-Foudil & Shafranovich     Expires May 15, 2020                  [Page 5]
+Foudil & Shafranovich     Expires May 22, 2020                  [Page 5]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -333,7 +333,7 @@ Internet-Draft     A Method for Web Security Policies      November 2019
 
 
 
-Foudil & Shafranovich     Expires May 15, 2020                  [Page 6]
+Foudil & Shafranovich     Expires May 22, 2020                  [Page 6]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -389,7 +389,7 @@ Internet-Draft     A Method for Web Security Policies      November 2019
 
 
 
-Foudil & Shafranovich     Expires May 15, 2020                  [Page 7]
+Foudil & Shafranovich     Expires May 22, 2020                  [Page 7]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -445,7 +445,7 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
 
 
-Foudil & Shafranovich     Expires May 15, 2020                  [Page 8]
+Foudil & Shafranovich     Expires May 22, 2020                  [Page 8]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -501,7 +501,7 @@ Internet-Draft     A Method for Web Security Policies      November 2019
 
 
 
-Foudil & Shafranovich     Expires May 15, 2020                  [Page 9]
+Foudil & Shafranovich     Expires May 22, 2020                  [Page 9]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -557,7 +557,7 @@ Internet-Draft     A Method for Web Security Policies      November 2019
 
 
 
-Foudil & Shafranovich     Expires May 15, 2020                 [Page 10]
+Foudil & Shafranovich     Expires May 22, 2020                 [Page 10]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -574,65 +574,67 @@ Internet-Draft     A Method for Web Security Policies      November 2019
    The following is an ABNF definition of the security.txt format, using
    the conventions defined in [RFC5234].
 
-body             =  signed / unsigned
+   body             =  signed / unsigned
 
-signed           =  sign-header unsigned sign-footer
+   signed           =  sign-header unsigned sign-footer
 
-sign-header      =  < headers and line from section 7 of [RFC4880] >
+   sign-header      =  < headers and line from section 7 of [RFC4880] >
 
-sign-footer      =  < OpenPGP signature from section 7 of [RFC4880] >
+   sign-footer      =  < OpenPGP signature from section 7 of [RFC4880] >
 
-unsigned         =  *line [can-field eol] *line (contact-field eol) *line [lang-field eol] *line
-                    ; the order of elements is not important
+   unsigned         =  *line [can-field eol]
+                       *line (contact-field eol)
+                       *line [lang-field eol] *line
+                       ; the order of elements is not important
 
-line             =  (field / comment) eol
+   line             =  (field / comment) eol
 
-eol              =  *WSP [CR] LF
+   eol              =  *WSP [CR] LF
 
-field            =  ack-field /
-                    contact-field /
-                    encryption-field /
-                    hiring-field /
-                    policy-field /
-                    ext-field
+   field            =  ack-field /
+                       contact-field /
+                       encryption-field /
+                       hiring-field /
+                       policy-field /
+                       ext-field
 
-fs               =  ":"
+   fs               =  ":"
 
-comment          =  "#" *(WSP / VCHAR / %x80-FFFFF)
+   comment          =  "#" *(WSP / VCHAR / %x80-FFFFF)
 
-ack-field        =  "Acknowledgments" fs SP uri
+   ack-field        =  "Acknowledgments" fs SP uri
 
-can-field        =  "Canonical" fs SP uri
+   can-field        =  "Canonical" fs SP uri
 
-contact-field    =  "Contact" fs SP uri
+   contact-field    =  "Contact" fs SP uri
 
-lang-tag         =  < Language-Tag from section 2.1 of [RFC5646] >
-
-uri              =  < URI as per [RFC3986] >
-
-
+   lang-tag         =  < Language-Tag from section 2.1 of [RFC5646] >
 
 
-Foudil & Shafranovich     Expires May 15, 2020                 [Page 11]
+
+
+Foudil & Shafranovich     Expires May 22, 2020                 [Page 11]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
 
-encryption-field =  "Encryption" fs SP uri
+   uri              =  < URI as per [RFC3986] >
 
-hiring-field     =  "Hiring" fs SP uri
+   encryption-field =  "Encryption" fs SP uri
 
-policy-field     =  "Policy" fs SP uri
+   hiring-field     =  "Hiring" fs SP uri
 
-lang-field       =  "Preferred-Languages" fs SP lang-values
+   policy-field     =  "Policy" fs SP uri
 
-lang-values      =  lang-tag *(*WSP "," *WSP lang-tag)
+   lang-field       =  "Preferred-Languages" fs SP lang-values
 
-ext-field        =  field-name fs SP unstructured
+   lang-values      =  lang-tag *(*WSP "," *WSP lang-tag)
 
-field-name       =  < imported from section 3.6.8 of [RFC5322] >
+   ext-field        =  field-name fs SP unstructured
 
-unstructured     =  < imported from section 3.2.5 of [RFC5322] >
+   field-name       =  < imported from section 3.6.8 of [RFC5322] >
+
+   unstructured     =  < imported from section 3.2.5 of [RFC5322] >
 
    "ext-field" refers to extension fields, which are discussed in
    Section 4.4
@@ -664,15 +666,16 @@ unstructured     =  < imported from section 3.2.5 of [RFC5322] >
    To avoid redirect attacks, redirects for these files MUST NOT be
    followed when the file is placed in the top level path and they lead
    to a different domain (as per Section 4.1).  This restriction is
-   because the top level path is potentially more likely to be
-   compromised as opposed to the ".well-known" path.
 
 
 
-Foudil & Shafranovich     Expires May 15, 2020                 [Page 12]
+Foudil & Shafranovich     Expires May 22, 2020                 [Page 12]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
+
+   because the top level path is potentially more likely to be
+   compromised as opposed to the ".well-known" path.
 
 6.2.  Incorrect or Stale Information
 
@@ -722,10 +725,7 @@ Internet-Draft     A Method for Web Security Policies      November 2019
 
 
 
-
-
-
-Foudil & Shafranovich     Expires May 15, 2020                 [Page 13]
+Foudil & Shafranovich     Expires May 22, 2020                 [Page 13]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -781,7 +781,7 @@ Internet-Draft     A Method for Web Security Policies      November 2019
 
 
 
-Foudil & Shafranovich     Expires May 15, 2020                 [Page 14]
+Foudil & Shafranovich     Expires May 22, 2020                 [Page 14]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -822,25 +822,29 @@ Internet-Draft     A Method for Web Security Policies      November 2019
    fields for use in security.txt files, defined by this specification.
 
    New registrations or updates MUST be published in accordance with the
-   "Expert Review" guidelines as described in section 4.5 of [RFC8126].
-   Any new field thus registered is considered optional by this
-   specification unless a new version of this specification is
+   "Expert Review" guidelines as described in sections 4.5 and 5 of
+   [RFC8126].  Any new field thus registered is considered optional by
+   this specification unless a new version of this specification is
    published.
+
+   Designated Experts are expected to check whether a proposed
+   registration or update makes sense in the context of this
+   specification and provides value to the wider Internet community.
 
    New registrations and updates MUST contain the following information:
 
    1.  Name of the field being registered or updated
 
-   2.  Short description of the field
-
-   3.  Whether the field can appear more than once
 
 
-
-Foudil & Shafranovich     Expires May 15, 2020                 [Page 15]
+Foudil & Shafranovich     Expires May 22, 2020                 [Page 15]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
+
+   2.  Short description of the field
+
+   3.  Whether the field can appear more than once
 
    4.  The document in which the specification of the field is published
        (if available)
@@ -889,11 +893,7 @@ Internet-Draft     A Method for Web Security Policies      November 2019
 
 
 
-
-
-
-
-Foudil & Shafranovich     Expires May 15, 2020                 [Page 16]
+Foudil & Shafranovich     Expires May 22, 2020                 [Page 16]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -949,7 +949,7 @@ Internet-Draft     A Method for Web Security Policies      November 2019
 
 
 
-Foudil & Shafranovich     Expires May 15, 2020                 [Page 17]
+Foudil & Shafranovich     Expires May 22, 2020                 [Page 17]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -1005,7 +1005,7 @@ Internet-Draft     A Method for Web Security Policies      November 2019
 
 
 
-Foudil & Shafranovich     Expires May 15, 2020                 [Page 18]
+Foudil & Shafranovich     Expires May 22, 2020                 [Page 18]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -1061,7 +1061,7 @@ Internet-Draft     A Method for Web Security Policies      November 2019
 
 
 
-Foudil & Shafranovich     Expires May 15, 2020                 [Page 19]
+Foudil & Shafranovich     Expires May 22, 2020                 [Page 19]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -1117,7 +1117,7 @@ Internet-Draft     A Method for Web Security Policies      November 2019
 
 
 
-Foudil & Shafranovich     Expires May 15, 2020                 [Page 20]
+Foudil & Shafranovich     Expires May 22, 2020                 [Page 20]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -1173,7 +1173,7 @@ B.1.  Since draft-foudil-securitytxt-00
 
 
 
-Foudil & Shafranovich     Expires May 15, 2020                 [Page 21]
+Foudil & Shafranovich     Expires May 22, 2020                 [Page 21]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -1229,7 +1229,7 @@ B.3.  Since draft-foudil-securitytxt-02
 
 
 
-Foudil & Shafranovich     Expires May 15, 2020                 [Page 22]
+Foudil & Shafranovich     Expires May 22, 2020                 [Page 22]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -1285,7 +1285,7 @@ B.6.  Since draft-foudil-securitytxt-05
 
 
 
-Foudil & Shafranovich     Expires May 15, 2020                 [Page 23]
+Foudil & Shafranovich     Expires May 22, 2020                 [Page 23]
 
 Internet-Draft     A Method for Web Security Policies      November 2019
 
@@ -1313,6 +1313,10 @@ B.8.  Since draft-foudil-securitytxt-07
 
    o  Fix for ABNF grammar in lang-values (#164)
 
+   o  Fixing idnits warnings
+
+   o  Adding guidance for designated experts
+
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt
 
@@ -1337,8 +1341,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-Foudil & Shafranovich     Expires May 15, 2020                 [Page 24]
+Foudil & Shafranovich     Expires May 22, 2020                 [Page 24]

@@ -340,7 +340,7 @@ ul.toc li {
 
   <meta name="dct.creator" content="Foudil, E. and Y. Shafranovich" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-foudil-securitytxt-08" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-11-12" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-11-19" />
   <meta name="dct.abstract" content="When security vulnerabilities are discovered by independent security researchers, they often lack the channels to report them properly. As a result, security vulnerabilities may be left unreported. This document defines a format (&#8220;security.txt&#8221;) to help organizations describe the process for security researchers to follow in order to report security vulnerabilities." />
   <meta name="description" content="When security vulnerabilities are discovered by independent security researchers, they often lack the channels to report them properly. As a result, security vulnerabilities may be left unreported. This document defines a format (&#8220;security.txt&#8221;) to help organizations describe the process for security researchers to follow in order to report security vulnerabilities." />
 
@@ -364,12 +364,12 @@ ul.toc li {
 <td class="right">Y. Shafranovich</td>
 </tr>
 <tr>
-<td class="left">Expires: May 15, 2020</td>
+<td class="left">Expires: May 22, 2020</td>
 <td class="right">Nightwatch Cybersecurity</td>
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">November 12, 2019</td>
+<td class="right">November 19, 2019</td>
 </tr>
 
     	
@@ -385,7 +385,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on May 15, 2020.</p>
+<p>This Internet-Draft will expire on May 22, 2020.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -510,7 +510,7 @@ ul.toc li {
 <p id="rfc.section.1.1.p.1">Many security researchers encounter situations where they are unable to report security vulnerabilities to organizations because there is no course of action laid out and no way indicated to contact the owner of a particular resource.</p>
 <p id="rfc.section.1.1.p.2">As per section 4 of <a href="#RFC2142" class="xref">[RFC2142]</a>, there is an existing convention of using the &lt;SECURITY@domain&gt; email address for communications regarding security vulnerabilities. That convention provides only a single, email-based channel of communication for security vulnerabilities per domain, and does not provide a way for domain owners to publish information about their security disclosure policies.</p>
 <p id="rfc.section.1.1.p.3">There are also contact conventions prescribed for Internet Service Providers (ISPs) in section 2 of <a href="#RFC3013" class="xref">[RFC3013]</a>, for Computer Security Incident Response Teams (CSIRTs) in section 3.2 of <a href="#RFC2350" class="xref">[RFC2350]</a> and for site operators in section 5.2 of <a href="#RFC2196" class="xref">[RFC2196]</a>. As per <a href="#RFC7485" class="xref">[RFC7485]</a>, there is also contact information provided by Regional Internet Registries (RIRs) and domain registries for owners of IP addresses, autonomous system numbers (ASNs) and domain names. However, none of these address the issue of how security researchers can locate disclosure policies and contact information for organizations in order to report security vulnerabilities.</p>
-<p id="rfc.section.1.1.p.4">In this document, we define a richer, machine-parsable and more extensible way for organizations to communicate information about their security disclosure policies, which is not limited to email and also allows for additional features such as encryption. This format is designed to help assist with the security disclosure process by making it easier for organizations to designate the preferred steps for researchers to take when trying to reach out to them with security vulnerabilities.</p>
+<p id="rfc.section.1.1.p.4">In this document, we define a richer, machine-parsable and extensible way for organizations to communicate information about their security disclosure policies, which is not limited to email and also allows for additional features such as encryption. This format is designed to help assist with the security disclosure process by making it easier for organizations to designate the preferred steps for researchers to take when trying to reach out to them with security vulnerabilities.</p>
 <p id="rfc.section.1.1.p.5">Other details of vulnerability disclosure are outside the scope of this document.  Readers are encouraged to consult other documents such as <a href="#ISO.29147.2018" class="xref">[ISO.29147.2018]</a> or <a href="#CERT.CVD" class="xref">[CERT.CVD]</a>.</p>
 <h1 id="rfc.section.1.2">
 <a href="#rfc.section.1.2">1.2.</a> <a href="#terminology" id="terminology">Terminology</a>
@@ -740,7 +740,9 @@ sign-header      =  &lt; headers and line from section 7 of [RFC4880] &gt;
 
 sign-footer      =  &lt; OpenPGP signature from section 7 of [RFC4880] &gt;
 
-unsigned         =  *line [can-field eol] *line (contact-field eol) *line [lang-field eol] *line
+unsigned         =  *line [can-field eol]
+                    *line (contact-field eol)
+                    *line [lang-field eol] *line
                     ; the order of elements is not important
 
 line             =  (field / comment) eol
@@ -851,8 +853,9 @@ unstructured     =  &lt; imported from section 3.2.5 of [RFC5322] &gt;
 <a href="#rfc.section.7.2">7.2.</a> <a href="#registry" id="registry">Registry for security.txt Header Fields</a>
 </h1>
 <p id="rfc.section.7.2.p.1">IANA is requested to create the &#8220;security.txt Header Fields&#8221; registry in accordance with <a href="#RFC8126" class="xref">[RFC8126]</a>. This registry will contain header fields for use in security.txt files, defined by this specification.</p>
-<p id="rfc.section.7.2.p.2">New registrations or updates MUST be published in accordance with the &#8220;Expert Review&#8221; guidelines as described in section 4.5 of <a href="#RFC8126" class="xref">[RFC8126]</a>. Any new field thus registered is considered optional by this specification unless a new version of this specification is published.</p>
-<p id="rfc.section.7.2.p.3">New registrations and updates MUST contain the following information:</p>
+<p id="rfc.section.7.2.p.2">New registrations or updates MUST be published in accordance with the &#8220;Expert Review&#8221; guidelines as described in sections 4.5 and 5 of <a href="#RFC8126" class="xref">[RFC8126]</a>. Any new field thus registered is considered optional by this specification unless a new version of this specification is published.</p>
+<p id="rfc.section.7.2.p.3">Designated Experts are expected to check whether a proposed registration or update makes sense in the context of this specification and provides value to the wider Internet community.</p>
+<p id="rfc.section.7.2.p.4">New registrations and updates MUST contain the following information:</p>
 <p></p>
 
 <ol>
@@ -868,8 +871,8 @@ unstructured     =  &lt; imported from section 3.2.5 of [RFC5322] &gt;
 </li>
 <li>Change controller</li>
 </ol>
-<p id="rfc.section.7.2.p.5">An update may make a notation on an existing registration indicating that a registered field is historical or deprecated if appropriate.</p>
-<p id="rfc.section.7.2.p.6">The initial registry contains these values:</p>
+<p id="rfc.section.7.2.p.6">An update may make a notation on an existing registration indicating that a registered field is historical or deprecated if appropriate.</p>
+<p id="rfc.section.7.2.p.7">The initial registry contains these values:</p>
 <pre>
    Field Name: Acknowledgments
    Description: link to page where security researchers are recognized
@@ -1218,6 +1221,8 @@ unstructured     =  &lt; imported from section 3.2.5 of [RFC5322] &gt;
 <ul>
 <li>Addressing AD feedback (#165)</li>
 <li>Fix for ABNF grammar in lang-values (#164)</li>
+<li>Fixing idnits warnings</li>
+<li>Adding guidance for designated experts</li>
 </ul>
 <p id="rfc.section.B.8.p.2">Full list of changes can be viewed via the IETF document tracker: https://tools.ietf.org/html/draft-foudil-securitytxt</p>
 <h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
