@@ -507,7 +507,7 @@ This can result in security reports not being received by the organization
 or sent to the attacker.
 
 To protect against this, organizations should digitally sign their "security.txt"
-files (as per {{signature}}), use the "Canonical" field to sign the location
+files (as per {{signature}}), use the "Canonical" field to sign the locations
 of the file (as per {{canonical}}), and regularly monitor the file and
 the referenced resources to detect tampering.
 
@@ -527,7 +527,7 @@ or not kept up to date, this can result in security reports not being received
 by the organization or sent to incorrect contacts, thus exposing possible
 security issues to third parties. Not having a security.txt file may be preferable
 to having stale information in this file. Organizations are also encouraged to
-use the "Expires" field (see {{expired}}) to indicate to researchers when
+use the "Expires" field (see {{expires}}) to indicate to researchers when
 the data in the file is no longer valid.
 
 Organizations should ensure that information in this file and any referenced
