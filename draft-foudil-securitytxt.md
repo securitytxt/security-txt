@@ -36,7 +36,7 @@ security researchers, they
 often lack the channels to report them properly. As a result,
 security vulnerabilities may be left unreported. This document defines a format
 ("security.txt") to help organizations describe their vulnerability disclosure practices
-in order to make it easier for researchers to report security vulnerabilities.
+to make it easier for researchers to report security vulnerabilities.
 
 --- middle
 
@@ -67,18 +67,11 @@ these address the issue of how security researchers can locate vulnerability dis
 practices and contact information for organizations in order to report
 security vulnerabilities.
 
-In this document, we define a richer and extensible way
+In this document, we define a richer and more extensible way
 for organizations to communicate information about their security disclosure
-practices and ways to contact them, which is not limited to email and also allows for additional features
-such as encryption. This format is designed to help
-assist with the security disclosure process by making it easier
-for organizations to designate the preferred steps for researchers to take
-when trying to reach out to them with security vulnerabilities as well as provide
-additional information about their vulnerability disclosure practices useful to security researchers.
-
-Other details of vulnerability disclosure are outside the scope of this document.
-Readers are encouraged to consult other documents such as
-{{ISO.29147.2018}} or {{CERT.CVD}}.
+practices and ways to contact them. Other details of vulnerability disclosure
+are outside the scope of this document. Readers are encouraged to consult other
+documents such as {{ISO.29147.2018}} or {{CERT.CVD}}.
 
 ## Terminology
 
@@ -98,8 +91,8 @@ Development of this draft takes place on Github at: https://github.com/securityt
 # The Specification
 
 This document defines a text file to be placed in a known location
-that provides information for security researchers about the vulnerability disclosure
-practices of a particular organization in order to assist them in disclosing security vulnerabilities.
+that provides information about the vulnerability disclosure practices of a particular organization.
+This is intended to help security researchers when disclosing security vulnerabilities.
 
 The file is named "security.txt", and this file MUST be placed under the
 /.well-known/ path ("/.well-known/security.txt") {{!RFC8615}} of a domain name or IP address for web
@@ -287,8 +280,8 @@ Encryption: openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f
 ### Expires {#expires}
 
 This field indicates the date/time after which the data contained in the "security.txt"
-file is considered stale and should not be used.
-The value of this field follows the format defined in section 3.3 of {{!RFC5322}}.
+file is considered stale and should not be used (as per {{stale}}). The value of this field follows
+the format defined in section 3.3 of {{!RFC5322}}.
 
 This field MUST NOT appear more than once.
 
@@ -390,7 +383,7 @@ Version: GnuPG v2.2
 
 Web-based services MUST place the security.txt file under the "/.well-known/" path; e.g. https://example.com/.well-known/security.txt
 as per {{!RFC8615}}. For legacy compatibility, a security.txt file might be placed at the top-level path
-or redirect (as per section 6.4 of {{!RFC7231}}) to the security.txt file under the /.well-known/ path. If a "security.txt" file
+or redirect (as per section 6.4 of {{!RFC7231}}) to the security.txt file under the "/.well-known/" path. If a "security.txt" file
 is present in both locations, the one in the "/.well-known/" path MUST be used.
 
 Retrieval of "security.txt" files and resources indicated within such files may result in a redirect (as per
@@ -520,7 +513,7 @@ When retrieving the file and any resources referenced in the file, researchers s
 any redirects since they can lead to a different domain or IP address controlled by an attacker. Further
 inspections of such redirects is recommended before using the information.
 
-## Incorrect or Stale Information
+## Incorrect or Stale Information {#stale}
 
 If information and resources referenced in a "security.txt" file are incorrect
 or not kept up to date, this can result in security reports not being received
@@ -561,7 +554,7 @@ researchers reporting security issues to that organization.
 
 Therefore, implementors shouldn't assume that presence or absence of
 a "security.txt" file grants or denies permission for security testing.
-Any such permission may be indicates in the company's vulnerability disclosure policy
+Any such permission may be indicated in the company's vulnerability disclosure policy
 (as per {{policy}}) or a new field (as per {{extensibility}}).
 
 ## Multi-user Environments
@@ -598,7 +591,7 @@ organizations should specify encryption keys (as per {{encryption}}) unless
 HTTPS is being used.
 
 However, the determination of validity of such keys is out of scope
-for this specification. Researches need to establish other secure means to
+for this specification. Security researchers need to establish other secure means to
 verify them.
 
 ## Spam and Spurious Reports
@@ -614,8 +607,7 @@ Organizations need to weigh the advantages of publishing this file versus
 the possible disadvantages and increased resources required to triage
 security reports.
 
-Security researchers should consult the organization's vulnerability disclosure policy, if available,
-and review the contact information and/or resources referenced within the "security.txt"
+Security researchers should review all information within the "security.txt"
 file before submitting reports in an automated fashion or as resulting from automated scans.
 
 # IANA Considerations
