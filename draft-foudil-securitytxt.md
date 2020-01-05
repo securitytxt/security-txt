@@ -100,7 +100,7 @@ properties. For legacy compatibility, a security.txt file might be placed at the
 
 For web-based services, the file MUST be accessible via the Hypertext Transfer Protocol (HTTP) 1.0 {{!RFC1945}} or higher version, as a resource of Internet Media Type "text/plain" with the default charset parameter set to "utf-8" per section 4.1.3 of {{!RFC2046}}, and it MUST be served with "https" (as per section 2.7.2 of {{!RFC7230}}). For file systems a "security.txt" file SHOULD be placed in the root directory of a particular file system.
 
-This text file contains multiple fields with different values. A field contains a name which is the first part of a field all the way up
+This text file contains multiple fields with different values. A field contains a "name" which is the first part of a field all the way up
 to the colon ("Contact:") and follows the syntax defined for "field-name" in section 3.6.8
 of {{!RFC5322}}. Fields are case-insensitive (as per section 2.3 of {{!RFC5234}}).
 The "value" comes after the field name ("https://example.com/security") and follows the syntax
@@ -506,7 +506,7 @@ the referenced resources to detect tampering.
 
 Security researchers should triage the "security.txt" file including verifying
 the digital signature and checking any available historical records before using the information
-contained in the file. If "security.txt" file looks suspicious or compromised,
+contained in the file. If the "security.txt" file looks suspicious or compromised,
 it should not be used.
 
 When retrieving the file and any resources referenced in the file, researchers should record
