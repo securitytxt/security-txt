@@ -317,7 +317,7 @@ ul.toc li {
 <link href="#rfc.section.6.7" rel="Chapter" title="6.7 Spam and Spurious Reports">
 <link href="#rfc.section.7" rel="Chapter" title="7 IANA Considerations">
 <link href="#rfc.section.7.1" rel="Chapter" title="7.1 Well-Known URIs registry">
-<link href="#rfc.section.7.2" rel="Chapter" title="7.2 Registry for security.txt Header Fields">
+<link href="#rfc.section.7.2" rel="Chapter" title="7.2 Registry for security.txt Fields">
 <link href="#rfc.section.8" rel="Chapter" title="8 Contributors">
 <link href="#rfc.references" rel="Chapter" title="9 References">
 <link href="#rfc.references.1" rel="Chapter" title="9.1 Normative References">
@@ -341,7 +341,7 @@ ul.toc li {
 
   <meta name="dct.creator" content="Foudil, E. and Y. Shafranovich" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-foudil-securitytxt-09" />
-  <meta name="dct.issued" scheme="ISO8601" content="2020-01-05" />
+  <meta name="dct.issued" scheme="ISO8601" content="2020-01-06" />
   <meta name="dct.abstract" content="When security vulnerabilities are discovered by independent security researchers, they often lack the channels to report them properly. As a result, security vulnerabilities may be left unreported. This document defines a format (&#8220;security.txt&#8221;) to help organizations describe their vulnerability disclosure practices to make it easier for researchers to report security vulnerabilities." />
   <meta name="description" content="When security vulnerabilities are discovered by independent security researchers, they often lack the channels to report them properly. As a result, security vulnerabilities may be left unreported. This document defines a format (&#8220;security.txt&#8221;) to help organizations describe their vulnerability disclosure practices to make it easier for researchers to report security vulnerabilities." />
 
@@ -365,12 +365,12 @@ ul.toc li {
 <td class="right">Y. Shafranovich</td>
 </tr>
 <tr>
-<td class="left">Expires: July 8, 2020</td>
+<td class="left">Expires: July 9, 2020</td>
 <td class="right">Nightwatch Cybersecurity</td>
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">January 05, 2020</td>
+<td class="right">January 06, 2020</td>
 </tr>
 
     	
@@ -386,7 +386,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on July 8, 2020.</p>
+<p>This Internet-Draft will expire on July 9, 2020.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2020 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -466,7 +466,7 @@ ul.toc li {
 </li>
 <ul><li>7.1.   <a href="#rfc.section.7.1">Well-Known URIs registry</a>
 </li>
-<li>7.2.   <a href="#rfc.section.7.2">Registry for security.txt Header Fields</a>
+<li>7.2.   <a href="#rfc.section.7.2">Registry for security.txt Fields</a>
 </li>
 </ul><li>8.   <a href="#rfc.section.8">Contributors</a>
 </li>
@@ -530,15 +530,16 @@ ul.toc li {
 <a href="#rfc.section.3">3.</a> <a href="#the-specification" id="the-specification">The Specification</a>
 </h1>
 <p id="rfc.section.3.p.1">This document defines a text file to be placed in a known location that provides information about the vulnerability disclosure practices of a particular organization.  This is intended to help security researchers when disclosing security vulnerabilities.</p>
-<p id="rfc.section.3.p.2">The file is named &#8220;security.txt&#8221;, and this file MUST be placed under the /.well-known/ path (&#8220;/.well-known/security.txt&#8221;) <a href="#RFC8615" class="xref">[RFC8615]</a> of a domain name or IP address for web properties. For legacy compatibility, a security.txt file might be placed at the top level path (see <a href="#weblocation" class="xref">Section 4.1</a>).</p>
-<p id="rfc.section.3.p.3">For web-based services, the file MUST be accessible via the Hypertext Transfer Protocol (HTTP) 1.0 <a href="#RFC1945" class="xref">[RFC1945]</a> or higher version, as a resource of Internet Media Type &#8220;text/plain&#8221; with the default charset parameter set to &#8220;utf-8&#8221; per section 4.1.3 of <a href="#RFC2046" class="xref">[RFC2046]</a>, and it MUST be served with &#8220;https&#8221; (as per section 2.7.2 of <a href="#RFC7230" class="xref">[RFC7230]</a>). For file systems a &#8220;security.txt&#8221; file SHOULD be placed in the root directory of a particular file system.</p>
-<p id="rfc.section.3.p.4">This text file contains multiple fields with different values. A field contains a &#8220;name&#8221; which is the first part of a field all the way up to the colon (&#8220;Contact:&#8221;) and follows the syntax defined for &#8220;field-name&#8221; in section 3.6.8 of <a href="#RFC5322" class="xref">[RFC5322]</a>. Fields are case-insensitive (as per section 2.3 of <a href="#RFC5234" class="xref">[RFC5234]</a>).  The &#8220;value&#8221; comes after the field name (&#8220;https://example.com/security&#8221;) and follows the syntax defined for &#8220;unstructured&#8221; in section 3.2.5 of <a href="#RFC5322" class="xref">[RFC5322]</a>.</p>
-<p id="rfc.section.3.p.5">A &#8220;field&#8221; MUST always consist of a name and a value (&#8220;Contact: https://example.com/security&#8221;). A security.txt file can have an unlimited number of fields. It is important to note that each field MUST appear on its own line. Unless specified otherwise by the field definition, multiple values MUST NOT be chained together for a single field.  Unless otherwise indicated in a definition of a particular field, any field MAY appear multiple times.</p>
-<p id="rfc.section.3.p.6">Implementors should be aware that some of the fields may contain URIs using percent-encoding (as per section 2.1 of <a href="#RFC3986" class="xref">[RFC3986]</a>).</p>
+<p id="rfc.section.3.p.2">By convention, the file is named &#8220;security.txt&#8221;.</p>
+<p id="rfc.section.3.p.3">When made available on HTTP servers, it MUST be placed under the /.well-known/ path (as &#8220;/.well-known/security.txt&#8221;) <a href="#RFC8615" class="xref">[RFC8615]</a> of a domain name or IP address.  For legacy compatibility, a security.txt file might be placed at the top level path (see <a href="#weblocation" class="xref">Section 4.1</a>).  For file systems a &#8220;security.txt&#8221; file SHOULD be placed in the root directory of a particular file system.</p>
+<p id="rfc.section.3.p.4">On HTTP servers, the file MUST be accessed via the Hypertext Transfer Protocol (HTTP) 1.0 <a href="#RFC1945" class="xref">[RFC1945]</a> or higher version and the &#8220;https&#8221; scheme (as per section 2.7.2 of <a href="#RFC7230" class="xref">[RFC7230]</a>). It MUST have a Content-Type of &#8220;text/plain&#8221; with the default charset parameter set to &#8220;utf-8&#8221; (as per section 4.1.3 of <a href="#RFC2046" class="xref">[RFC2046]</a>).</p>
+<p id="rfc.section.3.p.5">This text file contains multiple fields with different values. A field contains a &#8220;name&#8221; which is the first part of a field all the way up to the colon (&#8220;Contact:&#8221;) and follows the syntax defined for &#8220;field-name&#8221; in section 3.6.8 of <a href="#RFC5322" class="xref">[RFC5322]</a>. Fields are case-insensitive (as per section 2.3 of <a href="#RFC5234" class="xref">[RFC5234]</a>).  The &#8220;value&#8221; comes after the field name (&#8220;https://example.com/security&#8221;) and follows the syntax defined for &#8220;unstructured&#8221; in section 3.2.5 of <a href="#RFC5322" class="xref">[RFC5322]</a>.</p>
+<p id="rfc.section.3.p.6">A &#8220;field&#8221; MUST always consist of a name and a value (&#8220;Contact: https://example.com/security&#8221;). A security.txt file can have an unlimited number of fields. It is important to note that each field MUST appear on its own line. Unless specified otherwise by the field definition, multiple values MUST NOT be chained together for a single field.  Unless otherwise indicated in a definition of a particular field, any field MAY appear multiple times.</p>
+<p id="rfc.section.3.p.7">Implementors should be aware that some of the fields may contain URIs using percent-encoding (as per section 2.1 of <a href="#RFC3986" class="xref">[RFC3986]</a>).</p>
 <h1 id="rfc.section.3.1">
 <a href="#rfc.section.3.1">3.1.</a> <a href="#scope-of-the-file" id="scope-of-the-file">Scope of the File</a>
 </h1>
-<p id="rfc.section.3.1.p.1">A &#8220;security.txt&#8221; file MUST only apply to the domain or IP address in the URI used to retrieve it, not to any of its subdomains or parent domains. A &#8220;security.txt&#8221; file that is found in a file system MUST only apply to the folder or repository in which it is located, and not to any of its parent or sibling folders, or repositories. However, it will apply to all subfolders.</p>
+<p id="rfc.section.3.1.p.1">A &#8220;security.txt&#8221; file MUST only apply to the domain or IP address in the URI used to retrieve it, not to any of its subdomains or parent domains. A &#8220;security.txt&#8221; file that is found in a file system MUST only apply to the folder in which it is located, and not to any of its parent or sibling folders.  However, it will apply to all subfolders.</p>
 <p id="rfc.section.3.1.p.2">Some examples appear below:</p>
 <pre>
 # The following only applies to example.com.
@@ -862,9 +863,9 @@ unstructured     =  &lt; imported from section 3.2.5 of [RFC5322] &gt;
 <p id="rfc.section.7.1.p.4">Specification document(s): this document</p>
 <p id="rfc.section.7.1.p.5">Status: permanent</p>
 <h1 id="rfc.section.7.2">
-<a href="#rfc.section.7.2">7.2.</a> <a href="#registry" id="registry">Registry for security.txt Header Fields</a>
+<a href="#rfc.section.7.2">7.2.</a> <a href="#registry" id="registry">Registry for security.txt Fields</a>
 </h1>
-<p id="rfc.section.7.2.p.1">IANA is requested to create the &#8220;security.txt Header Fields&#8221; registry in accordance with <a href="#RFC8126" class="xref">[RFC8126]</a>. This registry will contain header fields for use in security.txt files, defined by this specification.</p>
+<p id="rfc.section.7.2.p.1">IANA is requested to create the &#8220;security.txt Fields&#8221; registry in accordance with <a href="#RFC8126" class="xref">[RFC8126]</a>. This registry will contain fields for use in security.txt files, defined by this specification.</p>
 <p id="rfc.section.7.2.p.2">New registrations or updates MUST be published in accordance with the &#8220;Expert Review&#8221; guidelines as described in sections 4.5 and 5 of <a href="#RFC8126" class="xref">[RFC8126]</a>. Any new field thus registered is considered optional by this specification unless a new version of this specification is published.</p>
 <p id="rfc.section.7.2.p.3">Designated Experts are expected to check whether a proposed registration or update makes sense in the context of industry accepted vulnerability disclosure processes such as <a href="#ISO.29147.2018" class="xref">[ISO.29147.2018]</a> and <a href="#CERT.CVD" class="xref">[CERT.CVD]</a>, and provides value to organizations and researchers using this format.</p>
 <p id="rfc.section.7.2.p.4">New registrations and updates MUST contain the following information:</p>

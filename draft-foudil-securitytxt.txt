@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: July 8, 2020                           Nightwatch Cybersecurity
-                                                        January 05, 2020
+Expires: July 9, 2020                           Nightwatch Cybersecurity
+                                                        January 06, 2020
 
 
        A Format for Describing Vulnerability Disclosure Practices
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 8, 2020.
+   This Internet-Draft will expire on July 9, 2020.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                  [Page 1]
+Foudil & Shafranovich     Expires July 9, 2020                  [Page 1]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -98,7 +98,7 @@ Table of Contents
      6.7.  Spam and Spurious Reports . . . . . . . . . . . . . . . .  15
    7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  15
      7.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .  16
-     7.2.  Registry for security.txt Header Fields . . . . . . . . .  16
+     7.2.  Registry for security.txt Fields  . . . . . . . . . . . .  16
    8.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  18
    9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  18
      9.1.  Normative References  . . . . . . . . . . . . . . . . . .  18
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                  [Page 2]
+Foudil & Shafranovich     Expires July 9, 2020                  [Page 2]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -165,7 +165,7 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                  [Page 3]
+Foudil & Shafranovich     Expires July 9, 2020                  [Page 3]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -193,19 +193,20 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
    practices of a particular organization.  This is intended to help
    security researchers when disclosing security vulnerabilities.
 
-   The file is named "security.txt", and this file MUST be placed under
-   the /.well-known/ path ("/.well-known/security.txt") [RFC8615] of a
-   domain name or IP address for web properties.  For legacy
-   compatibility, a security.txt file might be placed at the top level
-   path (see Section 4.1).
+   By convention, the file is named "security.txt".
 
-   For web-based services, the file MUST be accessible via the Hypertext
-   Transfer Protocol (HTTP) 1.0 [RFC1945] or higher version, as a
-   resource of Internet Media Type "text/plain" with the default charset
-   parameter set to "utf-8" per section 4.1.3 of [RFC2046], and it MUST
-   be served with "https" (as per section 2.7.2 of [RFC7230]).  For file
-   systems a "security.txt" file SHOULD be placed in the root directory
-   of a particular file system.
+   When made available on HTTP servers, it MUST be placed under the
+   /.well-known/ path (as "/.well-known/security.txt") [RFC8615] of a
+   domain name or IP address.  For legacy compatibility, a security.txt
+   file might be placed at the top level path (see Section 4.1).  For
+   file systems a "security.txt" file SHOULD be placed in the root
+   directory of a particular file system.
+
+   On HTTP servers, the file MUST be accessed via the Hypertext Transfer
+   Protocol (HTTP) 1.0 [RFC1945] or higher version and the "https"
+   scheme (as per section 2.7.2 of [RFC7230]).  It MUST have a Content-
+   Type of "text/plain" with the default charset parameter set to "utf-
+   8" (as per section 4.1.3 of [RFC2046]).
 
    This text file contains multiple fields with different values.  A
    field contains a "name" which is the first part of a field all the
@@ -217,15 +218,15 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
    A "field" MUST always consist of a name and a value ("Contact:
    https://example.com/security").  A security.txt file can have an
-   unlimited number of fields.  It is important to note that each field
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                  [Page 4]
+Foudil & Shafranovich     Expires July 9, 2020                  [Page 4]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
 
+   unlimited number of fields.  It is important to note that each field
    MUST appear on its own line.  Unless specified otherwise by the field
    definition, multiple values MUST NOT be chained together for a single
    field.  Unless otherwise indicated in a definition of a particular
@@ -239,9 +240,9 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
    A "security.txt" file MUST only apply to the domain or IP address in
    the URI used to retrieve it, not to any of its subdomains or parent
    domains.  A "security.txt" file that is found in a file system MUST
-   only apply to the folder or repository in which it is located, and
-   not to any of its parent or sibling folders, or repositories.
-   However, it will apply to all subfolders.
+   only apply to the folder in which it is located, and not to any of
+   its parent or sibling folders.  However, it will apply to all
+   subfolders.
 
    Some examples appear below:
 
@@ -276,8 +277,7 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
 
 
-
-Foudil & Shafranovich     Expires July 8, 2020                  [Page 5]
+Foudil & Shafranovich     Expires July 9, 2020                  [Page 5]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -333,7 +333,7 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                  [Page 6]
+Foudil & Shafranovich     Expires July 9, 2020                  [Page 6]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -389,7 +389,7 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                  [Page 7]
+Foudil & Shafranovich     Expires July 9, 2020                  [Page 7]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -445,7 +445,7 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                  [Page 8]
+Foudil & Shafranovich     Expires July 9, 2020                  [Page 8]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -501,7 +501,7 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                  [Page 9]
+Foudil & Shafranovich     Expires July 9, 2020                  [Page 9]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -557,7 +557,7 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                 [Page 10]
+Foudil & Shafranovich     Expires July 9, 2020                 [Page 10]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -613,7 +613,7 @@ field            =  ack-field /
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                 [Page 11]
+Foudil & Shafranovich     Expires July 9, 2020                 [Page 11]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -669,7 +669,7 @@ unstructured     =  < imported from section 3.2.5 of [RFC5322] >
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                 [Page 12]
+Foudil & Shafranovich     Expires July 9, 2020                 [Page 12]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -725,7 +725,7 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                 [Page 13]
+Foudil & Shafranovich     Expires July 9, 2020                 [Page 13]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -781,7 +781,7 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                 [Page 14]
+Foudil & Shafranovich     Expires July 9, 2020                 [Page 14]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -837,7 +837,7 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                 [Page 15]
+Foudil & Shafranovich     Expires July 9, 2020                 [Page 15]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -858,11 +858,11 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
    Status: permanent
 
-7.2.  Registry for security.txt Header Fields
+7.2.  Registry for security.txt Fields
 
-   IANA is requested to create the "security.txt Header Fields" registry
-   in accordance with [RFC8126].  This registry will contain header
-   fields for use in security.txt files, defined by this specification.
+   IANA is requested to create the "security.txt Fields" registry in
+   accordance with [RFC8126].  This registry will contain fields for use
+   in security.txt files, defined by this specification.
 
    New registrations or updates MUST be published in accordance with the
    "Expert Review" guidelines as described in sections 4.5 and 5 of
@@ -893,7 +893,7 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                 [Page 16]
+Foudil & Shafranovich     Expires July 9, 2020                 [Page 16]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -949,7 +949,7 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                 [Page 17]
+Foudil & Shafranovich     Expires July 9, 2020                 [Page 17]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -1005,7 +1005,7 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                 [Page 18]
+Foudil & Shafranovich     Expires July 9, 2020                 [Page 18]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -1061,7 +1061,7 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                 [Page 19]
+Foudil & Shafranovich     Expires July 9, 2020                 [Page 19]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -1117,7 +1117,7 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                 [Page 20]
+Foudil & Shafranovich     Expires July 9, 2020                 [Page 20]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -1173,7 +1173,7 @@ Appendix A.  Note to Readers
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                 [Page 21]
+Foudil & Shafranovich     Expires July 9, 2020                 [Page 21]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -1229,7 +1229,7 @@ B.2.  Since draft-foudil-securitytxt-01
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                 [Page 22]
+Foudil & Shafranovich     Expires July 9, 2020                 [Page 22]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -1285,7 +1285,7 @@ B.5.  Since draft-foudil-securitytxt-04
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                 [Page 23]
+Foudil & Shafranovich     Expires July 9, 2020                 [Page 23]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -1341,7 +1341,7 @@ B.8.  Since draft-foudil-securitytxt-07
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                 [Page 24]
+Foudil & Shafranovich     Expires July 9, 2020                 [Page 24]
 
 Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
@@ -1397,4 +1397,4 @@ Authors' Addresses
 
 
 
-Foudil & Shafranovich     Expires July 8, 2020                 [Page 25]
+Foudil & Shafranovich     Expires July 9, 2020                 [Page 25]
