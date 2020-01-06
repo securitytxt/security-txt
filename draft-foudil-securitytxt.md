@@ -124,9 +124,10 @@ contain URIs using percent-encoding (as per section 2.1 of {{!RFC3986}}).
 
 ## Scope of the File
 
-A "security.txt" file MUST only apply to the domain or IP address in the URI used to retrieve it,
-not to any of its subdomains or parent domains. A "security.txt" file that is found
-in a file system MUST only apply to the folder
+For HTTP servers, a "security.txt" file MUST only apply to the domain
+or IP address in the URI used to retrieve it, not to any of its subdomains or parent domains.
+
+For file systems, a "security.txt" file MUST only apply to the folder
 in which it is located, and not to any of its parent or sibling folders.
 However, it will apply to all subfolders.
 

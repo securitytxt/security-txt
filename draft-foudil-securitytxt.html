@@ -539,8 +539,9 @@ ul.toc li {
 <h1 id="rfc.section.3.1">
 <a href="#rfc.section.3.1">3.1.</a> <a href="#scope-of-the-file" id="scope-of-the-file">Scope of the File</a>
 </h1>
-<p id="rfc.section.3.1.p.1">A &#8220;security.txt&#8221; file MUST only apply to the domain or IP address in the URI used to retrieve it, not to any of its subdomains or parent domains. A &#8220;security.txt&#8221; file that is found in a file system MUST only apply to the folder in which it is located, and not to any of its parent or sibling folders.  However, it will apply to all subfolders.</p>
-<p id="rfc.section.3.1.p.2">Some examples appear below:</p>
+<p id="rfc.section.3.1.p.1">For HTTP servers, a &#8220;security.txt&#8221; file MUST only apply to the domain or IP address in the URI used to retrieve it, not to any of its subdomains or parent domains.</p>
+<p id="rfc.section.3.1.p.2">For file systems, a &#8220;security.txt&#8221; file MUST only apply to the folder in which it is located, and not to any of its parent or sibling folders.  However, it will apply to all subfolders.</p>
+<p id="rfc.section.3.1.p.3">Some examples appear below:</p>
 <pre>
 # The following only applies to example.com.
 https://example.com/.well-known/security.txt

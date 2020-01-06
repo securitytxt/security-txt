@@ -237,12 +237,13 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
 
 3.1.  Scope of the File
 
-   A "security.txt" file MUST only apply to the domain or IP address in
-   the URI used to retrieve it, not to any of its subdomains or parent
-   domains.  A "security.txt" file that is found in a file system MUST
-   only apply to the folder in which it is located, and not to any of
-   its parent or sibling folders.  However, it will apply to all
-   subfolders.
+   For HTTP servers, a "security.txt" file MUST only apply to the domain
+   or IP address in the URI used to retrieve it, not to any of its
+   subdomains or parent domains.
+
+   For file systems, a "security.txt" file MUST only apply to the folder
+   in which it is located, and not to any of its parent or sibling
+   folders.  However, it will apply to all subfolders.
 
    Some examples appear below:
 
@@ -271,7 +272,6 @@ Internet-DrafA Format for Describing Vulnerability Disclosu January 2020
    Example:
 
    # This is a comment.
-
 
 
 
