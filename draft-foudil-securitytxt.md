@@ -1,5 +1,5 @@
 ---
-title: A Format for Describing Vulnerability Disclosure Practices
+title: A Method for Web Security Policies
 docname: draft-foudil-securitytxt-09
 ipr: trust200902
 cat: info
@@ -99,10 +99,10 @@ By convention, the file is named "security.txt".
 When made available on HTTP servers, it MUST be placed under the
 /.well-known/ path (as "/.well-known/security.txt") {{!RFC8615}} of a domain name or IP address.
 For legacy compatibility, a security.txt file might be placed at the top level path (see {{weblocation}}).
-For file systems a "security.txt" file SHOULD be placed in the root directory of a particular file system.
+For file systems a "security.txt" file SHOULD be placed in the root directory of the file system.
 
-On HTTP servers, the file MUST be accessed via the Hypertext Transfer Protocol (HTTP) 1.0 {{!RFC1945}} or higher version
-and the "https" scheme (as per section 2.7.2 of {{!RFC7230}}). It MUST have a Content-Type of "text/plain"
+On HTTP servers, the file MUST be accessed via HTTP 1.0 or a higher version
+and the "https" scheme (as per {{!RFC1945}} and section 2.7.2 of {{!RFC7230}}). It MUST have a Content-Type of "text/plain"
 with the default charset parameter set to "utf-8" (as per section 4.1.3 of {{!RFC2046}}).
 
 This text file contains multiple fields with different values. A field contains a "name" which is the first part of a field all the way up
@@ -127,9 +127,9 @@ contain URIs using percent-encoding (as per section 2.1 of {{!RFC3986}}).
 For HTTP servers, a "security.txt" file MUST only apply to the domain
 or IP address in the URI used to retrieve it, not to any of its subdomains or parent domains.
 
-For file systems, a "security.txt" file MUST only apply to the folder
-in which it is located, and not to any of its parent or sibling folders.
-However, it will apply to all subfolders.
+A "security.txt" file that is found in a file system MUST only apply to the folder
+in which it is located and that folder's subfolders. The file does not apply
+to any of the folder's parent or sibling folders.
 
 Some examples appear below:
 
@@ -828,7 +828,7 @@ of DNS-stored encryption keys (#28 and #94)
 - Added language and example regarding URI encoding (#176)
 - Add "Expires" field (#181)
 - Changed language from "directive" to "field" (#182)
-- Addressing last call feedback (#175, #179 and #180)
+- Addressing last call feedback (#179 and #180)
 - Clarifying order of fields (#174)
 
 Full list of changes can be viewed via the IETF document tracker:
