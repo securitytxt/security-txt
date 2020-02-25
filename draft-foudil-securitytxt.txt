@@ -10,7 +10,7 @@ Expires: August 28, 2020                        Nightwatch Cybersecurity
 
 
        A File Format to Aid in Security Vulnerability Disclosure
-                      draft-foudil-securitytxt-09
+                      draft-foudil-securitytxt-10
 
 Abstract
 
@@ -122,6 +122,7 @@ Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
      B.7.  Since draft-foudil-securitytxt-06 . . . . . . . . . . . .  24
      B.8.  Since draft-foudil-securitytxt-07 . . . . . . . . . . . .  24
      B.9.  Since draft-foudil-securitytxt-08 . . . . . . . . . . . .  25
+     B.10. Since draft-foudil-securitytxt-09 . . . . . . . . . . . .  25
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  25
 
 1.  Introduction
@@ -159,7 +160,6 @@ Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
    vulnerability disclosure are outside the scope of this document.
    Readers are encouraged to consult other documents such as
    [ISO.29147.2018] or [CERT.CVD].
-
 
 
 
@@ -1360,6 +1360,10 @@ B.9.  Since draft-foudil-securitytxt-08
 
    o  Revert comment/field association (#158)
 
+B.10.  Since draft-foudil-securitytxt-09
+
+   o  pending
+
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt
 
@@ -1374,10 +1378,6 @@ Authors' Addresses
    Nightwatch Cybersecurity
 
    Email: yakov+ietf@nightwatchcybersecurity.com
-
-
-
-
 
 
 
