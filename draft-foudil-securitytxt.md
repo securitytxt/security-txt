@@ -441,7 +441,7 @@ sign-footer      =  < OpenPGP signature from section 7 of [RFC4880] >
 unsigned         =  *line (contact-field eol)
                     *line [expires-field eol]
                     *line [lang-field eol] *line
-                    ; the order of fields within the file is not important
+                    ; order of fields within the file is not important
 
 line             =  (field / comment) eol
 
@@ -691,7 +691,7 @@ The initial registry contains these values:
        Change controller: IESG
 
        Field Name: Expires
-       Description: specifies the date/time after which the data in this file is considered stale
+       Description: date and time after which this file is considered stale
        Multiple Appearances: No
        Published in: this document
        Status: current
