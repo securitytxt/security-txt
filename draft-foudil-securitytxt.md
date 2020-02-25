@@ -1,6 +1,6 @@
 ---
 title: A File Format to Aid in Security Vulnerability Disclosure
-docname: draft-foudil-securitytxt-09
+docname: draft-foudil-securitytxt-10
 ipr: trust200902
 cat: info
 pi:
@@ -832,6 +832,9 @@ of DNS-stored encryption keys (#28 and #94)
 - Addressing last call feedback (#179, #180 and #183)
 - Clarifying order of fields (#174)
 - Revert comment/field association (#158)
+
+## Since draft-foudil-securitytxt-09
+- pending
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
