@@ -61,7 +61,7 @@ in section 2 of {{?RFC3013}}, for Computer Security Incident Response Teams (CSI
 in section 3.2 of {{?RFC2350}} and for site operators in section 5.2 of
 {{?RFC2196}}. As per {{?RFC7485}}, there is also contact information provided by
 Regional Internet Registries (RIRs) and domain registries for owners of IP
-addresses, autonomous system numbers (ASNs) and domain names. However, none of
+addresses, autonomous system numbers (ASNs), and domain names. However, none of
 these address the issue of how security researchers can locate contact information
 and vulnerability disclosure practices for organizations in order to report
 vulnerabilities.
@@ -529,7 +529,7 @@ use the "Expires" field (see {{expires}}) to indicate to researchers when
 the data in the file is no longer valid.
 
 Organizations should ensure that information in this file and any referenced
-resources such as web pages, email addresses and telephone numbers
+resources such as web pages, email addresses, and telephone numbers
 are kept current, are accessible, controlled by the organization,
 and are kept secure.
 
@@ -729,12 +729,12 @@ The initial registry contains these values:
 
 The authors would like to acknowledge the help provided during the
 development of this document by Tom Hudson, Jobert Abma,
-Gerben Janssen van Doorn, Austin Heap, Stephane Bortzmeyer, Max Smith, Eduardo Vela and Krzysztof Kotowicz.
+Gerben Janssen van Doorn, Austin Heap, Stephane Bortzmeyer, Max Smith, Eduardo Vela, and Krzysztof Kotowicz.
 
 The authors would also like to acknowledge the feedback provided by multiple members of IETF's
-LAST CALL, SAAG, SECDISPATCH lists.
+LAST CALL, SAAG, and SECDISPATCH lists.
 
-Yakov would like to also thank LTS (for everything).
+Yakov would like to also thank L.T.S. (for everything).
 
 --- back
 # Note to Readers

@@ -341,7 +341,7 @@ ul.toc li {
 
   <meta name="dct.creator" content="Foudil, E. and Y. Shafranovich" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-foudil-securitytxt-09" />
-  <meta name="dct.issued" scheme="ISO8601" content="2020-02-24" />
+  <meta name="dct.issued" scheme="ISO8601" content="2020-02-25" />
   <meta name="dct.abstract" content="When security vulnerabilities are discovered by researchers, proper reporting channels are often lacking. As a result, vulnerabilities may be left unreported. This document defines a format (&#8220;security.txt&#8221;) to help organizations describe their vulnerability disclosure practices to make it easier for researchers to report vulnerabilities." />
   <meta name="description" content="When security vulnerabilities are discovered by researchers, proper reporting channels are often lacking. As a result, vulnerabilities may be left unreported. This document defines a format (&#8220;security.txt&#8221;) to help organizations describe their vulnerability disclosure practices to make it easier for researchers to report vulnerabilities." />
 
@@ -365,12 +365,12 @@ ul.toc li {
 <td class="right">Y. Shafranovich</td>
 </tr>
 <tr>
-<td class="left">Expires: August 27, 2020</td>
+<td class="left">Expires: August 28, 2020</td>
 <td class="right">Nightwatch Cybersecurity</td>
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">February 24, 2020</td>
+<td class="right">February 25, 2020</td>
 </tr>
 
     	
@@ -386,7 +386,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on August 27, 2020.</p>
+<p>This Internet-Draft will expire on August 28, 2020.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2020 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -512,7 +512,7 @@ ul.toc li {
 </h1>
 <p id="rfc.section.1.1.p.1">Many security researchers encounter situations where they are unable to report security vulnerabilities to organizations because there are no reporting channels to contact the owner of a particular resource and no information available about the vulnerability disclosure practices of such owner.</p>
 <p id="rfc.section.1.1.p.2">As per section 4 of <a href="#RFC2142" class="xref">[RFC2142]</a>, there is an existing convention of using the &lt;SECURITY@domain&gt; email address for communications regarding security vulnerabilities. That convention provides only a single, email-based channel of communication for security vulnerabilities per domain, and does not provide a way for domain owners to publish information about their security disclosure practices.</p>
-<p id="rfc.section.1.1.p.3">There are also contact conventions prescribed for Internet Service Providers (ISPs) in section 2 of <a href="#RFC3013" class="xref">[RFC3013]</a>, for Computer Security Incident Response Teams (CSIRTs) in section 3.2 of <a href="#RFC2350" class="xref">[RFC2350]</a> and for site operators in section 5.2 of <a href="#RFC2196" class="xref">[RFC2196]</a>. As per <a href="#RFC7485" class="xref">[RFC7485]</a>, there is also contact information provided by Regional Internet Registries (RIRs) and domain registries for owners of IP addresses, autonomous system numbers (ASNs) and domain names. However, none of these address the issue of how security researchers can locate contact information and vulnerability disclosure practices for organizations in order to report vulnerabilities.</p>
+<p id="rfc.section.1.1.p.3">There are also contact conventions prescribed for Internet Service Providers (ISPs) in section 2 of <a href="#RFC3013" class="xref">[RFC3013]</a>, for Computer Security Incident Response Teams (CSIRTs) in section 3.2 of <a href="#RFC2350" class="xref">[RFC2350]</a> and for site operators in section 5.2 of <a href="#RFC2196" class="xref">[RFC2196]</a>. As per <a href="#RFC7485" class="xref">[RFC7485]</a>, there is also contact information provided by Regional Internet Registries (RIRs) and domain registries for owners of IP addresses, autonomous system numbers (ASNs), and domain names. However, none of these address the issue of how security researchers can locate contact information and vulnerability disclosure practices for organizations in order to report vulnerabilities.</p>
 <p id="rfc.section.1.1.p.4">In this document, we define a richer and more extensible way for organizations to communicate information about their security disclosure practices and ways to contact them. Other details of vulnerability disclosure are outside the scope of this document. Readers are encouraged to consult other documents such as <a href="#ISO.29147.2018" class="xref">[ISO.29147.2018]</a> or <a href="#CERT.CVD" class="xref">[CERT.CVD]</a>.</p>
 <h1 id="rfc.section.1.2">
 <a href="#rfc.section.1.2">1.2.</a> <a href="#terminology" id="terminology">Terminology</a>
@@ -815,7 +815,7 @@ unstructured     =  &lt; imported from section 3.2.5 of [RFC5322] &gt;
 <a href="#rfc.section.6.2">6.2.</a> <a href="#stale" id="stale">Incorrect or Stale Information</a>
 </h1>
 <p id="rfc.section.6.2.p.1">If information and resources referenced in a &#8220;security.txt&#8221; file are incorrect or not kept up to date, this can result in security reports not being received by the organization or sent to incorrect contacts, thus exposing possible security issues to third parties. Not having a security.txt file may be preferable to having stale information in this file. Organizations are also encouraged to use the &#8220;Expires&#8221; field (see <a href="#expires" class="xref">Section 3.5.5</a>) to indicate to researchers when the data in the file is no longer valid.</p>
-<p id="rfc.section.6.2.p.2">Organizations should ensure that information in this file and any referenced resources such as web pages, email addresses and telephone numbers are kept current, are accessible, controlled by the organization, and are kept secure.</p>
+<p id="rfc.section.6.2.p.2">Organizations should ensure that information in this file and any referenced resources such as web pages, email addresses, and telephone numbers are kept current, are accessible, controlled by the organization, and are kept secure.</p>
 <h1 id="rfc.section.6.3">
 <a href="#rfc.section.6.3">6.3.</a> <a href="#intentionally-malformed-files-resources-and-reports" id="intentionally-malformed-files-resources-and-reports">Intentionally Malformed Files, Resources and Reports</a>
 </h1>
@@ -947,9 +947,9 @@ unstructured     =  &lt; imported from section 3.2.5 of [RFC5322] &gt;
 <h1 id="rfc.section.8">
 <a href="#rfc.section.8">8.</a> <a href="#contributors" id="contributors">Contributors</a>
 </h1>
-<p id="rfc.section.8.p.1">The authors would like to acknowledge the help provided during the development of this document by Tom Hudson, Jobert Abma, Gerben Janssen van Doorn, Austin Heap, Stephane Bortzmeyer, Max Smith, Eduardo Vela and Krzysztof Kotowicz.</p>
-<p id="rfc.section.8.p.2">The authors would also like to acknowledge the feedback provided by multiple members of IETF&#8217;s LAST CALL, SAAG, SECDISPATCH lists.</p>
-<p id="rfc.section.8.p.3">Yakov would like to also thank LTS (for everything).</p>
+<p id="rfc.section.8.p.1">The authors would like to acknowledge the help provided during the development of this document by Tom Hudson, Jobert Abma, Gerben Janssen van Doorn, Austin Heap, Stephane Bortzmeyer, Max Smith, Eduardo Vela, and Krzysztof Kotowicz.</p>
+<p id="rfc.section.8.p.2">The authors would also like to acknowledge the feedback provided by multiple members of IETF&#8217;s LAST CALL, SAAG, and SECDISPATCH lists.</p>
+<p id="rfc.section.8.p.3">Yakov would like to also thank L.T.S. (for everything).</p>
 <h1 id="rfc.references">
 <a href="#rfc.references">9.</a> References</h1>
 <h1 id="rfc.references.1">
