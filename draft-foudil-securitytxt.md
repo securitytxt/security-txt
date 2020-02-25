@@ -1,5 +1,5 @@
 ---
-title: A Method for Web Security Policies
+title: A File Format to Aid in Security Vulnerability Disclosure
 docname: draft-foudil-securitytxt-09
 ipr: trust200902
 cat: info
@@ -31,12 +31,11 @@ informative:
 
 
 --- abstract
-When security vulnerabilities are discovered by independent
-security researchers, they
-often lack the channels to report them properly. As a result,
-security vulnerabilities may be left unreported. This document defines a format
+When security vulnerabilities are discovered by
+researchers, proper reporting channels are often lacking. As a result,
+vulnerabilities may be left unreported. This document defines a format
 ("security.txt") to help organizations describe their vulnerability disclosure practices
-to make it easier for researchers to report security vulnerabilities.
+to make it easier for researchers to report vulnerabilities.
 
 --- middle
 
@@ -45,8 +44,8 @@ to make it easier for researchers to report security vulnerabilities.
 ## Motivation, Prior Work and Scope
 
 Many security researchers encounter situations where they are unable
-to report security vulnerabilities to organizations because there is
-no way indicated to contact the owner of a particular
+to report security vulnerabilities to organizations because there are
+no reporting channels to contact the owner of a particular
 resource and no information available about the vulnerability disclosure practices
 of such owner.
 
@@ -63,9 +62,9 @@ in section 3.2 of {{?RFC2350}} and for site operators in section 5.2 of
 {{?RFC2196}}. As per {{?RFC7485}}, there is also contact information provided by
 Regional Internet Registries (RIRs) and domain registries for owners of IP
 addresses, autonomous system numbers (ASNs) and domain names. However, none of
-these address the issue of how security researchers can locate vulnerability disclosure
-practices and contact information for organizations in order to report
-security vulnerabilities.
+these address the issue of how security researchers can locate contact information
+and vulnerability disclosure practices for organizations in order to report
+vulnerabilities.
 
 In this document, we define a richer and more extensible way
 for organizations to communicate information about their security disclosure
@@ -285,7 +284,7 @@ Encryption: openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f
 
 ### Expires {#expires}
 
-This field indicates the date/time after which the data contained in the "security.txt"
+This field indicates the date and time after which the data contained in the "security.txt"
 file is considered stale and should not be used (as per {{stale}}). The value of this field follows
 the format defined in section 3.3 of {{!RFC5322}}.
 
@@ -505,9 +504,9 @@ the "security.txt" file as well or setup a redirect to their own site.
 This can result in security reports not being received by the organization
 or sent to the attacker.
 
-To protect against this, organizations should digitally sign their "security.txt"
-files (as per {{signature}}), use the "Canonical" field to sign the locations
-of the file (as per {{canonical}}), and regularly monitor the file and
+To protect against this, organizations should use the "Canonical" field to indicate the locations
+of the file (as per {{canonical}}), digitally sign their "security.txt"
+files (as per {{signature}}), and regularly monitor the file and
 the referenced resources to detect tampering.
 
 Security researchers should triage the "security.txt" file including verifying
@@ -517,7 +516,7 @@ it should not be used.
 
 When retrieving the file and any resources referenced in the file, researchers should record
 any redirects since they can lead to a different domain or IP address controlled by an attacker. Further
-inspections of such redirects is recommended before using the information.
+inspections of such redirects is recommended before using the information contained within the file.
 
 ## Incorrect or Stale Information {#stale}
 
@@ -732,8 +731,10 @@ The authors would like to acknowledge the help provided during the
 development of this document by Tom Hudson, Jobert Abma,
 Gerben Janssen van Doorn, Austin Heap, Stephane Bortzmeyer, Max Smith, Eduardo Vela and Krzysztof Kotowicz.
 
+The authors would also like to acknowledge the feedback provided by multiple members of IETF's
+LAST CALL, SAAG, SECDISPATCH lists.
 
-The authors would also like to acknowledge the feedback provided by multiple members of IETF's SAAG and SECDISPATCH lists.
+Yakov would like to also thank LTS (for everything).
 
 --- back
 # Note to Readers
@@ -828,8 +829,9 @@ of DNS-stored encryption keys (#28 and #94)
 - Added language and example regarding URI encoding (#176)
 - Add "Expires" field (#181)
 - Changed language from "directive" to "field" (#182)
-- Addressing last call feedback (#179 and #180)
+- Addressing last call feedback (#179, #180 and #183)
 - Clarifying order of fields (#174)
+- Revert comment/field association (#158)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt

@@ -5,21 +5,21 @@
 Network Working Group                                          E. Foudil
 Internet-Draft
 Intended status: Informational                           Y. Shafranovich
-Expires: July 23, 2020                          Nightwatch Cybersecurity
-                                                        January 20, 2020
+Expires: August 27, 2020                        Nightwatch Cybersecurity
+                                                       February 24, 2020
 
 
-                   A Method for Web Security Policies
+       A File Format to Aid in Security Vulnerability Disclosure
                       draft-foudil-securitytxt-09
 
 Abstract
 
-   When security vulnerabilities are discovered by independent security
-   researchers, they often lack the channels to report them properly.
-   As a result, security vulnerabilities may be left unreported.  This
-   document defines a format ("security.txt") to help organizations
-   describe their vulnerability disclosure practices to make it easier
-   for researchers to report security vulnerabilities.
+   When security vulnerabilities are discovered by researchers, proper
+   reporting channels are often lacking.  As a result, vulnerabilities
+   may be left unreported.  This document defines a format
+   ("security.txt") to help organizations describe their vulnerability
+   disclosure practices to make it easier for researchers to report
+   vulnerabilities.
 
 Status of This Memo
 
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 23, 2020.
+   This Internet-Draft will expire on August 27, 2020.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich     Expires July 23, 2020                 [Page 1]
+Foudil & Shafranovich    Expires August 27, 2020                [Page 1]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Foudil & Shafranovich     Expires July 23, 2020                 [Page 2]
+Foudil & Shafranovich    Expires August 27, 2020                [Page 2]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
      B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  22
@@ -129,10 +129,10 @@ Internet-Draft     A Method for Web Security Policies       January 2020
 1.1.  Motivation, Prior Work and Scope
 
    Many security researchers encounter situations where they are unable
-   to report security vulnerabilities to organizations because there is
-   no way indicated to contact the owner of a particular resource and no
-   information available about the vulnerability disclosure practices of
-   such owner.
+   to report security vulnerabilities to organizations because there are
+   no reporting channels to contact the owner of a particular resource
+   and no information available about the vulnerability disclosure
+   practices of such owner.
 
    As per section 4 of [RFC2142], there is an existing convention of
    using the <SECURITY@domain> email address for communications
@@ -149,9 +149,9 @@ Internet-Draft     A Method for Web Security Policies       January 2020
    is also contact information provided by Regional Internet Registries
    (RIRs) and domain registries for owners of IP addresses, autonomous
    system numbers (ASNs) and domain names.  However, none of these
-   address the issue of how security researchers can locate
-   vulnerability disclosure practices and contact information for
-   organizations in order to report security vulnerabilities.
+   address the issue of how security researchers can locate contact
+   information and vulnerability disclosure practices for organizations
+   in order to report vulnerabilities.
 
    In this document, we define a richer and more extensible way for
    organizations to communicate information about their security
@@ -165,9 +165,9 @@ Internet-Draft     A Method for Web Security Policies       January 2020
 
 
 
-Foudil & Shafranovich     Expires July 23, 2020                 [Page 3]
+Foudil & Shafranovich    Expires August 27, 2020                [Page 3]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
 1.2.  Terminology
@@ -221,9 +221,9 @@ Internet-Draft     A Method for Web Security Policies       January 2020
 
 
 
-Foudil & Shafranovich     Expires July 23, 2020                 [Page 4]
+Foudil & Shafranovich    Expires August 27, 2020                [Page 4]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
    unlimited number of fields.  It is important to note that each field
@@ -277,9 +277,9 @@ Internet-Draft     A Method for Web Security Policies       January 2020
 
 
 
-Foudil & Shafranovich     Expires July 23, 2020                 [Page 5]
+Foudil & Shafranovich    Expires August 27, 2020                [Page 5]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
 3.3.  Line Separator
@@ -333,9 +333,9 @@ Internet-Draft     A Method for Web Security Policies       January 2020
 
 
 
-Foudil & Shafranovich     Expires July 23, 2020                 [Page 6]
+Foudil & Shafranovich    Expires August 27, 2020                [Page 6]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
 3.5.2.  Canonical
@@ -389,9 +389,9 @@ Internet-Draft     A Method for Web Security Policies       January 2020
 
 
 
-Foudil & Shafranovich     Expires July 23, 2020                 [Page 7]
+Foudil & Shafranovich    Expires August 27, 2020                [Page 7]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
    When it comes to verifying the authenticity of the key, it is always
@@ -414,8 +414,8 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
 3.5.5.  Expires
 
-   This field indicates the date/time after which the data contained in
-   the "security.txt" file is considered stale and should not be used
+   This field indicates the date and time after which the data contained
+   in the "security.txt" file is considered stale and should not be used
    (as per Section 6.2).  The value of this field follows the format
    defined in section 3.3 of [RFC5322].
 
@@ -445,9 +445,9 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
 
 
-Foudil & Shafranovich     Expires July 23, 2020                 [Page 8]
+Foudil & Shafranovich    Expires August 27, 2020                [Page 8]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
 3.5.8.  Preferred-Languages
@@ -501,9 +501,9 @@ Internet-Draft     A Method for Web Security Policies       January 2020
 
 
 
-Foudil & Shafranovich     Expires July 23, 2020                 [Page 9]
+Foudil & Shafranovich    Expires August 27, 2020                [Page 9]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
    ----BEGIN PGP SIGNED MESSAGE-----
@@ -557,9 +557,9 @@ Internet-Draft     A Method for Web Security Policies       January 2020
 
 
 
-Foudil & Shafranovich     Expires July 23, 2020                [Page 10]
+Foudil & Shafranovich    Expires August 27, 2020               [Page 10]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
    /example-directory-1/
@@ -613,9 +613,9 @@ field            =  ack-field /
 
 
 
-Foudil & Shafranovich     Expires July 23, 2020                [Page 11]
+Foudil & Shafranovich    Expires August 27, 2020               [Page 11]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
                     encryption-field /
@@ -669,9 +669,9 @@ unstructured     =  < imported from section 3.2.5 of [RFC5322] >
 
 
 
-Foudil & Shafranovich     Expires July 23, 2020                [Page 12]
+Foudil & Shafranovich    Expires August 27, 2020               [Page 12]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
 6.1.  Compromised Files and Redirects
@@ -681,9 +681,9 @@ Internet-Draft     A Method for Web Security Policies       January 2020
    This can result in security reports not being received by the
    organization or sent to the attacker.
 
-   To protect against this, organizations should digitally sign their
-   "security.txt" files (as per Section 3.4), use the "Canonical" field
-   to sign the locations of the file (as per Section 3.5.2), and
+   To protect against this, organizations should use the "Canonical"
+   field to indicate the locations of the file (as per Section 3.5.2),
+   digitally sign their "security.txt" files (as per Section 3.4), and
    regularly monitor the file and the referenced resources to detect
    tampering.
 
@@ -697,7 +697,7 @@ Internet-Draft     A Method for Web Security Policies       January 2020
    researchers should record any redirects since they can lead to a
    different domain or IP address controlled by an attacker.  Further
    inspections of such redirects is recommended before using the
-   information.
+   information contained within the file.
 
 6.2.  Incorrect or Stale Information
 
@@ -725,9 +725,9 @@ Internet-Draft     A Method for Web Security Policies       January 2020
 
 
 
-Foudil & Shafranovich     Expires July 23, 2020                [Page 13]
+Foudil & Shafranovich    Expires August 27, 2020               [Page 13]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
    than 32 KBs, having fields longer than 2,048 characters or containing
@@ -781,9 +781,9 @@ Internet-Draft     A Method for Web Security Policies       January 2020
 
 
 
-Foudil & Shafranovich     Expires July 23, 2020                [Page 14]
+Foudil & Shafranovich    Expires August 27, 2020               [Page 14]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
    o  DNS domain names in server certificates MAY contain the wildcard
@@ -837,9 +837,9 @@ Internet-Draft     A Method for Web Security Policies       January 2020
 
 
 
-Foudil & Shafranovich     Expires July 23, 2020                [Page 15]
+Foudil & Shafranovich    Expires August 27, 2020               [Page 15]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
    192.0.2.0 and 2001:db8:8:4::2 are used in this document following the
@@ -893,9 +893,9 @@ Internet-Draft     A Method for Web Security Policies       January 2020
 
 
 
-Foudil & Shafranovich     Expires July 23, 2020                [Page 16]
+Foudil & Shafranovich    Expires August 27, 2020               [Page 16]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
        *  deprecated: The field is in current use, but its use is
@@ -949,9 +949,9 @@ Internet-Draft     A Method for Web Security Policies       January 2020
 
 
 
-Foudil & Shafranovich     Expires July 23, 2020                [Page 17]
+Foudil & Shafranovich    Expires August 27, 2020               [Page 17]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
    Description: link to the vendor's security-related job positions
@@ -982,7 +982,9 @@ Internet-Draft     A Method for Web Security Policies       January 2020
    Eduardo Vela and Krzysztof Kotowicz.
 
    The authors would also like to acknowledge the feedback provided by
-   multiple members of IETF's SAAG and SECDISPATCH lists.
+   multiple members of IETF's LAST CALL, SAAG, SECDISPATCH lists.
+
+   Yakov would like to also thank LTS (for everything).
 
 9.  References
 
@@ -998,17 +1000,20 @@ Internet-Draft     A Method for Web Security Policies       January 2020
               DOI 10.17487/RFC2046, November 1996,
               <https://www.rfc-editor.org/info/rfc2046>.
 
+
+
+
+
+
+Foudil & Shafranovich    Expires August 27, 2020               [Page 18]
+
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
+
+
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
-
-
-
-Foudil & Shafranovich     Expires July 23, 2020                [Page 18]
-
-Internet-Draft     A Method for Web Security Policies       January 2020
-
 
    [RFC2142]  Crocker, D., "Mailbox Names for Common Services, Roles and
               Functions", RFC 2142, DOI 10.17487/RFC2142, May 1997,
@@ -1053,18 +1058,17 @@ Internet-Draft     A Method for Web Security Policies       January 2020
               DOI 10.17487/RFC5322, October 2008,
               <https://www.rfc-editor.org/info/rfc5322>.
 
+
+
+
+Foudil & Shafranovich    Expires August 27, 2020               [Page 19]
+
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
+
+
    [RFC5646]  Phillips, A., Ed. and M. Davis, Ed., "Tags for Identifying
               Languages", BCP 47, RFC 5646, DOI 10.17487/RFC5646,
               September 2009, <https://www.rfc-editor.org/info/rfc5646>.
-
-
-
-
-
-Foudil & Shafranovich     Expires July 23, 2020                [Page 19]
-
-Internet-Draft     A Method for Web Security Policies       January 2020
-
 
    [RFC6068]  Duerst, M., Masinter, L., and J. Zawinski, "The 'mailto'
               URI Scheme", RFC 6068, DOI 10.17487/RFC6068, October 2010,
@@ -1108,19 +1112,20 @@ Internet-Draft     A Method for Web Security Policies       January 2020
               University, "The CERT Guide to Coordinated Vulnerability
               Disclosure (CMU/SEI-2017-SR-022)", 2017.
 
+
+
+
+
+
+Foudil & Shafranovich    Expires August 27, 2020               [Page 20]
+
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
+
+
    [ISO.29147.2018]
               International Organization for Standardization (ISO),
               "ISO/IEC 29147:2018, Information technology -- Security
               techniques -- Vulnerability disclosure", 2018.
-
-
-
-
-
-Foudil & Shafranovich     Expires July 23, 2020                [Page 20]
-
-Internet-Draft     A Method for Web Security Policies       January 2020
-
 
    [RFC0793]  Postel, J., "Transmission Control Protocol", STD 7,
               RFC 793, DOI 10.17487/RFC0793, September 1981,
@@ -1164,19 +1169,17 @@ Appendix A.  Note to Readers
       *Note to the RFC Editor:* Please remove this section prior to
       publication.
 
+
+
+
+
+Foudil & Shafranovich    Expires August 27, 2020               [Page 21]
+
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
+
+
    Development of this draft takes place on Github at
    https://github.com/securitytxt/security-txt
-
-
-
-
-
-
-
-Foudil & Shafranovich     Expires July 23, 2020                [Page 21]
-
-Internet-Draft     A Method for Web Security Policies       January 2020
-
 
 Appendix B.  Document History
 
@@ -1226,12 +1229,9 @@ B.2.  Since draft-foudil-securitytxt-01
 
 
 
-
-
-
-Foudil & Shafranovich     Expires July 23, 2020                [Page 22]
+Foudil & Shafranovich    Expires August 27, 2020               [Page 22]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
 B.3.  Since draft-foudil-securitytxt-02
@@ -1285,9 +1285,9 @@ B.5.  Since draft-foudil-securitytxt-04
 
 
 
-Foudil & Shafranovich     Expires July 23, 2020                [Page 23]
+Foudil & Shafranovich    Expires August 27, 2020               [Page 23]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
    o  Removed permission field (#30)
@@ -1341,9 +1341,9 @@ B.8.  Since draft-foudil-securitytxt-07
 
 
 
-Foudil & Shafranovich     Expires July 23, 2020                [Page 24]
+Foudil & Shafranovich    Expires August 27, 2020               [Page 24]
 
-Internet-Draft     A Method for Web Security Policies       January 2020
+Internet-DraftA File Format to Aid in Security VulnerabilitFebruary 2020
 
 
 B.9.  Since draft-foudil-securitytxt-08
@@ -1354,9 +1354,11 @@ B.9.  Since draft-foudil-securitytxt-08
 
    o  Changed language from "directive" to "field" (#182)
 
-   o  Addressing last call feedback (#179 and #180)
+   o  Addressing last call feedback (#179, #180 and #183)
 
    o  Clarifying order of fields (#174)
+
+   o  Revert comment/field association (#158)
 
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt
@@ -1395,6 +1397,4 @@ Authors' Addresses
 
 
 
-
-
-Foudil & Shafranovich     Expires July 23, 2020                [Page 25]
+Foudil & Shafranovich    Expires August 27, 2020               [Page 25]
