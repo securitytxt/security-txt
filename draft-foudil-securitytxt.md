@@ -72,6 +72,17 @@ practices and ways to contact them. Other details of vulnerability disclosure
 are outside the scope of this document. Readers are encouraged to consult other
 documents such as {{ISO.29147.2018}} or {{CERT.CVD}}.
 
+As per {{CERT.CVD}}, "vulnerability response" refers to reports of product vulnerabilities
+which is related but distinct from reports of network intrusions and compromised
+websites ("incident response"). The mechanism defined in this document is intended
+to be used for the former ("vulnerability response"). If implementors want
+to utilize this mechanism for incident response, they should be aware of additional
+security considerations discussed in {{compromise}}.
+
+The "security.txt" file is intended to be complementary and not as a substitute
+or replacement for other public resources maintained by organizations regarding
+their security disclosure practices.
+
 ## Terminology
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -108,7 +119,7 @@ This text file contains multiple fields with different values. A field contains 
 to the colon ("Contact:") and follows the syntax defined for "field-name" in section 3.6.8
 of {{!RFC5322}}. Fields are case-insensitive (as per section 2.3 of {{!RFC5234}}).
 The "value" comes after the field name ("https://example.com/security") and follows the syntax
-defined for "unstructured" in section 3.2.5 of {{!RFC5322}}.
+defined for "unstructured" in section 3.2.5 of {{!RFC5322}}. The file may also contain blank lines.
 
 A "field" MUST always consist of a name and a value
 ("Contact: https://example.com/security"). A security.txt file
@@ -129,6 +140,11 @@ or IP address in the URI used to retrieve it, not to any of its subdomains or pa
 A "security.txt" file that is found in a file system MUST only apply to the folder
 in which it is located and that folder's subfolders. The file does not apply
 to any of the folder's parent or sibling folders.
+
+A "security.txt" file MAY also apply to products and services provided by the organization
+publishing the file. Implementors SHOULD use the policy directive (as per {{policy}})
+to provide additional details regarding scope and details of their vulnerability disclosure
+process.
 
 Some examples appear below:
 
@@ -286,9 +302,10 @@ Encryption: openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f
 
 This field indicates the date and time after which the data contained in the "security.txt"
 file is considered stale and should not be used (as per {{stale}}). The value of this field follows
-the format defined in section 3.3 of {{!RFC5322}}.
+the format defined in section 3.3 of {{!RFC5322}}. It is RECOMMENDED that the value
+of this field be less than a year into the future to avoid staleness.
 
-This field MUST NOT appear more than once.
+This field MUST always be present and MUST NOT appear more than once.
 
 ~~~~~~~~~~
 Expires: Thu, 31 Dec 2020 18:37:07 -0800
@@ -393,7 +410,7 @@ is present in both locations, the one in the "/.well-known/" path MUST be used.
 
 Retrieval of "security.txt" files and resources indicated within such files may result in a redirect (as per
 section 6.4 of {{!RFC7231}}). Researchers should perform additional triage (as per {{redirects}}) to make sure these redirects
-are not malicious or point to resources controlled by an attacker.
+are not malicious or pointing to resources controlled by an attacker.
 
 ## Filesystems
 
@@ -439,11 +456,11 @@ sign-header      =  < headers and line from section 7 of [RFC4880] >
 sign-footer      =  < OpenPGP signature from section 7 of [RFC4880] >
 
 unsigned         =  *line (contact-field eol)
-                    *line [expires-field eol]
+                    *line (expires-field eol)
                     *line [lang-field eol] *line
                     ; order of fields within the file is not important
 
-line             =  (field / comment) eol
+line             =  [ (field / comment) ] eol
 
 eol              =  *WSP [CR] LF
 
@@ -497,7 +514,7 @@ unstructured     =  < imported from section 3.2.5 of [RFC5322] >
 In addition to the security considerations of {{!RFC8615}}, the following considerations
 apply.
 
-## Compromised Files and Redirects {#redirects}
+## Compromised Files and Incident Response {#compromise}
 
 An attacker that has compromised a website is able to compromise
 the "security.txt" file as well or setup a redirect to their own site.
@@ -514,9 +531,18 @@ the digital signature and checking any available historical records before using
 contained in the file. If the "security.txt" file looks suspicious or compromised,
 it should not be used.
 
+When used for incident response, implementors should be aware that the "security.txt" file
+itself maybe compromised as part of the incident being reported. In such cases, additional methods
+of verifying trust would be needed such as out of band mechanisms including the trust path
+for the PGP signature, DNS-based approaches, etc.
+
+## Redirects {#redirects}
+
 When retrieving the file and any resources referenced in the file, researchers should record
 any redirects since they can lead to a different domain or IP address controlled by an attacker. Further
 inspections of such redirects is recommended before using the information contained within the file.
+
+
 
 ## Incorrect or Stale Information {#stale}
 
@@ -524,8 +550,8 @@ If information and resources referenced in a "security.txt" file are incorrect
 or not kept up to date, this can result in security reports not being received
 by the organization or sent to incorrect contacts, thus exposing possible
 security issues to third parties. Not having a security.txt file may be preferable
-to having stale information in this file. Organizations are also encouraged to
-use the "Expires" field (see {{expires}}) to indicate to researchers when
+to having stale information in this file. Organizations must use
+the "Expires" field (see {{expires}}) to indicate to researchers when
 the data in the file is no longer valid.
 
 Organizations should ensure that information in this file and any referenced
@@ -585,7 +611,7 @@ character '*' as the complete left-most label within the identifier.
 The certificate may also be checked for revocation via the Online Certificate Status
 Protocol (OCSP) {{!RFC6960}}, certificate revocation lists (CRLs), or similar mechanisms.
 
-In cases where the "security.txt" file cannot be served via HTTPS or is
+In cases where the "security.txt" file cannot be served via HTTPS (such as a filesystem or localhost) or is
 being served with an invalid certificate, additional human triage is recommended since
 the contents may have been modified while in transit.
 
@@ -593,7 +619,7 @@ As an additional layer of protection, it is also recommended that
 organizations digitally sign their "security.txt" file with OpenPGP (as per {{signature}}).
 Also, to protect security reports from being tampered with or observed while in transit,
 organizations should specify encryption keys (as per {{encryption}}) unless
-HTTPS is being used.
+HTTPS is being used for report submission.
 
 However, the determination of validity of such keys is out of scope
 for this specification. Security researchers need to establish other secure means to
@@ -622,6 +648,10 @@ example.com is used in this document following the uses indicated in
 
 192.0.2.0 and 2001:db8:8:4::2 are used in this document following
 the uses indicated in {{?RFC6890}}.
+
+Implementors should be aware that any resources referenced within
+a security.txt file MUST NOT point to the Well-Known URIs namespace unless
+they are registered with IANA (as per {{?RFC8615}}).
 
 ## Well-Known URIs registry
 
@@ -834,7 +864,11 @@ of DNS-stored encryption keys (#28 and #94)
 - Revert comment/field association (#158)
 
 ## Since draft-foudil-securitytxt-09
-- pending
+- Adjust ABNF to allow blank lines between directives (#191)
+- Make "Expires" field required (#190)
+- Adding a warning about the well-known URI namespace (#188)
+- Adding scope language around products/services (#185)
+- Addressing last call feedback (#189)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
