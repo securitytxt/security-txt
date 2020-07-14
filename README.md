@@ -1,6 +1,8 @@
-Security.txt is a proposed standard which allows websites to define security policies. The security.txt file sets clear guidelines for security researchers on how to report security issues, and allows bug bounty programs to define a scope. Security.txt is the equivalent of `robots.txt`, but for security issues.
+<p align="center"><img src=https://avatars2.githubusercontent.com/u/32488600?s=100&v=4></p>
 
-> “When security risks in web services are discovered by independent security researchers who understand the severity of the risk, they often lack the channels to properly disclose them. As a result, security issues may be left unreported. Security.txt defines a standard to help organizations define the process for security researchers to securely disclose security vulnerabilities.”
+security.txt is a proposed standard which allows websites to define security policies. The security.txt file sets clear guidelines for security researchers on how to report security issues. security.txt is the equivalent of `robots.txt`, but for security issues.
+
+> “ When security vulnerabilities are discovered by researchers, proper reporting channels are often lacking.  As a result, vulnerabilities may be left unreported.  This document defines a format ("security.txt") to help organizations describe their vulnerability disclosure practices to make it easier for researchers to report vulnerabilities.”
 
 ---
 
@@ -34,15 +36,27 @@ instructions](https://github.com/martinthomson/i-d-template/blob/master/doc/SETU
 
 ---
 
-# FAQ
+# Frequently asked questions
 
-**What is the main purpose of `security.txt`?**
+**What is the main purpose of security.txt?**
 
-The main purpose of `security.txt` is to help make things easier for companies and security researchers when trying to secure platforms. Thanks to `security.txt`, security researchers can easily get in touch with companies about security issues.
+The main purpose of security.txt is to help make things easier for companies and security researchers when trying to secure platforms. Thanks to security.txt, security researchers can easily get in touch with companies about security issues.
 
-**Is `security.txt` supposed to replace bug bounty platforms?**
+**Is security.txt an [RFC](https://en.wikipedia.org/wiki/Request_for_Comments)?**
 
-No, security.txt is supposed to accompany them.
+security.txt is currently an Internet draft that has been submitted for <abbr title="Request For Comments">RFC</abbr> review. This means that security.txt is still in the early stages of development. We welcome contributions from the public: [https://github.com/securitytxt/security-txt](https://github.com/securitytxt/security-txt)
+
+**Where should I put the security.txt file?**
+
+For websites, the security.txt file should be placed under the `/.well-known/` path (`/.well-known/security.txt`) [[<abbr title="Request For Comments">RFC</abbr>8615](https://tools.ietf.org/html/rfc8615)]. It can also be placed in the root directory (`/security.txt`) of a website, especially if the `/.well-known/` directory cannot be used for technical reasons, or simply as a fallback. The file can be placed in both locations of a website at the same time. For code repositories, the file should be placed in the root directory of the repository.
+
+**Are there any settings I should apply to the file?**
+
+The security.txt file should have an Internet Media Type of `text/plain` and must be served over HTTPS.
+
+**Will adding an email address expose me to spam bots?**
+
+The email value is an optional field. If you are worried about spam, you can set a URI as the value and link to your security policy.
 
 # Code of conduct
 
@@ -70,5 +84,3 @@ The bug tracker utilizes several labels to help organize and identify issues.
 ### Guidelines for bug reports 🐛
 
 Use the GitHub issue search — check if the issue has already been reported.
-
-<a href="https://www.buymeacoffee.com/edoverflow" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
