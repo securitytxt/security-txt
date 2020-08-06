@@ -117,7 +117,7 @@ with the default charset parameter set to "utf-8" (as per section 4.1.3 of {{!RF
 
 This text file contains multiple fields with different values. A field contains a "name" which is the first part of a field all the way up
 to the colon ("Contact:") and follows the syntax defined for "field-name" in section 3.6.8
-of {{!RFC5322}}. Fields are case-insensitive (as per section 2.3 of {{!RFC5234}}).
+of {{!RFC5322}}. Field names are case-insensitive (as per section 2.3 of {{!RFC5234}}).
 The "value" comes after the field name ("https://example.com/security") and follows the syntax
 defined for "unstructured" in section 3.2.5 of {{!RFC5322}}. The file may also contain blank lines.
 
@@ -531,18 +531,17 @@ the digital signature and checking any available historical records before using
 contained in the file. If the "security.txt" file looks suspicious or compromised,
 it should not be used.
 
-When used for incident response, implementors should be aware that the "security.txt" file
-itself maybe compromised as part of the incident being reported. In such cases, additional methods
-of verifying trust would be needed such as out of band mechanisms including the trust path
-for the PGP signature, DNS-based approaches, etc.
+While it is not recommended, implementors may choose to use the information published
+within a "security.txt" file for incident response. In such cases, extreme caution
+should be taken before trusting such information, since
+it may have been compromised by an attacker. Implementors should use additional methods
+to verify such data including out of band verification of the PGP signature, DNS-based approaches, etc.
 
 ## Redirects {#redirects}
 
 When retrieving the file and any resources referenced in the file, researchers should record
 any redirects since they can lead to a different domain or IP address controlled by an attacker. Further
 inspections of such redirects is recommended before using the information contained within the file.
-
-
 
 ## Incorrect or Stale Information {#stale}
 

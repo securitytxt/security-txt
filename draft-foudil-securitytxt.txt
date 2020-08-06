@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft                                                          
 Intended status: Informational                           Y. Shafranovich
-Expires: 13 January 2021                        Nightwatch Cybersecurity
-                                                            12 July 2020
+Expires: 3 February 2021                        Nightwatch Cybersecurity
+                                                           2 August 2020
 
 
        A File Format to Aid in Security Vulnerability Disclosure
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 13 January 2021.
+   This Internet-Draft will expire on 3 February 2021.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021                [Page 1]
+Foudil & Shafranovich    Expires 3 February 2021                [Page 1]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021                [Page 2]
+Foudil & Shafranovich    Expires 3 February 2021                [Page 2]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
    8.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  19
@@ -165,9 +165,9 @@ Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021                [Page 3]
+Foudil & Shafranovich    Expires 3 February 2021                [Page 3]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
    In this document, we define a richer and more extensible way for
@@ -221,9 +221,9 @@ Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021                [Page 4]
+Foudil & Shafranovich    Expires 3 February 2021                [Page 4]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
    When made available on HTTP servers, it MUST be placed under the
@@ -242,7 +242,7 @@ Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
    This text file contains multiple fields with different values.  A
    field contains a "name" which is the first part of a field all the
    way up to the colon ("Contact:") and follows the syntax defined for
-   "field-name" in section 3.6.8 of [RFC5322].  Fields are case-
+   "field-name" in section 3.6.8 of [RFC5322].  Field names are case-
    insensitive (as per section 2.3 of [RFC5234]).  The "value" comes
    after the field name ("https://example.com/security") and follows the
    syntax defined for "unstructured" in section 3.2.5 of [RFC5322].  The
@@ -277,9 +277,9 @@ Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021                [Page 5]
+Foudil & Shafranovich    Expires 3 February 2021                [Page 5]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
    A "security.txt" file MAY also apply to products and services
@@ -333,9 +333,9 @@ Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021                [Page 6]
+Foudil & Shafranovich    Expires 3 February 2021                [Page 6]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
    When it comes to verifying the key used to generate the signature, it
@@ -389,9 +389,9 @@ Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021                [Page 7]
+Foudil & Shafranovich    Expires 3 February 2021                [Page 7]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
 3.5.3.  Contact
@@ -445,9 +445,9 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021                [Page 8]
+Foudil & Shafranovich    Expires 3 February 2021                [Page 8]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
    Example of an OpenPGP key being referenced by its fingerprint:
@@ -501,9 +501,9 @@ Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021                [Page 9]
+Foudil & Shafranovich    Expires 3 February 2021                [Page 9]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
    The order in which they appear MUST NOT be interpreted as an
@@ -557,9 +557,9 @@ Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021               [Page 10]
+Foudil & Shafranovich    Expires 3 February 2021               [Page 10]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
 4.  Location of the security.txt file
@@ -613,9 +613,9 @@ Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021               [Page 11]
+Foudil & Shafranovich    Expires 3 February 2021               [Page 11]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
 5.  File Format Description and ABNF Grammar
@@ -669,9 +669,9 @@ Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021               [Page 12]
+Foudil & Shafranovich    Expires 3 February 2021               [Page 12]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
   hiring-field     =  "Hiring" fs SP uri
@@ -725,17 +725,18 @@ Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021               [Page 13]
+Foudil & Shafranovich    Expires 3 February 2021               [Page 13]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
-   When used for incident response, implementors should be aware that
-   the "security.txt" file itself maybe compromised as part of the
-   incident being reported.  In such cases, additional methods of
-   verifying trust would be needed such as out of band mechanisms
-   including the trust path for the PGP signature, DNS-based approaches,
-   etc.
+   While it is not recommended, implementors may choose to use the
+   information published within a "security.txt" file for incident
+   response.  In such cases, extreme caution should be taken before
+   trusting such information, since it may have been compromised by an
+   attacker.  Implementors should use additional methods to verify such
+   data including out of band verification of the PGP signature, DNS-
+   based approaches, etc.
 
 6.2.  Redirects
 
@@ -780,10 +781,9 @@ Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
 
 
 
-
-Foudil & Shafranovich    Expires 13 January 2021               [Page 14]
+Foudil & Shafranovich    Expires 3 February 2021               [Page 14]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
 6.5.  No Implied Permission for Testing
@@ -837,9 +837,9 @@ Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021               [Page 15]
+Foudil & Shafranovich    Expires 3 February 2021               [Page 15]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
    In cases where the "security.txt" file cannot be served via HTTPS
@@ -893,9 +893,9 @@ Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021               [Page 16]
+Foudil & Shafranovich    Expires 3 February 2021               [Page 16]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
 7.1.  Well-Known URIs registry
@@ -949,9 +949,9 @@ Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021               [Page 17]
+Foudil & Shafranovich    Expires 3 February 2021               [Page 17]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
        *  historic: The field is no longer in current use
@@ -1005,9 +1005,9 @@ Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021               [Page 18]
+Foudil & Shafranovich    Expires 3 February 2021               [Page 18]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
    Status: current
@@ -1061,9 +1061,9 @@ Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021               [Page 19]
+Foudil & Shafranovich    Expires 3 February 2021               [Page 19]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
    [RFC2142]  Crocker, D., "Mailbox Names for Common Services, Roles and
@@ -1117,9 +1117,9 @@ Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021               [Page 20]
+Foudil & Shafranovich    Expires 3 February 2021               [Page 20]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
    [RFC6068]  Duerst, M., Masinter, L., and J. Zawinski, "The 'mailto'
@@ -1173,9 +1173,9 @@ Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021               [Page 21]
+Foudil & Shafranovich    Expires 3 February 2021               [Page 21]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
    [RFC0793]  Postel, J., "Transmission Control Protocol", STD 7,
@@ -1229,9 +1229,9 @@ Appendix B.  Document History
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021               [Page 22]
+Foudil & Shafranovich    Expires 3 February 2021               [Page 22]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
       *Note to the RFC Editor:* Please remove this section prior to
@@ -1285,9 +1285,9 @@ B.3.  Since draft-foudil-securitytxt-02
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021               [Page 23]
+Foudil & Shafranovich    Expires 3 February 2021               [Page 23]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
    *  Fix typo in the "Example" section (#64)
@@ -1341,9 +1341,9 @@ B.5.  Since draft-foudil-securitytxt-04
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021               [Page 24]
+Foudil & Shafranovich    Expires 3 February 2021               [Page 24]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
    *  Removed signature field and switched to inline signatures (#93 and
@@ -1397,9 +1397,9 @@ B.8.  Since draft-foudil-securitytxt-07
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021               [Page 25]
+Foudil & Shafranovich    Expires 3 February 2021               [Page 25]
 
-Internet-DraAtFile Format to Aid in Security Vulnerability Di  July 2020
+Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
 
 
 B.9.  Since draft-foudil-securitytxt-08
@@ -1453,4 +1453,4 @@ Authors' Addresses
 
 
 
-Foudil & Shafranovich    Expires 13 January 2021               [Page 26]
+Foudil & Shafranovich    Expires 3 February 2021               [Page 26]
