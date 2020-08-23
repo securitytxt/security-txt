@@ -130,6 +130,7 @@ Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
      B.8.  Since draft-foudil-securitytxt-07 . . . . . . . . . . . .  25
      B.9.  Since draft-foudil-securitytxt-08 . . . . . . . . . . . .  26
      B.10. Since draft-foudil-securitytxt-09 . . . . . . . . . . . .  26
+     B.11. Since draft-foudil-securitytxt-10 . . . . . . . . . . . .  26
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  26
 
 1.  Introduction
@@ -160,7 +161,6 @@ Internet-DrafA File Format to Aid in Security Vulnerability  August 2020
    address the issue of how security researchers can locate contact
    information and vulnerability disclosure practices for organizations
    in order to report vulnerabilities.
-
 
 
 
@@ -1428,6 +1428,10 @@ B.10.  Since draft-foudil-securitytxt-09
 
    *  Addressing last call feedback (#189)
 
+B.11.  Since draft-foudil-securitytxt-10
+
+   *  TBD
+
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt
 
@@ -1442,10 +1446,6 @@ Authors' Addresses
    Nightwatch Cybersecurity
 
    Email: yakov+ietf@nightwatchcybersecurity.com
-
-
-
-
 
 
 

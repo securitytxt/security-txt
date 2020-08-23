@@ -869,5 +869,8 @@ of DNS-stored encryption keys (#28 and #94)
 - Adding scope language around products/services (#185)
 - Addressing last call feedback (#189)
 
+## Since draft-foudil-securitytxt-10
+- TBD
+
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
