@@ -1,5 +1,6 @@
 ---
 title: A File Format to Aid in Security Vulnerability Disclosure
+abbrev: security.txt
 docname: draft-foudil-securitytxt-10
 ipr: trust200902
 cat: info
