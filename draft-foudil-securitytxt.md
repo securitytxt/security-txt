@@ -206,7 +206,7 @@ and collaborated to remediate them. Organizations should be careful
 to limit the vulnerability information being published in order
 to prevent future attacks.
 
-If this field indicates a web URL, then it MUST begin with "https://"
+If this field indicates a web URI, then it MUST begin with "https://"
 (as per section 2.7.2 of {{!RFC7230}}).
 
 Example:
@@ -230,7 +230,7 @@ We would like to thank the following researchers:
 
 This field indicates the canonical URIs where the security.txt file is located,
 which is usually something like "https://example.com/.well-known/security.txt".
-If this field indicates a web URL, then it MUST begin with "https://"
+If this field indicates a web URI, then it MUST begin with "https://"
 (as per section 2.7.2 of {{!RFC7230}}). The purpose of this field is to allow
 a digital signature to be applied to the locations of the "security.txt" file.
 
@@ -245,7 +245,7 @@ This field indicates an address that researchers
 should use for reporting security
 vulnerabilities such as an email address, a phone number and/or a
 web page with contact information. The "Contact" field MUST
-always be present in a security.txt file. If this field indicates a web URL,
+always be present in a security.txt file. If this field indicates a web URI,
 then it MUST begin with "https://" (as per section 2.7.2 of {{!RFC7230}}).
 Security email addresses should use the conventions defined in section
 4 of {{!RFC2142}}.
@@ -273,7 +273,7 @@ This field indicates an encryption key that
 security researchers should use for encrypted communication. Keys MUST NOT
 appear in this field - instead the value of this field
 MUST be a URI pointing to a location where the key can be retrieved.
-If this field indicates a web URL, then it MUST begin with "https://"
+If this field indicates a web URI, then it MUST begin with "https://"
 (as per section 2.7.2 of {{!RFC7230}}).
 
 When it comes to verifying the authenticity of the key, it is always the security
@@ -315,7 +315,7 @@ Expires: Thu, 31 Dec 2020 18:37:07 -0800
 ### Hiring {#hiring}
 
 The "Hiring" field is used for linking to the vendor's security-related job positions.
-If this field indicates a web URL, then it MUST begin with "https://"
+If this field indicates a web URI, then it MUST begin with "https://"
 (as per section 2.7.2 of {{!RFC7230}}).
 
 ~~~~~~~~~~
@@ -327,7 +327,7 @@ Hiring: https://example.com/jobs.html
 This field indicates a link to where the vulnerability disclosure policy is located.
 This can help security researchers understand
 the organization's vulnerability reporting practices.
-If this field indicates a web URL, then it MUST begin with "https://"
+If this field indicates a web URI, then it MUST begin with "https://"
 (as per section 2.7.2 of {{!RFC7230}}).
 
 Example:
@@ -379,7 +379,7 @@ Acknowledgments: https://example.com/hall-of-fame.html
 ----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA256
 
-# Canonical URL
+# Canonical URI
 Canonical: https://example.com/.well-known/security.txt
 
 # Our security address
@@ -598,7 +598,7 @@ the "security.txt" AND "/.well-known/security.txt" names.
 ## Protecting Data in Transit
 
 To protect a "security.txt" file from being tampered with in transit, implementors should use
-HTTPS (as per {{!RFC2818}}) when serving the file itself and for retrieval of any web URLs
+HTTPS (as per {{!RFC2818}}) when serving the file itself and for retrieval of any web URIs
 referenced in it (except when otherwise noted in this specification). As part of the TLS
 handshake, implementors should validate the provided X.509 certificate
 in accordance with {{!RFC6125}} and the following considerations:
