@@ -410,7 +410,7 @@ or redirect (as per section 6.4 of {{!RFC7231}}) to the security.txt file under 
 is present in both locations, the one in the "/.well-known/" path MUST be used.
 
 Retrieval of "security.txt" files and resources indicated within such files may result in a redirect (as per
-section 6.4 of {{!RFC7231}}). Researchers should perform additional triage (as per {{redirects}}) to make sure these redirects
+section 6.4 of {{!RFC7231}}). Researchers should perform additional analysis (as per {{redirects}}) to make sure these redirects
 are not malicious or pointing to resources controlled by an attacker.
 
 ## Filesystems
@@ -527,7 +527,7 @@ of the file (as per {{canonical}}), digitally sign their "security.txt"
 files (as per {{signature}}), and regularly monitor the file and
 the referenced resources to detect tampering.
 
-Security researchers should triage the "security.txt" file including verifying
+Security researchers should validate the "security.txt" file including verifying
 the digital signature and checking any available historical records before using the information
 contained in the file. If the "security.txt" file looks suspicious or compromised,
 it should not be used.
@@ -612,7 +612,7 @@ The certificate may also be checked for revocation via the Online Certificate St
 Protocol (OCSP) {{!RFC6960}}, certificate revocation lists (CRLs), or similar mechanisms.
 
 In cases where the "security.txt" file cannot be served via HTTPS (such as a filesystem or localhost) or is
-being served with an invalid certificate, additional human triage is recommended since
+being served with an invalid certificate, additional human validation is recommended since
 the contents may have been modified while in transit.
 
 As an additional layer of protection, it is also recommended that
@@ -631,11 +631,11 @@ Similar to concerns in {{!RFC2142}}, denial of service attacks via spam reports
 would become easier once a "security.txt" file is published by
 an organization. In addition, there is an increased likelihood of reports
 being sent in an automated fashion and/or as result of automated scans without
-human triage. Attackers can also use this file as a way to spam unrelated
+human analysis. Attackers can also use this file as a way to spam unrelated
 third parties by listing their resources and/or contact information.
 
 Organizations need to weigh the advantages of publishing this file versus
-the possible disadvantages and increased resources required to triage
+the possible disadvantages and increased resources required to analyze
 security reports.
 
 Security researchers should review all information within the "security.txt"
