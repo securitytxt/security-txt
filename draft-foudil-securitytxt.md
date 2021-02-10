@@ -105,16 +105,8 @@ This document defines a text file to be placed in a known location
 that provides information about the vulnerability disclosure practices of a particular organization.
 This is intended to help security researchers when disclosing security vulnerabilities.
 
-By convention, the file is named "security.txt".
-
-When made available on HTTP servers, it MUST be placed under the
-/.well-known/ path (as "/.well-known/security.txt") {{!RFC8615}} of a domain name or IP address.
-For legacy compatibility, a security.txt file might be placed at the top level path (see {{weblocation}}).
-For file systems a "security.txt" file SHOULD be placed in the root directory of the file system.
-
-On HTTP servers, the file MUST be accessed via HTTP 1.0 or a higher version
-and the "https" scheme (as per {{!RFC1945}} and section 2.7.2 of {{!RFC7230}}). It MUST have a Content-Type of "text/plain"
-with the default charset parameter set to "utf-8" (as per section 4.1.3 of {{!RFC2046}}).
+By convention, the file is named "security.txt". Location and scope are described
+in {{location}}.
 
 This text file contains multiple fields with different values. A field contains a "name" which is the first part of a field all the way up
 to the colon ("Contact:") and follows the syntax defined for "field-name" in section 3.6.8
@@ -132,39 +124,6 @@ multiple times.
 
 Implementors should be aware that some of the fields may
 contain URIs using percent-encoding (as per section 2.1 of {{!RFC3986}}).
-
-## Scope of the File
-
-For HTTP servers, a "security.txt" file MUST only apply to the domain
-or IP address in the URI used to retrieve it, not to any of its subdomains or parent domains.
-
-A "security.txt" file that is found in a file system MUST only apply to the folder
-in which it is located and that folder's subfolders. The file does not apply
-to any of the folder's parent or sibling folders.
-
-A "security.txt" file MAY also apply to products and services provided by the organization
-publishing the file. Implementors SHOULD use the policy directive (as per {{policy}})
-to provide additional details regarding scope and details of their vulnerability disclosure
-process.
-
-Some examples appear below:
-
-~~~~~~~~~~
-# The following only applies to example.com.
-https://example.com/.well-known/security.txt
-
-# This only applies to subdomain.example.com.
-https://subdomain.example.com/.well-known/security.txt
-
-# This security.txt file applies to IPv4 address of 192.0.2.0.
-https://192.0.2.0/.well-known/security.txt
-
-# This security.txt file applies to IPv6 address of 2001:db8:8:4::2.
-https://[2001:db8:8:4::2]/.well-known/security.txt
-
-# This file applies to the /example/folder1 directory and subfolders.
-/example/folder1/security.txt
-~~~~~~~~~~
 
 ## Comments
 
@@ -194,6 +153,18 @@ thus allowing the digital signature to authenticate the location of the file.
 When it comes to verifying the key used to generate the signature, it is always
 the security researcher's responsibility to make sure the key being
 used is indeed one they trust.
+
+## Extensibility {#extensibility}
+
+Like many other formats and protocols, this format may need to be extended
+over time to fit the ever-changing landscape of the Internet. Therefore,
+extensibility is provided via an IANA registry for fields as defined
+in {{registry}}. Any fields registered via that process MUST be
+considered optional. To encourage extensibility and interoperability,
+implementors MUST ignore any fields they do not explicitly support.
+
+In general, implementors should "be conservative in what you do,
+be liberal in what you accept from others" (as per {{?RFC0793}}).
 
 ## Field Definitions
 
@@ -400,14 +371,18 @@ Version: GnuPG v2.2
 -----END PGP SIGNATURE-----
 ~~~~~~~~~~
 
-# Location of the security.txt file
+# Location of the security.txt file {#location}
 
 ## Web-based services {#weblocation}
 
 Web-based services MUST place the security.txt file under the "/.well-known/" path; e.g. https://example.com/.well-known/security.txt
-as per {{!RFC8615}}. For legacy compatibility, a security.txt file might be placed at the top-level path
+as per {{!RFC8615}} of a domain name or IP address.. For legacy compatibility, a security.txt file might be placed at the top-level path
 or redirect (as per section 6.4 of {{!RFC7231}}) to the security.txt file under the "/.well-known/" path. If a "security.txt" file
 is present in both locations, the one in the "/.well-known/" path MUST be used.
+
+On HTTP servers, the file MUST be accessed via HTTP 1.0 or a higher version
+and the "https" scheme (as per {{!RFC1945}} and section 2.7.2 of {{!RFC7230}}). It MUST have a Content-Type of "text/plain"
+with the default charset parameter set to "utf-8" (as per section 4.1.3 of {{!RFC2046}}).
 
 Retrieval of "security.txt" files and resources indicated within such files may result in a redirect (as per
 section 6.4 of {{!RFC7231}}). Researchers should perform additional triage (as per {{redirects}}) to make sure these redirects
@@ -427,17 +402,39 @@ Example file system:
 /security.txt
 ~~~~~~~~~~
 
-## Extensibility {#extensibility}
+## Scope of the File
 
-Like many other formats and protocols, this format may need to be extended
-over time to fit the ever-changing landscape of the Internet. Therefore,
-extensibility is provided via an IANA registry for fields as defined
-in {{registry}}. Any fields registered via that process MUST be
-considered optional. To encourage extensibility and interoperability,
-implementors MUST ignore any fields they do not explicitly support.
+For HTTP servers, a "security.txt" file MUST only apply to the domain
+or IP address in the URI used to retrieve it, not to any of its subdomains or parent domains.
 
-In general, implementors should "be conservative in what you do,
-be liberal in what you accept from others" (as per {{?RFC0793}}).
+A "security.txt" file that is found in a file system MUST only apply to the folder
+in which it is located and that folder's subfolders. The file does not apply
+to any of the folder's parent or sibling folders.
+
+A "security.txt" file MAY also apply to products and services provided by the organization
+publishing the file. Implementors SHOULD use the policy directive (as per {{policy}})
+to provide additional details regarding scope and details of their vulnerability disclosure
+process.
+
+Some examples appear below:
+
+~~~~~~~~~~
+# The following only applies to example.com.
+https://example.com/.well-known/security.txt
+
+# This only applies to subdomain.example.com.
+https://subdomain.example.com/.well-known/security.txt
+
+# This security.txt file applies to IPv4 address of 192.0.2.0.
+https://192.0.2.0/.well-known/security.txt
+
+# This security.txt file applies to IPv6 address of 2001:db8:8:4::2.
+https://[2001:db8:8:4::2]/.well-known/security.txt
+
+# This file applies to the /example/folder1 directory and subfolders.
+/example/folder1/security.txt
+~~~~~~~~~~
+
 
 # File Format Description and ABNF Grammar {#abnf}
 
@@ -871,7 +868,7 @@ of DNS-stored encryption keys (#28 and #94)
 - Addressing last call feedback (#189)
 
 ## Since draft-foudil-securitytxt-10
-- TBD
+- Changes addressing IESG feedback
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
