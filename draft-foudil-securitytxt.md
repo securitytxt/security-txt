@@ -407,8 +407,9 @@ Example file system:
 For HTTP servers, a "security.txt" file MUST only apply to the domain
 or IP address in the URI used to retrieve it, not to any of its subdomains or parent domains.
 
-A "security.txt" file that is found in a file system MUST only apply to the folder
-in which it is located and that folder's subfolders. The file does not apply
+Unless located on a HTTP server, a "security.txt" file that is found in
+a file system MUST only apply to the folder in which it is located and
+that folder's subfolders. The file does not apply
 to any of the folder's parent or sibling folders.
 
 A "security.txt" file MAY also apply to products and services provided by the organization
