@@ -202,8 +202,13 @@ We would like to thank the following researchers:
 This field indicates the canonical URIs where the security.txt file is located,
 which is usually something like "https://example.com/.well-known/security.txt".
 If this field indicates a web URL, then it MUST begin with "https://"
-(as per section 2.7.2 of {{!RFC7230}}). The purpose of this field is to allow
-a digital signature to be applied to the locations of the "security.txt" file.
+(as per section 2.7.2 of {{!RFC7230}}).
+
+While this field indicates that a "security.txt" retrieved from a given URI
+is intended to apply to that URI, it MUST NOT be interpreted to apply to
+all canonical URIs listed within the file. Implementors SHOULD USE an additional
+trust mechanism such as a digital signature (#signature) to make the
+determination that a particular canonical URI is applicable.
 
 ~~~~~~~~~~
 Canonical: https://www.example.com/.well-known/security.txt
@@ -227,9 +232,9 @@ when specifying email addresses and telephone numbers, as defined in {{!RFC6068}
 and {{!RFC3966}}. When the value of this field is an email address,
 it is RECOMMENDED that encryption be used (as per {{encryption}}).
 
-The precedence SHOULD be in listed order. The first field is the preferred
-method of contact. In the example below, the email address is
-the preferred method of contact.
+The precedence SHOULD be in listed order. The first occurrence is the preferred
+method of contact. In the example below, the first email address
+("security@example.com") is the preferred method of contact.
 
 ~~~~~~~~~~
 Contact: mailto:security@example.com
@@ -510,8 +515,9 @@ unstructured     =  < imported from section 3.2.5 of [RFC5322] >
 
 # Security Considerations
 
-In addition to the security considerations of {{!RFC8615}}, the following considerations
-apply.
+Because of the use of URIs and well-known resources, security considerations of
+{{!RFC3986}} and {{!RFC8615}} apply here, in addition to the
+considerations outlined below.
 
 ## Compromised Files and Incident Response {#compromise}
 
@@ -534,7 +540,7 @@ While it is not recommended, implementors may choose to use the information publ
 within a "security.txt" file for incident response. In such cases, extreme caution
 should be taken before trusting such information, since
 it may have been compromised by an attacker. Implementors should use additional methods
-to verify such data including out of band verification of the PGP signature, DNS-based approaches, etc.
+to verify such data including out of band verification of the PGP signature, DNSSEC-based approaches, etc.
 
 ## Redirects {#redirects}
 
@@ -706,7 +712,7 @@ The initial registry contains these values:
 
        Field Name: Canonical
        Description: canonical URL for this file
-       Multiple Appearances: No
+       Multiple Appearances: Yes
        Published in: this document
        Status: current
        Change controller: IESG

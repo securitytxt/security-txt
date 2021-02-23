@@ -80,7 +80,7 @@ Table of Contents
      3.4.  Extensibility . . . . . . . . . . . . . . . . . . . . . .   6
      3.5.  Field Definitions . . . . . . . . . . . . . . . . . . . .   6
        3.5.1.  Acknowledgments . . . . . . . . . . . . . . . . . . .   6
-       3.5.2.  Canonical . . . . . . . . . . . . . . . . . . . . . .   7
+       3.5.2.  Canonical . . . . . . . . . . . . . . . . . . . . . .   6
        3.5.3.  Contact . . . . . . . . . . . . . . . . . . . . . . .   7
        3.5.4.  Encryption  . . . . . . . . . . . . . . . . . . . . .   7
        3.5.5.  Expires . . . . . . . . . . . . . . . . . . . . . . .   8
@@ -322,13 +322,13 @@ Internet-Draft                security.txt                 February 2021
    (2016-12-24) John Buchner - Stored cross-site scripting
    (2016-06-10) Anna Richmond - A server configuration issue
 
+3.5.2.  Canonical
 
-
-
-
-
-
-
+   This field indicates the canonical URIs where the security.txt file
+   is located, which is usually something like
+   "https://example.com/.well-known/security.txt".  If this field
+   indicates a web URL, then it MUST begin with "https://" (as per
+   section 2.7.2 of [RFC7230]).
 
 
 
@@ -338,15 +338,12 @@ Foudil & Shafranovich    Expires 27 August 2021                 [Page 6]
 Internet-Draft                security.txt                 February 2021
 
 
-3.5.2.  Canonical
-
-   This field indicates the canonical URIs where the security.txt file
-   is located, which is usually something like
-   "https://example.com/.well-known/security.txt".  If this field
-   indicates a web URL, then it MUST begin with "https://" (as per
-   section 2.7.2 of [RFC7230]).  The purpose of this field is to allow a
-   digital signature to be applied to the locations of the
-   "security.txt" file.
+   While this field indicates that a "security.txt" retrieved from a
+   given URI is intended to apply to that URI, it MUST NOT be
+   interpreted to apply to all canonical URIs listed within the file.
+   Implementors SHOULD USE an additional trust mechanism such as a
+   digital signature (#signature) to make the determination that a
+   particular canonical URI is applicable.
 
    Canonical: https://www.example.com/.well-known/security.txt
    Canonical: https://someserver.example.com/.well-known/security.txt
@@ -368,9 +365,10 @@ Internet-Draft                security.txt                 February 2021
    address, it is RECOMMENDED that encryption be used (as per
    Section 3.5.4).
 
-   The precedence SHOULD be in listed order.  The first field is the
-   preferred method of contact.  In the example below, the email address
-   is the preferred method of contact.
+   The precedence SHOULD be in listed order.  The first occurrence is
+   the preferred method of contact.  In the example below, the first
+   email address ("security@example.com") is the preferred method of
+   contact.
 
    Contact: mailto:security@example.com
    Contact: mailto:security%2Buri%2Bencoded@example.com
@@ -385,6 +383,8 @@ Internet-Draft                security.txt                 February 2021
    location where the key can be retrieved.  If this field indicates a
    web URL, then it MUST begin with "https://" (as per section 2.7.2 of
    [RFC7230]).
+
+
 
 
 
@@ -699,8 +699,9 @@ Internet-Draft                security.txt                 February 2021
 
 6.  Security Considerations
 
-   In addition to the security considerations of [RFC8615], the
-   following considerations apply.
+   Because of the use of URIs and well-known resources, security
+   considerations of [RFC3986] and [RFC8615] apply here, in addition to
+   the considerations outlined below.
 
 6.1.  Compromised Files and Incident Response
 
@@ -724,7 +725,6 @@ Internet-Draft                security.txt                 February 2021
 
 
 
-
 Foudil & Shafranovich    Expires 27 August 2021                [Page 13]
 
 Internet-Draft                security.txt                 February 2021
@@ -735,7 +735,7 @@ Internet-Draft                security.txt                 February 2021
    response.  In such cases, extreme caution should be taken before
    trusting such information, since it may have been compromised by an
    attacker.  Implementors should use additional methods to verify such
-   data including out of band verification of the PGP signature, DNS-
+   data including out of band verification of the PGP signature, DNSSEC-
    based approaches, etc.
 
 6.2.  Redirects
@@ -972,7 +972,7 @@ Internet-Draft                security.txt                 February 2021
 
    Field Name: Canonical
    Description: canonical URL for this file
-   Multiple Appearances: No
+   Multiple Appearances: Yes
    Published in: this document
    Status: current
    Change controller: IESG
