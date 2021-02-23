@@ -306,7 +306,7 @@ Internet-Draft                security.txt                 February 2021
    to limit the vulnerability information being published in order to
    prevent future attacks.
 
-   If this field indicates a web URL, then it MUST begin with "https://"
+   If this field indicates a web URI, then it MUST begin with "https://"
    (as per section 2.7.2 of [RFC7230]).
 
    Example:
@@ -327,7 +327,7 @@ Internet-Draft                security.txt                 February 2021
    This field indicates the canonical URIs where the security.txt file
    is located, which is usually something like
    "https://example.com/.well-known/security.txt".  If this field
-   indicates a web URL, then it MUST begin with "https://" (as per
+   indicates a web URI, then it MUST begin with "https://" (as per
    section 2.7.2 of [RFC7230]).
 
 
@@ -354,7 +354,7 @@ Internet-Draft                security.txt                 February 2021
    reporting security vulnerabilities such as an email address, a phone
    number and/or a web page with contact information.  The "Contact"
    field MUST always be present in a security.txt file.  If this field
-   indicates a web URL, then it MUST begin with "https://" (as per
+   indicates a web URI, then it MUST begin with "https://" (as per
    section 2.7.2 of [RFC7230]).  Security email addresses should use the
    conventions defined in section 4 of [RFC2142].
 
@@ -381,7 +381,7 @@ Internet-Draft                security.txt                 February 2021
    should use for encrypted communication.  Keys MUST NOT appear in this
    field - instead the value of this field MUST be a URI pointing to a
    location where the key can be retrieved.  If this field indicates a
-   web URL, then it MUST begin with "https://" (as per section 2.7.2 of
+   web URI, then it MUST begin with "https://" (as per section 2.7.2 of
    [RFC7230]).
 
 
@@ -428,7 +428,7 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 3.5.6.  Hiring
 
    The "Hiring" field is used for linking to the vendor's security-
-   related job positions.  If this field indicates a web URL, then it
+   related job positions.  If this field indicates a web URI, then it
    MUST begin with "https://" (as per section 2.7.2 of [RFC7230]).
 
    Hiring: https://example.com/jobs.html
@@ -438,7 +438,7 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
    This field indicates a link to where the vulnerability disclosure
    policy is located.  This can help security researchers understand the
    organization's vulnerability reporting practices.  If this field
-   indicates a web URL, then it MUST begin with "https://" (as per
+   indicates a web URI, then it MUST begin with "https://" (as per
    section 2.7.2 of [RFC7230]).
 
    Example:
@@ -509,7 +509,7 @@ Internet-Draft                security.txt                 February 2021
    ----BEGIN PGP SIGNED MESSAGE-----
    Hash: SHA256
 
-   # Canonical URL
+   # Canonical URI
    Canonical: https://example.com/.well-known/security.txt
 
    # Our security address
@@ -550,9 +550,9 @@ Internet-Draft                security.txt                 February 2021
 
    Retrieval of "security.txt" files and resources indicated within such
    files may result in a redirect (as per section 6.4 of [RFC7231]).
-   Researchers should perform additional triage (as per Section 6.2) to
-   make sure these redirects are not malicious or pointing to resources
-   controlled by an attacker.
+   Researchers should perform additional analysis (as per Section 6.2)
+   to make sure these redirects are not malicious or pointing to
+   resources controlled by an attacker.
 
 
 
@@ -716,11 +716,11 @@ Internet-Draft                security.txt                 February 2021
    regularly monitor the file and the referenced resources to detect
    tampering.
 
-   Security researchers should triage the "security.txt" file including
-   verifying the digital signature and checking any available historical
-   records before using the information contained in the file.  If the
-   "security.txt" file looks suspicious or compromised, it should not be
-   used.
+   Security researchers should validate the "security.txt" file
+   including verifying the digital signature and checking any available
+   historical records before using the information contained in the
+   file.  If the "security.txt" file looks suspicious or compromised, it
+   should not be used.
 
 
 
@@ -816,7 +816,7 @@ Internet-Draft                security.txt                 February 2021
 
    To protect a "security.txt" file from being tampered with in transit,
    implementors should use HTTPS (as per [RFC2818]) when serving the
-   file itself and for retrieval of any web URLs referenced in it
+   file itself and for retrieval of any web URIs referenced in it
    (except when otherwise noted in this specification).  As part of the
    TLS handshake, implementors should validate the provided X.509
    certificate in accordance with [RFC6125] and the following
@@ -844,8 +844,8 @@ Internet-Draft                security.txt                 February 2021
 
    In cases where the "security.txt" file cannot be served via HTTPS
    (such as a filesystem or localhost) or is being served with an
-   invalid certificate, additional human triage is recommended since the
-   contents may have been modified while in transit.
+   invalid certificate, additional human validation is recommended since
+   the contents may have been modified while in transit.
 
    As an additional layer of protection, it is also recommended that
    organizations digitally sign their "security.txt" file with OpenPGP
@@ -864,13 +864,13 @@ Internet-Draft                security.txt                 February 2021
    reports would become easier once a "security.txt" file is published
    by an organization.  In addition, there is an increased likelihood of
    reports being sent in an automated fashion and/or as result of
-   automated scans without human triage.  Attackers can also use this
+   automated scans without human analysis.  Attackers can also use this
    file as a way to spam unrelated third parties by listing their
    resources and/or contact information.
 
    Organizations need to weigh the advantages of publishing this file
    versus the possible disadvantages and increased resources required to
-   triage security reports.
+   analyze security reports.
 
    Security researchers should review all information within the
    "security.txt" file before submitting reports in an automated fashion
