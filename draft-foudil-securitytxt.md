@@ -177,7 +177,7 @@ and collaborated to remediate them. Organizations should be careful
 to limit the vulnerability information being published in order
 to prevent future attacks.
 
-If this field indicates a web URL, then it MUST begin with "https://"
+If this field indicates a web URI, then it MUST begin with "https://"
 (as per section 2.7.2 of {{!RFC7230}}).
 
 Example:
@@ -201,7 +201,7 @@ We would like to thank the following researchers:
 
 This field indicates the canonical URIs where the security.txt file is located,
 which is usually something like "https://example.com/.well-known/security.txt".
-If this field indicates a web URL, then it MUST begin with "https://"
+If this field indicates a web URI, then it MUST begin with "https://"
 (as per section 2.7.2 of {{!RFC7230}}).
 
 While this field indicates that a "security.txt" retrieved from a given URI
@@ -221,7 +221,7 @@ This field indicates an address that researchers
 should use for reporting security
 vulnerabilities such as an email address, a phone number and/or a
 web page with contact information. The "Contact" field MUST
-always be present in a security.txt file. If this field indicates a web URL,
+always be present in a security.txt file. If this field indicates a web URI,
 then it MUST begin with "https://" (as per section 2.7.2 of {{!RFC7230}}).
 Security email addresses should use the conventions defined in section
 4 of {{!RFC2142}}.
@@ -249,7 +249,7 @@ This field indicates an encryption key that
 security researchers should use for encrypted communication. Keys MUST NOT
 appear in this field - instead the value of this field
 MUST be a URI pointing to a location where the key can be retrieved.
-If this field indicates a web URL, then it MUST begin with "https://"
+If this field indicates a web URI, then it MUST begin with "https://"
 (as per section 2.7.2 of {{!RFC7230}}).
 
 When it comes to verifying the authenticity of the key, it is always the security
@@ -291,7 +291,7 @@ Expires: Thu, 31 Dec 2020 18:37:07 -0800
 ### Hiring {#hiring}
 
 The "Hiring" field is used for linking to the vendor's security-related job positions.
-If this field indicates a web URL, then it MUST begin with "https://"
+If this field indicates a web URI, then it MUST begin with "https://"
 (as per section 2.7.2 of {{!RFC7230}}).
 
 ~~~~~~~~~~
@@ -303,7 +303,7 @@ Hiring: https://example.com/jobs.html
 This field indicates a link to where the vulnerability disclosure policy is located.
 This can help security researchers understand
 the organization's vulnerability reporting practices.
-If this field indicates a web URL, then it MUST begin with "https://"
+If this field indicates a web URI, then it MUST begin with "https://"
 (as per section 2.7.2 of {{!RFC7230}}).
 
 Example:
@@ -355,7 +355,7 @@ Acknowledgments: https://example.com/hall-of-fame.html
 ----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA256
 
-# Canonical URL
+# Canonical URI
 Canonical: https://example.com/.well-known/security.txt
 
 # Our security address
@@ -390,7 +390,7 @@ and the "https" scheme (as per {{!RFC1945}} and section 2.7.2 of {{!RFC7230}}). 
 with the default charset parameter set to "utf-8" (as per section 4.1.3 of {{!RFC2046}}).
 
 Retrieval of "security.txt" files and resources indicated within such files may result in a redirect (as per
-section 6.4 of {{!RFC7231}}). Researchers should perform additional triage (as per {{redirects}}) to make sure these redirects
+section 6.4 of {{!RFC7231}}). Researchers should perform additional analysis (as per {{redirects}}) to make sure these redirects
 are not malicious or pointing to resources controlled by an attacker.
 
 ## Filesystems
@@ -531,7 +531,7 @@ of the file (as per {{canonical}}), digitally sign their "security.txt"
 files (as per {{signature}}), and regularly monitor the file and
 the referenced resources to detect tampering.
 
-Security researchers should triage the "security.txt" file including verifying
+Security researchers should validate the "security.txt" file including verifying
 the digital signature and checking any available historical records before using the information
 contained in the file. If the "security.txt" file looks suspicious or compromised,
 it should not be used.
@@ -602,7 +602,7 @@ the "security.txt" AND "/.well-known/security.txt" names.
 ## Protecting Data in Transit
 
 To protect a "security.txt" file from being tampered with in transit, implementors should use
-HTTPS (as per {{!RFC2818}}) when serving the file itself and for retrieval of any web URLs
+HTTPS (as per {{!RFC2818}}) when serving the file itself and for retrieval of any web URIs
 referenced in it (except when otherwise noted in this specification). As part of the TLS
 handshake, implementors should validate the provided X.509 certificate
 in accordance with {{!RFC6125}} and the following considerations:
@@ -616,7 +616,7 @@ The certificate may also be checked for revocation via the Online Certificate St
 Protocol (OCSP) {{!RFC6960}}, certificate revocation lists (CRLs), or similar mechanisms.
 
 In cases where the "security.txt" file cannot be served via HTTPS (such as a filesystem or localhost) or is
-being served with an invalid certificate, additional human triage is recommended since
+being served with an invalid certificate, additional human validation is recommended since
 the contents may have been modified while in transit.
 
 As an additional layer of protection, it is also recommended that
@@ -635,11 +635,11 @@ Similar to concerns in {{!RFC2142}}, denial of service attacks via spam reports
 would become easier once a "security.txt" file is published by
 an organization. In addition, there is an increased likelihood of reports
 being sent in an automated fashion and/or as result of automated scans without
-human triage. Attackers can also use this file as a way to spam unrelated
+human analysis. Attackers can also use this file as a way to spam unrelated
 third parties by listing their resources and/or contact information.
 
 Organizations need to weigh the advantages of publishing this file versus
-the possible disadvantages and increased resources required to triage
+the possible disadvantages and increased resources required to analyze
 security reports.
 
 Security researchers should review all information within the "security.txt"
