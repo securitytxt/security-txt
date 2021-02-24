@@ -114,9 +114,9 @@ of {{!RFC5322}}. Field names are case-insensitive (as per section 2.3 of {{!RFC5
 The "value" comes after the field name ("https://example.com/security") and follows the syntax
 defined for "unstructured" in section 3.2.5 of {{!RFC5322}}. The file may also contain blank lines.
 
-A "field" MUST always consist of a name and a value
+A field MUST always consist of a name and a value
 ("Contact: https://example.com/security"). A security.txt file
-can have an unlimited number of fields. It is important to note that each field MUST appear on
+can have an unlimited number of fields. Each field MUST appear on
 its own line. Unless specified otherwise by the field definition,
 multiple values MUST NOT be chained together for a single field.
 Unless otherwise indicated in a definition of a particular field, any field MAY appear
@@ -386,7 +386,8 @@ or redirect (as per section 6.4 of {{!RFC7231}}) to the security.txt file under 
 is present in both locations, the one in the "/.well-known/" path MUST be used.
 
 On HTTP servers, the file MUST be accessed via HTTP 1.0 or a higher version
-and the "https" scheme (as per {{!RFC1945}} and section 2.7.2 of {{!RFC7230}}). It MUST have a Content-Type of "text/plain"
+and the file access MUST use "https" scheme (as per {{!RFC1945}} and section 2.7.2 of {{!RFC7230}}).
+It MUST have a Content-Type of "text/plain"
 with the default charset parameter set to "utf-8" (as per section 4.1.3 of {{!RFC2046}}).
 
 Retrieval of "security.txt" files and resources indicated within such files may result in a redirect (as per
