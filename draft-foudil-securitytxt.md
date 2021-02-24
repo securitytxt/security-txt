@@ -127,7 +127,7 @@ contain URIs using percent-encoding (as per section 2.1 of {{!RFC3986}}).
 
 ## Comments
 
-Any line beginning with the "#" (%x30) symbol MUST be interpreted as a comment.
+Any line beginning with the "#" (%x23) symbol MUST be interpreted as a comment.
 The content of the comment may contain any ASCII or Unicode characters in the
 %x21-7E and %x80-FFFFF ranges plus the tab (%x09) and space (%x20) characters.
 
