@@ -80,12 +80,12 @@ Table of Contents
      3.4.  Extensibility . . . . . . . . . . . . . . . . . . . . . .   6
      3.5.  Field Definitions . . . . . . . . . . . . . . . . . . . .   6
        3.5.1.  Acknowledgments . . . . . . . . . . . . . . . . . . .   6
-       3.5.2.  Canonical . . . . . . . . . . . . . . . . . . . . . .   6
+       3.5.2.  Canonical . . . . . . . . . . . . . . . . . . . . . .   7
        3.5.3.  Contact . . . . . . . . . . . . . . . . . . . . . . .   7
-       3.5.4.  Encryption  . . . . . . . . . . . . . . . . . . . . .   7
+       3.5.4.  Encryption  . . . . . . . . . . . . . . . . . . . . .   8
        3.5.5.  Expires . . . . . . . . . . . . . . . . . . . . . . .   8
        3.5.6.  Hiring  . . . . . . . . . . . . . . . . . . . . . . .   8
-       3.5.7.  Policy  . . . . . . . . . . . . . . . . . . . . . . .   8
+       3.5.7.  Policy  . . . . . . . . . . . . . . . . . . . . . . .   9
        3.5.8.  Preferred-Languages . . . . . . . . . . . . . . . . .   9
      3.6.  Example of an unsigned "security.txt" file  . . . . . . .   9
      3.7.  Example of a signed "security.txt" file . . . . . . . . .   9
@@ -230,7 +230,7 @@ Internet-Draft                security.txt                 February 2021
    insensitive (as per section 2.3 of [RFC5234]).  The "value" comes
    after the field name ("https://example.com/security") and follows the
    syntax defined for "unstructured" in section 3.2.5 of [RFC5322].  The
-   file may also contain blank lines.
+   file MAY also contain blank lines.
 
    A field MUST always consist of a name and a value ("Contact:
    https://example.com/security").  A security.txt file can have an
@@ -297,6 +297,8 @@ Internet-Draft                security.txt                 February 2021
 
 3.5.  Field Definitions
 
+   Unless otherwise stated, all fields MUST be considered optional.
+
 3.5.1.  Acknowledgments
 
    This field indicates a link to a page where security researchers are
@@ -322,13 +324,11 @@ Internet-Draft                security.txt                 February 2021
    (2016-12-24) John Buchner - Stored cross-site scripting
    (2016-06-10) Anna Richmond - A server configuration issue
 
-3.5.2.  Canonical
 
-   This field indicates the canonical URIs where the security.txt file
-   is located, which is usually something like
-   "https://example.com/.well-known/security.txt".  If this field
-   indicates a web URI, then it MUST begin with "https://" (as per
-   section 2.7.2 of [RFC7230]).
+
+
+
+
 
 
 
@@ -338,12 +338,20 @@ Foudil & Shafranovich    Expires 28 August 2021                 [Page 6]
 Internet-Draft                security.txt                 February 2021
 
 
+3.5.2.  Canonical
+
+   This field indicates the canonical URIs where the security.txt file
+   is located, which is usually something like
+   "https://example.com/.well-known/security.txt".  If this field
+   indicates a web URI, then it MUST begin with "https://" (as per
+   section 2.7.2 of [RFC7230]).
+
    While this field indicates that a "security.txt" retrieved from a
    given URI is intended to apply to that URI, it MUST NOT be
    interpreted to apply to all canonical URIs listed within the file.
-   Implementors SHOULD USE an additional trust mechanism such as a
-   digital signature (#signature) to make the determination that a
-   particular canonical URI is applicable.
+   Implementors SHOULD use an additional trust mechanism such as a
+   digital signature (as per Section 3.3) to make the determination that
+   a particular canonical URI is applicable.
 
    Canonical: https://www.example.com/.well-known/security.txt
    Canonical: https://someserver.example.com/.well-known/security.txt
@@ -375,14 +383,6 @@ Internet-Draft                security.txt                 February 2021
    Contact: tel:+1-201-555-0123
    Contact: https://example.com/security-contact.html
 
-3.5.4.  Encryption
-
-   This field indicates an encryption key that security researchers
-   should use for encrypted communication.  Keys MUST NOT appear in this
-   field - instead the value of this field MUST be a URI pointing to a
-   location where the key can be retrieved.  If this field indicates a
-   web URI, then it MUST begin with "https://" (as per section 2.7.2 of
-   [RFC7230]).
 
 
 
@@ -393,6 +393,15 @@ Foudil & Shafranovich    Expires 28 August 2021                 [Page 7]
 
 Internet-Draft                security.txt                 February 2021
 
+
+3.5.4.  Encryption
+
+   This field indicates an encryption key that security researchers
+   should use for encrypted communication.  Keys MUST NOT appear in this
+   field - instead the value of this field MUST be a URI pointing to a
+   location where the key can be retrieved.  If this field indicates a
+   web URI, then it MUST begin with "https://" (as per section 2.7.2 of
+   [RFC7230]).
 
    When it comes to verifying the authenticity of the key, it is always
    the security researcher's responsibility to make sure the key being
@@ -433,6 +442,14 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
    Hiring: https://example.com/jobs.html
 
+
+
+
+Foudil & Shafranovich    Expires 28 August 2021                 [Page 8]
+
+Internet-Draft                security.txt                 February 2021
+
+
 3.5.7.  Policy
 
    This field indicates a link to where the vulnerability disclosure
@@ -442,13 +459,6 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
    section 2.7.2 of [RFC7230]).
 
    Example:
-
-
-
-Foudil & Shafranovich    Expires 28 August 2021                 [Page 8]
-
-Internet-Draft                security.txt                 February 2021
-
 
    Policy: https://example.com/disclosure-policy.html
 
@@ -487,16 +497,6 @@ Internet-Draft                security.txt                 February 2021
    Acknowledgments: https://example.com/hall-of-fame.html
 
 3.7.  Example of a signed "security.txt" file
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -566,13 +566,17 @@ Internet-Draft                security.txt                 February 2021
 
    A "security.txt" file MUST only apply to the domain or IP address in
    the URI used to retrieve it, not to any of its subdomains or parent
-   domains.
+   domains.  A "security.txt" file MAY also apply to products and
+   services provided by the organization publishing the file.
 
-   A "security.txt" file MAY also apply to products and services
-   provided by the organization publishing the file.  Implementors
-   SHOULD use the policy directive (as per Section 3.5.7) to provide
-   additional details regarding scope and details of their vulnerability
-   disclosure process.
+   As per Section 1.1, this specification is intended for vulnerability
+   response.  If implementors want to use this for incident response,
+   they should be aware of additional security considerations discussed
+   in Section 6.1.
+
+   Implementors SHOULD use the policy directive (as per Section 3.5.7)
+   to provide additional details regarding scope and details of their
+   vulnerability disclosure process.
 
    Some examples appear below:
 
@@ -606,10 +610,6 @@ Internet-Draft                security.txt                 February 2021
 
   sign-header      =  < headers and line from section 7 of [RFC4880] >
 
-  sign-footer      =  < OpenPGP signature from section 7 of [RFC4880] >
-
-  unsigned         =  *line (contact-field eol)
-                      *line (expires-field eol)
 
 
 
@@ -618,6 +618,10 @@ Foudil & Shafranovich    Expires 28 August 2021                [Page 11]
 Internet-Draft                security.txt                 February 2021
 
 
+  sign-footer      =  < OpenPGP signature from section 7 of [RFC4880] >
+
+  unsigned         =  *line (contact-field eol)
+                      *line (expires-field eol)
                       *line [lang-field eol] *line
                       ; order of fields within the file is not important
 
@@ -663,16 +667,16 @@ Internet-Draft                security.txt                 February 2021
 
   ext-field        =  field-name fs SP unstructured
 
-  field-name       =  < imported from section 3.6.8 of [RFC5322] >
-
-  unstructured     =  < imported from section 3.2.5 of [RFC5322] >
-
 
 
 Foudil & Shafranovich    Expires 28 August 2021                [Page 12]
 
 Internet-Draft                security.txt                 February 2021
 
+
+  field-name       =  < imported from section 3.6.8 of [RFC5322] >
+
+  unstructured     =  < imported from section 3.2.5 of [RFC5322] >
 
    "ext-field" refers to extension fields, which are discussed in
    Section 3.4
@@ -721,10 +725,6 @@ Internet-Draft                security.txt                 February 2021
 
 
 
-
-
-
-
 Foudil & Shafranovich    Expires 28 August 2021                [Page 13]
 
 Internet-Draft                security.txt                 February 2021
@@ -752,7 +752,7 @@ Internet-Draft                security.txt                 February 2021
    that are extraordinarily large or otherwise malformed in an attempt
    to discover or exploit weaknesses in parsing code.  Implementors
    should make sure that any such code is robust against large or
-   malformed files and fields and may choose not to parse files larger
+   malformed files and fields, and may choose not to parse files larger
    than 32 KBs, having fields longer than 2,048 characters or containing
    more than 1,000 lines.  The ABNF grammar (as defined in Section 5)
    can also be used as a way to verify these files.
@@ -766,15 +766,15 @@ Internet-Draft                security.txt                 February 2021
 
    The presence of a security.txt file might be interpreted by
    researchers as providing permission to do security testing against
-   that asset.  This might result in increased testing against an
-   organization by researchers.  On the other hand, a decision not to
-   publish a security.txt file might be interpreted by the organization
-   operating that website to be a way to signal to researchers that
-   permission to test that particular site or project is denied.  This
-   might result in pushback against researchers reporting security
-   issues to that organization.
-
-
+   the domain or IP address where it is published, or products and
+   services provided by the organization publishing the file.  This
+   might result in increased testing against an organization by
+   researchers.  On the other hand, a decision not to publish a
+   security.txt file might be interpreted by the organization operating
+   that website to be a way to signal to researchers that permission to
+   test that particular site or project is denied.  This might result in
+   pushback against researchers reporting security issues to that
+   organization.
 
 
 

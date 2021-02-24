@@ -42,7 +42,7 @@ to make it easier for researchers to report vulnerabilities.
 
 # Introduction
 
-## Motivation, Prior Work and Scope
+## Motivation, Prior Work and Scope {#motivation}
 
 Many security researchers encounter situations where they are unable
 to report security vulnerabilities to organizations because there are
@@ -112,7 +112,7 @@ This text file contains multiple fields with different values. A field contains 
 to the colon ("Contact:") and follows the syntax defined for "field-name" in section 3.6.8
 of {{!RFC5322}}. Field names are case-insensitive (as per section 2.3 of {{!RFC5234}}).
 The "value" comes after the field name ("https://example.com/security") and follows the syntax
-defined for "unstructured" in section 3.2.5 of {{!RFC5322}}. The file may also contain blank lines.
+defined for "unstructured" in section 3.2.5 of {{!RFC5322}}. The file MAY also contain blank lines.
 
 A field MUST always consist of a name and a value
 ("Contact: https://example.com/security"). A security.txt file
@@ -168,6 +168,8 @@ be liberal in what you accept from others" (as per {{?RFC0793}}).
 
 ## Field Definitions
 
+Unless otherwise stated, all fields MUST be considered optional.
+
 ### Acknowledgments {#acknowledgments}
 
 This field indicates a link to a page where security
@@ -206,8 +208,8 @@ If this field indicates a web URI, then it MUST begin with "https://"
 
 While this field indicates that a "security.txt" retrieved from a given URI
 is intended to apply to that URI, it MUST NOT be interpreted to apply to
-all canonical URIs listed within the file. Implementors SHOULD USE an additional
-trust mechanism such as a digital signature (#signature) to make the
+all canonical URIs listed within the file. Implementors SHOULD use an additional
+trust mechanism such as a digital signature (as per {{signature}}) to make the
 determination that a particular canonical URI is applicable.
 
 ~~~~~~~~~~
@@ -395,12 +397,13 @@ are not malicious or pointing to resources controlled by an attacker.
 ## Scope of the File
 
 A "security.txt" file MUST only apply to the domain
-or IP address in the URI used to retrieve it, not to any of its subdomains or parent domains.
+or IP address in the URI used to retrieve it, not to any of its subdomains or parent domains. A "security.txt" file MAY also apply to products and services provided by the organization publishing the file.
 
-A "security.txt" file MAY also apply to products and services provided by the organization
-publishing the file. Implementors SHOULD use the policy directive (as per {{policy}})
-to provide additional details regarding scope and details of their vulnerability disclosure
-process.
+As per {{motivation}}, this specification is intended for vulnerability response.
+If implementors want to use this for incident response, they should be aware of additional security considerations discussed in {{compromise}}.
+
+Implementors SHOULD use the policy directive (as per {{policy}})
+to provide additional details regarding scope and details of their vulnerability disclosure process.
 
 Some examples appear below:
 
@@ -548,7 +551,7 @@ and are kept secure.
 It is possible for compromised or malicious sites to create files that are extraordinarily
 large or otherwise malformed in an attempt to discover or exploit weaknesses
 in parsing code. Implementors should make sure that any such code
-is robust against large or malformed files and fields and may choose not to parse
+is robust against large or malformed files and fields, and may choose not to parse
 files larger than 32 KBs, having fields longer than 2,048 characters or
 containing more than 1,000 lines. The ABNF grammar (as defined in
 {{abnf}}) can also be used as a way to verify these files.
@@ -560,7 +563,9 @@ this file. Such resources and reports may be hostile, malformed or malicious.
 ## No Implied Permission for Testing
 
 The presence of a security.txt file might be interpreted by researchers
-as providing permission to do security testing against that asset.
+as providing permission to do security testing against the domain or IP address
+where it is published, or products and services provided by the organization publishing
+the file.
 This might result in increased testing against an organization by researchers. On the other hand, a decision not
 to publish a security.txt file might be interpreted by the
 organization operating that website to be a way to signal to researchers
