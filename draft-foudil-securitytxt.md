@@ -378,14 +378,12 @@ Version: GnuPG v2.2
 
 # Location of the security.txt file {#location}
 
-## Web-based services {#weblocation}
-
 Web-based services MUST place the security.txt file under the "/.well-known/" path; e.g. https://example.com/.well-known/security.txt
-as per {{!RFC8615}} of a domain name or IP address.. For legacy compatibility, a security.txt file might be placed at the top-level path
+as per {{!RFC8615}} of a domain name or IP address. For legacy compatibility, a security.txt file might be placed at the top-level path
 or redirect (as per section 6.4 of {{!RFC7231}}) to the security.txt file under the "/.well-known/" path. If a "security.txt" file
 is present in both locations, the one in the "/.well-known/" path MUST be used.
 
-On HTTP servers, the file MUST be accessed via HTTP 1.0 or a higher version
+The file MUST be accessed via HTTP 1.0 or a higher version
 and the file access MUST use "https" scheme (as per {{!RFC1945}} and section 2.7.2 of {{!RFC7230}}).
 It MUST have a Content-Type of "text/plain"
 with the default charset parameter set to "utf-8" (as per section 4.1.3 of {{!RFC2046}}).
@@ -394,29 +392,10 @@ Retrieval of "security.txt" files and resources indicated within such files may 
 section 6.4 of {{!RFC7231}}). Researchers should perform additional analysis (as per {{redirects}}) to make sure these redirects
 are not malicious or pointing to resources controlled by an attacker.
 
-## Filesystems
-
-File systems SHOULD place the "security.txt" file under the root directory; e.g., "/security.txt", "C:\security.txt".
-
-Example file system:
-
-~~~~~~~~~~
-/example-directory-1/
-/example-directory-2/
-/example-directory-3/
-/example-file
-/security.txt
-~~~~~~~~~~
-
 ## Scope of the File
 
-For HTTP servers, a "security.txt" file MUST only apply to the domain
+A "security.txt" file MUST only apply to the domain
 or IP address in the URI used to retrieve it, not to any of its subdomains or parent domains.
-
-Unless located on a HTTP server, a "security.txt" file that is found in
-a file system MUST only apply to the folder in which it is located and
-that folder's subfolders. The file does not apply
-to any of the folder's parent or sibling folders.
 
 A "security.txt" file MAY also apply to products and services provided by the organization
 publishing the file. Implementors SHOULD use the policy directive (as per {{policy}})
@@ -616,7 +595,7 @@ character '*' as the complete left-most label within the identifier.
 The certificate may also be checked for revocation via the Online Certificate Status
 Protocol (OCSP) {{!RFC6960}}, certificate revocation lists (CRLs), or similar mechanisms.
 
-In cases where the "security.txt" file cannot be served via HTTPS (such as a filesystem or localhost) or is
+In cases where the "security.txt" file cannot be served via HTTPS (such as localhost) or is
 being served with an invalid certificate, additional human validation is recommended since
 the contents may have been modified while in transit.
 
@@ -877,6 +856,7 @@ of DNS-stored encryption keys (#28 and #94)
 
 ## Since draft-foudil-securitytxt-10
 - Changes addressing IESG feedback
+- Removed languages regarding file systems (#201)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
