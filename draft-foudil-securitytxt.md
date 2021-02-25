@@ -419,9 +419,6 @@ https://192.0.2.0/.well-known/security.txt
 
 # This security.txt file applies to IPv6 address of 2001:db8:8:4::2.
 https://[2001:db8:8:4::2]/.well-known/security.txt
-
-# This file applies to the /example/folder1 directory and subfolders.
-/example/folder1/security.txt
 ~~~~~~~~~~
 
 
@@ -861,7 +858,7 @@ of DNS-stored encryption keys (#28 and #94)
 
 ## Since draft-foudil-securitytxt-10
 - Changes addressing IESG feedback
-- Removed languages regarding file systems (#201)
+- Removed language regarding file systems (#201)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
