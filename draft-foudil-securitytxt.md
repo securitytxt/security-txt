@@ -387,7 +387,7 @@ Version: GnuPG v2.2
 
 # Location of the security.txt file {#location}
 
-Web-based services MUST place the security.txt file under the "/.well-known/" path; e.g. https://example.com/.well-known/security.txt
+For web-based services, organizations MUST place the security.txt file under the "/.well-known/" path; e.g. https://example.com/.well-known/security.txt
 as per {{!RFC8615}} of a domain name or IP address. For legacy compatibility, a security.txt file might be placed at the top-level path
 or redirect (as per section 6.4 of {{!RFC7231}}) to the security.txt file under the "/.well-known/" path. If a "security.txt" file
 is present in both locations, the one in the "/.well-known/" path MUST be used.
