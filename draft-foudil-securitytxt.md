@@ -92,6 +92,13 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
 BCP 14 {{!RFC2119}} {{!RFC8174}} when, and only when, they appear in all
 capitals, as shown here.
 
+The term "security researcher" and "researcher" corresponds
+to the terms "finder" and "reporter" in {{ISO.29147.2018}} and {{CERT.CVD}}.
+The term "organization" corresponds to the term "vendor"
+in {{ISO.29147.2018}} and {{CERT.CVD}}.
+
+The term "implementors" includes all parties involved in the disclosure process.
+
 # Note to Readers
 
 > **Note to the RFC Editor:**  Please remove this section prior
@@ -147,7 +154,7 @@ characters (CRLF / %x0D %x0A) or just a line feed character (LF / %x0A).
 It is RECOMMENDED that a security.txt file be digitally signed
 using an OpenPGP cleartext signature as described in
 section 7 of {{!RFC4880}}. When digital signatures are used, it is also
-RECOMMENDED that implementors use the "Canonical" field (as per {{canonical}}),
+RECOMMENDED that organizations use the "Canonical" field (as per {{canonical}}),
 thus allowing the digital signature to authenticate the location of the file.
 
 When it comes to verifying the key used to generate the signature, it is always
@@ -161,7 +168,7 @@ over time to fit the ever-changing landscape of the Internet. Therefore,
 extensibility is provided via an IANA registry for fields as defined
 in {{registry}}. Any fields registered via that process MUST be
 considered optional. To encourage extensibility and interoperability,
-implementors MUST ignore any fields they do not explicitly support.
+researchers MUST ignore any fields they do not explicitly support.
 
 In general, implementors should "be conservative in what you do,
 be liberal in what you accept from others" (as per {{?RFC0793}}).
@@ -174,7 +181,7 @@ Unless otherwise stated, all fields MUST be considered optional.
 
 This field indicates a link to a page where security
 researchers are recognized for their reports. The page being referenced
-should list individuals or organizations that reported security vulnerabilities
+should list security researchers that reported security vulnerabilities
 and collaborated to remediate them. Organizations should be careful
 to limit the vulnerability information being published in order
 to prevent future attacks.
@@ -208,7 +215,7 @@ If this field indicates a web URI, then it MUST begin with "https://"
 
 While this field indicates that a "security.txt" retrieved from a given URI
 is intended to apply to that URI, it MUST NOT be interpreted to apply to
-all canonical URIs listed within the file. Implementors SHOULD use an additional
+all canonical URIs listed within the file. Researchers SHOULD use an additional
 trust mechanism such as a digital signature (as per {{signature}}) to make the
 determination that a particular canonical URI is applicable.
 
@@ -402,7 +409,7 @@ or IP address in the URI used to retrieve it, not to any of its subdomains or pa
 As per {{motivation}}, this specification is intended for vulnerability response.
 If implementors want to use this for incident response, they should be aware of additional security considerations discussed in {{compromise}}.
 
-Implementors SHOULD use the policy directive (as per {{policy}})
+Organizations SHOULD use the policy directive (as per {{policy}})
 to provide additional details regarding scope and details of their vulnerability disclosure process.
 
 Some examples appear below:
@@ -519,7 +526,7 @@ it should not be used.
 While it is not recommended, implementors may choose to use the information published
 within a "security.txt" file for incident response. In such cases, extreme caution
 should be taken before trusting such information, since
-it may have been compromised by an attacker. Implementors should use additional methods
+it may have been compromised by an attacker. Researchers should use additional methods
 to verify such data including out of band verification of the PGP signature, DNSSEC-based approaches, etc.
 
 ## Redirects {#redirects}
@@ -547,7 +554,7 @@ and are kept secure.
 
 It is possible for compromised or malicious sites to create files that are extraordinarily
 large or otherwise malformed in an attempt to discover or exploit weaknesses
-in parsing code. Implementors should make sure that any such code
+in parsing code. Researchers should make sure that any such code
 is robust against large or malformed files and fields, and may choose not to parse
 files larger than 32 KBs, having fields longer than 2,048 characters or
 containing more than 1,000 lines. The ABNF grammar (as defined in
@@ -569,7 +576,7 @@ organization operating that website to be a way to signal to researchers
 that permission to test that particular site or project is denied. This might result in pushback against
 researchers reporting security issues to that organization.
 
-Therefore, implementors shouldn't assume that presence or absence of
+Therefore, researchers shouldn't assume that presence or absence of
 a "security.txt" file grants or denies permission for security testing.
 Any such permission may be indicated in the company's vulnerability disclosure policy
 (as per {{policy}}) or a new field (as per {{extensibility}}).
@@ -586,7 +593,7 @@ the "security.txt" AND "/.well-known/security.txt" names.
 To protect a "security.txt" file from being tampered with in transit, implementors should use
 HTTPS (as per {{!RFC2818}}) when serving the file itself and for retrieval of any web URIs
 referenced in it (except when otherwise noted in this specification). As part of the TLS
-handshake, implementors should validate the provided X.509 certificate
+handshake, researchers should validate the provided X.509 certificate
 in accordance with {{!RFC6125}} and the following considerations:
 
 - Matching is performed only against the DNS-ID identifiers.
@@ -859,6 +866,7 @@ of DNS-stored encryption keys (#28 and #94)
 ## Since draft-foudil-securitytxt-10
 - Changes addressing IESG feedback
 - Removed language regarding file systems (#201)
+- Adding language to explain alignment with the CERT CVD guide (#202)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt

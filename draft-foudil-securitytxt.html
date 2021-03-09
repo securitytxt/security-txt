@@ -18,21 +18,21 @@ to make it easier for researchers to report vulnerabilities.
 <meta content="draft-foudil-securitytxt-10" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.5.0
-    Python 3.6.9
+    Python 3.9.0
     appdirs 1.4.4
-    ConfigArgParse 1.3
+    ConfigArgParse 1.2.3
     google-i18n-address 2.4.0
     html5lib 1.1
-    intervaltree 2.1.0
-    Jinja2 2.11.3
+    intervaltree 3.1.0
+    Jinja2 2.11.2
     kitchen 1.2.6
-    lxml 4.2.1
+    lxml 4.6.2
     pycountry 20.7.3
-    pyflakes 1.6.0
-    PyYAML 5.4.1
-    requests 2.18.4
-    setuptools 39.0.1
-    six 1.11.0
+    pyflakes 2.2.0
+    PyYAML 5.3.1
+    requests 2.24.0
+    setuptools 50.3.2
+    six 1.15.0
 -->
 <link href="draft-foudil-securitytxt.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -822,11 +822,11 @@ address div.right {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">security.txt</td>
-<td class="right">February 2021</td>
+<td class="right">March 2021</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Foudil &amp; Shafranovich</td>
-<td class="center">Expires 29 August 2021</td>
+<td class="center">Expires 10 September 2021</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -839,12 +839,12 @@ address div.right {
 <dd class="internet-draft">draft-foudil-securitytxt-10</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-02-25" class="published">25 February 2021</time>
+<time datetime="2021-03-09" class="published">9 March 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2021-08-29">29 August 2021</time></dd>
+<dd class="expires"><time datetime="2021-09-10">10 September 2021</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -885,7 +885,7 @@ to make it easier for researchers to report vulnerabilities.<a href="#section-ab
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 29 August 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 10 September 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -913,180 +913,180 @@ to make it easier for researchers to report vulnerabilities.<a href="#section-ab
         <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
 <a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
         </h2>
-<nav class="toc"><ul class="compact ulEmpty toc">
-<li class="compact ulEmpty toc" id="section-toc.1-1.1">
+<nav class="toc"><ul class="toc compact ulEmpty">
+<li class="toc compact ulEmpty" id="section-toc.1-1.1">
             <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a><a href="#section-toc.1-1.1.1" class="pilcrow">¶</a></p>
-<ul class="compact ulEmpty toc">
-<li class="compact ulEmpty toc" id="section-toc.1-1.1.2.1">
+<ul class="toc compact ulEmpty">
+<li class="toc compact ulEmpty" id="section-toc.1-1.1.2.1">
                 <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="xref">1.1</a>.  <a href="#name-motivation-prior-work-and-s" class="xref">Motivation, Prior Work and Scope</a><a href="#section-toc.1-1.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.1.2.2">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.1.2.2">
                 <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="xref">1.2</a>.  <a href="#name-terminology" class="xref">Terminology</a><a href="#section-toc.1-1.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact ulEmpty toc" id="section-toc.1-1.2">
+          <li class="toc compact ulEmpty" id="section-toc.1-1.2">
             <p id="section-toc.1-1.2.1"><a href="#section-2" class="xref">2</a>.  <a href="#name-note-to-readers" class="xref">Note to Readers</a><a href="#section-toc.1-1.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="compact ulEmpty toc" id="section-toc.1-1.3">
+          <li class="toc compact ulEmpty" id="section-toc.1-1.3">
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-the-specification" class="xref">The Specification</a><a href="#section-toc.1-1.3.1" class="pilcrow">¶</a></p>
-<ul class="compact ulEmpty toc">
-<li class="compact ulEmpty toc" id="section-toc.1-1.3.2.1">
+<ul class="toc compact ulEmpty">
+<li class="toc compact ulEmpty" id="section-toc.1-1.3.2.1">
                 <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="xref">3.1</a>.  <a href="#name-comments" class="xref">Comments</a><a href="#section-toc.1-1.3.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.2">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.2">
                 <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="xref">3.2</a>.  <a href="#name-line-separator" class="xref">Line Separator</a><a href="#section-toc.1-1.3.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.3">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.3">
                 <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="xref">3.3</a>.  <a href="#name-digital-signature" class="xref">Digital signature</a><a href="#section-toc.1-1.3.2.3.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.4">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.4">
                 <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="xref">3.4</a>.  <a href="#name-extensibility" class="xref">Extensibility</a><a href="#section-toc.1-1.3.2.4.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.5">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.5">
                 <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="xref">3.5</a>.  <a href="#name-field-definitions" class="xref">Field Definitions</a><a href="#section-toc.1-1.3.2.5.1" class="pilcrow">¶</a></p>
-<ul class="compact ulEmpty toc">
-<li class="compact ulEmpty toc" id="section-toc.1-1.3.2.5.2.1">
+<ul class="toc compact ulEmpty">
+<li class="toc compact ulEmpty" id="section-toc.1-1.3.2.5.2.1">
                     <p id="section-toc.1-1.3.2.5.2.1.1"><a href="#section-3.5.1" class="xref">3.5.1</a>.  <a href="#name-acknowledgments" class="xref">Acknowledgments</a><a href="#section-toc.1-1.3.2.5.2.1.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.5.2.2">
+                  <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.5.2.2">
                     <p id="section-toc.1-1.3.2.5.2.2.1"><a href="#section-3.5.2" class="xref">3.5.2</a>.  <a href="#name-canonical" class="xref">Canonical</a><a href="#section-toc.1-1.3.2.5.2.2.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.5.2.3">
+                  <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.5.2.3">
                     <p id="section-toc.1-1.3.2.5.2.3.1"><a href="#section-3.5.3" class="xref">3.5.3</a>.  <a href="#name-contact" class="xref">Contact</a><a href="#section-toc.1-1.3.2.5.2.3.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.5.2.4">
+                  <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.5.2.4">
                     <p id="section-toc.1-1.3.2.5.2.4.1"><a href="#section-3.5.4" class="xref">3.5.4</a>.  <a href="#name-encryption" class="xref">Encryption</a><a href="#section-toc.1-1.3.2.5.2.4.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.5.2.5">
+                  <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.5.2.5">
                     <p id="section-toc.1-1.3.2.5.2.5.1"><a href="#section-3.5.5" class="xref">3.5.5</a>.  <a href="#name-expires" class="xref">Expires</a><a href="#section-toc.1-1.3.2.5.2.5.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.5.2.6">
+                  <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.5.2.6">
                     <p id="section-toc.1-1.3.2.5.2.6.1"><a href="#section-3.5.6" class="xref">3.5.6</a>.  <a href="#name-hiring" class="xref">Hiring</a><a href="#section-toc.1-1.3.2.5.2.6.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.5.2.7">
+                  <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.5.2.7">
                     <p id="section-toc.1-1.3.2.5.2.7.1"><a href="#section-3.5.7" class="xref">3.5.7</a>.  <a href="#name-policy" class="xref">Policy</a><a href="#section-toc.1-1.3.2.5.2.7.1" class="pilcrow">¶</a></p>
 </li>
-                  <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.5.2.8">
+                  <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.5.2.8">
                     <p id="section-toc.1-1.3.2.5.2.8.1"><a href="#section-3.5.8" class="xref">3.5.8</a>.  <a href="#name-preferred-languages" class="xref">Preferred-Languages</a><a href="#section-toc.1-1.3.2.5.2.8.1" class="pilcrow">¶</a></p>
 </li>
                 </ul>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.6">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.6">
                 <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="xref">3.6</a>.  <a href="#name-example-of-an-unsigned-secu" class="xref">Example of an unsigned "security.txt" file</a><a href="#section-toc.1-1.3.2.6.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.3.2.7">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.7">
                 <p id="section-toc.1-1.3.2.7.1"><a href="#section-3.7" class="xref">3.7</a>.  <a href="#name-example-of-a-signed-securit" class="xref">Example of a signed "security.txt" file</a><a href="#section-toc.1-1.3.2.7.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact ulEmpty toc" id="section-toc.1-1.4">
+          <li class="toc compact ulEmpty" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-location-of-the-securitytxt" class="xref">Location of the security.txt file</a><a href="#section-toc.1-1.4.1" class="pilcrow">¶</a></p>
-<ul class="compact ulEmpty toc">
-<li class="compact ulEmpty toc" id="section-toc.1-1.4.2.1">
+<ul class="toc compact ulEmpty">
+<li class="toc compact ulEmpty" id="section-toc.1-1.4.2.1">
                 <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-scope-of-the-file" class="xref">Scope of the File</a><a href="#section-toc.1-1.4.2.1.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact ulEmpty toc" id="section-toc.1-1.5">
+          <li class="toc compact ulEmpty" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-file-format-description-and" class="xref">File Format Description and ABNF Grammar</a><a href="#section-toc.1-1.5.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="compact ulEmpty toc" id="section-toc.1-1.6">
+          <li class="toc compact ulEmpty" id="section-toc.1-1.6">
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a><a href="#section-toc.1-1.6.1" class="pilcrow">¶</a></p>
-<ul class="compact ulEmpty toc">
-<li class="compact ulEmpty toc" id="section-toc.1-1.6.2.1">
+<ul class="toc compact ulEmpty">
+<li class="toc compact ulEmpty" id="section-toc.1-1.6.2.1">
                 <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-compromised-files-and-incid" class="xref">Compromised Files and Incident Response</a><a href="#section-toc.1-1.6.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.6.2.2">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.6.2.2">
                 <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-redirects" class="xref">Redirects</a><a href="#section-toc.1-1.6.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.6.2.3">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.6.2.3">
                 <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="xref">6.3</a>.  <a href="#name-incorrect-or-stale-informat" class="xref">Incorrect or Stale Information</a><a href="#section-toc.1-1.6.2.3.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.6.2.4">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.6.2.4">
                 <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="xref">6.4</a>.  <a href="#name-intentionally-malformed-fil" class="xref">Intentionally Malformed Files, Resources and Reports</a><a href="#section-toc.1-1.6.2.4.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.6.2.5">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.6.2.5">
                 <p id="section-toc.1-1.6.2.5.1"><a href="#section-6.5" class="xref">6.5</a>.  <a href="#name-no-implied-permission-for-t" class="xref">No Implied Permission for Testing</a><a href="#section-toc.1-1.6.2.5.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.6.2.6">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.6.2.6">
                 <p id="section-toc.1-1.6.2.6.1"><a href="#section-6.6" class="xref">6.6</a>.  <a href="#name-multi-user-environments" class="xref">Multi-user Environments</a><a href="#section-toc.1-1.6.2.6.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.6.2.7">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.6.2.7">
                 <p id="section-toc.1-1.6.2.7.1"><a href="#section-6.7" class="xref">6.7</a>.  <a href="#name-protecting-data-in-transit" class="xref">Protecting Data in Transit</a><a href="#section-toc.1-1.6.2.7.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.6.2.8">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.6.2.8">
                 <p id="section-toc.1-1.6.2.8.1"><a href="#section-6.8" class="xref">6.8</a>.  <a href="#name-spam-and-spurious-reports" class="xref">Spam and Spurious Reports</a><a href="#section-toc.1-1.6.2.8.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact ulEmpty toc" id="section-toc.1-1.7">
+          <li class="toc compact ulEmpty" id="section-toc.1-1.7">
             <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a><a href="#section-toc.1-1.7.1" class="pilcrow">¶</a></p>
-<ul class="compact ulEmpty toc">
-<li class="compact ulEmpty toc" id="section-toc.1-1.7.2.1">
+<ul class="toc compact ulEmpty">
+<li class="toc compact ulEmpty" id="section-toc.1-1.7.2.1">
                 <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="xref">7.1</a>.  <a href="#name-well-known-uris-registry" class="xref">Well-Known URIs registry</a><a href="#section-toc.1-1.7.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.7.2.2">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.7.2.2">
                 <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="xref">7.2</a>.  <a href="#name-registry-for-securitytxt-fi" class="xref">Registry for security.txt Fields</a><a href="#section-toc.1-1.7.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact ulEmpty toc" id="section-toc.1-1.8">
+          <li class="toc compact ulEmpty" id="section-toc.1-1.8">
             <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-contributors" class="xref">Contributors</a><a href="#section-toc.1-1.8.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="compact ulEmpty toc" id="section-toc.1-1.9">
+          <li class="toc compact ulEmpty" id="section-toc.1-1.9">
             <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-references" class="xref">References</a><a href="#section-toc.1-1.9.1" class="pilcrow">¶</a></p>
-<ul class="compact ulEmpty toc">
-<li class="compact ulEmpty toc" id="section-toc.1-1.9.2.1">
+<ul class="toc compact ulEmpty">
+<li class="toc compact ulEmpty" id="section-toc.1-1.9.2.1">
                 <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="xref">9.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a><a href="#section-toc.1-1.9.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.9.2.2">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.9.2.2">
                 <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="xref">9.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a><a href="#section-toc.1-1.9.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact ulEmpty toc" id="section-toc.1-1.10">
+          <li class="toc compact ulEmpty" id="section-toc.1-1.10">
             <p id="section-toc.1-1.10.1"><a href="#section-appendix.a" class="xref">Appendix A</a>.  <a href="#name-note-to-readers-2" class="xref">Note to Readers</a><a href="#section-toc.1-1.10.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="compact ulEmpty toc" id="section-toc.1-1.11">
+          <li class="toc compact ulEmpty" id="section-toc.1-1.11">
             <p id="section-toc.1-1.11.1"><a href="#section-appendix.b" class="xref">Appendix B</a>.  <a href="#name-document-history" class="xref">Document History</a><a href="#section-toc.1-1.11.1" class="pilcrow">¶</a></p>
-<ul class="compact ulEmpty toc">
-<li class="compact ulEmpty toc" id="section-toc.1-1.11.2.1">
+<ul class="toc compact ulEmpty">
+<li class="toc compact ulEmpty" id="section-toc.1-1.11.2.1">
                 <p id="section-toc.1-1.11.2.1.1"><a href="#section-b.1" class="xref">B.1</a>.  <a href="#name-since-draft-foudil-security" class="xref">Since draft-foudil-securitytxt-00</a><a href="#section-toc.1-1.11.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.11.2.2">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.11.2.2">
                 <p id="section-toc.1-1.11.2.2.1"><a href="#section-b.2" class="xref">B.2</a>.  <a href="#name-since-draft-foudil-securityt" class="xref">Since draft-foudil-securitytxt-01</a><a href="#section-toc.1-1.11.2.2.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.11.2.3">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.11.2.3">
                 <p id="section-toc.1-1.11.2.3.1"><a href="#section-b.3" class="xref">B.3</a>.  <a href="#name-since-draft-foudil-securitytx" class="xref">Since draft-foudil-securitytxt-02</a><a href="#section-toc.1-1.11.2.3.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.11.2.4">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.11.2.4">
                 <p id="section-toc.1-1.11.2.4.1"><a href="#section-b.4" class="xref">B.4</a>.  <a href="#name-since-draft-foudil-securitytxt" class="xref">Since draft-foudil-securitytxt-03</a><a href="#section-toc.1-1.11.2.4.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.11.2.5">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.11.2.5">
                 <p id="section-toc.1-1.11.2.5.1"><a href="#section-b.5" class="xref">B.5</a>.  <a href="#name-since-draft-foudil-securitytxt-" class="xref">Since draft-foudil-securitytxt-04</a><a href="#section-toc.1-1.11.2.5.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.11.2.6">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.11.2.6">
                 <p id="section-toc.1-1.11.2.6.1"><a href="#section-b.6" class="xref">B.6</a>.  <a href="#name-since-draft-foudil-securitytxt-0" class="xref">Since draft-foudil-securitytxt-05</a><a href="#section-toc.1-1.11.2.6.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.11.2.7">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.11.2.7">
                 <p id="section-toc.1-1.11.2.7.1"><a href="#section-b.7" class="xref">B.7</a>.  <a href="#name-since-draft-foudil-securitytxt-06" class="xref">Since draft-foudil-securitytxt-06</a><a href="#section-toc.1-1.11.2.7.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.11.2.8">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.11.2.8">
                 <p id="section-toc.1-1.11.2.8.1"><a href="#section-b.8" class="xref">B.8</a>.  <a href="#name-since-draft-foudil-securitytxt-07" class="xref">Since draft-foudil-securitytxt-07</a><a href="#section-toc.1-1.11.2.8.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.11.2.9">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.11.2.9">
                 <p id="section-toc.1-1.11.2.9.1"><a href="#section-b.9" class="xref">B.9</a>.  <a href="#name-since-draft-foudil-securitytxt-08" class="xref">Since draft-foudil-securitytxt-08</a><a href="#section-toc.1-1.11.2.9.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.11.2.10">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.11.2.10">
                 <p id="section-toc.1-1.11.2.10.1"><a href="#section-b.10" class="xref">B.10</a>. <a href="#name-since-draft-foudil-securitytxt-09" class="xref">Since draft-foudil-securitytxt-09</a><a href="#section-toc.1-1.11.2.10.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.11.2.11">
+              <li class="toc compact ulEmpty" id="section-toc.1-1.11.2.11">
                 <p id="section-toc.1-1.11.2.11.1"><a href="#section-b.11" class="xref">B.11</a>. <a href="#name-since-draft-foudil-securitytxt-1" class="xref">Since draft-foudil-securitytxt-10</a><a href="#section-toc.1-1.11.2.11.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="compact ulEmpty toc" id="section-toc.1-1.12">
+          <li class="toc compact ulEmpty" id="section-toc.1-1.12">
             <p id="section-toc.1-1.12.1"><a href="#section-appendix.c" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a><a href="#section-toc.1-1.12.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
@@ -1149,6 +1149,11 @@ their security disclosure practices.<a href="#section-1.1-6" class="pilcrow">¶<
 "OPTIONAL" in this document are to be interpreted as described in
 BCP 14 <span>[<a href="#RFC2119" class="xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="xref">RFC8174</a>]</span> when, and only when, they appear in all
 capitals, as shown here.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
+<p id="section-1.2-2">The term "security researcher" and "researcher" corresponds
+to the terms "finder" and "reporter" in <span>[<a href="#ISO.29147.2018" class="xref">ISO.29147.2018</a>]</span> and <span>[<a href="#CERT.CVD" class="xref">CERT.CVD</a>]</span>.
+The term "organization" corresponds to the term "vendor"
+in <span>[<a href="#ISO.29147.2018" class="xref">ISO.29147.2018</a>]</span> and <span>[<a href="#CERT.CVD" class="xref">CERT.CVD</a>]</span>.<a href="#section-1.2-2" class="pilcrow">¶</a></p>
+<p id="section-1.2-3">The term "implementors" includes all parties involved in the disclosure process.<a href="#section-1.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1224,7 +1229,7 @@ characters (CRLF / %x0D %x0A) or just a line feed character (LF / %x0A).<a href=
 <p id="section-3.3-1">It is RECOMMENDED that a security.txt file be digitally signed
 using an OpenPGP cleartext signature as described in
 section 7 of <span>[<a href="#RFC4880" class="xref">RFC4880</a>]</span>. When digital signatures are used, it is also
-RECOMMENDED that implementors use the "Canonical" field (as per <a href="#canonical" class="xref">Section 3.5.2</a>),
+RECOMMENDED that organizations use the "Canonical" field (as per <a href="#canonical" class="xref">Section 3.5.2</a>),
 thus allowing the digital signature to authenticate the location of the file.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
 <p id="section-3.3-2">When it comes to verifying the key used to generate the signature, it is always
 the security researcher's responsibility to make sure the key being
@@ -1241,7 +1246,7 @@ over time to fit the ever-changing landscape of the Internet. Therefore,
 extensibility is provided via an IANA registry for fields as defined
 in <a href="#registry" class="xref">Section 7.2</a>. Any fields registered via that process MUST be
 considered optional. To encourage extensibility and interoperability,
-implementors MUST ignore any fields they do not explicitly support.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
+researchers MUST ignore any fields they do not explicitly support.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
 <p id="section-3.4-2">In general, implementors should "be conservative in what you do,
 be liberal in what you accept from others" (as per <span>[<a href="#RFC0793" class="xref">RFC0793</a>]</span>).<a href="#section-3.4-2" class="pilcrow">¶</a></p>
 </section>
@@ -1259,7 +1264,7 @@ be liberal in what you accept from others" (as per <span>[<a href="#RFC0793" cla
           </h4>
 <p id="section-3.5.1-1">This field indicates a link to a page where security
 researchers are recognized for their reports. The page being referenced
-should list individuals or organizations that reported security vulnerabilities
+should list security researchers that reported security vulnerabilities
 and collaborated to remediate them. Organizations should be careful
 to limit the vulnerability information being published in order
 to prevent future attacks.<a href="#section-3.5.1-1" class="pilcrow">¶</a></p>
@@ -1295,7 +1300,7 @@ If this field indicates a web URI, then it MUST begin with "https://"
 (as per section 2.7.2 of <span>[<a href="#RFC7230" class="xref">RFC7230</a>]</span>).<a href="#section-3.5.2-1" class="pilcrow">¶</a></p>
 <p id="section-3.5.2-2">While this field indicates that a "security.txt" retrieved from a given URI
 is intended to apply to that URI, it MUST NOT be interpreted to apply to
-all canonical URIs listed within the file. Implementors SHOULD use an additional
+all canonical URIs listed within the file. Researchers SHOULD use an additional
 trust mechanism such as a digital signature (as per <a href="#signature" class="xref">Section 3.3</a>) to make the
 determination that a particular canonical URI is applicable.<a href="#section-3.5.2-2" class="pilcrow">¶</a></p>
 <div class="artwork art-text alignLeft" id="section-3.5.2-3">
@@ -1529,7 +1534,7 @@ are not malicious or pointing to resources controlled by an attacker.<a href="#s
 or IP address in the URI used to retrieve it, not to any of its subdomains or parent domains. A "security.txt" file MAY also apply to products and services provided by the organization publishing the file.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 <p id="section-4.1-2">As per <a href="#motivation" class="xref">Section 1.1</a>, this specification is intended for vulnerability response.
 If implementors want to use this for incident response, they should be aware of additional security considerations discussed in <a href="#compromise" class="xref">Section 6.1</a>.<a href="#section-4.1-2" class="pilcrow">¶</a></p>
-<p id="section-4.1-3">Implementors SHOULD use the policy directive (as per <a href="#policy" class="xref">Section 3.5.7</a>)
+<p id="section-4.1-3">Organizations SHOULD use the policy directive (as per <a href="#policy" class="xref">Section 3.5.7</a>)
 to provide additional details regarding scope and details of their vulnerability disclosure process.<a href="#section-4.1-3" class="pilcrow">¶</a></p>
 <p id="section-4.1-4">Some examples appear below:<a href="#section-4.1-4" class="pilcrow">¶</a></p>
 <div class="artwork art-text alignLeft" id="section-4.1-5">
@@ -1653,7 +1658,7 @@ it should not be used.<a href="#section-6.1-3" class="pilcrow">¶</a></p>
 <p id="section-6.1-4">While it is not recommended, implementors may choose to use the information published
 within a "security.txt" file for incident response. In such cases, extreme caution
 should be taken before trusting such information, since
-it may have been compromised by an attacker. Implementors should use additional methods
+it may have been compromised by an attacker. Researchers should use additional methods
 to verify such data including out of band verification of the PGP signature, DNSSEC-based approaches, etc.<a href="#section-6.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1692,7 +1697,7 @@ and are kept secure.<a href="#section-6.3-2" class="pilcrow">¶</a></p>
         </h3>
 <p id="section-6.4-1">It is possible for compromised or malicious sites to create files that are extraordinarily
 large or otherwise malformed in an attempt to discover or exploit weaknesses
-in parsing code. Implementors should make sure that any such code
+in parsing code. Researchers should make sure that any such code
 is robust against large or malformed files and fields, and may choose not to parse
 files larger than 32 KBs, having fields longer than 2,048 characters or
 containing more than 1,000 lines. The ABNF grammar (as defined in
@@ -1716,7 +1721,7 @@ to publish a security.txt file might be interpreted by the
 organization operating that website to be a way to signal to researchers
 that permission to test that particular site or project is denied. This might result in pushback against
 researchers reporting security issues to that organization.<a href="#section-6.5-1" class="pilcrow">¶</a></p>
-<p id="section-6.5-2">Therefore, implementors shouldn't assume that presence or absence of
+<p id="section-6.5-2">Therefore, researchers shouldn't assume that presence or absence of
 a "security.txt" file grants or denies permission for security testing.
 Any such permission may be indicated in the company's vulnerability disclosure policy
 (as per <a href="#policy" class="xref">Section 3.5.7</a>) or a new field (as per <a href="#extensibility" class="xref">Section 3.4</a>).<a href="#section-6.5-2" class="pilcrow">¶</a></p>
@@ -1741,7 +1746,7 @@ the "security.txt" AND "/.well-known/security.txt" names.<a href="#section-6.6-1
 <p id="section-6.7-1">To protect a "security.txt" file from being tampered with in transit, implementors should use
 HTTPS (as per <span>[<a href="#RFC2818" class="xref">RFC2818</a>]</span>) when serving the file itself and for retrieval of any web URIs
 referenced in it (except when otherwise noted in this specification). As part of the TLS
-handshake, implementors should validate the provided X.509 certificate
+handshake, researchers should validate the provided X.509 certificate
 in accordance with <span>[<a href="#RFC6125" class="xref">RFC6125</a>]</span> and the following considerations:<a href="#section-6.7-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-6.7-2.1">Matching is performed only against the DNS-ID identifiers.<a href="#section-6.7-2.1" class="pilcrow">¶</a>
@@ -2329,6 +2334,8 @@ of DNS-stored encryption keys (#28 and #94)<a href="#section-b.3-1.8" class="pil
 <li class="normal" id="section-b.11-1.1">Changes addressing IESG feedback<a href="#section-b.11-1.1" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-b.11-1.2">Removed language regarding file systems (#201)<a href="#section-b.11-1.2" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-b.11-1.3">Adding language to explain alignment with the CERT CVD guide (#202)<a href="#section-b.11-1.3" class="pilcrow">¶</a>
 </li>
         </ul>
 <p id="section-b.11-2">Full list of changes can be viewed via the IETF document tracker:
