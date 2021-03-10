@@ -235,7 +235,7 @@ then it MUST begin with "https://" (as per section 2.7.2 of {{!RFC7230}}).
 Security email addresses should use the conventions defined in section
 4 of {{!RFC2142}}.
 
-The value MUST follow the URI syntax described in {{!RFC3986}}.
+The value MUST follow the URI syntax described in section 3 of {{!RFC3986}}.
 This means that "mailto" and "tel" URI schemes must be used
 when specifying email addresses and telephone numbers, as defined in {{!RFC6068}}
 and {{!RFC3966}}. When the value of this field is an email address,
@@ -294,7 +294,7 @@ of this field be less than a year into the future to avoid staleness.
 This field MUST always be present and MUST NOT appear more than once.
 
 ~~~~~~~~~~
-Expires: Thu, 31 Dec 2020 18:37:07 -0800
+Expires: Thu, 31 Dec 2021 18:37:07 -0800
 ~~~~~~~~~~
 
 ### Hiring {#hiring}
@@ -331,8 +331,8 @@ one value MUST be listed. The values within this set are language tags
 may assume that English is the language to be used (as per section 4.5
 of {{!RFC2277}}).
 
-The order in which they appear MUST NOT be interpreted as an indication of
-priority - rather these MUST be interpreted as all being of equal priority.
+The order in which they appear is not an indication of priority;
+the listed languages are intended to have equal priority.
 
 This field MUST NOT appear more than once.
 
@@ -356,6 +356,8 @@ Policy: https://example.com/security-policy.html
 
 # Our security acknowledgments page
 Acknowledgments: https://example.com/hall-of-fame.html
+
+Expires: Thu, 31 Dec 2021 18:37:07 -0800
 ~~~~~~~~~~
 
 ## Example of a signed "security.txt" file
@@ -378,6 +380,8 @@ Policy: https://example.com/security-policy.html
 
 # Our security acknowledgments page
 Acknowledgments: https://example.com/hall-of-fame.html
+
+Expires: Thu, 31 Dec 2021 18:37:07 -0800
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v2.2
 
@@ -393,7 +397,7 @@ or redirect (as per section 6.4 of {{!RFC7231}}) to the security.txt file under 
 is present in both locations, the one in the "/.well-known/" path MUST be used.
 
 The file MUST be accessed via HTTP 1.0 or a higher version
-and the file access MUST use "https" scheme (as per {{!RFC1945}} and section 2.7.2 of {{!RFC7230}}).
+and the file access MUST use "https" scheme (as per section 2.7.2 of {{!RFC7230}}).
 It MUST have a Content-Type of "text/plain"
 with the default charset parameter set to "utf-8" (as per section 4.1.3 of {{!RFC2046}}).
 
@@ -404,7 +408,8 @@ are not malicious or pointing to resources controlled by an attacker.
 ## Scope of the File
 
 A "security.txt" file MUST only apply to the domain
-or IP address in the URI used to retrieve it, not to any of its subdomains or parent domains. A "security.txt" file MAY also apply to products and services provided by the organization publishing the file.
+or IP address in the URI used to retrieve it, not to any of its subdomains or parent domains.
+A "security.txt" file MAY also apply to products and services provided by the organization publishing the file.
 
 As per {{motivation}}, this specification is intended for vulnerability response.
 If implementors want to use this for incident response, they should be aware of additional security considerations discussed in {{compromise}}.
@@ -431,8 +436,8 @@ https://[2001:db8:8:4::2]/.well-known/security.txt
 
 # File Format Description and ABNF Grammar {#abnf}
 
-The expected file format of the security.txt file is plain text (MIME type "text/plain") as defined
-in section 4.1.3 of {{!RFC2046}} and is encoded using UTF-8 {{!RFC3629}} in Net-Unicode form {{!RFC5198}}.
+The file format of the security.txt file MUST be plain text (MIME type "text/plain") as defined
+in section 4.1.3 of {{!RFC2046}} and MUST be encoded using UTF-8 {{!RFC3629}} in Net-Unicode form {{!RFC5198}}.
 
 The following is an ABNF definition of the security.txt format, using
 the conventions defined in {{!RFC5234}}.
@@ -446,18 +451,21 @@ sign-header      =  < headers and line from section 7 of [RFC4880] >
 
 sign-footer      =  < OpenPGP signature from section 7 of [RFC4880] >
 
-unsigned         =  *line (contact-field eol)
-                    *line (expires-field eol)
-                    *line [lang-field eol] *line
+unsigned         =  *line (contact-field eol) ; one or more required
+                    *line (expires-field eol) ; exactly one required
+                    *line [lang-field eol] *line ; exactly one optional
                     ; order of fields within the file is not important
+                    ; except that if contact-field appears more than once
+                    ; the order of those indicates priority (see Section 3.5.3)
 
 line             =  [ (field / comment) ] eol
 
 eol              =  *WSP [CR] LF
 
-field            =  ack-field /
+field            =  ; optional fields
+                    ack-field /
                     can-field /
-                    contact-field /
+                    contact-field / ; optional repeated instances
                     encryption-field /                         
                     hiring-field /
                     policy-field /
@@ -489,7 +497,7 @@ lang-tag         =  < Language-Tag from section 2.1 of [RFC5646] >
 
 lang-values      =  lang-tag *(*WSP "," *WSP lang-tag)
 
-uri              =  < URI as per [RFC3986] >
+uri              =  < URI as per section 3 of [RFC3986] >
 
 ext-field        =  field-name fs SP unstructured
 
@@ -590,8 +598,8 @@ the "security.txt" AND "/.well-known/security.txt" names.
 
 ## Protecting Data in Transit
 
-To protect a "security.txt" file from being tampered with in transit, implementors should use
-HTTPS (as per {{!RFC2818}}) when serving the file itself and for retrieval of any web URIs
+To protect a "security.txt" file from being tampered with in transit, implementors MUST use
+HTTPS (as per section 2.7.2 of {{!RFC7230}}) when serving the file itself and for retrieval of any web URIs
 referenced in it (except when otherwise noted in this specification). As part of the TLS
 handshake, researchers should validate the provided X.509 certificate
 in accordance with {{!RFC6125}} and the following considerations:
@@ -636,12 +644,6 @@ file before submitting reports in an automated fashion or as resulting from auto
 
 # IANA Considerations
 
-example.com is used in this document following the uses indicated in
-{{?RFC2606}}.
-
-192.0.2.0 and 2001:db8:8:4::2 are used in this document following
-the uses indicated in {{?RFC6890}}.
-
 Implementors should be aware that any resources referenced within
 a security.txt file MUST NOT point to the Well-Known URIs namespace unless
 they are registered with IANA (as per {{?RFC8615}}).
@@ -683,7 +685,7 @@ New registrations and updates MUST contain the following information:
    4.  The document in which the specification of the field is published (if available)
    5.  New or updated status, which MUST be one of:
        - current: The field is in current use
-       - deprecated: The field is in current use, but its use is discouraged
+       - deprecated: The field has been in use, but new usage is discouraged
        - historic: The field is no longer in current use
    6. Change controller
 
@@ -697,56 +699,56 @@ The initial registry contains these values:
        Multiple Appearances: Yes
        Published in: this document
        Status: current
-       Change controller: IESG
+       Change controller: IETF
 
        Field Name: Canonical
-       Description: canonical URL for this file
+       Description: canonical URI for this file
        Multiple Appearances: Yes
        Published in: this document
        Status: current
-       Change controller: IESG
+       Change controller: IETF
 
        Field Name: Contact
        Description: contact information to use for reporting vulnerabilities
        Multiple Appearances: Yes
        Published in: this document
        Status: current
-       Change controller: IESG
+       Change controller: IETF
 
        Field Name: Expires
        Description: date and time after which this file is considered stale
        Multiple Appearances: No
        Published in: this document
        Status: current
-       Change controller: IESG
+       Change controller: IETF
 
        Field Name: Encryption
        Description: link to a key to be used for encrypted communication
        Multiple Appearances: Yes
        Published in: this document
        Status: current
-       Change controller: IESG
+       Change controller: IETF
 
        Field Name: Hiring
        Description: link to the vendor's security-related job positions
        Multiple Appearances: Yes
        Published in: this document
        Status: current
-       Change controller: IESG
+       Change controller: IETF
 
        Field Name: Policy
        Description: link to security policy page
        Multiple Appearances: Yes
        Published in: this document
        Status: current
-       Change controller: IESG
+       Change controller: IETF
 
        Field Name: Preferred-Languages
        Description: list of preferred languages for security reports
        Multiple Appearances: No
        Published in: this document
        Status: current
-       Change controller: IESG
+       Change controller: IETF
 
 # Contributors
 

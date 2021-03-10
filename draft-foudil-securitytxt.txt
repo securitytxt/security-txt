@@ -3,7 +3,7 @@
 
 
 Network Working Group                                          E. Foudil
-Internet-Draft                                                          
+Internet-Draft
 Intended status: Informational                           Y. Shafranovich
 Expires: 10 September 2021                      Nightwatch Cybersecurity
                                                             9 March 2021
@@ -89,19 +89,19 @@ Table of Contents
        3.5.8.  Preferred-Languages . . . . . . . . . . . . . . . . .   9
      3.6.  Example of an unsigned "security.txt" file  . . . . . . .   9
      3.7.  Example of a signed "security.txt" file . . . . . . . . .  10
-   4.  Location of the security.txt file . . . . . . . . . . . . . .  10
+   4.  Location of the security.txt file . . . . . . . . . . . . . .  11
      4.1.  Scope of the File . . . . . . . . . . . . . . . . . . . .  11
-   5.  File Format Description and ABNF Grammar  . . . . . . . . . .  11
+   5.  File Format Description and ABNF Grammar  . . . . . . . . . .  12
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .  13
-     6.1.  Compromised Files and Incident Response . . . . . . . . .  13
+     6.1.  Compromised Files and Incident Response . . . . . . . . .  14
      6.2.  Redirects . . . . . . . . . . . . . . . . . . . . . . . .  14
      6.3.  Incorrect or Stale Information  . . . . . . . . . . . . .  14
-     6.4.  Intentionally Malformed Files, Resources and Reports  . .  14
+     6.4.  Intentionally Malformed Files, Resources and Reports  . .  15
      6.5.  No Implied Permission for Testing . . . . . . . . . . . .  15
      6.6.  Multi-user Environments . . . . . . . . . . . . . . . . .  15
-     6.7.  Protecting Data in Transit  . . . . . . . . . . . . . . .  15
+     6.7.  Protecting Data in Transit  . . . . . . . . . . . . . . .  16
      6.8.  Spam and Spurious Reports . . . . . . . . . . . . . . . .  16
-   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  16
+   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  17
      7.1.  Well-Known URIs registry  . . . . . . . . . . . . . . . .  17
      7.2.  Registry for security.txt Fields  . . . . . . . . . . . .  17
    8.  Contributors  . . . . . . . . . . . . . . . . . . . . . . . .  19
@@ -118,7 +118,7 @@ Internet-Draft                security.txt                    March 2021
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  21
    Appendix A.  Note to Readers  . . . . . . . . . . . . . . . . . .  22
    Appendix B.  Document History . . . . . . . . . . . . . . . . . .  22
-     B.1.  Since draft-foudil-securitytxt-00 . . . . . . . . . . . .  23
+     B.1.  Since draft-foudil-securitytxt-00 . . . . . . . . . . . .  22
      B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  23
      B.3.  Since draft-foudil-securitytxt-02 . . . . . . . . . . . .  23
      B.4.  Since draft-foudil-securitytxt-03 . . . . . . . . . . . .  24
@@ -126,7 +126,7 @@ Internet-Draft                security.txt                    March 2021
      B.6.  Since draft-foudil-securitytxt-05 . . . . . . . . . . . .  25
      B.7.  Since draft-foudil-securitytxt-06 . . . . . . . . . . . .  25
      B.8.  Since draft-foudil-securitytxt-07 . . . . . . . . . . . .  25
-     B.9.  Since draft-foudil-securitytxt-08 . . . . . . . . . . . .  26
+     B.9.  Since draft-foudil-securitytxt-08 . . . . . . . . . . . .  25
      B.10. Since draft-foudil-securitytxt-09 . . . . . . . . . . . .  26
      B.11. Since draft-foudil-securitytxt-10 . . . . . . . . . . . .  26
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  26
@@ -373,11 +373,11 @@ Internet-Draft                security.txt                    March 2021
    section 2.7.2 of [RFC7230]).  Security email addresses should use the
    conventions defined in section 4 of [RFC2142].
 
-   The value MUST follow the URI syntax described in [RFC3986].  This
-   means that "mailto" and "tel" URI schemes must be used when
-   specifying email addresses and telephone numbers, as defined in
-   [RFC6068] and [RFC3966].  When the value of this field is an email
-   address, it is RECOMMENDED that encryption be used (as per
+   The value MUST follow the URI syntax described in section 3 of
+   [RFC3986].  This means that "mailto" and "tel" URI schemes must be
+   used when specifying email addresses and telephone numbers, as
+   defined in [RFC6068] and [RFC3966].  When the value of this field is
+   an email address, it is RECOMMENDED that encryption be used (as per
    Section 3.5.4).
 
    The precedence SHOULD be in listed order.  The first occurrence is
@@ -437,7 +437,7 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
    This field MUST always be present and MUST NOT appear more than once.
 
-   Expires: Thu, 31 Dec 2020 18:37:07 -0800
+   Expires: Thu, 31 Dec 2021 18:37:07 -0800
 
 
 
@@ -480,9 +480,8 @@ Internet-Draft                security.txt                    March 2021
    security researchers may assume that English is the language to be
    used (as per section 4.5 of [RFC2277]).
 
-   The order in which they appear MUST NOT be interpreted as an
-   indication of priority - rather these MUST be interpreted as all
-   being of equal priority.
+   The order in which they appear is not an indication of priority; the
+   listed languages are intended to have equal priority.
 
    This field MUST NOT appear more than once.
 
@@ -491,6 +490,7 @@ Internet-Draft                security.txt                    March 2021
    Preferred-Languages: en, es, fr
 
 3.6.  Example of an unsigned "security.txt" file
+
 
 
 
@@ -518,6 +518,8 @@ Internet-Draft                security.txt                    March 2021
    # Our security acknowledgments page
    Acknowledgments: https://example.com/hall-of-fame.html
 
+   Expires: Thu, 31 Dec 2021 18:37:07 -0800
+
 3.7.  Example of a signed "security.txt" file
 
    ----BEGIN PGP SIGNED MESSAGE-----
@@ -537,11 +539,28 @@ Internet-Draft                security.txt                    March 2021
 
    # Our security acknowledgments page
    Acknowledgments: https://example.com/hall-of-fame.html
+
+   Expires: Thu, 31 Dec 2021 18:37:07 -0800
    -----BEGIN PGP SIGNATURE-----
    Version: GnuPG v2.2
 
    [signature]
    -----END PGP SIGNATURE-----
+
+
+
+
+
+
+
+
+
+
+
+Foudil & Shafranovich   Expires 10 September 2021              [Page 10]
+
+Internet-Draft                security.txt                    March 2021
+
 
 4.  Location of the security.txt file
 
@@ -554,19 +573,11 @@ Internet-Draft                security.txt                    March 2021
    "security.txt" file is present in both locations, the one in the
    "/.well-known/" path MUST be used.
 
-
-
-
-Foudil & Shafranovich   Expires 10 September 2021              [Page 10]
-
-Internet-Draft                security.txt                    March 2021
-
-
    The file MUST be accessed via HTTP 1.0 or a higher version and the
-   file access MUST use "https" scheme (as per [RFC1945] and section
-   2.7.2 of [RFC7230]).  It MUST have a Content-Type of "text/plain"
-   with the default charset parameter set to "utf-8" (as per section
-   4.1.3 of [RFC2046]).
+   file access MUST use "https" scheme (as per section 2.7.2 of
+   [RFC7230]).  It MUST have a Content-Type of "text/plain" with the
+   default charset parameter set to "utf-8" (as per section 4.1.3 of
+   [RFC2046]).
 
    Retrieval of "security.txt" files and resources indicated within such
    files may result in a redirect (as per section 6.4 of [RFC7231]).
@@ -592,6 +603,21 @@ Internet-Draft                security.txt                    March 2021
 
    Some examples appear below:
 
+
+
+
+
+
+
+
+
+
+
+Foudil & Shafranovich   Expires 10 September 2021              [Page 11]
+
+Internet-Draft                security.txt                    March 2021
+
+
    # The following only applies to example.com.
    https://example.com/.well-known/security.txt
 
@@ -606,66 +632,40 @@ Internet-Draft                security.txt                    March 2021
 
 5.  File Format Description and ABNF Grammar
 
-   The expected file format of the security.txt file is plain text (MIME
-   type "text/plain") as defined in section 4.1.3 of [RFC2046] and is
-   encoded using UTF-8 [RFC3629] in Net-Unicode form [RFC5198].
-
-
-
-
-Foudil & Shafranovich   Expires 10 September 2021              [Page 11]
-
-Internet-Draft                security.txt                    March 2021
-
+   The file format of the security.txt file MUST be plain text (MIME
+   type "text/plain") as defined in section 4.1.3 of [RFC2046] and MUST
+   be encoded using UTF-8 [RFC3629] in Net-Unicode form [RFC5198].
 
    The following is an ABNF definition of the security.txt format, using
    the conventions defined in [RFC5234].
 
-  body             =  signed / unsigned
+body             =  signed / unsigned
 
-  signed           =  sign-header unsigned sign-footer
+signed           =  sign-header unsigned sign-footer
 
-  sign-header      =  < headers and line from section 7 of [RFC4880] >
+sign-header      =  < headers and line from section 7 of [RFC4880] >
 
-  sign-footer      =  < OpenPGP signature from section 7 of [RFC4880] >
+sign-footer      =  < OpenPGP signature from section 7 of [RFC4880] >
 
-  unsigned         =  *line (contact-field eol)
-                      *line (expires-field eol)
-                      *line [lang-field eol] *line
-                      ; order of fields within the file is not important
+unsigned         =  *line (contact-field eol) ; one or more required
+                    *line (expires-field eol) ; exactly one required
+                    *line [lang-field eol] *line ; exactly one optional
+                    ; order of fields within the file is not important
+                    ; except that if contact-field appears more than once
+                    ; the order of those indicates priority (see Section 3.5.3)
 
-  line             =  [ (field / comment) ] eol
+line             =  [ (field / comment) ] eol
 
-  eol              =  *WSP [CR] LF
+eol              =  *WSP [CR] LF
 
-  field            =  ack-field /
-                      can-field /
-                      contact-field /
-                      encryption-field /
-                      hiring-field /
-                      policy-field /
-                      ext-field
-
-  fs               =  ":"
-
-  comment          =  "#" *(WSP / VCHAR / %x80-FFFFF)
-
-  ack-field        =  "Acknowledgments" fs SP uri
-
-  can-field        =  "Canonical" fs SP uri
-
-  contact-field    =  "Contact" fs SP uri
-
-  expires-field    =  "Expires" fs SP date-time
-
-  encryption-field =  "Encryption" fs SP uri
-
-  hiring-field     =  "Hiring" fs SP uri
-
-  lang-field       =  "Preferred-Languages" fs SP lang-values
-
-  policy-field     =  "Policy" fs SP uri
-
+field            =  ; optional fields
+                    ack-field /
+                    can-field /
+                    contact-field / ; optional repeated instances
+                    encryption-field /
+                    hiring-field /
+                    policy-field /
+                    ext-field
 
 
 
@@ -674,19 +674,39 @@ Foudil & Shafranovich   Expires 10 September 2021              [Page 12]
 Internet-Draft                security.txt                    March 2021
 
 
-  date-time        =  < imported from section 3.3 of [RFC5322] >
+fs               =  ":"
 
-  lang-tag         =  < Language-Tag from section 2.1 of [RFC5646] >
+comment          =  "#" *(WSP / VCHAR / %x80-FFFFF)
 
-  lang-values      =  lang-tag *(*WSP "," *WSP lang-tag)
+ack-field        =  "Acknowledgments" fs SP uri
 
-  uri              =  < URI as per [RFC3986] >
+can-field        =  "Canonical" fs SP uri
 
-  ext-field        =  field-name fs SP unstructured
+contact-field    =  "Contact" fs SP uri
 
-  field-name       =  < imported from section 3.6.8 of [RFC5322] >
+expires-field    =  "Expires" fs SP date-time
 
-  unstructured     =  < imported from section 3.2.5 of [RFC5322] >
+encryption-field =  "Encryption" fs SP uri
+
+hiring-field     =  "Hiring" fs SP uri
+
+lang-field       =  "Preferred-Languages" fs SP lang-values
+
+policy-field     =  "Policy" fs SP uri
+
+date-time        =  < imported from section 3.3 of [RFC5322] >
+
+lang-tag         =  < Language-Tag from section 2.1 of [RFC5646] >
+
+lang-values      =  lang-tag *(*WSP "," *WSP lang-tag)
+
+uri              =  < URI as per section 3 of [RFC3986] >
+
+ext-field        =  field-name fs SP unstructured
+
+field-name       =  < imported from section 3.6.8 of [RFC5322] >
+
+unstructured     =  < imported from section 3.2.5 of [RFC5322] >
 
    "ext-field" refers to extension fields, which are discussed in
    Section 3.4
@@ -696,6 +716,19 @@ Internet-Draft                security.txt                    March 2021
    Because of the use of URIs and well-known resources, security
    considerations of [RFC3986] and [RFC8615] apply here, in addition to
    the considerations outlined below.
+
+
+
+
+
+
+
+
+
+Foudil & Shafranovich   Expires 10 September 2021              [Page 13]
+
+Internet-Draft                security.txt                    March 2021
+
 
 6.1.  Compromised Files and Incident Response
 
@@ -715,20 +748,6 @@ Internet-Draft                security.txt                    March 2021
    historical records before using the information contained in the
    file.  If the "security.txt" file looks suspicious or compromised, it
    should not be used.
-
-
-
-
-
-
-
-
-
-
-Foudil & Shafranovich   Expires 10 September 2021              [Page 13]
-
-Internet-Draft                security.txt                    March 2021
-
 
    While it is not recommended, implementors may choose to use the
    information published within a "security.txt" file for incident
@@ -757,6 +776,16 @@ Internet-Draft                security.txt                    March 2021
    Section 3.5.5) to indicate to researchers when the data in the file
    is no longer valid.
 
+
+
+
+
+
+Foudil & Shafranovich   Expires 10 September 2021              [Page 14]
+
+Internet-Draft                security.txt                    March 2021
+
+
    Organizations should ensure that information in this file and any
    referenced resources such as web pages, email addresses, and
    telephone numbers are kept current, are accessible, controlled by the
@@ -777,14 +806,6 @@ Internet-Draft                security.txt                    March 2021
    security.txt files, as well as any security reports received as a
    result of publishing this file.  Such resources and reports may be
    hostile, malformed or malicious.
-
-
-
-
-Foudil & Shafranovich   Expires 10 September 2021              [Page 14]
-
-Internet-Draft                security.txt                    March 2021
-
 
 6.5.  No Implied Permission for Testing
 
@@ -814,13 +835,20 @@ Internet-Draft                security.txt                    March 2021
    third-party can create a page with the "security.txt" AND "/.well-
    known/security.txt" names.
 
+
+
+Foudil & Shafranovich   Expires 10 September 2021              [Page 15]
+
+Internet-Draft                security.txt                    March 2021
+
+
 6.7.  Protecting Data in Transit
 
    To protect a "security.txt" file from being tampered with in transit,
-   implementors should use HTTPS (as per [RFC2818]) when serving the
-   file itself and for retrieval of any web URIs referenced in it
-   (except when otherwise noted in this specification).  As part of the
-   TLS handshake, researchers should validate the provided X.509
+   implementors MUST use HTTPS (as per section 2.7.2 of [RFC7230]) when
+   serving the file itself and for retrieval of any web URIs referenced
+   in it (except when otherwise noted in this specification).  As part
+   of the TLS handshake, researchers should validate the provided X.509
    certificate in accordance with [RFC6125] and the following
    considerations:
 
@@ -833,14 +861,6 @@ Internet-Draft                security.txt                    March 2021
    The certificate may also be checked for revocation via the Online
    Certificate Status Protocol (OCSP) [RFC6960], certificate revocation
    lists (CRLs), or similar mechanisms.
-
-
-
-
-Foudil & Shafranovich   Expires 10 September 2021              [Page 15]
-
-Internet-Draft                security.txt                    March 2021
-
 
    In cases where the "security.txt" file cannot be served via HTTPS
    (such as localhost) or is being served with an invalid certificate,
@@ -868,6 +888,16 @@ Internet-Draft                security.txt                    March 2021
    file as a way to spam unrelated third parties by listing their
    resources and/or contact information.
 
+
+
+
+
+
+Foudil & Shafranovich   Expires 10 September 2021              [Page 16]
+
+Internet-Draft                security.txt                    March 2021
+
+
    Organizations need to weigh the advantages of publishing this file
    versus the possible disadvantages and increased resources required to
    analyze security reports.
@@ -878,25 +908,9 @@ Internet-Draft                security.txt                    March 2021
 
 7.  IANA Considerations
 
-   example.com is used in this document following the uses indicated in
-   [RFC2606].
-
-   192.0.2.0 and 2001:db8:8:4::2 are used in this document following the
-   uses indicated in [RFC6890].
-
    Implementors should be aware that any resources referenced within a
    security.txt file MUST NOT point to the Well-Known URIs namespace
    unless they are registered with IANA (as per [RFC8615]).
-
-
-
-
-
-
-Foudil & Shafranovich   Expires 10 September 2021              [Page 16]
-
-Internet-Draft                security.txt                    March 2021
-
 
 7.1.  Well-Known URIs registry
 
@@ -933,6 +947,13 @@ Internet-Draft                security.txt                    March 2021
 
    1.  Name of the field being registered or updated
 
+
+
+Foudil & Shafranovich   Expires 10 September 2021              [Page 17]
+
+Internet-Draft                security.txt                    March 2021
+
+
    2.  Short description of the field
 
    3.  Whether the field can appear more than once
@@ -944,15 +965,8 @@ Internet-Draft                security.txt                    March 2021
 
        *  current: The field is in current use
 
-       *  deprecated: The field is in current use, but its use is
+       *  deprecated: The field has been in use, but new usage is
           discouraged
-
-
-
-Foudil & Shafranovich   Expires 10 September 2021              [Page 17]
-
-Internet-Draft                security.txt                    March 2021
-
 
        *  historic: The field is no longer in current use
 
@@ -968,39 +982,25 @@ Internet-Draft                security.txt                    March 2021
    Multiple Appearances: Yes
    Published in: this document
    Status: current
-   Change controller: IESG
+   Change controller: IETF
 
    Field Name: Canonical
-   Description: canonical URL for this file
+   Description: canonical URI for this file
    Multiple Appearances: Yes
    Published in: this document
    Status: current
-   Change controller: IESG
+   Change controller: IETF
 
    Field Name: Contact
    Description: contact information to use for reporting vulnerabilities
    Multiple Appearances: Yes
    Published in: this document
    Status: current
-   Change controller: IESG
+   Change controller: IETF
 
    Field Name: Expires
    Description: date and time after which this file is considered stale
    Multiple Appearances: No
-   Published in: this document
-   Status: current
-   Change controller: IESG
-
-   Field Name: Encryption
-   Description: link to a key to be used for encrypted communication
-   Multiple Appearances: Yes
-   Published in: this document
-   Status: current
-   Change controller: IESG
-
-   Field Name: Hiring
-   Description: link to the vendor's security-related job positions
-   Multiple Appearances: Yes
    Published in: this document
 
 
@@ -1011,21 +1011,35 @@ Internet-Draft                security.txt                    March 2021
 
 
    Status: current
-   Change controller: IESG
+   Change controller: IETF
+
+   Field Name: Encryption
+   Description: link to a key to be used for encrypted communication
+   Multiple Appearances: Yes
+   Published in: this document
+   Status: current
+   Change controller: IETF
+
+   Field Name: Hiring
+   Description: link to the vendor's security-related job positions
+   Multiple Appearances: Yes
+   Published in: this document
+   Status: current
+   Change controller: IETF
 
    Field Name: Policy
    Description: link to security policy page
    Multiple Appearances: Yes
    Published in: this document
    Status: current
-   Change controller: IESG
+   Change controller: IETF
 
    Field Name: Preferred-Languages
    Description: list of preferred languages for security reports
    Multiple Appearances: No
    Published in: this document
    Status: current
-   Change controller: IESG
+   Change controller: IETF
 
 8.  Contributors
 
@@ -1043,10 +1057,14 @@ Internet-Draft                security.txt                    March 2021
 
 9.1.  Normative References
 
-   [RFC1945]  Berners-Lee, T., Fielding, R., and H. Frystyk, "Hypertext
-              Transfer Protocol -- HTTP/1.0", RFC 1945,
-              DOI 10.17487/RFC1945, May 1996,
-              <https://www.rfc-editor.org/info/rfc1945>.
+
+
+
+
+Foudil & Shafranovich   Expires 10 September 2021              [Page 19]
+
+Internet-Draft                security.txt                    March 2021
+
 
    [RFC2046]  Freed, N. and N. Borenstein, "Multipurpose Internet Mail
               Extensions (MIME) Part Two: Media Types", RFC 2046,
@@ -1058,14 +1076,6 @@ Internet-Draft                security.txt                    March 2021
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
 
-
-
-
-Foudil & Shafranovich   Expires 10 September 2021              [Page 19]
-
-Internet-Draft                security.txt                    March 2021
-
-
    [RFC2142]  Crocker, D., "Mailbox Names for Common Services, Roles and
               Functions", RFC 2142, DOI 10.17487/RFC2142, May 1997,
               <https://www.rfc-editor.org/info/rfc2142>.
@@ -1073,10 +1083,6 @@ Internet-Draft                security.txt                    March 2021
    [RFC2277]  Alvestrand, H., "IETF Policy on Character Sets and
               Languages", BCP 18, RFC 2277, DOI 10.17487/RFC2277,
               January 1998, <https://www.rfc-editor.org/info/rfc2277>.
-
-   [RFC2818]  Rescorla, E., "HTTP Over TLS", RFC 2818,
-              DOI 10.17487/RFC2818, May 2000,
-              <https://www.rfc-editor.org/info/rfc2818>.
 
    [RFC3629]  Yergeau, F., "UTF-8, a transformation format of ISO
               10646", STD 63, RFC 3629, DOI 10.17487/RFC3629, November
@@ -1109,18 +1115,16 @@ Internet-Draft                security.txt                    March 2021
               DOI 10.17487/RFC5322, October 2008,
               <https://www.rfc-editor.org/info/rfc5322>.
 
-   [RFC5646]  Phillips, A., Ed. and M. Davis, Ed., "Tags for Identifying
-              Languages", BCP 47, RFC 5646, DOI 10.17487/RFC5646,
-              September 2009, <https://www.rfc-editor.org/info/rfc5646>.
-
-
-
 
 
 Foudil & Shafranovich   Expires 10 September 2021              [Page 20]
 
 Internet-Draft                security.txt                    March 2021
 
+
+   [RFC5646]  Phillips, A., Ed. and M. Davis, Ed., "Tags for Identifying
+              Languages", BCP 47, RFC 5646, DOI 10.17487/RFC5646,
+              September 2009, <https://www.rfc-editor.org/info/rfc5646>.
 
    [RFC6068]  Duerst, M., Masinter, L., and J. Zawinski, "The 'mailto'
               URI Scheme", RFC 6068, DOI 10.17487/RFC6068, October 2010,
@@ -1163,10 +1167,6 @@ Internet-Draft                security.txt                    March 2021
               University, "The CERT Guide to Coordinated Vulnerability
               Disclosure (CMU/SEI-2017-SR-022)", 2017.
 
-   [ISO.29147.2018]
-              International Organization for Standardization (ISO),
-              "ISO/IEC 29147:2018, Information technology — Security
-              techniques — Vulnerability disclosure", 2018.
 
 
 
@@ -1177,6 +1177,11 @@ Foudil & Shafranovich   Expires 10 September 2021              [Page 21]
 
 Internet-Draft                security.txt                    March 2021
 
+
+   [ISO.29147.2018]
+              International Organization for Standardization (ISO),
+              "ISO/IEC 29147:2018, Information technology — Security
+              techniques — Vulnerability disclosure", 2018.
 
    [RFC0793]  Postel, J., "Transmission Control Protocol", STD 7,
               RFC 793, DOI 10.17487/RFC0793, September 1981,
@@ -1191,19 +1196,10 @@ Internet-Draft                security.txt                    March 2021
               DOI 10.17487/RFC2350, June 1998,
               <https://www.rfc-editor.org/info/rfc2350>.
 
-   [RFC2606]  Eastlake 3rd, D. and A. Panitz, "Reserved Top Level DNS
-              Names", BCP 32, RFC 2606, DOI 10.17487/RFC2606, June 1999,
-              <https://www.rfc-editor.org/info/rfc2606>.
-
    [RFC3013]  Killalea, T., "Recommended Internet Service Provider
               Security Services and Procedures", BCP 46, RFC 3013,
               DOI 10.17487/RFC3013, November 2000,
               <https://www.rfc-editor.org/info/rfc3013>.
-
-   [RFC6890]  Cotton, M., Vegoda, L., Bonica, R., Ed., and B. Haberman,
-              "Special-Purpose IP Address Registries", BCP 153,
-              RFC 6890, DOI 10.17487/RFC6890, April 2013,
-              <https://www.rfc-editor.org/info/rfc6890>.
 
    [RFC7485]  Zhou, L., Kong, N., Shen, S., Sheng, S., and A. Servin,
               "Inventory and Analysis of WHOIS Registration Objects",
@@ -1225,6 +1221,10 @@ Appendix A.  Note to Readers
 
 Appendix B.  Document History
 
+      *Note to the RFC Editor:* Please remove this section prior to
+      publication.
+
+B.1.  Since draft-foudil-securitytxt-00
 
 
 
@@ -1233,11 +1233,6 @@ Foudil & Shafranovich   Expires 10 September 2021              [Page 22]
 
 Internet-Draft                security.txt                    March 2021
 
-
-      *Note to the RFC Editor:* Please remove this section prior to
-      publication.
-
-B.1.  Since draft-foudil-securitytxt-00
 
    *  Moved to use IETF's markdown tools for draft updates
 
@@ -1282,6 +1277,11 @@ B.3.  Since draft-foudil-securitytxt-02
 
    *  Use "mailto" and "tel" (#62)
 
+   *  Fix typo in the "Example" section (#64)
+
+   *  Clarified that the root directory is a fallback option (#72)
+
+   *  Defined content-type for the response (#68)
 
 
 
@@ -1289,12 +1289,6 @@ Foudil & Shafranovich   Expires 10 September 2021              [Page 23]
 
 Internet-Draft                security.txt                    March 2021
 
-
-   *  Fix typo in the "Example" section (#64)
-
-   *  Clarified that the root directory is a fallback option (#72)
-
-   *  Defined content-type for the response (#68)
 
    *  Clarify the scope of the security.txt file (#69)
 
@@ -1337,15 +1331,6 @@ B.5.  Since draft-foudil-securitytxt-04
 
    *  Removed permission field (#30)
 
-
-
-
-
-Foudil & Shafranovich   Expires 10 September 2021              [Page 24]
-
-Internet-Draft                security.txt                    March 2021
-
-
    *  Removed signature field and switched to inline signatures (#93 and
       #128)
 
@@ -1353,6 +1338,13 @@ Internet-Draft                security.txt                    March 2021
 
    *  Text and ABNF grammar improvements plus ABNF changes for comments
       (#123)
+
+
+
+Foudil & Shafranovich   Expires 10 September 2021              [Page 24]
+
+Internet-Draft                security.txt                    March 2021
+
 
    *  Changed ".security.txt" to "security.txt" to be consistent
 
@@ -1391,17 +1383,6 @@ B.8.  Since draft-foudil-securitytxt-07
 
    *  Adding guidance for designated experts
 
-
-
-
-
-
-
-Foudil & Shafranovich   Expires 10 September 2021              [Page 25]
-
-Internet-Draft                security.txt                    March 2021
-
-
 B.9.  Since draft-foudil-securitytxt-08
 
    *  Added language and example regarding URI encoding (#176)
@@ -1413,6 +1394,13 @@ B.9.  Since draft-foudil-securitytxt-08
    *  Addressing last call feedback (#179, #180 and #183)
 
    *  Clarifying order of fields (#174)
+
+
+
+Foudil & Shafranovich   Expires 10 September 2021              [Page 25]
+
+Internet-Draft                security.txt                    March 2021
+
 
    *  Revert comment/field association (#158)
 
@@ -1450,14 +1438,6 @@ Authors' Addresses
    Yakov Shafranovich
    Nightwatch Cybersecurity
 
-
-
-
-Foudil & Shafranovich   Expires 10 September 2021              [Page 26]
-
-Internet-Draft                security.txt                    March 2021
-
-
    Email: yakov+ietf@nightwatchcybersecurity.com
 
 
@@ -1473,40 +1453,4 @@ Internet-Draft                security.txt                    March 2021
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Foudil & Shafranovich   Expires 10 September 2021              [Page 27]
+Foudil & Shafranovich   Expires 10 September 2021              [Page 26]
