@@ -10,7 +10,7 @@ Expires: 12 September 2021                      Nightwatch Cybersecurity
 
 
        A File Format to Aid in Security Vulnerability Disclosure
-                      draft-foudil-securitytxt-11
+                      draft-foudil-securitytxt-12
 
 Abstract
 
@@ -73,7 +73,7 @@ Table of Contents
      1.1.  Motivation, Prior Work and Scope  . . . . . . . . . . . .   3
      1.2.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   4
    2.  Note to Readers . . . . . . . . . . . . . . . . . . . . . . .   4
-   3.  The Specification . . . . . . . . . . . . . . . . . . . . . .   4
+   3.  The Specification . . . . . . . . . . . . . . . . . . . . . .   5
      3.1.  Comments  . . . . . . . . . . . . . . . . . . . . . . . .   5
      3.2.  Line Separator  . . . . . . . . . . . . . . . . . . . . .   5
      3.3.  Digital signature . . . . . . . . . . . . . . . . . . . .   6
@@ -129,6 +129,7 @@ Internet-Draft                security.txt                    March 2021
      B.9.  Since draft-foudil-securitytxt-08 . . . . . . . . . . . .  25
      B.10. Since draft-foudil-securitytxt-09 . . . . . . . . . . . .  26
      B.11. Since draft-foudil-securitytxt-10 . . . . . . . . . . . .  26
+     B.12. Since draft-foudil-securitytxt-11 . . . . . . . . . . . .  26
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  26
 
 1.  Introduction
@@ -159,9 +160,8 @@ Internet-Draft                security.txt                    March 2021
    information and vulnerability disclosure practices for organizations
    in order to report vulnerabilities.
 
-   In this document, we define a richer and more extensible way for
-   organizations to communicate information about their security
-   disclosure practices and ways to contact them.  Other details of
+
+
 
 
 
@@ -170,6 +170,9 @@ Foudil & Shafranovich   Expires 12 September 2021               [Page 3]
 Internet-Draft                security.txt                    March 2021
 
 
+   In this document, we define a richer and more extensible way for
+   organizations to communicate information about their security
+   disclosure practices and ways to contact them.  Other details of
    vulnerability disclosure are outside the scope of this document.
    Readers are encouraged to consult other documents such as
    [ISO.29147.2018] or [CERT.CVD].
@@ -210,12 +213,9 @@ Internet-Draft                security.txt                    March 2021
    Development of this draft takes place on Github at:
    https://github.com/securitytxt/security-txt
 
-3.  The Specification
 
-   This document defines a text file to be placed in a known location
-   that provides information about vulnerability disclosure practices of
-   a particular organization.  This is intended to help security
-   researchers when disclosing security vulnerabilities.
+
+
 
 
 
@@ -225,6 +225,13 @@ Foudil & Shafranovich   Expires 12 September 2021               [Page 4]
 
 Internet-Draft                security.txt                    March 2021
 
+
+3.  The Specification
+
+   This document defines a text file to be placed in a known location
+   that provides information about vulnerability disclosure practices of
+   a particular organization.  This is intended to help security
+   researchers when disclosing security vulnerabilities.
 
    By convention, the file is named "security.txt".  Location and scope
    are described in Section 4.
@@ -266,13 +273,6 @@ Internet-Draft                security.txt                    March 2021
    Every line MUST end either with a carriage return and line feed
    characters (CRLF / %x0D %x0A) or just a line feed character (LF /
    %x0A).
-
-
-
-
-
-
-
 
 
 
@@ -1425,6 +1425,10 @@ B.11.  Since draft-foudil-securitytxt-10
    *  Adding language to explain alignment with the CERT CVD guide
       (#202)
 
+B.12.  Since draft-foudil-securitytxt-11
+
+   *  TBD
+
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt
 
@@ -1439,10 +1443,6 @@ Authors' Addresses
    Nightwatch Cybersecurity
 
    Email: yakov+ietf@nightwatchcybersecurity.com
-
-
-
-
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: A File Format to Aid in Security Vulnerability Disclosure
 abbrev: security.txt
-docname: draft-foudil-securitytxt-11
+docname: draft-foudil-securitytxt-12
 ipr: trust200902
 cat: info
 pi:
@@ -871,6 +871,9 @@ of DNS-stored encryption keys (#28 and #94)
 - Changes addressing IESG feedback
 - Removed language regarding file systems (#201)
 - Adding language to explain alignment with the CERT CVD guide (#202)
+
+## Since draft-foudil-securitytxt-11
+- TBD
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
