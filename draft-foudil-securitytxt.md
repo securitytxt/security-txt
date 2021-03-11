@@ -20,7 +20,7 @@ author:
 
 informative:
     ISO.29147.2018:
-      title: ISO/IEC 29147:2018, Information technology — Security techniques — Vulnerability disclosure
+      title: ISO/IEC 29147:2018, Information technology - Security techniques - Vulnerability disclosure
       author:
           org: International Organization for Standardization (ISO)
       date: 2018
@@ -52,8 +52,8 @@ of such owner.
 
 As per section 4 of {{?RFC2142}}, there is an existing convention
 of using the \<SECURITY@domain\> email address for communications regarding
-security vulnerabilities. That convention provides only a single, email-based
-channel of communication for security vulnerabilities per domain, and does not provide
+security issues. That convention provides only a single, email-based
+channel of communication per domain, and does not provide
 a way for domain owners to publish information about their security disclosure
 practices.
 
@@ -63,7 +63,7 @@ in section 3.2 of {{?RFC2350}} and for site operators in section 5.2 of
 {{?RFC2196}}. As per {{?RFC7485}}, there is also contact information provided by
 Regional Internet Registries (RIRs) and domain registries for owners of IP
 addresses, autonomous system numbers (ASNs), and domain names. However, none of
-these address the issue of how security researchers can locate contact information
+these tackle the issue of how security researchers can locate contact information
 and vulnerability disclosure practices for organizations in order to report
 vulnerabilities.
 
@@ -92,12 +92,13 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
 BCP 14 {{!RFC2119}} {{!RFC8174}} when, and only when, they appear in all
 capitals, as shown here.
 
-The term "security researcher" and "researcher" corresponds
+The term "researcher" corresponds
 to the terms "finder" and "reporter" in {{ISO.29147.2018}} and {{CERT.CVD}}.
 The term "organization" corresponds to the term "vendor"
 in {{ISO.29147.2018}} and {{CERT.CVD}}.
 
-The term "implementors" includes all parties involved in the disclosure process.
+The term "implementors" includes all parties involved in
+the vulnerability disclosure process.
 
 # Note to Readers
 
@@ -109,24 +110,24 @@ Development of this draft takes place on Github at: https://github.com/securityt
 # The Specification
 
 This document defines a text file to be placed in a known location
-that provides information about the vulnerability disclosure practices of a particular organization.
+that provides information about vulnerability disclosure practices of a particular organization.
 This is intended to help security researchers when disclosing security vulnerabilities.
 
 By convention, the file is named "security.txt". Location and scope are described
 in {{location}}.
 
 This text file contains multiple fields with different values. A field contains a "name" which is the first part of a field all the way up
-to the colon ("Contact:") and follows the syntax defined for "field-name" in section 3.6.8
+to the colon (for example: "Contact:") and follows the syntax defined for "field-name" in section 3.6.8
 of {{!RFC5322}}. Field names are case-insensitive (as per section 2.3 of {{!RFC5234}}).
-The "value" comes after the field name ("https://example.com/security") and follows the syntax
+The "value" comes after the field name (for example: "mailto:security@example.com") and follows the syntax
 defined for "unstructured" in section 3.2.5 of {{!RFC5322}}. The file MAY also contain blank lines.
 
 A field MUST always consist of a name and a value
-("Contact: https://example.com/security"). A security.txt file
+(for example: "Contact: mailto:security@example.com"). A security.txt file
 can have an unlimited number of fields. Each field MUST appear on
 its own line. Unless specified otherwise by the field definition,
 multiple values MUST NOT be chained together for a single field.
-Unless otherwise indicated in a definition of a particular field, any field MAY appear
+Unless otherwise indicated in a definition of a particular field, a field MAY appear
 multiple times.
 
 Implementors should be aware that some of the fields may
@@ -455,8 +456,9 @@ unsigned         =  *line (contact-field eol) ; one or more required
                     *line (expires-field eol) ; exactly one required
                     *line [lang-field eol] *line ; exactly one optional
                     ; order of fields within the file is not important
-                    ; except that if contact-field appears more than once
-                    ; the order of those indicates priority (see Section 3.5.3)
+                    ; except that if contact-field appears more
+                    ; than once the order of those indicates
+                    ; priority (see Section 3.5.3)
 
 line             =  [ (field / comment) ] eol
 
