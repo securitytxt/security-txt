@@ -364,7 +364,7 @@ Expires: Thu, 31 Dec 2021 18:37:07 -0800
 ## Example of a signed "security.txt" file
 
 ~~~~~~~~~~
-----BEGIN PGP SIGNED MESSAGE-----
+-----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA256
 
 # Canonical URI
