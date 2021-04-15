@@ -363,7 +363,7 @@ Policy: https://example.com/security-policy.html
 # Our security acknowledgments page
 Acknowledgments: https://example.com/hall-of-fame.html
 
-Expires: Thu, 31 Dec 2021 18:37:07 -0800
+Expires: 2021-12-31T18:37:07z
 ~~~~~~~~~~
 
 ## Example of a signed "security.txt" file
@@ -387,7 +387,7 @@ Policy: https://example.com/security-policy.html
 # Our security acknowledgments page
 Acknowledgments: https://example.com/hall-of-fame.html
 
-Expires: Thu, 31 Dec 2021 18:37:07 -0800
+Expires: 2021-12-31T18:37:07z
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v2.2
 
