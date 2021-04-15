@@ -19,6 +19,11 @@ author:
   email: yakov+ietf@nightwatchcybersecurity.com
 
 informative:
+    ISO.8601:
+      title: ISO/IEC 8601, Date and time - Representations for information interchange - Parts 1 and 2
+      author:
+          org: International Organization for Standardization (ISO)
+      date: 2019
     ISO.29147.2018:
       title: ISO/IEC 29147:2018, Information technology - Security techniques - Vulnerability disclosure
       author:
@@ -288,14 +293,14 @@ Encryption: openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f
 ### Expires {#expires}
 
 This field indicates the date and time after which the data contained in the "security.txt"
-file is considered stale and should not be used (as per {{stale}}). The value of this field follows
-the format defined in section 3.3 of {{!RFC5322}}. It is RECOMMENDED that the value
+file is considered stale and should not be used (as per {{stale}}). The value of this field is formatted
+according to the Internet profile of {{ISO.8601}} as defined in {{!RFC3339}}. It is RECOMMENDED that the value
 of this field be less than a year into the future to avoid staleness.
 
 This field MUST always be present and MUST NOT appear more than once.
 
 ~~~~~~~~~~
-Expires: Thu, 31 Dec 2021 18:37:07 -0800
+Expires: 2021-12-31T18:37:07z
 ~~~~~~~~~~
 
 ### Hiring {#hiring}
@@ -873,7 +878,7 @@ of DNS-stored encryption keys (#28 and #94)
 - Adding language to explain alignment with the CERT CVD guide (#202)
 
 ## Since draft-foudil-securitytxt-11
-- TBD
+- Changed date format from RFC 5322 to RFC 3339 / ISO 8601 (#208)
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
