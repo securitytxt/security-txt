@@ -498,7 +498,7 @@ lang-field       =  "Preferred-Languages" fs SP lang-values
 
 policy-field     =  "Policy" fs SP uri
 
-date-time        =  < imported from section 3.3 of [RFC5322] >
+date-time        =  < imported from section 5.6 of [RFC3339] >
 
 lang-tag         =  < Language-Tag from section 2.1 of [RFC5646] >
 
