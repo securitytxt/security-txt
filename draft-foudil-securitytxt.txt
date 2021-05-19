@@ -5,8 +5,8 @@
 Network Working Group                                          E. Foudil
 Internet-Draft                                                          
 Intended status: Informational                           Y. Shafranovich
-Expires: 16 October 2021                        Nightwatch Cybersecurity
-                                                           14 April 2021
+Expires: 20 November 2021                       Nightwatch Cybersecurity
+                                                             19 May 2021
 
 
        A File Format to Aid in Security Vulnerability Disclosure
@@ -16,10 +16,10 @@ Abstract
 
    When security vulnerabilities are discovered by researchers, proper
    reporting channels are often lacking.  As a result, vulnerabilities
-   may be left unreported.  This document defines a format
-   ("security.txt") to help organizations describe their vulnerability
-   disclosure practices to make it easier for researchers to report
-   vulnerabilities.
+   may be left unreported.  This document defines a machine-parsable
+   format ("security.txt") to help organizations describe their
+   vulnerability disclosure practices to make it easier for researchers
+   to report vulnerabilities.
 
 Status of This Memo
 
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 October 2021.
+   This Internet-Draft will expire on 20 November 2021.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Foudil & Shafranovich    Expires 16 October 2021                [Page 1]
+Foudil & Shafranovich   Expires 20 November 2021                [Page 1]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -75,7 +75,7 @@ Table of Contents
    2.  Note to Readers . . . . . . . . . . . . . . . . . . . . . . .   4
    3.  The Specification . . . . . . . . . . . . . . . . . . . . . .   5
      3.1.  Comments  . . . . . . . . . . . . . . . . . . . . . . . .   5
-     3.2.  Line Separator  . . . . . . . . . . . . . . . . . . . . .   5
+     3.2.  Line Separator  . . . . . . . . . . . . . . . . . . . . .   6
      3.3.  Digital signature . . . . . . . . . . . . . . . . . . . .   6
      3.4.  Extensibility . . . . . . . . . . . . . . . . . . . . . .   6
      3.5.  Field Definitions . . . . . . . . . . . . . . . . . . . .   6
@@ -83,11 +83,11 @@ Table of Contents
        3.5.2.  Canonical . . . . . . . . . . . . . . . . . . . . . .   7
        3.5.3.  Contact . . . . . . . . . . . . . . . . . . . . . . .   7
        3.5.4.  Encryption  . . . . . . . . . . . . . . . . . . . . .   8
-       3.5.5.  Expires . . . . . . . . . . . . . . . . . . . . . . .   8
+       3.5.5.  Expires . . . . . . . . . . . . . . . . . . . . . . .   9
        3.5.6.  Hiring  . . . . . . . . . . . . . . . . . . . . . . .   9
        3.5.7.  Policy  . . . . . . . . . . . . . . . . . . . . . . .   9
        3.5.8.  Preferred-Languages . . . . . . . . . . . . . . . . .   9
-     3.6.  Example of an unsigned "security.txt" file  . . . . . . .   9
+     3.6.  Example of an unsigned "security.txt" file  . . . . . . .  10
      3.7.  Example of a signed "security.txt" file . . . . . . . . .  10
    4.  Location of the security.txt file . . . . . . . . . . . . . .  11
      4.1.  Scope of the File . . . . . . . . . . . . . . . . . . . .  11
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Foudil & Shafranovich    Expires 16 October 2021                [Page 2]
+Foudil & Shafranovich   Expires 20 November 2021                [Page 2]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
      9.1.  Normative References  . . . . . . . . . . . . . . . . . .  19
@@ -130,7 +130,7 @@ Internet-Draft                security.txt                    April 2021
      B.10. Since draft-foudil-securitytxt-09 . . . . . . . . . . . .  26
      B.11. Since draft-foudil-securitytxt-10 . . . . . . . . . . . .  26
      B.12. Since draft-foudil-securitytxt-11 . . . . . . . . . . . .  26
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  26
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  27
 
 1.  Introduction
 
@@ -165,16 +165,16 @@ Internet-Draft                security.txt                    April 2021
 
 
 
-Foudil & Shafranovich    Expires 16 October 2021                [Page 3]
+Foudil & Shafranovich   Expires 20 November 2021                [Page 3]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
-   In this document, we define a richer and more extensible way for
-   organizations to communicate information about their security
-   disclosure practices and ways to contact them.  Other details of
-   vulnerability disclosure are outside the scope of this document.
-   Readers are encouraged to consult other documents such as
+   In this document, we define a richer, machine-parsable and more
+   extensible way for organizations to communicate information about
+   their security disclosure practices and ways to contact them.  Other
+   details of vulnerability disclosure are outside the scope of this
+   document.  Readers are encouraged to consult other documents such as
    [ISO.29147.2018] or [CERT.CVD].
 
    As per [CERT.CVD], "vulnerability response" refers to reports of
@@ -221,17 +221,19 @@ Internet-Draft                security.txt                    April 2021
 
 
 
-Foudil & Shafranovich    Expires 16 October 2021                [Page 4]
+Foudil & Shafranovich   Expires 20 November 2021                [Page 4]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
 3.  The Specification
 
    This document defines a text file to be placed in a known location
    that provides information about vulnerability disclosure practices of
-   a particular organization.  This is intended to help security
-   researchers when disclosing security vulnerabilities.
+   a particular organization.  The format of this file is machine-
+   parsable following the ABNF grammar defined in Section 5.  This file
+   is intended to help security researchers when disclosing security
+   vulnerabilities.
 
    By convention, the file is named "security.txt".  Location and scope
    are described in Section 4.
@@ -268,19 +270,23 @@ Internet-Draft                security.txt                    April 2021
 
    # This is a comment.
 
+
+
+
+
+
+
+
+Foudil & Shafranovich   Expires 20 November 2021                [Page 5]
+
+Internet-Draft                security.txt                      May 2021
+
+
 3.2.  Line Separator
 
    Every line MUST end either with a carriage return and line feed
    characters (CRLF / %x0D %x0A) or just a line feed character (LF /
    %x0A).
-
-
-
-
-Foudil & Shafranovich    Expires 16 October 2021                [Page 5]
-
-Internet-Draft                security.txt                    April 2021
-
 
 3.3.  Digital signature
 
@@ -324,19 +330,19 @@ Internet-Draft                security.txt                    April 2021
    If this field indicates a web URI, then it MUST begin with "https://"
    (as per section 2.7.2 of [RFC7230]).
 
+
+
+
+Foudil & Shafranovich   Expires 20 November 2021                [Page 6]
+
+Internet-Draft                security.txt                      May 2021
+
+
    Example:
 
    Acknowledgments: https://example.com/hall-of-fame.html
 
    Example security acknowledgments page:
-
-
-
-
-Foudil & Shafranovich    Expires 16 October 2021                [Page 6]
-
-Internet-Draft                security.txt                    April 2021
-
 
    We would like to thank the following researchers:
 
@@ -360,6 +366,10 @@ Internet-Draft                security.txt                    April 2021
    digital signature (as per Section 3.3) to make the determination that
    a particular canonical URI is applicable.
 
+   If this field appears within a "security.txt" file, and the URI used
+   to retrieve that file is not listed within any canonical fields, then
+   the contents of the file SHOULD NOT be trusted.
+
    Canonical: https://www.example.com/.well-known/security.txt
    Canonical: https://someserver.example.com/.well-known/security.txt
 
@@ -376,6 +386,14 @@ Internet-Draft                security.txt                    April 2021
    The value MUST follow the URI syntax described in section 3 of
    [RFC3986].  This means that "mailto" and "tel" URI schemes must be
    used when specifying email addresses and telephone numbers, as
+
+
+
+Foudil & Shafranovich   Expires 20 November 2021                [Page 7]
+
+Internet-Draft                security.txt                      May 2021
+
+
    defined in [RFC6068] and [RFC3966].  When the value of this field is
    an email address, it is RECOMMENDED that encryption be used (as per
    Section 3.5.4).
@@ -384,15 +402,6 @@ Internet-Draft                security.txt                    April 2021
    the preferred method of contact.  In the example below, the first
    email address ("security@example.com") is the preferred method of
    contact.
-
-
-
-
-
-Foudil & Shafranovich    Expires 16 October 2021                [Page 7]
-
-Internet-Draft                security.txt                    April 2021
-
 
    Contact: mailto:security@example.com
    Contact: mailto:security%2Buri%2Bencoded@example.com
@@ -426,6 +435,21 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
 
    Encryption: openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f
 
+
+
+
+
+
+
+
+
+
+
+Foudil & Shafranovich   Expires 20 November 2021                [Page 8]
+
+Internet-Draft                security.txt                      May 2021
+
+
 3.5.5.  Expires
 
    This field indicates the date and time after which the data contained
@@ -438,17 +462,6 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
    This field MUST always be present and MUST NOT appear more than once.
 
    Expires: 2021-12-31T18:37:07z
-
-
-
-
-
-
-
-Foudil & Shafranovich    Expires 16 October 2021                [Page 8]
-
-Internet-Draft                security.txt                    April 2021
-
 
 3.5.6.  Hiring
 
@@ -485,26 +498,19 @@ Internet-Draft                security.txt                    April 2021
 
    This field MUST NOT appear more than once.
 
+
+
+
+Foudil & Shafranovich   Expires 20 November 2021                [Page 9]
+
+Internet-Draft                security.txt                      May 2021
+
+
    Example (English, Spanish and French):
 
    Preferred-Languages: en, es, fr
 
 3.6.  Example of an unsigned "security.txt" file
-
-
-
-
-
-
-
-
-
-
-
-Foudil & Shafranovich    Expires 16 October 2021                [Page 9]
-
-Internet-Draft                security.txt                    April 2021
-
 
    # Our security address
    Contact: mailto:security@example.com
@@ -551,15 +557,9 @@ Internet-Draft                security.txt                    April 2021
 
 
 
-
-
-
-
-
-
-Foudil & Shafranovich    Expires 16 October 2021               [Page 10]
+Foudil & Shafranovich   Expires 20 November 2021               [Page 10]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
 4.  Location of the security.txt file
@@ -613,9 +613,9 @@ Internet-Draft                security.txt                    April 2021
 
 
 
-Foudil & Shafranovich    Expires 16 October 2021               [Page 11]
+Foudil & Shafranovich   Expires 20 November 2021               [Page 11]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
    # The following only applies to example.com.
@@ -632,12 +632,12 @@ Internet-Draft                security.txt                    April 2021
 
 5.  File Format Description and ABNF Grammar
 
-   The file format of the security.txt file MUST be plain text (MIME
+   The file format of the "security.txt" file MUST be plain text (MIME
    type "text/plain") as defined in section 4.1.3 of [RFC2046] and MUST
    be encoded using UTF-8 [RFC3629] in Net-Unicode form [RFC5198].
 
-   The following is an ABNF definition of the security.txt format, using
-   the conventions defined in [RFC5234].
+   The format of this file MUST follow the ABNF definition below (using
+   the conventions defined in [RFC5234]).
 
  body             =  signed / unsigned
 
@@ -669,9 +669,9 @@ Internet-Draft                security.txt                    April 2021
 
 
 
-Foudil & Shafranovich    Expires 16 October 2021               [Page 12]
+Foudil & Shafranovich   Expires 20 November 2021               [Page 12]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
                      ext-field
@@ -725,9 +725,9 @@ Internet-Draft                security.txt                    April 2021
 
 
 
-Foudil & Shafranovich    Expires 16 October 2021               [Page 13]
+Foudil & Shafranovich   Expires 20 November 2021               [Page 13]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
 6.1.  Compromised Files and Incident Response
@@ -781,9 +781,9 @@ Internet-Draft                security.txt                    April 2021
 
 
 
-Foudil & Shafranovich    Expires 16 October 2021               [Page 14]
+Foudil & Shafranovich   Expires 20 November 2021               [Page 14]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
    Organizations should ensure that information in this file and any
@@ -837,9 +837,9 @@ Internet-Draft                security.txt                    April 2021
 
 
 
-Foudil & Shafranovich    Expires 16 October 2021               [Page 15]
+Foudil & Shafranovich   Expires 20 November 2021               [Page 15]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
 6.7.  Protecting Data in Transit
@@ -893,9 +893,9 @@ Internet-Draft                security.txt                    April 2021
 
 
 
-Foudil & Shafranovich    Expires 16 October 2021               [Page 16]
+Foudil & Shafranovich   Expires 20 November 2021               [Page 16]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
    Organizations need to weigh the advantages of publishing this file
@@ -949,9 +949,9 @@ Internet-Draft                security.txt                    April 2021
 
 
 
-Foudil & Shafranovich    Expires 16 October 2021               [Page 17]
+Foudil & Shafranovich   Expires 20 November 2021               [Page 17]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
    2.  Short description of the field
@@ -1005,9 +1005,9 @@ Internet-Draft                security.txt                    April 2021
 
 
 
-Foudil & Shafranovich    Expires 16 October 2021               [Page 18]
+Foudil & Shafranovich   Expires 20 November 2021               [Page 18]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
    Status: current
@@ -1061,9 +1061,9 @@ Internet-Draft                security.txt                    April 2021
 
 
 
-Foudil & Shafranovich    Expires 16 October 2021               [Page 19]
+Foudil & Shafranovich   Expires 20 November 2021               [Page 19]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
    [RFC2046]  Freed, N. and N. Borenstein, "Multipurpose Internet Mail
@@ -1117,9 +1117,9 @@ Internet-Draft                security.txt                    April 2021
 
 
 
-Foudil & Shafranovich    Expires 16 October 2021               [Page 20]
+Foudil & Shafranovich   Expires 20 November 2021               [Page 20]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
    [RFC5322]  Resnick, P., Ed., "Internet Message Format", RFC 5322,
@@ -1173,9 +1173,9 @@ Internet-Draft                security.txt                    April 2021
 
 
 
-Foudil & Shafranovich    Expires 16 October 2021               [Page 21]
+Foudil & Shafranovich   Expires 20 November 2021               [Page 21]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
    [ISO.29147.2018]
@@ -1229,9 +1229,9 @@ Appendix B.  Document History
 
 
 
-Foudil & Shafranovich    Expires 16 October 2021               [Page 22]
+Foudil & Shafranovich   Expires 20 November 2021               [Page 22]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
       *Note to the RFC Editor:* Please remove this section prior to
@@ -1285,9 +1285,9 @@ B.3.  Since draft-foudil-securitytxt-02
 
 
 
-Foudil & Shafranovich    Expires 16 October 2021               [Page 23]
+Foudil & Shafranovich   Expires 20 November 2021               [Page 23]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
    *  Fix typo in the "Example" section (#64)
@@ -1341,9 +1341,9 @@ B.5.  Since draft-foudil-securitytxt-04
 
 
 
-Foudil & Shafranovich    Expires 16 October 2021               [Page 24]
+Foudil & Shafranovich   Expires 20 November 2021               [Page 24]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
    *  Removed signature field and switched to inline signatures (#93 and
@@ -1397,9 +1397,9 @@ B.8.  Since draft-foudil-securitytxt-07
 
 
 
-Foudil & Shafranovich    Expires 16 October 2021               [Page 25]
+Foudil & Shafranovich   Expires 20 November 2021               [Page 25]
 
-Internet-Draft                security.txt                    April 2021
+Internet-Draft                security.txt                      May 2021
 
 
 B.9.  Since draft-foudil-securitytxt-08
@@ -1441,21 +1441,28 @@ B.12.  Since draft-foudil-securitytxt-11
 
    *  Changed date format from RFC 5322 to RFC 3339 / ISO 8601 (#208)
 
+   *  Added clarification in "canonical" field regarding the URI used to
+      retrieve the file
+
+   *  Added language about machine-parsability
+
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt
+
+
+
+
+
+Foudil & Shafranovich   Expires 20 November 2021               [Page 26]
+
+Internet-Draft                security.txt                      May 2021
+
 
 Authors' Addresses
 
    Edwin Foudil
 
    Email: contact@edoverflow.com
-
-
-
-
-Foudil & Shafranovich    Expires 16 October 2021               [Page 26]
-
-Internet-Draft                security.txt                    April 2021
 
 
    Yakov Shafranovich
@@ -1502,11 +1509,4 @@ Internet-Draft                security.txt                    April 2021
 
 
 
-
-
-
-
-
-
-
-Foudil & Shafranovich    Expires 16 October 2021               [Page 27]
+Foudil & Shafranovich   Expires 20 November 2021               [Page 27]

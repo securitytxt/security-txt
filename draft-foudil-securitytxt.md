@@ -39,7 +39,7 @@ informative:
 --- abstract
 When security vulnerabilities are discovered by
 researchers, proper reporting channels are often lacking. As a result,
-vulnerabilities may be left unreported. This document defines a format
+vulnerabilities may be left unreported. This document defines a machine-parsable format
 ("security.txt") to help organizations describe their vulnerability disclosure practices
 to make it easier for researchers to report vulnerabilities.
 
@@ -72,7 +72,7 @@ these tackle the issue of how security researchers can locate contact informatio
 and vulnerability disclosure practices for organizations in order to report
 vulnerabilities.
 
-In this document, we define a richer and more extensible way
+In this document, we define a richer, machine-parsable and more extensible way
 for organizations to communicate information about their security disclosure
 practices and ways to contact them. Other details of vulnerability disclosure
 are outside the scope of this document. Readers are encouraged to consult other
@@ -116,7 +116,9 @@ Development of this draft takes place on Github at: https://github.com/securityt
 
 This document defines a text file to be placed in a known location
 that provides information about vulnerability disclosure practices of a particular organization.
-This is intended to help security researchers when disclosing security vulnerabilities.
+The format of this file is machine-parsable following the ABNF grammar defined in
+{{abnf}}. This file is intended to help security researchers when
+disclosing security vulnerabilities.
 
 By convention, the file is named "security.txt". Location and scope are described
 in {{location}}.
@@ -224,6 +226,10 @@ is intended to apply to that URI, it MUST NOT be interpreted to apply to
 all canonical URIs listed within the file. Researchers SHOULD use an additional
 trust mechanism such as a digital signature (as per {{signature}}) to make the
 determination that a particular canonical URI is applicable.
+
+If this field appears within a "security.txt" file, and the URI used to
+retrieve that file is not listed within any canonical fields,
+then the contents of the file SHOULD NOT be trusted.
 
 ~~~~~~~~~~
 Canonical: https://www.example.com/.well-known/security.txt
@@ -442,11 +448,11 @@ https://[2001:db8:8:4::2]/.well-known/security.txt
 
 # File Format Description and ABNF Grammar {#abnf}
 
-The file format of the security.txt file MUST be plain text (MIME type "text/plain") as defined
+The file format of the "security.txt" file MUST be plain text (MIME type "text/plain") as defined
 in section 4.1.3 of {{!RFC2046}} and MUST be encoded using UTF-8 {{!RFC3629}} in Net-Unicode form {{!RFC5198}}.
 
-The following is an ABNF definition of the security.txt format, using
-the conventions defined in {{!RFC5234}}.
+The format of this file MUST follow the ABNF definition below (using
+the conventions defined in {{!RFC5234}}).
 
 ~~~~~~~~~~
 body             =  signed / unsigned
@@ -879,6 +885,8 @@ of DNS-stored encryption keys (#28 and #94)
 
 ## Since draft-foudil-securitytxt-11
 - Changed date format from RFC 5322 to RFC 3339 / ISO 8601 (#208)
+- Added clarification in "canonical" field regarding the URI used to retrieve the file
+- Added language about machine-parsability
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
