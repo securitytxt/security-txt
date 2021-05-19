@@ -167,7 +167,8 @@ thus allowing the digital signature to authenticate the location of the file.
 
 When it comes to verifying the key used to generate the signature, it is always
 the security researcher's responsibility to make sure the key being
-used is indeed one they trust.
+used is indeed one they trust. Researchers should use other ways to obtain
+and verify the key (such as {{?I-D.koch-openpgp-webkey-service}}).
 
 ## Extensibility {#extensibility}
 
@@ -886,7 +887,8 @@ of DNS-stored encryption keys (#28 and #94)
 ## Since draft-foudil-securitytxt-11
 - Changed date format from RFC 5322 to RFC 3339 / ISO 8601 (#208)
 - Added clarification in "canonical" field regarding the URI used to retrieve the file
-- Added language about machine-parsability
+- Added language about machine-
+- Added a reference to the PGP webkey draft
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt

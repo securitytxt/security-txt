@@ -117,10 +117,10 @@ Internet-Draft                security.txt                      May 2021
      9.1.  Normative References  . . . . . . . . . . . . . . . . . .  19
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  21
    Appendix A.  Note to Readers  . . . . . . . . . . . . . . . . . .  22
-   Appendix B.  Document History . . . . . . . . . . . . . . . . . .  22
+   Appendix B.  Document History . . . . . . . . . . . . . . . . . .  23
      B.1.  Since draft-foudil-securitytxt-00 . . . . . . . . . . . .  23
      B.2.  Since draft-foudil-securitytxt-01 . . . . . . . . . . . .  23
-     B.3.  Since draft-foudil-securitytxt-02 . . . . . . . . . . . .  23
+     B.3.  Since draft-foudil-securitytxt-02 . . . . . . . . . . . .  24
      B.4.  Since draft-foudil-securitytxt-03 . . . . . . . . . . . .  24
      B.5.  Since draft-foudil-securitytxt-04 . . . . . . . . . . . .  24
      B.6.  Since draft-foudil-securitytxt-05 . . . . . . . . . . . .  25
@@ -299,7 +299,9 @@ Internet-Draft                security.txt                      May 2021
 
    When it comes to verifying the key used to generate the signature, it
    is always the security researcher's responsibility to make sure the
-   key being used is indeed one they trust.
+   key being used is indeed one they trust.  Researchers should use
+   other ways to obtain and verify the key (such as
+   [I-D.koch-openpgp-webkey-service]).
 
 3.4.  Extensibility
 
@@ -327,8 +329,6 @@ Internet-Draft                security.txt                      May 2021
    limit the vulnerability information being published in order to
    prevent future attacks.
 
-   If this field indicates a web URI, then it MUST begin with "https://"
-   (as per section 2.7.2 of [RFC7230]).
 
 
 
@@ -337,6 +337,9 @@ Foudil & Shafranovich   Expires 20 November 2021                [Page 6]
 
 Internet-Draft                security.txt                      May 2021
 
+
+   If this field indicates a web URI, then it MUST begin with "https://"
+   (as per section 2.7.2 of [RFC7230]).
 
    Example:
 
@@ -383,9 +386,6 @@ Internet-Draft                security.txt                      May 2021
    section 2.7.2 of [RFC7230]).  Security email addresses should use the
    conventions defined in section 4 of [RFC2142].
 
-   The value MUST follow the URI syntax described in section 3 of
-   [RFC3986].  This means that "mailto" and "tel" URI schemes must be
-   used when specifying email addresses and telephone numbers, as
 
 
 
@@ -394,6 +394,9 @@ Foudil & Shafranovich   Expires 20 November 2021                [Page 7]
 Internet-Draft                security.txt                      May 2021
 
 
+   The value MUST follow the URI syntax described in section 3 of
+   [RFC3986].  This means that "mailto" and "tel" URI schemes must be
+   used when specifying email addresses and telephone numbers, as
    defined in [RFC6068] and [RFC3966].  When the value of this field is
    an email address, it is RECOMMENDED that encryption be used (as per
    Section 3.5.4).
@@ -434,9 +437,6 @@ Encryption: dns:5d2d37ab76d47d36._openpgpkey.example.com?type=OPENPGPKEY
    Example of an OpenPGP key being referenced by its fingerprint:
 
    Encryption: openpgp4fpr:5f2de5521c63a801ab59ccb603d49de44b29100f
-
-
-
 
 
 
@@ -1178,6 +1178,12 @@ Foudil & Shafranovich   Expires 20 November 2021               [Page 21]
 Internet-Draft                security.txt                      May 2021
 
 
+   [I-D.koch-openpgp-webkey-service]
+              Koch, W., "OpenPGP Web Key Directory", Work in Progress,
+              Internet-Draft, draft-koch-openpgp-webkey-service-11, 17
+              November 2020, <https://www.ietf.org/archive/id/draft-
+              koch-openpgp-webkey-service-11.txt>.
+
    [ISO.29147.2018]
               International Organization for Standardization (ISO),
               "ISO/IEC 29147:2018, Information technology - Security
@@ -1220,12 +1226,6 @@ Appendix A.  Note to Readers
       *Note to the RFC Editor:* Please remove this section prior to
       publication.
 
-   Development of this draft takes place on Github at
-   https://github.com/securitytxt/security-txt
-
-Appendix B.  Document History
-
-
 
 
 
@@ -1233,6 +1233,11 @@ Foudil & Shafranovich   Expires 20 November 2021               [Page 22]
 
 Internet-Draft                security.txt                      May 2021
 
+
+   Development of this draft takes place on Github at
+   https://github.com/securitytxt/security-txt
+
+Appendix B.  Document History
 
       *Note to the RFC Editor:* Please remove this section prior to
       publication.
@@ -1278,17 +1283,16 @@ B.2.  Since draft-foudil-securitytxt-01
    The full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt-02
 
-B.3.  Since draft-foudil-securitytxt-02
-
-   *  Use "mailto" and "tel" (#62)
-
-
 
 
 Foudil & Shafranovich   Expires 20 November 2021               [Page 23]
 
 Internet-Draft                security.txt                      May 2021
 
+
+B.3.  Since draft-foudil-securitytxt-02
+
+   *  Use "mailto" and "tel" (#62)
 
    *  Fix typo in the "Example" section (#64)
 
@@ -1335,16 +1339,14 @@ B.5.  Since draft-foudil-securitytxt-04
 
    *  Syntax fixes (#133, #135 and #136)
 
-   *  Removed permission field (#30)
-
-
-
 
 
 Foudil & Shafranovich   Expires 20 November 2021               [Page 24]
 
 Internet-Draft                security.txt                      May 2021
 
+
+   *  Removed permission field (#30)
 
    *  Removed signature field and switched to inline signatures (#93 and
       #128)
@@ -1390,8 +1392,6 @@ B.8.  Since draft-foudil-securitytxt-07
    *  Fixing idnits warnings
 
    *  Adding guidance for designated experts
-
-
 
 
 
@@ -1444,12 +1444,12 @@ B.12.  Since draft-foudil-securitytxt-11
    *  Added clarification in "canonical" field regarding the URI used to
       retrieve the file
 
-   *  Added language about machine-parsability
+   *  Added language about machine-
+
+   *  Added a reference to the PGP webkey draft
 
    Full list of changes can be viewed via the IETF document tracker:
    https://tools.ietf.org/html/draft-foudil-securitytxt
-
-
 
 
 

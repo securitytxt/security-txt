@@ -1167,8 +1167,8 @@ the vulnerability disclosure process.<a href="#section-1.2-3" class="pilcrow">¶
       <h2 id="name-note-to-readers">
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-note-to-readers" class="section-name selfRef">Note to Readers</a>
       </h2>
-<ul class="ulEmpty normal">
-<li class="ulEmpty normal" id="section-2-1.1">
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-2-1.1">
           <strong>Note to the RFC Editor:</strong>  Please remove this section prior
 to publication.<a href="#section-2-1.1" class="pilcrow">¶</a>
 </li>
@@ -1239,7 +1239,8 @@ RECOMMENDED that organizations use the "Canonical" field (as per <a href="#canon
 thus allowing the digital signature to authenticate the location of the file.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
 <p id="section-3.3-2">When it comes to verifying the key used to generate the signature, it is always
 the security researcher's responsibility to make sure the key being
-used is indeed one they trust.<a href="#section-3.3-2" class="pilcrow">¶</a></p>
+used is indeed one they trust. Researchers should use other ways to obtain
+and verify the key (such as <span>[<a href="#I-D.koch-openpgp-webkey-service" class="xref">I-D.koch-openpgp-webkey-service</a>]</span>).<a href="#section-3.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="extensibility">
@@ -2048,6 +2049,10 @@ LAST CALL, SAAG, and SECDISPATCH lists.<a href="#section-8-2" class="pilcrow">¶
         <dd>
 <span class="refAuthor">Software Engineering Institute, Carnegie Mellon University</span>, <span class="refTitle">"The CERT Guide to Coordinated Vulnerability Disclosure (CMU/SEI-2017-SR-022)"</span>, <time datetime="2017" class="refDate">2017</time>. </dd>
 <dd class="break"></dd>
+<dt id="I-D.koch-openpgp-webkey-service">[I-D.koch-openpgp-webkey-service]</dt>
+        <dd>
+<span class="refAuthor">Koch, W.</span>, <span class="refTitle">"OpenPGP Web Key Directory"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-koch-openpgp-webkey-service-11</span>, <time datetime="2020-11-17" class="refDate">17 November 2020</time>, <span>&lt;<a href="https://www.ietf.org/archive/id/draft-koch-openpgp-webkey-service-11.txt">https://www.ietf.org/archive/id/draft-koch-openpgp-webkey-service-11.txt</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="ISO.29147.2018">[ISO.29147.2018]</dt>
         <dd>
 <span class="refAuthor">International Organization for Standardization (ISO)</span>, <span class="refTitle">"ISO/IEC 29147:2018, Information technology - Security techniques - Vulnerability disclosure"</span>, <time datetime="2018" class="refDate">2018</time>. </dd>
@@ -2088,8 +2093,8 @@ LAST CALL, SAAG, and SECDISPATCH lists.<a href="#section-8-2" class="pilcrow">¶
       <h2 id="name-note-to-readers-2">
 <a href="#section-appendix.a" class="section-number selfRef">Appendix A. </a><a href="#name-note-to-readers-2" class="section-name selfRef">Note to Readers</a>
       </h2>
-<ul class="ulEmpty normal">
-<li class="ulEmpty normal" id="section-appendix.a-1.1">
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-appendix.a-1.1">
           <strong>Note to the RFC Editor:</strong>  Please remove this section prior
 to publication.<a href="#section-appendix.a-1.1" class="pilcrow">¶</a>
 </li>
@@ -2102,8 +2107,8 @@ to publication.<a href="#section-appendix.a-1.1" class="pilcrow">¶</a>
       <h2 id="name-document-history">
 <a href="#section-appendix.b" class="section-number selfRef">Appendix B. </a><a href="#name-document-history" class="section-name selfRef">Document History</a>
       </h2>
-<ul class="ulEmpty normal">
-<li class="ulEmpty normal" id="section-appendix.b-1.1">
+<ul class="normal ulEmpty">
+<li class="normal ulEmpty" id="section-appendix.b-1.1">
           <strong>Note to the RFC Editor:</strong>  Please remove this section prior
 to publication.<a href="#section-appendix.b-1.1" class="pilcrow">¶</a>
 </li>
@@ -2356,7 +2361,9 @@ of DNS-stored encryption keys (#28 and #94)<a href="#section-b.3-1.8" class="pil
 </li>
           <li class="normal" id="section-b.12-1.2">Added clarification in "canonical" field regarding the URI used to retrieve the file<a href="#section-b.12-1.2" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-b.12-1.3">Added language about machine-parsability<a href="#section-b.12-1.3" class="pilcrow">¶</a>
+          <li class="normal" id="section-b.12-1.3">Added language about machine-<a href="#section-b.12-1.3" class="pilcrow">¶</a>
+</li>
+          <li class="normal" id="section-b.12-1.4">Added a reference to the PGP webkey draft<a href="#section-b.12-1.4" class="pilcrow">¶</a>
 </li>
         </ul>
 <p id="section-b.12-2">Full list of changes can be viewed via the IETF document tracker:
