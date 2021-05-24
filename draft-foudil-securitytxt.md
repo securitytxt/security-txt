@@ -116,7 +116,7 @@ Development of this draft takes place on Github at: https://github.com/securityt
 
 This document defines a text file to be placed in a known location
 that provides information about vulnerability disclosure practices of a particular organization.
-The format of this file is machine-parsable following the ABNF grammar defined in
+The format of this file is machine-parsable and MUST follow the ABNF grammar defined in
 {{abnf}}. This file is intended to help security researchers when
 disclosing security vulnerabilities.
 
@@ -130,7 +130,7 @@ The "value" comes after the field name (for example: "mailto:security@example.co
 defined for "unstructured" in section 3.2.5 of {{!RFC5322}}. The file MAY also contain blank lines.
 
 A field MUST always consist of a name and a value
-(for example: "Contact: mailto:security@example.com"). A security.txt file
+(for example: "Contact: mailto:security@example.com"). A "security.txt" file
 can have an unlimited number of fields. Each field MUST appear on
 its own line. Unless specified otherwise by the field definition,
 multiple values MUST NOT be chained together for a single field.
@@ -159,7 +159,7 @@ characters (CRLF / %x0D %x0A) or just a line feed character (LF / %x0A).
 
 ## Digital signature {#signature}
 
-It is RECOMMENDED that a security.txt file be digitally signed
+It is RECOMMENDED that a "security.txt" file be digitally signed
 using an OpenPGP cleartext signature as described in
 section 7 of {{!RFC4880}}. When digital signatures are used, it is also
 RECOMMENDED that organizations use the "Canonical" field (as per {{canonical}}),
@@ -167,8 +167,7 @@ thus allowing the digital signature to authenticate the location of the file.
 
 When it comes to verifying the key used to generate the signature, it is always
 the security researcher's responsibility to make sure the key being
-used is indeed one they trust. Researchers should use other ways to obtain
-and verify the key (such as {{?I-D.koch-openpgp-webkey-service}}).
+used is indeed one they trust.
 
 ## Extensibility {#extensibility}
 
@@ -217,7 +216,7 @@ We would like to thank the following researchers:
 
 ### Canonical {#canonical}
 
-This field indicates the canonical URIs where the security.txt file is located,
+This field indicates the canonical URIs where the "security.txt" file is located,
 which is usually something like "https://example.com/.well-known/security.txt".
 If this field indicates a web URI, then it MUST begin with "https://"
 (as per section 2.7.2 of {{!RFC7230}}).
@@ -243,7 +242,7 @@ This field indicates an address that researchers
 should use for reporting security
 vulnerabilities such as an email address, a phone number and/or a
 web page with contact information. The "Contact" field MUST
-always be present in a security.txt file. If this field indicates a web URI,
+always be present in a "security.txt" file. If this field indicates a web URI,
 then it MUST begin with "https://" (as per section 2.7.2 of {{!RFC7230}}).
 Security email addresses should use the conventions defined in section
 4 of {{!RFC2142}}.
@@ -404,9 +403,9 @@ Version: GnuPG v2.2
 
 # Location of the security.txt file {#location}
 
-For web-based services, organizations MUST place the security.txt file under the "/.well-known/" path; e.g. https://example.com/.well-known/security.txt
+For web-based services, organizations MUST place the "security.txt" file under the "/.well-known/" path; e.g. https://example.com/.well-known/security.txt
 as per {{!RFC8615}} of a domain name or IP address. For legacy compatibility, a security.txt file might be placed at the top-level path
-or redirect (as per section 6.4 of {{!RFC7231}}) to the security.txt file under the "/.well-known/" path. If a "security.txt" file
+or redirect (as per section 6.4 of {{!RFC7231}}) to the "security.txt" file under the "/.well-known/" path. If a "security.txt" file
 is present in both locations, the one in the "/.well-known/" path MUST be used.
 
 The file MUST be accessed via HTTP 1.0 or a higher version
@@ -562,7 +561,7 @@ inspections of such redirects is recommended before using the information contai
 If information and resources referenced in a "security.txt" file are incorrect
 or not kept up to date, this can result in security reports not being received
 by the organization or sent to incorrect contacts, thus exposing possible
-security issues to third parties. Not having a security.txt file may be preferable
+security issues to third parties. Not having a "security.txt" file may be preferable
 to having stale information in this file. Organizations must use
 the "Expires" field (see {{expires}}) to indicate to researchers when
 the data in the file is no longer valid.
@@ -582,18 +581,18 @@ files larger than 32 KBs, having fields longer than 2,048 characters or
 containing more than 1,000 lines. The ABNF grammar (as defined in
 {{abnf}}) can also be used as a way to verify these files.
 
-The same concerns apply to any other resources referenced within security.txt
+The same concerns apply to any other resources referenced within "security.txt"
 files, as well as any security reports received as a result of publishing
 this file. Such resources and reports may be hostile, malformed or malicious.
 
 ## No Implied Permission for Testing
 
-The presence of a security.txt file might be interpreted by researchers
+The presence of a "security.txt" file might be interpreted by researchers
 as providing permission to do security testing against the domain or IP address
 where it is published, or products and services provided by the organization publishing
 the file.
 This might result in increased testing against an organization by researchers. On the other hand, a decision not
-to publish a security.txt file might be interpreted by the
+to publish a "security.txt" file might be interpreted by the
 organization operating that website to be a way to signal to researchers
 that permission to test that particular site or project is denied. This might result in pushback against
 researchers reporting security issues to that organization.
@@ -659,7 +658,7 @@ file before submitting reports in an automated fashion or as resulting from auto
 # IANA Considerations
 
 Implementors should be aware that any resources referenced within
-a security.txt file MUST NOT point to the Well-Known URIs namespace unless
+a "security.txt" file MUST NOT point to the Well-Known URIs namespace unless
 they are registered with IANA (as per {{?RFC8615}}).
 
 ## Well-Known URIs registry
@@ -679,7 +678,7 @@ Status: permanent
 
 IANA is requested to create the "security.txt Fields" registry in
 accordance with {{?RFC8126}}. This registry will contain fields for
-use in security.txt files, defined by this specification.
+use in "security.txt" files, defined by this specification.
 
 New registrations or updates MUST be published in accordance with the
 "Expert Review" guidelines as described in sections 4.5 and 5 of
@@ -887,8 +886,8 @@ of DNS-stored encryption keys (#28 and #94)
 ## Since draft-foudil-securitytxt-11
 - Changed date format from RFC 5322 to RFC 3339 / ISO 8601 (#208)
 - Added clarification in "canonical" field regarding the URI used to retrieve the file
-- Added language about machine-
-- Added a reference to the PGP webkey draft
+- Added language about machine-parsability
+- Added quotes around "security.txt" for consistency
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
