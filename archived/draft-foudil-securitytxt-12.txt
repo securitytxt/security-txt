@@ -10,7 +10,7 @@ Expires: 25 November 2021                       Nightwatch Cybersecurity
 
 
        A File Format to Aid in Security Vulnerability Disclosure
-                      draft-foudil-securitytxt-13
+                      draft-foudil-securitytxt-12
 
 Abstract
 
@@ -130,7 +130,6 @@ Internet-Draft                security.txt                      May 2021
      B.10. Since draft-foudil-securitytxt-09 . . . . . . . . . . . .  26
      B.11. Since draft-foudil-securitytxt-10 . . . . . . . . . . . .  26
      B.12. Since draft-foudil-securitytxt-11 . . . . . . . . . . . .  26
-     B.13. Since draft-foudil-securitytxt-12 . . . . . . . . . . . .  26
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  27
 
 1.  Introduction
@@ -160,6 +159,7 @@ Internet-Draft                security.txt                      May 2021
    tackle the issue of how security researchers can locate contact
    information and vulnerability disclosure practices for organizations
    in order to report vulnerabilities.
+
 
 
 
@@ -1448,8 +1448,8 @@ B.12.  Since draft-foudil-securitytxt-11
 
    *  Added quotes around "security.txt" for consistency
 
-B.13.  Since draft-foudil-securitytxt-12
-
+   Full list of changes can be viewed via the IETF document tracker:
+   https://tools.ietf.org/html/draft-foudil-securitytxt
 
 
 
@@ -1457,11 +1457,6 @@ Foudil & Shafranovich   Expires 25 November 2021               [Page 26]
 
 Internet-Draft                security.txt                      May 2021
 
-
-   *  TBD
-
-   Full list of changes can be viewed via the IETF document tracker:
-   https://tools.ietf.org/html/draft-foudil-securitytxt
 
 Authors' Addresses
 
@@ -1474,6 +1469,11 @@ Authors' Addresses
    Nightwatch Cybersecurity
 
    Email: yakov+ietf@nightwatchcybersecurity.com
+
+
+
+
+
 
 
 

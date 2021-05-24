@@ -1,7 +1,7 @@
 ---
 title: A File Format to Aid in Security Vulnerability Disclosure
 abbrev: security.txt
-docname: draft-foudil-securitytxt-12
+docname: draft-foudil-securitytxt-13
 ipr: trust200902
 cat: info
 pi:
@@ -888,6 +888,9 @@ of DNS-stored encryption keys (#28 and #94)
 - Added clarification in "canonical" field regarding the URI used to retrieve the file
 - Added language about machine-parsability
 - Added quotes around "security.txt" for consistency
+
+## Since draft-foudil-securitytxt-12
+- TBD
 
 Full list of changes can be viewed via the IETF document tracker:
 https://tools.ietf.org/html/draft-foudil-securitytxt
