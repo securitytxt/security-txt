@@ -33,6 +33,9 @@ The main purpose of security.txt is to help make things easier for companies and
 Yes, it was published by the IETF as [RFC 9116](https://www.rfc-editor.org/info/rfc9116).
 There is also [a related IANA registry](https://www.iana.org/assignments/security-txt-fields/security-txt-fields.xhtml#security-txt-fields).
 
+Information about previous drafts can be found in the "archived" folder and
+at [the IETF's Datatracker website](https://datatracker.ietf.org/doc/rfc9116/).
+
 **Where should I put the security.txt file?**
 
 For websites, the security.txt file should be placed under the `/.well-known/` path
