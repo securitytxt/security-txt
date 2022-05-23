@@ -1,40 +1,26 @@
 <p align="center"><img src=https://avatars2.githubusercontent.com/u/32488600?s=100&v=4></p>
 
-security.txt is a proposed standard which allows websites to define security policies. The security.txt file sets clear guidelines for security researchers on how to report security issues. security.txt is the equivalent of `robots.txt`, but for security issues.
+security.txt provides a way for websites to define security policies.
+The security.txt file sets clear guidelines for security researchers on how to report security issues.
+security.txt is the equivalent of `robots.txt`, but for security issues.
 
 > “ When security vulnerabilities are discovered by researchers, proper reporting channels are often lacking.  As a result, vulnerabilities may be left unreported.  This document defines a format ("security.txt") to help organizations describe their vulnerability disclosure practices to make it easier for researchers to report vulnerabilities.”
 
 ---
 
+# RFC and Registry for Extensions
+The definitive reference on security.txt and how it is used can be found in
+[RFC 9116](https://www.rfc-editor.org/info/rfc9116).
+
+Extensions to security.txt can be found in
+[an IANA registry](https://www.iana.org/assignments/security-txt-fields/security-txt-fields.xhtml#security-txt-fields)
+
 # Website
-
 Project website: https://securitytxt.org/ (https://github.com/securitytxt/securitytxt.org)
-
-Internet draft website: https://securitytxt.io/ (https://github.com/securitytxt/security-txt/tree/master/docs)
 
 # Security.txt GitHub Organization
 
 https://github.com/securitytxt/
-
-# Internet draft
-
-The Internet draft for security.txt can be found here: https://tools.ietf.org/html/draft-foudil-securitytxt.
-
-# Building the Draft
-
-To build the text and HTML drafts, use the following make command.
-
-```sh
-$ make clean
-$ make txt
-$ make html
-```
-
-This requires that you have the necessary software installed.  See [the
-instructions](https://github.com/martinthomson/i-d-template/blob/master/doc/SETUP.md).
-
-
----
 
 # Frequently asked questions
 
@@ -44,11 +30,16 @@ The main purpose of security.txt is to help make things easier for companies and
 
 **Is security.txt an [RFC](https://en.wikipedia.org/wiki/Request_for_Comments)?**
 
-security.txt is currently an Internet draft that has been submitted for <abbr title="Request For Comments">RFC</abbr> review. This means that security.txt is still in the early stages of development. We welcome contributions from the public: [https://github.com/securitytxt/security-txt](https://github.com/securitytxt/security-txt)
+Yes, it was published by the IETF as [RFC 9116](https://www.rfc-editor.org/info/rfc9116).
+There is also [a related IANA registry](https://www.iana.org/assignments/security-txt-fields/security-txt-fields.xhtml#security-txt-fields).
 
 **Where should I put the security.txt file?**
 
-For websites, the security.txt file should be placed under the `/.well-known/` path (`/.well-known/security.txt`) [[<abbr title="Request For Comments">RFC</abbr>8615](https://tools.ietf.org/html/rfc8615)]. It can also be placed in the root directory (`/security.txt`) of a website, especially if the `/.well-known/` directory cannot be used for technical reasons, or simply as a fallback. The file can be placed in both locations of a website at the same time. For code repositories, the file should be placed in the root directory of the repository.
+For websites, the security.txt file should be placed under the `/.well-known/` path
+(`/.well-known/security.txt`) [[<abbr title="Request For Comments">RFC</abbr>8615](https://tools.ietf.org/html/rfc8615)].
+It can also be placed in the root directory (`/security.txt`) of a website, especially
+if the `/.well-known/` directory cannot be used for technical reasons, or simply as a fallback.
+Please consult [section 3 of RFC 9116 for details](https://www.rfc-editor.org/rfc/rfc9116.html#name-location-of-the-securitytxt).
 
 **Are there any settings I should apply to the file?**
 
