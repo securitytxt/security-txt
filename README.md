@@ -8,7 +8,7 @@ security.txt is the equivalent of `robots.txt`, but for security issues.
 
 ---
 
-# RFC and Registry for Extensions
+# RFC and Extensions Registry
 The definitive reference on security.txt and how it is used can be found in
 [RFC 9116](https://www.rfc-editor.org/info/rfc9116).
 
