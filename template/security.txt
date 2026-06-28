@@ -1,4 +1,7 @@
-# Our security address
-
-Contact: security@example.com
-Encryption: https://example.com/pgp-key.txt
+# This is a template for security.txt file.
+# Replace the example values with your organization's information.
+Contact: mailto:security@example.com
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: en
+Policy: https://example.com/disclosure-policy
+Safe-Harbor: https://example.com/safe-harbor
