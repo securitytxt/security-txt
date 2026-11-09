@@ -46,7 +46,7 @@ Please consult [section 3 of RFC 9116 for details](https://www.rfc-editor.org/rf
 
 **Are there any settings I should apply to the file?**
 
-The security.txt file should have an Internet Media Type of `text/plain` and must be served over HTTPS.
+The security.txt file must have an Internet Media Type of `text/plain` and must be served over HTTPS.
 
 **Will adding an email address expose me to spam bots?**
 
